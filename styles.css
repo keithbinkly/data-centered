@@ -99,31 +99,87 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* ASCII Diagram */
+/* Stack Diagram */
 .diagram-container {
   display: flex;
   justify-content: center;
   margin-bottom: 2.5rem;
 }
 
-.ascii-diagram {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  color: #888;
-  background: #111;
-  padding: 1.5rem 2rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  overflow-x: auto;
+.stack-diagram {
+  width: 100%;
+  max-width: 700px;
 }
 
-.ascii-diagram .d-ghostty { color: var(--accent-ghostty); font-weight: 600; }
-.ascii-diagram .d-tmux { color: var(--accent-tmux); font-weight: 600; }
-.ascii-diagram .d-nvim { color: var(--accent-nvim); font-weight: 600; }
-.ascii-diagram .d-lazygit { color: var(--accent-lazygit); font-weight: 600; }
-.ascii-diagram .d-claude { color: var(--accent-claude); font-weight: 600; }
-.ascii-diagram .d-opencode { color: var(--accent-opencode); font-weight: 600; }
+.layer {
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.ghostty-layer {
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid var(--accent-ghostty);
+}
+
+.tmux-layer {
+  background: rgba(78, 205, 196, 0.08);
+  border: 1px solid var(--accent-tmux);
+  margin-top: 0.75rem;
+}
+
+.layer-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.layer-desc {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.pane {
+  background: var(--bg-dark);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.nvim-pane { border-color: var(--accent-nvim); }
+.lazygit-pane { border-color: var(--accent-lazygit); }
+.ai-pane { border-color: var(--accent-claude); }
+
+.pane-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.pane-desc {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.d-ghostty { color: var(--accent-ghostty); }
+.d-tmux { color: var(--accent-tmux); }
+.d-nvim { color: var(--accent-nvim); }
+.d-lazygit { color: var(--accent-lazygit); }
+.d-claude { color: var(--accent-claude); }
+.d-opencode { color: var(--accent-opencode); }
+
+@media (max-width: 600px) {
+  .panes {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* Grid layout */
 .grid {
