@@ -127,6 +127,12 @@ h2 {
   margin-top: 0.75rem;
 }
 
+.ai-layer {
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.08), rgba(155, 89, 182, 0.08));
+  border: 1px solid var(--accent-claude);
+  margin-top: 0.75rem;
+}
+
 .layer-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
@@ -140,7 +146,7 @@ h2 {
 
 .panes-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
 }
 
@@ -154,7 +160,7 @@ h2 {
 
 .nvim-pane { border-color: var(--accent-nvim); }
 .lazygit-pane { border-color: var(--accent-lazygit); }
-.ai-pane { border-color: var(--accent-claude); }
+.shell-pane { border-color: var(--text-dim); }
 
 .pane-title {
   font-family: 'JetBrains Mono', monospace;
@@ -166,22 +172,6 @@ h2 {
 .pane-desc {
   font-size: 0.7rem;
   color: var(--text-dim);
-}
-
-.orchestrator {
-  margin-top: 0.5rem;
-}
-
-.orchestrator-arrow {
-  text-align: center;
-  font-size: 0.65rem;
-  color: var(--text-dim);
-  padding: 0.4rem 0;
-  letter-spacing: 0.1em;
-}
-
-.pane.full-width {
-  width: 100%;
 }
 
 .d-ghostty { color: var(--accent-ghostty); }
