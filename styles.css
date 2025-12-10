@@ -1,0 +1,468 @@
+:root {
+  --bg-dark: #0d0d0d;
+  --bg-card: #161616;
+  --bg-card-hover: #1a1a1a;
+  --border: #2a2a2a;
+  --text: #e8e8e8;
+  --text-dim: #888;
+  --accent-ghostty: #ff6b6b;
+  --accent-tmux: #4ecdc4;
+  --accent-nvim: #a6e22e;
+  --accent-lazygit: #f39c12;
+  --accent-claude: #d4a574;
+  --accent-opencode: #9b59b6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem;
+  padding-top: 5rem;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0a0a0a;
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--bg-card);
+}
+
+.nav-link.active {
+  color: var(--text);
+  background: var(--bg-card);
+}
+
+.nav-link.ghostty:hover, .nav-link.ghostty.active { color: var(--accent-ghostty); }
+.nav-link.tmux:hover, .nav-link.tmux.active { color: var(--accent-tmux); }
+.nav-link.nvim:hover, .nav-link.nvim.active { color: var(--accent-nvim); }
+.nav-link.lazygit:hover, .nav-link.lazygit.active { color: var(--accent-lazygit); }
+.nav-link.claude:hover, .nav-link.claude.active { color: var(--accent-claude); }
+.nav-link.opencode:hover, .nav-link.opencode.active { color: var(--accent-opencode); }
+
+/* Page header */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ASCII Diagram */
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.ascii-diagram {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #888;
+  background: #111;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  overflow-x: auto;
+}
+
+.ascii-diagram .d-ghostty { color: var(--accent-ghostty); font-weight: 600; }
+.ascii-diagram .d-tmux { color: var(--accent-tmux); font-weight: 600; }
+.ascii-diagram .d-nvim { color: var(--accent-nvim); font-weight: 600; }
+.ascii-diagram .d-lazygit { color: var(--accent-lazygit); font-weight: 600; }
+.ascii-diagram .d-claude { color: var(--accent-claude); font-weight: 600; }
+.ascii-diagram .d-opencode { color: var(--accent-opencode); font-weight: 600; }
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.ghostty .card-icon { background: var(--accent-ghostty); color: var(--bg-dark); }
+.tmux .card-icon { background: var(--accent-tmux); color: var(--bg-dark); }
+.nvim .card-icon { background: var(--accent-nvim); color: var(--bg-dark); }
+.lazygit .card-icon { background: var(--accent-lazygit); color: var(--bg-dark); }
+.claude .card-icon { background: var(--accent-claude); color: var(--bg-dark); }
+.opencode .card-icon { background: var(--accent-opencode); color: var(--bg-dark); }
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.card-body {
+  padding: 1.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.card-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card-body::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+.card-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.section-title:first-child {
+  margin-top: 0;
+}
+
+/* Code blocks */
+.install {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  background: var(--bg-dark);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border-left: 3px solid var(--border);
+  overflow-x: auto;
+}
+
+.ghostty .install { border-left-color: var(--accent-ghostty); }
+.tmux .install { border-left-color: var(--accent-tmux); }
+.nvim .install { border-left-color: var(--accent-nvim); }
+.lazygit .install { border-left-color: var(--accent-lazygit); }
+.claude .install { border-left-color: var(--accent-claude); }
+.opencode .install { border-left-color: var(--accent-opencode); }
+
+/* Detail page code blocks */
+.code-block {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  background: var(--bg-dark);
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  margin: 1rem 0;
+  line-height: 1.8;
+}
+
+.code-block.ghostty { border-left: 3px solid var(--accent-ghostty); }
+.code-block.tmux { border-left: 3px solid var(--accent-tmux); }
+.code-block.nvim { border-left: 3px solid var(--accent-nvim); }
+.code-block.lazygit { border-left: 3px solid var(--accent-lazygit); }
+.code-block.claude { border-left: 3px solid var(--accent-claude); }
+.code-block.opencode { border-left: 3px solid var(--accent-opencode); }
+
+/* Commands */
+.commands {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+
+.cmd {
+  display: flex;
+  gap: 1rem;
+  padding: 0.25rem 0;
+}
+
+.cmd-key {
+  color: var(--text);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.cmd-desc {
+  color: var(--text-dim);
+}
+
+/* Learn list */
+.learn-list {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
+.learn-list li {
+  margin-left: 1rem;
+}
+
+/* Paragraphs */
+p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+/* Workflow section */
+.workflow {
+  margin-top: 3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.workflow h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.workflow h2::before {
+  content: '▸';
+  color: var(--accent-tmux);
+}
+
+.workflow-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 2;
+  background: var(--bg-dark);
+  padding: 1.5rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.workflow-code .comment {
+  color: var(--text-dim);
+}
+
+.workflow-code .cmd {
+  color: var(--accent-tmux);
+}
+
+/* Priority items */
+.priority {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.priority-item {
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.priority-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--accent-tmux);
+}
+
+.priority-time {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+}
+
+/* Detail page layout */
+.detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.detail-icon.ghostty { background: var(--accent-ghostty); color: var(--bg-dark); }
+.detail-icon.tmux { background: var(--accent-tmux); color: var(--bg-dark); }
+.detail-icon.nvim { background: var(--accent-nvim); color: var(--bg-dark); }
+.detail-icon.lazygit { background: var(--accent-lazygit); color: var(--bg-dark); }
+.detail-icon.claude { background: var(--accent-claude); color: var(--bg-dark); }
+.detail-icon.opencode { background: var(--accent-opencode); color: var(--bg-dark); }
+
+.detail-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.detail-subtitle {
+  font-size: 1rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+.detail-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-section h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.detail-section p {
+  margin-bottom: 1rem;
+}
+
+.detail-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Command table */
+.cmd-table {
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.cmd-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.cmd-table tr:last-child {
+  border-bottom: none;
+}
+
+.cmd-table td {
+  padding: 0.5rem 0;
+}
+
+.cmd-table td:first-child {
+  color: var(--text);
+  width: 40%;
+}
+
+.cmd-table td:last-child {
+  color: var(--text-dim);
+}
