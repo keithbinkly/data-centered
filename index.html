@@ -24,24 +24,28 @@
   <h1>Terminal Dev Stack</h1>
   
   <div class="diagram-container">
-    <pre class="ascii-diagram">
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  <span class="d-ghostty">Ghostty</span> (terminal emulator)                                               │
-│  └─ The "window" that displays everything                                   │
-│                                                                             │
-│  ┌────────────────────────────────────────────────────────────────────────┐ │
-│  │  <span class="d-tmux">tmux</span> (terminal multiplexer)                                          │ │
-│  │  └─ Splits, tabs, persistent sessions                                  │ │
-│  │                                                                        │ │
-│  │  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────────┐  │ │
-│  │  │  <span class="d-nvim">nvim</span>            │  │  <span class="d-lazygit">lazygit</span>         │  │  <span class="d-claude">claude</span> / <span class="d-opencode">opencode</span>  │  │ │
-│  │  │  (editor)        │  │  (git TUI)       │  │  (AI agents)         │  │ │
-│  │  │                  │  │                  │  │                      │  │ │
-│  │  └──────────────────┘  └──────────────────┘  └──────────────────────┘  │ │
-│  │         pane 1                pane 2               pane 3              │ │
-│  └────────────────────────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────────────┘
-    </pre>
+    <div class="stack-diagram">
+      <div class="layer ghostty-layer">
+        <div class="layer-label"><span class="d-ghostty">Ghostty</span> <span class="layer-desc">terminal emulator</span></div>
+        <div class="layer tmux-layer">
+          <div class="layer-label"><span class="d-tmux">tmux</span> <span class="layer-desc">multiplexer</span></div>
+          <div class="panes">
+            <div class="pane nvim-pane">
+              <div class="pane-title d-nvim">nvim</div>
+              <div class="pane-desc">editor</div>
+            </div>
+            <div class="pane lazygit-pane">
+              <div class="pane-title d-lazygit">lazygit</div>
+              <div class="pane-desc">git TUI</div>
+            </div>
+            <div class="pane ai-pane">
+              <div class="pane-title"><span class="d-claude">claude</span> / <span class="d-opencode">opencode</span></div>
+              <div class="pane-desc">AI agents</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="grid">
