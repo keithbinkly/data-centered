@@ -138,9 +138,9 @@ h2 {
   font-size: 0.7rem;
 }
 
-.panes {
+.panes-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
 }
 
@@ -168,6 +168,22 @@ h2 {
   color: var(--text-dim);
 }
 
+.orchestrator {
+  margin-top: 0.5rem;
+}
+
+.orchestrator-arrow {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  padding: 0.4rem 0;
+  letter-spacing: 0.1em;
+}
+
+.pane.full-width {
+  width: 100%;
+}
+
 .d-ghostty { color: var(--accent-ghostty); }
 .d-tmux { color: var(--accent-tmux); }
 .d-nvim { color: var(--accent-nvim); }
@@ -176,7 +192,7 @@ h2 {
 .d-opencode { color: var(--accent-opencode); }
 
 @media (max-width: 600px) {
-  .panes {
+  .panes-row {
     grid-template-columns: 1fr;
   }
 }
