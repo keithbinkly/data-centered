@@ -1496,6 +1496,38 @@ a.kb-card:hover .kb-card-arrow {
   height: calc(100vh - 50px);
 }
 
+/* Mobile PDF fallback - show link instead of embed */
+@media (max-width: 600px) {
+  .kb-slides-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-viewer.compact .pdf-viewer-container {
+    display: none;
+  }
+
+  .pdf-viewer.compact .pdf-mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+    background: var(--bg-dark);
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .pdf-viewer.compact .pdf-mobile-link:hover {
+    color: var(--accent-semantic);
+  }
+}
+
+/* Hide mobile link on desktop */
+.pdf-mobile-link {
+  display: none;
+}
+
 /* Image/slide carousel (pure CSS alternative) */
 .slide-carousel {
   background: var(--bg-card);
