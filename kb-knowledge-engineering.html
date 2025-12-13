@@ -530,20 +530,39 @@
         });
       });
 
-      // Tap-to-expand links: mobile only (first tap expands, second tap navigates)
+      // Add "open link" button to each link for mobile
+      document.querySelectorAll('.tlink').forEach(link => {
+        const openBtn = document.createElement('span');
+        openBtn.className = 'tlink-open';
+        openBtn.textContent = 'Open link';
+        openBtn.dataset.href = link.href;
+        link.appendChild(openBtn);
+      });
+
+      // Tap-to-expand links: mobile only
       document.querySelectorAll('.tlink').forEach(link => {
         link.addEventListener('click', function(e) {
           if (!isMobile()) return;
 
-          if (!this.classList.contains('expanded')) {
+          // If clicking the open button, navigate
+          if (e.target.classList.contains('tlink-open')) {
+            window.open(this.href, '_blank');
             e.preventDefault();
-            // Collapse any other expanded links
+            return;
+          }
+
+          e.preventDefault();
+
+          if (this.classList.contains('expanded')) {
+            // Second tap collapses
+            this.classList.remove('expanded');
+          } else {
+            // First tap expands, collapse others
             document.querySelectorAll('.tlink.expanded').forEach(other => {
               if (other !== this) other.classList.remove('expanded');
             });
             this.classList.add('expanded');
           }
-          // If already expanded, let the click through to navigate
         });
       });
 

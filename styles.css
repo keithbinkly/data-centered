@@ -2222,10 +2222,24 @@ body.dashboard.topic-page {
   min-width: 28px;
   text-align: right;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: flex-end;
+}
+
+.tlink-time::before {
+  content: '◷';
+  font-size: 0.5rem;
+  opacity: 0.5;
 }
 
 .tlink:hover .tlink-time {
   color: var(--accent);
+}
+
+.tlink:hover .tlink-time::before {
+  opacity: 1;
 }
 
 /* Link Description - Hover tooltip */
@@ -2624,6 +2638,8 @@ body.dashboard.topic-page {
     text-overflow: ellipsis;
     white-space: nowrap;
     flex: 1;
+    display: block;
+    color: var(--text);
   }
 
   .tlink-time {
@@ -2641,20 +2657,63 @@ body.dashboard.topic-page {
   .tlink.expanded {
     flex-wrap: wrap;
     background: rgba(255,255,255,0.03);
-    padding: 0.4rem;
-    margin: 0.2rem -0.4rem;
+    padding: 0.5rem;
+    margin: 0.2rem -0.5rem;
     border-radius: 4px;
+    border: 1px solid var(--border);
   }
 
   .tlink.expanded .tlink-title {
     white-space: normal;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+    color: var(--accent);
+    flex-basis: 100%;
+    order: 1;
+    margin-bottom: 0.3rem;
   }
 
-  .tlink.expanded .tlink-src,
+  .tlink.expanded .tlink-src {
+    display: inline;
+    font-size: 0.55rem;
+    order: 2;
+  }
+
   .tlink.expanded .tlink-author {
     display: inline;
     font-size: 0.55rem;
+    order: 3;
+  }
+
+  .tlink.expanded .tlink-time {
+    order: 4;
+    margin-left: auto;
+  }
+
+  .tlink.expanded .tlink-dot {
+    display: none;
+  }
+
+  /* Open link button */
+  .tlink-open {
+    display: none;
+  }
+
+  .tlink.expanded .tlink-open {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    order: 10;
+    flex-basis: 100%;
+    margin-top: 0.4rem;
+    padding-top: 0.4rem;
+    border-top: 1px dotted var(--border);
+    font-size: 0.6rem;
+    color: var(--accent);
+  }
+
+  .tlink-open::before {
+    content: '◐';
+    font-size: 0.7rem;
   }
 
   /* Description expand */
@@ -2674,13 +2733,14 @@ body.dashboard.topic-page {
     margin-top: 0;
     font-size: 0.6rem;
     color: var(--text-dim);
+    order: 5;
   }
 
   .tlink.expanded .tlink-desc {
     max-height: 150px;
     opacity: 1;
-    padding: 0.3rem 0 0 0;
-    margin-top: 0.2rem;
+    padding: 0.3rem 0;
+    flex-basis: 100%;
   }
 
   /* Sticky headers tighter */
