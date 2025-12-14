@@ -3328,7 +3328,7 @@ body.dashboard.tui .dash-footer-content br {
 
 /* TUI Topic Header */
 body.dashboard.topic-page.tui .topic-header {
-  background: rgba(0, 0, 0, 0.5);
+  background: #0a0a0a; /* Fully opaque */
   border-bottom: 2px solid var(--border-bright);
   padding: 0.6rem 1.25rem;
 }
