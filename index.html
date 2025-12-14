@@ -8,68 +8,98 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dashboard">
+<body class="dashboard tui">
 
   <header class="dash-header">
     <div class="dash-brand">data-centered</div>
     <div class="dash-tagline">curated resources for data & AI practitioners</div>
+    <div class="tui-header-right">
+      <span class="tui-time" id="tui-clock"></span>
+    </div>
   </header>
+  <script>
+    // TUI clock
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+      document.getElementById('tui-clock').textContent = time;
+    }
+    updateClock();
+    setInterval(updateClock, 60000);
+  </script>
 
   <main class="dash-layout">
 
     <!-- Topics Column -->
     <section class="dash-col dash-col-main">
-      <div class="dash-section-header">
-        <h2>Topics</h2>
-        <div class="dash-col-labels">
-          <span>resources</span>
-          <span>new</span>
+      <div class="tui-panel accent-cyan">
+        <div class="tui-panel-header">
+          <span class="panel-icon">◈</span> Topics
         </div>
-      </div>
+        <div class="tui-panel-content">
+          <div class="dash-section-header">
+            <h2>Knowledge Areas</h2>
+            <div class="dash-col-labels">
+              <span>count</span>
+              <span>new</span>
+            </div>
+          </div>
 
-      <div class="dash-topics">
-        <a href="kb-knowledge-engineering.html" class="dash-topic-row">
-          <span class="dash-topic-indicator" style="background: #06b6d4"></span>
-          <span class="dash-topic-title">Knowledge Engineering</span>
-          <span class="dash-topic-count">32</span>
-          <span class="dash-topic-new">+4</span>
-        </a>
+          <div class="dash-topics">
+            <a href="kb-knowledge-engineering.html" class="dash-topic-row">
+              <span class="dash-topic-indicator" style="background: #06b6d4; box-shadow: 0 0 10px #06b6d4"></span>
+              <span class="dash-topic-title">Knowledge Engineering</span>
+              <span class="dash-topic-count">32</span>
+              <span class="dash-topic-new">+4</span>
+            </a>
 
-        <div class="dash-topic-row coming-soon">
-          <span class="dash-topic-indicator" style="background: #8b5cf6"></span>
-          <span class="dash-topic-title">Data Visualization</span>
-          <span class="dash-topic-count dim">—</span>
-          <span class="dash-topic-new dim">—</span>
-        </div>
+            <div class="dash-topic-row coming-soon">
+              <span class="dash-topic-indicator" style="background: #8b5cf6"></span>
+              <span class="dash-topic-title">Data Visualization</span>
+              <span class="dash-topic-count dim">—</span>
+              <span class="dash-topic-new dim">—</span>
+            </div>
 
-        <div class="dash-topic-row coming-soon">
-          <span class="dash-topic-indicator" style="background: #f472b6"></span>
-          <span class="dash-topic-title">Agentic Memory</span>
-          <span class="dash-topic-count dim">—</span>
-          <span class="dash-topic-new dim">—</span>
+            <div class="dash-topic-row coming-soon">
+              <span class="dash-topic-indicator" style="background: #f472b6"></span>
+              <span class="dash-topic-title">Agentic Memory</span>
+              <span class="dash-topic-count dim">—</span>
+              <span class="dash-topic-new dim">—</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Guides Column -->
     <section class="dash-col dash-col-side">
-      <div class="dash-section-header">
-        <h2>Guides</h2>
+      <div class="tui-panel accent-green">
+        <div class="tui-panel-header">
+          <span class="panel-icon">▤</span> Guides
+        </div>
+        <div class="tui-panel-content">
+          <div class="dash-section-header">
+            <h2>Reference Docs</h2>
+          </div>
+
+          <div class="dash-guides">
+            <a href="terminal-stack-guide.html" class="dash-guide-row">
+              <span class="dash-guide-title">Terminal Dev Stack</span>
+              <span class="dash-guide-arrow">→</span>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="dash-guides">
-        <a href="index.html" class="dash-guide-row">
-          <span class="dash-guide-title">Terminal Dev Stack</span>
-          <span class="dash-guide-arrow">→</span>
-        </a>
-      </div>
-
-      <div class="dash-section-header" style="margin-top: 2rem;">
-        <h2>Visualizations</h2>
-      </div>
-
-      <div class="dash-viz-placeholder">
-        <span class="dim">coming soon</span>
+      <div class="tui-panel accent-purple">
+        <div class="tui-panel-header">
+          <span class="panel-icon">◐</span> Visualizations
+        </div>
+        <div class="tui-panel-content">
+          <div class="dash-viz-placeholder">
+            <span class="dim">coming soon</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -77,8 +107,19 @@
 
   <footer class="dash-footer">
     <div class="dash-footer-content">
-      A personal collection of curated resources, articles, and learnings.<br>
-      <span class="dim">Think of it as a public notebook.</span>
+      <div class="tui-status">
+        <span class="tui-status-dot"></span>
+        <span>online</span>
+      </div>
+      <div class="tui-status">
+        <span>3 topics</span>
+      </div>
+      <div class="tui-status">
+        <span>32 resources</span>
+      </div>
+      <div class="tui-status">
+        <span>curated knowledge base</span>
+      </div>
     </div>
   </footer>
 

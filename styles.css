@@ -3,8 +3,10 @@
   --bg-card: #161616;
   --bg-card-hover: #1a1a1a;
   --border: #2a2a2a;
+  --border-bright: #3a3a3a;
   --text: #e8e8e8;
   --text-dim: #888;
+  --text-muted: #555;
   --accent: #00ff88;
   --accent-ghostty: #ff6b6b;
   --accent-tmux: #4ecdc4;
@@ -14,6 +16,8 @@
   --accent-opencode: #9b59b6;
   --accent-semantic: #06b6d4;
   --accent-kb: #8b5cf6;
+  --accent-pink: #f472b6;
+  --accent-yellow: #fbbf24;
 }
 
 * {
@@ -2770,4 +2774,780 @@ body.dashboard.topic-page {
   .insights-title {
     font-size: 0.55rem;
   }
+}
+
+/* ========================================
+   TUI-Styled Dashboard - Terminal Aesthetic
+   ======================================== */
+
+/* TUI Base - Make everything feel like a terminal */
+body.dashboard.tui {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', monospace;
+  background: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at top, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+  position: relative;
+}
+
+/* Subtle CRT scanline effect */
+body.dashboard.tui::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Subtle vignette effect */
+body.dashboard.tui::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* TUI Header - Command prompt style */
+body.dashboard.tui .dash-header {
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+body.dashboard.tui .dash-brand {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+body.dashboard.tui .dash-brand::before {
+  content: '▲ ';
+  color: var(--accent);
+}
+
+body.dashboard.tui .dash-brand::after {
+  content: '█';
+  margin-left: 0.1rem;
+  font-weight: 400;
+  animation: blink 1s step-end infinite;
+  opacity: 0.7;
+}
+
+body.dashboard.tui .dash-tagline {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+body.dashboard.tui .dash-tagline::before {
+  content: '// ';
+  color: var(--text-muted);
+}
+
+.tui-header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tui-time {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.tui-time::before {
+  content: '◷ ';
+  color: var(--accent-semantic);
+}
+
+/* TUI Layout - Bordered panels */
+body.dashboard.tui .dash-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  flex: 1;
+  padding: 1rem;
+}
+
+/* TUI Panel Base */
+.tui-panel {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 20, 25, 0.8) 0%, rgba(10, 10, 12, 0.9) 100%);
+  border: 1px solid var(--border-bright);
+  border-top: 2px solid var(--border-bright);
+  border-radius: 0;
+  margin: 0.5rem;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* Double-line effect at top */
+.tui-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--border-bright) 10%, 
+    var(--border-bright) 90%, 
+    transparent 100%);
+}
+
+/* TUI Panel Header - Embedded in top border */
+.tui-panel-header {
+  position: absolute;
+  top: -0.65rem;
+  left: 0.75rem;
+  background: linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
+  padding: 0.15rem 0.6rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.tui-panel-header .panel-icon {
+  color: var(--accent-semantic);
+  font-size: 0.7rem;
+}
+
+/* TUI Panel Content */
+.tui-panel-content {
+  padding: 1.5rem 1rem 1rem;
+}
+
+/* Panel color variants */
+.tui-panel.accent-cyan {
+  border-top-color: var(--accent-semantic);
+}
+
+.tui-panel.accent-cyan .tui-panel-header {
+  border-color: var(--accent-semantic);
+}
+
+.tui-panel.accent-cyan .tui-panel-header .panel-icon {
+  color: var(--accent-semantic);
+}
+
+.tui-panel.accent-purple {
+  border-top-color: var(--accent-kb);
+}
+
+.tui-panel.accent-purple .tui-panel-header {
+  border-color: var(--accent-kb);
+}
+
+.tui-panel.accent-purple .tui-panel-header .panel-icon {
+  color: var(--accent-kb);
+}
+
+.tui-panel.accent-green {
+  border-top-color: var(--accent);
+}
+
+.tui-panel.accent-green .tui-panel-header {
+  border-color: var(--accent);
+}
+
+.tui-panel.accent-green .tui-panel-header .panel-icon {
+  color: var(--accent);
+}
+
+/* TUI Columns Styling */
+body.dashboard.tui .dash-col {
+  padding: 0;
+}
+
+body.dashboard.tui .dash-col-main {
+  border-right: none;
+}
+
+body.dashboard.tui .dash-col-side {
+  background: transparent;
+}
+
+/* TUI Section Headers */
+body.dashboard.tui .dash-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+body.dashboard.tui .dash-section-header h2 {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--accent-semantic);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+body.dashboard.tui .dash-section-header h2::before {
+  content: '◆';
+  font-size: 0.5rem;
+}
+
+body.dashboard.tui .dash-col-labels {
+  font-size: 0.55rem;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+body.dashboard.tui .dash-col-labels span {
+  width: 45px;
+}
+
+/* TUI Topic Rows */
+body.dashboard.tui .dash-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+body.dashboard.tui .dash-topic-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 0;
+  background: transparent;
+  border-left: 3px solid transparent;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+body.dashboard.tui .dash-topic-row:last-child {
+  border-bottom: none;
+}
+
+/* Cursor indicator on hover */
+body.dashboard.tui a.dash-topic-row::before {
+  content: '▸';
+  position: absolute;
+  left: -0.5rem;
+  opacity: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  transition: all 0.1s ease;
+}
+
+body.dashboard.tui a.dash-topic-row:hover::before {
+  opacity: 1;
+  left: 0.25rem;
+}
+
+body.dashboard.tui a.dash-topic-row:hover {
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 136, 0.08) 0%, 
+    rgba(0, 255, 136, 0.02) 50%,
+    transparent 100%);
+  border-left-color: var(--accent);
+  padding-left: 1.25rem;
+}
+
+body.dashboard.tui a.dash-topic-row:hover .dash-topic-title {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+body.dashboard.tui .dash-topic-indicator {
+  width: 3px;
+  height: 18px;
+  border-radius: 1px;
+  transition: all 0.15s ease;
+}
+
+body.dashboard.tui a.dash-topic-row:hover .dash-topic-indicator {
+  box-shadow: 0 0 12px currentColor, 0 0 4px currentColor;
+  height: 20px;
+}
+
+body.dashboard.tui .dash-topic-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  flex: 1;
+  transition: all 0.1s ease;
+}
+
+body.dashboard.tui .dash-topic-count,
+body.dashboard.tui .dash-topic-new {
+  font-size: 0.7rem;
+  width: 45px;
+}
+
+body.dashboard.tui .dash-topic-new {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+body.dashboard.tui .dash-topic-row.coming-soon {
+  opacity: 0.35;
+}
+
+body.dashboard.tui .dash-topic-row.coming-soon .dash-topic-title::after {
+  content: ' [pending]';
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* TUI Guide Rows */
+body.dashboard.tui .dash-guides {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+body.dashboard.tui .dash-guide-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 0;
+  background: transparent;
+  border-left: 3px solid transparent;
+  font-size: 0.75rem;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+body.dashboard.tui .dash-guide-row:last-child {
+  border-bottom: none;
+}
+
+/* Cursor indicator on hover */
+body.dashboard.tui .dash-guide-row::before {
+  content: '▸';
+  position: absolute;
+  left: -0.5rem;
+  opacity: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  transition: all 0.1s ease;
+}
+
+body.dashboard.tui .dash-guide-row:hover::before {
+  opacity: 1;
+  left: 0.25rem;
+}
+
+body.dashboard.tui .dash-guide-row:hover {
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 136, 0.08) 0%, 
+    rgba(0, 255, 136, 0.02) 50%,
+    transparent 100%);
+  border-left-color: var(--accent);
+  padding-left: 1.25rem;
+  color: var(--accent);
+}
+
+body.dashboard.tui .dash-guide-row:hover .dash-guide-title {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+body.dashboard.tui .dash-guide-arrow {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  transition: all 0.1s ease;
+}
+
+body.dashboard.tui .dash-guide-row:hover .dash-guide-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+}
+
+/* TUI Visualizations Placeholder */
+body.dashboard.tui .dash-viz-placeholder {
+  padding: 1.25rem;
+  text-align: center;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 0;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  background: rgba(139, 92, 246, 0.02);
+  position: relative;
+}
+
+body.dashboard.tui .dash-viz-placeholder::before {
+  content: '┌──────────────────┐\A│  ▁▂▃▄▅▆▇█▇▆▅▄▃▂▁  │\A│  ◠───────────◠  │\A└──────────────────┘';
+  white-space: pre;
+  display: block;
+  font-size: 0.5rem;
+  color: var(--accent-kb);
+  margin-bottom: 0.5rem;
+  opacity: 0.4;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+body.dashboard.tui .dash-viz-placeholder .dim {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* TUI Footer - Status bar style */
+body.dashboard.tui .dash-footer {
+  padding: 0.5rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+body.dashboard.tui .dash-footer-content {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+body.dashboard.tui .dash-footer-content br {
+  display: none;
+}
+
+/* TUI Status indicators */
+.tui-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  padding: 0 1rem;
+  border-left: 1px solid var(--border);
+}
+
+.tui-status:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.tui-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; 
+  }
+  50% { 
+    box-shadow: 0 0 8px currentColor, 0 0 15px currentColor; 
+  }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tui-status-dot.offline {
+  background: var(--accent-ghostty);
+  animation: none;
+}
+
+/* TUI ASCII Decorations */
+.tui-ascii-border {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1;
+  user-select: none;
+}
+
+/* TUI Box Characters for panels */
+.tui-box {
+  position: relative;
+}
+
+.tui-box::before {
+  content: '┌' attr(data-title) '─────────────────────────────────────────────┐';
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+/* TUI Mobile Responsive */
+@media (max-width: 768px) {
+  body.dashboard.tui .dash-header {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  body.dashboard.tui .dash-layout {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+
+  body.dashboard.tui .dash-col-main {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tui-panel {
+    margin: 0.25rem;
+  }
+
+  body.dashboard.tui .dash-footer {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .tui-status {
+    padding: 0 0.5rem;
+  }
+}
+
+/* ========================================
+   TUI Topic Page Enhancements
+   ======================================== */
+
+/* TUI Topic Header */
+body.dashboard.topic-page.tui .topic-header {
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid var(--border-bright);
+  padding: 0.6rem 1.25rem;
+}
+
+body.dashboard.topic-page.tui .topic-back {
+  font-size: 1rem;
+  color: var(--text-dim);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: all 0.1s ease;
+}
+
+body.dashboard.topic-page.tui .topic-back:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+body.dashboard.topic-page.tui .topic-indicator {
+  box-shadow: 0 0 10px currentColor;
+}
+
+body.dashboard.topic-page.tui .topic-title {
+  font-size: 0.85rem;
+  color: var(--text);
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+body.dashboard.topic-page.tui .topic-count {
+  font-size: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: rgba(0, 255, 136, 0.05);
+  color: var(--accent);
+}
+
+/* TUI Topic Aside */
+body.dashboard.topic-page.tui .topic-aside {
+  background: linear-gradient(180deg, rgba(15, 15, 18, 0.9) 0%, rgba(10, 10, 12, 0.95) 100%);
+  border-right: 2px solid var(--border-bright);
+}
+
+/* TUI Category Headers */
+body.dashboard.topic-page.tui .tcat {
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.1) 0%, transparent 100%);
+  border-bottom: 1px solid var(--accent-semantic);
+  color: var(--accent-semantic);
+  padding: 0.35rem 0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-left: 0.5rem;
+}
+
+body.dashboard.topic-page.tui .tcat::before {
+  content: '▸ ';
+  font-size: 0.5rem;
+}
+
+/* TUI Links */
+body.dashboard.topic-page.tui .tlink {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  position: relative;
+}
+
+body.dashboard.topic-page.tui .tlink::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+  transition: all 0.1s ease;
+}
+
+body.dashboard.topic-page.tui .tlink:hover::before {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+body.dashboard.topic-page.tui .tlink:hover {
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 136, 0.06) 0%, 
+    transparent 60%);
+}
+
+body.dashboard.topic-page.tui .tlink:hover .tlink-title {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+}
+
+body.dashboard.topic-page.tui .tlink-dot {
+  box-shadow: 0 0 4px currentColor;
+}
+
+body.dashboard.topic-page.tui .tlink:hover .tlink-dot {
+  box-shadow: 0 0 8px currentColor, 0 0 12px currentColor;
+}
+
+/* TUI Stat Box */
+body.dashboard.topic-page.tui .topic-stat-box {
+  border: 1px solid var(--border);
+  background: rgba(0, 255, 136, 0.03);
+  border-radius: 0;
+  padding: 0.75rem;
+}
+
+body.dashboard.topic-page.tui .topic-stat-num {
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+/* TUI Terms */
+body.dashboard.topic-page.tui .tterm {
+  border-bottom: 1px dotted var(--border);
+  padding: 0.4rem 0;
+}
+
+body.dashboard.topic-page.tui .tterm-name {
+  color: var(--accent-semantic);
+}
+
+/* TUI Slide Links */
+body.dashboard.topic-page.tui .slide-link {
+  color: var(--text-dim);
+  border-bottom: 1px dotted var(--border);
+  padding: 0.35rem 0;
+}
+
+body.dashboard.topic-page.tui .slide-link:hover {
+  color: var(--accent);
+  padding-left: 0.5rem;
+}
+
+body.dashboard.topic-page.tui .slide-link::before {
+  content: '◇ ';
+  font-size: 0.5rem;
+  color: var(--accent-kb);
+}
+
+body.dashboard.topic-page.tui .slide-link:hover::before {
+  content: '◆ ';
+  color: var(--accent);
+}
+
+/* TUI Status Footer */
+body.dashboard.topic-page.tui .topic-status {
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 2px solid var(--border-bright);
+}
+
+/* TUI Reading Section */
+body.dashboard.topic-page.tui .topic-reading {
+  background: linear-gradient(180deg, rgba(12, 12, 15, 0.95) 0%, rgba(8, 8, 10, 0.98) 100%);
+}
+
+/* TUI Insights Panel */
+body.dashboard.topic-page.tui .topic-insights {
+  background: linear-gradient(180deg, rgba(15, 15, 18, 0.9) 0%, rgba(10, 10, 12, 0.95) 100%);
+  border-left: 2px solid var(--border-bright);
+}
+
+body.dashboard.topic-page.tui .insights-title {
+  color: var(--accent-kb);
+  border-bottom-color: var(--accent-kb);
+}
+
+body.dashboard.topic-page.tui .insights-title::before {
+  content: '◇ ';
+  font-size: 0.5rem;
 }
