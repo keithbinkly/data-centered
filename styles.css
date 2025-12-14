@@ -3347,7 +3347,7 @@ body.dashboard.topic-page.tui .topic-aside {
 
 /* TUI Category Headers */
 body.dashboard.topic-page.tui .tcat {
-  background: linear-gradient(90deg, rgba(6, 182, 212, 0.08) 0%, transparent 100%);
+  background: #0c0c0f;
   border-bottom: 1px solid var(--accent-semantic);
   border-top: none;
   color: var(--accent-semantic);
