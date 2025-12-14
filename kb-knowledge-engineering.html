@@ -15,9 +15,10 @@
     <span class="topic-indicator" style="background: #06b6d4"></span>
     <h1 class="topic-title">Knowledge Engineering</h1>
     <span class="topic-count">27 resources</span>
+    <button class="insights-toggle" id="insights-toggle" title="Toggle stats panel">stats</button>
   </header>
 
-  <main class="topic-grid with-insights">
+  <main class="topic-grid with-insights" id="topic-grid">
 
     <!-- Left Panel: Context -->
     <aside class="topic-aside">
@@ -574,6 +575,26 @@
             link.classList.remove('expanded');
           });
         }
+      });
+    })();
+
+    // Insights panel toggle
+    (function() {
+      const toggle = document.getElementById('insights-toggle');
+      const grid = document.getElementById('topic-grid');
+      
+      // Check localStorage for saved state
+      const savedState = localStorage.getItem('insights-hidden');
+      if (savedState === 'true') {
+        grid.classList.add('insights-hidden');
+        toggle.classList.add('active');
+      }
+      
+      toggle.addEventListener('click', function() {
+        grid.classList.toggle('insights-hidden');
+        toggle.classList.toggle('active');
+        // Save state
+        localStorage.setItem('insights-hidden', grid.classList.contains('insights-hidden'));
       });
     })();
   </script>
