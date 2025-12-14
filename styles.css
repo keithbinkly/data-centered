@@ -1934,7 +1934,7 @@ body.dashboard.topic-page {
   padding: 0;
 }
 
-/* Compact Header Bar */
+/* Compact Header Bar - Fixed at top */
 .topic-header {
   display: flex;
   align-items: center;
@@ -1942,6 +1942,9 @@ body.dashboard.topic-page {
   padding: 0.6rem 1.5rem;
   border-bottom: 1px solid var(--border);
   background: rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .topic-back {
@@ -1982,14 +1985,14 @@ body.dashboard.topic-page {
   margin-left: auto;
 }
 
-/* Main Grid: aside + reading */
+/* Main Grid: aside + reading - fills remaining viewport */
 .topic-grid {
   display: grid;
   grid-template-columns: 280px 1fr;
-  min-height: calc(100vh - 42px);
+  height: calc(100vh - 42px);
 }
 
-/* Left Aside */
+/* Left Aside - independent scroll */
 .topic-aside {
   padding: 1rem 1.25rem;
   border-right: 1px solid rgba(255,255,255,0.04);
@@ -1997,6 +2000,7 @@ body.dashboard.topic-page {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  overflow-y: auto;
 }
 
 .topic-lede {
@@ -2094,6 +2098,7 @@ body.dashboard.topic-page {
 /* Reading Section */
 .topic-reading {
   padding: 1rem 1.5rem;
+  overflow-y: auto;
 }
 
 /* Single column for all links */
@@ -2358,7 +2363,8 @@ body.dashboard.topic-page {
   border-left: 1px solid rgba(255,255,255,0.04);
   background: rgba(0,0,0,0.2);
   font-size: 0.75rem;
-  min-width: 0; /* Prevent overflow */
+  min-width: 0;
+  overflow-y: auto;
 }
 
 .insights-section {
@@ -3548,15 +3554,12 @@ body.dashboard.topic-page.tui .insights-title::before {
     overflow: visible;
   }
 
-  /* Sticky headers on mobile - stick to viewport */
+  /* Category headers on mobile */
   .tcat {
     background: var(--bg-dark);
     margin: 0 -1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 20;
   }
 
   /* Section separators on mobile */
