@@ -3375,11 +3375,17 @@ body.dashboard.topic-page.tui .topic-aside {
 
 /* TUI Category Headers */
 body.dashboard.topic-page.tui .tcat {
-  background: #0c0c0f;
+  background: linear-gradient(
+    to bottom,
+    #0c0c0f 0%,
+    #0c0c0f 60%,
+    rgba(12, 12, 15, 0.85) 80%,
+    rgba(12, 12, 15, 0) 100%
+  );
   border-bottom: 1px solid var(--accent-semantic);
   border-top: none;
   color: var(--accent-semantic);
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.75rem 0.75rem;
   margin: 0.75rem -0.75rem 0.5rem -0.75rem;
   font-size: 0.7rem;
 }
