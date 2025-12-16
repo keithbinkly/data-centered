@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Knowledge Engineering | data-centered</title>
+  <meta name="description" content="Curated resources on context engineering, semantic layers, ontologies, and making enterprise data AI-ready.">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Infographics Gallery */
+    .infographics-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .infographics-title {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .main-infographic {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .main-infographic img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .main-infographic:hover::after {
+      content: 'click to enlarge';
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.85);
+      color: #eee;
+      padding: 4px 10px;
+      font-size: 0.6rem;
+      border-radius: 3px;
+    }
+
+    .thumbnail-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .thumbnail {
+      flex: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .thumbnail:hover {
+      opacity: 0.8;
+    }
+
+    .thumbnail.active {
+      opacity: 1;
+      border-color: #06b6d4;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 45px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* Category TOC */
+    .category-toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .category-tab {
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.15s;
+      background: transparent;
+      font-family: inherit;
+    }
+
+    .category-tab:hover {
+      color: #06b6d4;
+      border-color: #06b6d4;
+    }
+
+    .category-tab.active {
+      color: #06b6d4;
+      border-color: #06b6d4;
+      background: rgba(6, 182, 212, 0.1);
+    }
+
+    /* Compact resource rows */
+    .tlink {
+      padding: 0.35rem 0 !important;
+      gap: 0.4rem !important;
+    }
+
+    .tlink-title {
+      font-size: 0.72rem !important;
+    }
+
+    .tlink-desc {
+      font-size: 0.6rem !important;
+      margin-top: 0.15rem !important;
+    }
+
+    .tcat {
+      padding: 0.4rem 0 !important;
+      margin-top: 0.75rem !important;
+      font-size: 0.65rem !important;
+    }
+
+    .tcat:first-child {
+      margin-top: 0 !important;
+    }
+
+    /* Category sections */
+    .resources-category {
+      margin-bottom: 0.5rem;
+    }
+
+    .resources-category.hidden {
+      display: none;
+    }
+
+    /* Slide links compact */
+    .topic-slides-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .slide-link {
+      font-size: 0.7rem !important;
+      padding: 0.3rem 0.5rem !important;
+    }
+  </style>
+</head>
+<body class="dashboard topic-page tui">
+
+  <header class="topic-header">
+    <a href="index.html" class="topic-back">←</a>
+    <span class="topic-indicator" style="background: #06b6d4"></span>
+    <h1 class="topic-title">Knowledge Engineering</h1>
+    <span class="topic-count">54 resources</span>
+    <button class="insights-toggle" id="insights-toggle" title="Toggle stats panel">stats</button>
+  </header>
+
+  <main class="topic-grid with-insights" id="topic-grid">
+
+    <!-- Left Panel: Context -->
+    <aside class="topic-aside">
+      <h3 class="tcat">Context</h3>
+      <p class="topic-lede section-content"><strong>Crude oil is not fuel.</strong> Put raw data into GenAI and you destroy the engine. Knowledge Engineering builds the <strong>refinery</strong>—turning muddy data into high-octane context the model can actually consume.</p>
+
+      <div class="topic-stat-box section-content">
+        <span class="topic-stat-num">99%+</span>
+        <span class="topic-stat-label">data reliability needed for production AI</span>
+      </div>
+
+      <!-- Infographics Gallery -->
+      <div class="infographics-section section-content">
+        <div class="infographics-title">Infographics</div>
+        <div class="main-infographic" id="main-infographic" onclick="openLightbox()">
+          <img src="slides/semantic_layer_infographic.png" alt="Semantic Layer Infographic" id="main-img">
+        </div>
+        <div class="thumbnail-row">
+          <div class="thumbnail active" onclick="selectInfographic(0)">
+            <img src="slides/semantic_layer_infographic.png" alt="Semantic Layer">
+          </div>
+          <div class="thumbnail" onclick="selectInfographic(1)">
+            <img src="slides/context_gap.png" alt="Context Gap">
+          </div>
+          <div class="thumbnail" onclick="selectInfographic(2)">
+            <img src="slides/bridging_the_context_gap.png" alt="Bridging Gap">
+          </div>
+        </div>
+      </div>
+
+      <h3 class="tcat">Key Terms</h3>
+      <div class="topic-terms-grid section-content">
+        <div class="tterm"><span class="tterm-name">AI Context Gap</span><span class="tterm-def">Gap between model knowledge and organizational context (metrics, rules, semantics)</span></div>
+        <div class="tterm"><span class="tterm-name">Controlled Vocab</span><span class="tterm-def">Curated list of approved terms, each with one intended meaning</span></div>
+        <div class="tterm"><span class="tterm-name">Semantic Layer</span><span class="tterm-def">Authoritative source of business meaning that persists across system changes</span></div>
+        <div class="tterm"><span class="tterm-name">Ontology</span><span class="tterm-def">Formal specification of entities, relationships, and constraints for machine reasoning</span></div>
+        <div class="tterm"><span class="tterm-name">Inline Governance</span><span class="tterm-def">Embedding quality thresholds and business rules directly into data products</span></div>
+      </div>
+
+      <h3 class="tcat">Slides</h3>
+      <div class="topic-slides-links section-content">
+        <a href="slides/Context_Engineering_Unlocking_AI_Value.pdf" target="_blank" class="slide-link">Unlocking AI Value</a>
+        <a href="slides/AI_Context_Gap.pdf" target="_blank" class="slide-link">Context Gap</a>
+        <a href="slides/AI_Value_Chasm.pdf" target="_blank" class="slide-link">Value Chasm</a>
+      </div>
+    </aside>
+
+    <!-- Main: Reading List -->
+    <section class="topic-reading">
+
+      <!-- Category TOC -->
+      <div class="category-toc">
+        <button class="category-tab active" data-category="all">All</button>
+        <button class="category-tab" data-category="core-architecture">Core</button>
+        <button class="category-tab" data-category="semantic-layer">Semantic</button>
+        <button class="category-tab" data-category="knowledge-graphs">KG</button>
+        <button class="category-tab" data-category="semantic-foundations">Foundations</button>
+        <button class="category-tab" data-category="agentic-systems">Agents</button>
+        <button class="category-tab" data-category="context-engineering">Context</button>
+        <button class="category-tab" data-category="agent-memory">Memory</button>
+        <button class="category-tab" data-category="knowledge-architecture">Architecture</button>
+      </div>
+
+      <div class="topic-reading-cols">
+        <div class="topic-reading-col">
+
+          <!-- Core Architecture -->
+          <div class="resources-category" data-category="core-architecture">
+            <h3 class="tcat">Core Architecture</h3>
+            <a href="https://moderndata101.substack.com/p/ai-ready-data-a-technical-assessment" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">AI-Ready Data: Technical Assessment</span>
+              <span class="tlink-author">S. Paul</span>
+              <span class="tlink-time">10m</span>
+              <span class="tlink-desc">Practical framework for assessing and improving data readiness for AI applications.</span>
+            </a>
+            <a href="https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Manus</span>
+              <span class="tlink-title">Context Engineering for AI Agents</span>
+              <span class="tlink-author">Manus</span>
+              <span class="tlink-time">15m</span>
+              <span class="tlink-desc">Lessons from building Manus on how to engineer context for AI agent systems.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/from-metadata-to-meaning-the-knowledge" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#a855f7"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">From Metadata to Meaning</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">12m</span>
+              <span class="tlink-desc">How knowledge architecture bridges the gap between raw metadata and business meaning.</span>
+            </a>
+            <a href="https://atlan.com/know/closing-the-context-gap/" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#3b82f6"></span>
+              <span class="tlink-src">Atlan</span>
+              <span class="tlink-title">Missing Line Item in 2026 AI Budget</span>
+              <span class="tlink-author">P. Sankar</span>
+              <span class="tlink-time">8m</span>
+              <span class="tlink-desc">Why context engineering should be a dedicated budget item for enterprise AI initiatives.</span>
+            </a>
+            <a href="https://metadataweekly.substack.com/p/the-semantic-gap-why-your-ai-still-cant-read-the-room" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#a855f7"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">The Semantic Gap</span>
+              <span class="tlink-author">V. Dacanay</span>
+              <span class="tlink-time">7m</span>
+              <span class="tlink-desc">Understanding why AI systems struggle with organizational context and nuance.</span>
+            </a>
+          </div>
+
+          <!-- Semantic Layer -->
+          <div class="resources-category" data-category="semantic-layer">
+            <h3 class="tcat">Semantic Layer</h3>
+            <a href="https://practicaldatamodeling.substack.com/p/semantics-in-data-modeling" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#a855f7"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Semantics in Data Modeling</span>
+              <span class="tlink-author">J. Reis</span>
+              <span class="tlink-time">9m</span>
+              <span class="tlink-desc">Why semantics matter in data modeling and how to incorporate meaning into your models.</span>
+            </a>
+            <a href="https://www.atscale.com/blog/golden-age-of-the-semantic-layer/" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#fbbf24"></span>
+              <span class="tlink-src">AtScale</span>
+              <span class="tlink-title">Semantic Layers for Control</span>
+              <span class="tlink-author">AtScale</span>
+              <span class="tlink-time">6m</span>
+              <span class="tlink-desc">How semantic layers provide governance and control over business metrics.</span>
+            </a>
+            <a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/consume-metrics" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#ff692e"></span>
+              <span class="tlink-src">dbt Docs</span>
+              <span class="tlink-title">Consume Metrics</span>
+              <span class="tlink-author">dbt</span>
+              <span class="tlink-time">4m</span>
+              <span class="tlink-desc">How to query and consume metrics from the dbt Semantic Layer.</span>
+            </a>
+            <a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#ff692e"></span>
+              <span class="tlink-src">dbt Docs</span>
+              <span class="tlink-title">Administer Semantic Layer</span>
+              <span class="tlink-author">dbt</span>
+              <span class="tlink-time">5m</span>
+              <span class="tlink-desc">Setup and administration guide for the dbt Semantic Layer.</span>
+            </a>
+            <a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/deploy-sl" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#ff692e"></span>
+              <span class="tlink-src">dbt Docs</span>
+              <span class="tlink-title">Deploy Metrics</span>
+              <span class="tlink-author">dbt</span>
+              <span class="tlink-time">3m</span>
+              <span class="tlink-desc">How to deploy metrics definitions to your semantic layer.</span>
+            </a>
+          </div>
+
+          <!-- Knowledge Graphs -->
+          <div class="resources-category" data-category="knowledge-graphs">
+            <h3 class="tcat">Knowledge Graphs</h3>
+            <a href="https://medium.com/@alessandro-negro/grounding-llms-the-knowledge-graph-foundation-every-ai-project-needs" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Medium</span>
+              <span class="tlink-title">Grounding LLMs with KG</span>
+              <span class="tlink-author">A. Negro</span>
+              <span class="tlink-time">14m</span>
+              <span class="tlink-desc">Why knowledge graphs are essential for grounding LLM outputs in factual data.</span>
+            </a>
+            <a href="https://kurtcagle.wpcomstaging.com/2023/04/18/what-is-a-knowledge-graph-really/" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#10b981"></span>
+              <span class="tlink-src">Blog</span>
+              <span class="tlink-title">Building Knowledge Graphs</span>
+              <span class="tlink-author">K. Cagle</span>
+              <span class="tlink-time">11m</span>
+              <span class="tlink-desc">Practical tips and patterns for building enterprise knowledge graphs.</span>
+            </a>
+            <a href="https://vinvashishta.substack.com/p/why-your-agentic-enterprise-needs" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#3b82f6"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Enterprise Needs Ontology</span>
+              <span class="tlink-author">V. Vashishta</span>
+              <span class="tlink-time">10m</span>
+              <span class="tlink-desc">Making the case for ontologies in agentic enterprise architectures.</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="topic-reading-col">
+
+          <!-- Semantic Foundations -->
+          <div class="resources-category" data-category="semantic-foundations">
+            <h3 class="tcat">Semantic Foundations</h3>
+            <a href="https://jessicatalisman.substack.com/p/the-ontology-pipeline" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#22c55e"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">The Ontology Pipeline</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">13m</span>
+              <span class="tlink-desc">A systematic approach to building and maintaining ontologies.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/concept-models-versus-ontologies-the-sketch-and-the-blueprint" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#a855f7"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Concept Models vs Ontologies</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">11m</span>
+              <span class="tlink-desc">Understanding the difference between sketches and blueprints in semantic modeling.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/controlled-vocabulary-part-i" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#fb923c"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Controlled Vocabularies I</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">9m</span>
+              <span class="tlink-desc">Introduction to controlled vocabularies and their role in data governance.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/controlled-vocabularies" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#fb923c"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Controlled Vocabularies II</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">8m</span>
+              <span class="tlink-desc">Building and maintaining controlled vocabularies at scale.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/metadata-as-a-data-model" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#fb923c"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Metadata as Data Model I</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">12m</span>
+              <span class="tlink-desc">Treating metadata as a first-class data model for better governance.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/metadata-as-a-data-model-b68" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#fb923c"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Metadata as Data Model II</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">11m</span>
+              <span class="tlink-desc">Implementing metadata models in practice.</span>
+            </a>
+            <a href="https://jessicatalisman.substack.com/p/metadata-as-a-data-model-ec0" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#10b981"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Metadata Application Profiles</span>
+              <span class="tlink-author">J. Talisman</span>
+              <span class="tlink-time">9m</span>
+              <span class="tlink-desc">Using application profiles to contextualize metadata standards.</span>
+            </a>
+          </div>
+
+          <!-- Agentic Systems -->
+          <div class="resources-category" data-category="agentic-systems">
+            <h3 class="tcat">Agentic Systems</h3>
+            <a href="https://www.getdbt.com/blog/dbt-agents-remote-dbt-mcp-server-trusted-ai-for-analytics" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#10b981"></span>
+              <span class="tlink-src">dbt Blog</span>
+              <span class="tlink-title">Building Analyst Agent with dbt</span>
+              <span class="tlink-author">J. Sobel</span>
+              <span class="tlink-time">8m</span>
+              <span class="tlink-desc">How to build trusted AI analytics agents using dbt's semantic layer.</span>
+            </a>
+            <a href="https://www.dataengineeringpodcast.com/episodepage/context-engineering-as-a-discipline-building-gove" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#94a3b8"></span>
+              <span class="tlink-src">Podcast</span>
+              <span class="tlink-title">Context Engineering Discipline</span>
+              <span class="tlink-author">T. Macey</span>
+              <span class="tlink-time">45m</span>
+              <span class="tlink-desc">Deep dive into context engineering as an emerging discipline.</span>
+            </a>
+            <a href="https://engineering.ramp.com/post/meet-ramp-research" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#f472b6"></span>
+              <span class="tlink-src">Ramp Eng</span>
+              <span class="tlink-title">Agentic Data Analyst</span>
+              <span class="tlink-author">Ramp</span>
+              <span class="tlink-time">7m</span>
+              <span class="tlink-desc">How Ramp built an agentic data analyst for internal research.</span>
+            </a>
+            <a href="https://dataintelligenceplatform.substack.com/p/the-librarians-reference-interview" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#94a3b8"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Librarian's Reference Interview</span>
+              <span class="tlink-author">J. Jordan</span>
+              <span class="tlink-time">6m</span>
+              <span class="tlink-desc">Applying librarian techniques to AI data discovery and retrieval.</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="topic-reading-col">
+
+          <!-- Context Engineering -->
+          <div class="resources-category" data-category="context-engineering">
+            <h3 class="tcat">Context Engineering</h3>
+            <a href="https://blog.langchain.com/context-engineering-for-agents/" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">LangChain</span>
+              <span class="tlink-title">Context Engineering for Agents</span>
+              <span class="tlink-author">LangChain</span>
+              <span class="tlink-time">15m</span>
+              <span class="tlink-desc">Framework for agent context with 4 strategies: Write, Select, Compress, Isolate.</span>
+            </a>
+            <a href="https://weaviate.io/blog/context-engineering" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Weaviate</span>
+              <span class="tlink-title">Context Engineering Deep Dive</span>
+              <span class="tlink-author">Weaviate</span>
+              <span class="tlink-time">12m</span>
+              <span class="tlink-desc">Key finding: 87.5% of agent failures are context problems, not model capability.</span>
+            </a>
+            <a href="https://sankalp.bearblog.dev/how-prompt-caching-works/" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Bear Blog</span>
+              <span class="tlink-title">How Prompt Caching Works</span>
+              <span class="tlink-author">S. Agarwal</span>
+              <span class="tlink-time">10m</span>
+              <span class="tlink-desc">Technical deep dive: stable prefixes for ~90% cost reduction.</span>
+            </a>
+            <a href="https://blog.langchain.com/how-agents-can-use-filesystems-for-context-engineering/" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">LangChain</span>
+              <span class="tlink-title">Filesystems for Context</span>
+              <span class="tlink-author">LangChain</span>
+              <span class="tlink-time">10m</span>
+              <span class="tlink-desc">Using filesystems as context management for persistent agent memory.</span>
+            </a>
+          </div>
+
+          <!-- Agent Memory -->
+          <div class="resources-category" data-category="agent-memory">
+            <h3 class="tcat">Agent Memory</h3>
+            <a href="https://github.com/momo-personal-assistant/momo-research" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">GitHub</span>
+              <span class="tlink-title">Momo Research - Memory Framework</span>
+              <span class="tlink-author">Momo</span>
+              <span class="tlink-time">30m</span>
+              <span class="tlink-desc">5-layer memory stack, compaction strategies, and memory-as-a-tool pattern.</span>
+            </a>
+            <a href="https://arxiv.org/html/2511.08301v1" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">arXiv</span>
+              <span class="tlink-title">Spark: Shared Memory for Agents</span>
+              <span class="tlink-author">Spark Research</span>
+              <span class="tlink-time">45m</span>
+              <span class="tlink-desc">Small models benefit most from shared memory (+0.66 pts vs +0.05 for GPT-5).</span>
+            </a>
+            <a href="https://www.leoniemonigatti.com/blog/memory-in-ai-agents.html" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Blog</span>
+              <span class="tlink-title">Memory in AI Agents</span>
+              <span class="tlink-author">L. Monigatti</span>
+              <span class="tlink-time">12m</span>
+              <span class="tlink-desc">Clear taxonomy using CoALA framework: working, semantic, episodic, procedural.</span>
+            </a>
+          </div>
+
+          <!-- Knowledge Architecture -->
+          <div class="resources-category" data-category="knowledge-architecture">
+            <h3 class="tcat">Knowledge Architecture</h3>
+            <a href="https://open.substack.com/pub/ramonactruta/p/the-knowledge-architects-playbook" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Pedantic Medallion</span>
+              <span class="tlink-author">R. Ctruta</span>
+              <span class="tlink-time">15m</span>
+              <span class="tlink-desc">Knowledge architect's playbook. The pedantic medallion pattern.</span>
+            </a>
+            <a href="https://open.substack.com/pub/juansequeda/p/trip-report-iswc2025" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">ISWC 2025 Trip Report</span>
+              <span class="tlink-author">J. Sequeda</span>
+              <span class="tlink-time">15m</span>
+              <span class="tlink-desc">International Semantic Web Conference highlights and trends.</span>
+            </a>
+            <a href="https://jennajordan.me/blog/reference-interview-for-data-teams" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Blog</span>
+              <span class="tlink-title">Reference Interview for Data Teams</span>
+              <span class="tlink-author">J. Jordan</span>
+              <span class="tlink-time">10m</span>
+              <span class="tlink-desc">Librarian's reference interview technique applied to data teams.</span>
+            </a>
+            <a href="https://datajargon.substack.com/p/knowing-what-good-looks-like" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">Substack</span>
+              <span class="tlink-title">Knowing What Good Looks Like</span>
+              <span class="tlink-author">Data Jargon</span>
+              <span class="tlink-time">10m</span>
+              <span class="tlink-desc">Standards and benchmarks for quality knowledge work.</span>
+            </a>
+            <a href="https://github.com/AnswerLayer/semiosis" target="_blank" class="tlink">
+              <span class="tlink-dot" style="background:#06b6d4"></span>
+              <span class="tlink-src">GitHub</span>
+              <span class="tlink-title">Semiosis: KB Unit Testing</span>
+              <span class="tlink-author">AnswerLayer</span>
+              <span class="tlink-time">20m</span>
+              <span class="tlink-desc">Measures completeness, redundancy, semantic density, and boundary thresholds.</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Panel: Insights Dashboard -->
+    <aside class="topic-insights">
+      <div class="insights-section">
+        <div class="insights-title">Sources by Geography</div>
+        <div class="insights-bar">
+          <span class="insights-bar-label">USA</span>
+          <div class="insights-bar-track">
+            <div class="insights-bar-fill geo-usa" style="width: 85%"></div>
+          </div>
+          <span class="insights-bar-value">85%</span>
+        </div>
+        <div class="insights-bar">
+          <span class="insights-bar-label">Europe</span>
+          <div class="insights-bar-track">
+            <div class="insights-bar-fill geo-eu" style="width: 0%"></div>
+          </div>
+          <span class="insights-bar-value">0%</span>
+        </div>
+        <div class="insights-bar">
+          <span class="insights-bar-label">Asia</span>
+          <div class="insights-bar-track">
+            <div class="insights-bar-fill geo-asia" style="width: 0%"></div>
+          </div>
+          <span class="insights-bar-value">0%</span>
+        </div>
+        <div class="insights-bar">
+          <span class="insights-bar-label">Unknown</span>
+          <div class="insights-bar-track">
+            <div class="insights-bar-fill geo-unknown" style="width: 15%"></div>
+          </div>
+          <span class="insights-bar-value">15%</span>
+        </div>
+        <div class="insights-gap">
+          <span class="insights-gap-icon">!</span>
+          0 sources from EU, Asia, Africa, or South America
+        </div>
+      </div>
+
+      <div class="insights-section">
+        <div class="insights-title">Voices</div>
+        <div class="insights-voices">
+          <div class="insights-voice">
+            <span class="insights-voice-icon male">&#9794;</span>
+            <span>5</span>
+          </div>
+          <div class="insights-voice">
+            <span class="insights-voice-icon female">&#9792;</span>
+            <span>1</span>
+          </div>
+          <div class="insights-voice">
+            <span class="insights-voice-icon unknown">?</span>
+            <span>5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insights-section">
+        <div class="insights-title">Top Contributors</div>
+        <div class="insights-contributor">
+          <span class="insights-contributor-name">J. Talisman</span>
+          <span class="insights-contributor-count">11</span>
+          <div class="insights-contributor-bar">
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+          </div>
+        </div>
+        <div class="insights-contributor">
+          <span class="insights-contributor-name">dbt Labs</span>
+          <span class="insights-contributor-count">4</span>
+          <div class="insights-contributor-bar">
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+          </div>
+        </div>
+        <div class="insights-contributor">
+          <span class="insights-contributor-name">LangChain</span>
+          <span class="insights-contributor-count">3</span>
+          <div class="insights-contributor-bar">
+            <span class="insights-contributor-pip"></span>
+            <span class="insights-contributor-pip"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insights-section">
+        <div class="insights-title">Added</div>
+        <div class="insights-recent">
+          <div class="insights-recent-item">
+            <span class="insights-recent-dot"></span>
+            <span>Dec 13 — 36 resources</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="topic-status">
+    <span class="status-section">54 resources</span>
+    <span class="status-section">~6 hrs total</span>
+    <span class="status-section status-right">data-centered</span>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Infographic" id="lightbox-img">
+  </div>
+
+  <script>
+    // Infographics gallery
+    const infographics = [
+      'slides/semantic_layer_infographic.png',
+      'slides/context_gap.png',
+      'slides/bridging_the_context_gap.png'
+    ];
+    let currentInfographic = 0;
+
+    function selectInfographic(index) {
+      currentInfographic = index;
+      document.getElementById('main-img').src = infographics[index];
+      document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+    }
+
+    function openLightbox() {
+      document.getElementById('lightbox').classList.add('active');
+      document.getElementById('lightbox-img').src = infographics[currentInfographic];
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Category TOC filtering
+    document.querySelectorAll('.category-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.dataset.category;
+
+        document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        document.querySelectorAll('.resources-category').forEach(section => {
+          if (category === 'all' || section.dataset.category === category) {
+            section.classList.remove('hidden');
+          } else {
+            section.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Insights panel toggle
+    (function() {
+      const toggle = document.getElementById('insights-toggle');
+      const grid = document.getElementById('topic-grid');
+      const mobileBreakpoint = 800;
+
+      function isMobile() {
+        return window.innerWidth <= mobileBreakpoint;
+      }
+
+      function updateState() {
+        if (isMobile()) {
+          grid.classList.remove('insights-hidden');
+          const mobileVisible = localStorage.getItem('insights-mobile-visible') === 'true';
+          if (mobileVisible) {
+            grid.classList.add('insights-visible');
+            toggle.classList.add('active');
+          } else {
+            grid.classList.remove('insights-visible');
+            toggle.classList.remove('active');
+          }
+        } else {
+          grid.classList.remove('insights-visible');
+          const savedState = localStorage.getItem('insights-hidden');
+          if (savedState === 'true') {
+            grid.classList.add('insights-hidden');
+            toggle.classList.add('active');
+          } else {
+            grid.classList.remove('insights-hidden');
+            toggle.classList.remove('active');
+          }
+        }
+      }
+
+      updateState();
+
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateState, 100);
+      });
+
+      toggle.addEventListener('click', function() {
+        if (isMobile()) {
+          grid.classList.toggle('insights-visible');
+          toggle.classList.toggle('active');
+          localStorage.setItem('insights-mobile-visible', grid.classList.contains('insights-visible'));
+        } else {
+          grid.classList.toggle('insights-hidden');
+          toggle.classList.toggle('active');
+          localStorage.setItem('insights-hidden', grid.classList.contains('insights-hidden'));
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
