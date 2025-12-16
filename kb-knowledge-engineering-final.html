@@ -363,38 +363,40 @@
       display: block;
     }
 
-    /* Slide deck preview */
-    .slide-preview {
-      background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-base) 100%);
+    /* PDF preview */
+    .pdf-preview {
+      position: relative;
       border: 1px solid var(--border-dim);
       border-radius: 6px;
-      padding: 1.25rem 1rem;
-      text-align: center;
-      cursor: pointer;
+      overflow: hidden;
       margin-bottom: 0.5rem;
-      transition: all 0.2s;
+      cursor: pointer;
+      height: 140px;
     }
 
-    .slide-preview:hover {
-      border-color: var(--amber);
-      background: linear-gradient(135deg, var(--bg-base) 0%, rgba(245,158,11,0.1) 100%);
+    .pdf-preview iframe {
+      width: 100%;
+      height: 140px;
+      border: none;
+      pointer-events: none;
     }
 
-    .slide-preview-icon {
-      font-size: 2rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .slide-preview-title {
-      font-size: var(--font-base);
-      font-weight: 600;
-      color: var(--text-bright);
-      margin-bottom: 0.25rem;
-    }
-
-    .slide-preview-hint {
+    .pdf-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: var(--amber);
       font-size: var(--font-xs);
-      color: var(--text-dim);
+      padding: 1.5rem 0.5rem 0.35rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .pdf-preview:hover .pdf-overlay {
+      opacity: 1;
     }
 
     .slide-tabs {
@@ -540,29 +542,102 @@
       margin-bottom: -1px;
     }
 
+    .split-pane {
+      display: flex;
+      gap: 1px;
+      background: var(--border-dim);
+      min-height: 90px;
+    }
+
     .category-description {
-      padding: 1rem;
-      min-height: 80px;
+      flex: 1;
+      padding: 0.75rem;
+      background: var(--bg-base);
+    }
+
+    .resource-preview {
+      flex: 1;
+      padding: 0.75rem;
+      background: var(--bg-base);
+      border-left: 1px solid var(--border-dim);
     }
 
     .category-description-title {
       color: var(--cyan);
-      font-size: var(--font-base);
+      font-size: var(--font-sm);
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       font-family: 'JetBrains Mono', monospace;
     }
 
     .category-description-text {
       color: var(--text-mid);
-      font-size: var(--font-sm);
-      line-height: 1.6;
+      font-size: var(--font-xs);
+      line-height: 1.5;
     }
 
     .category-description-count {
       color: var(--text-dim);
+      font-size: 10px;
+      margin-top: 0.35rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Resource Preview Pane */
+    .preview-empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--text-dim);
       font-size: var(--font-xs);
-      margin-top: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .preview-icon {
+      color: var(--border-dim);
+      font-size: 1.25rem;
+    }
+
+    .preview-source {
+      font-size: 10px;
+      color: var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .preview-title {
+      font-size: var(--font-sm);
+      color: var(--text-bright);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+
+    .preview-scope {
+      font-size: var(--font-xs);
+      color: var(--text-mid);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .preview-meta {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+      font-size: 10px;
+    }
+
+    .preview-author {
+      color: var(--text-dim);
+    }
+
+    .preview-granularity {
+      color: var(--purple);
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -640,10 +715,10 @@
     /* SINGLE-ROW RESOURCE LAYOUT */
     .resource-row {
       display: grid;
-      grid-template-columns: 20px 8px 1fr 80px 60px 50px 24px;
+      grid-template-columns: 20px 6px 1fr 70px 55px 40px 20px;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
       transition: background 0.15s;
       border-bottom: 1px solid var(--border-dim);
       cursor: pointer;
@@ -1263,10 +1338,9 @@
               <span>SLIDE DECKS</span>
             </div>
             <div class="panel-body">
-              <div class="slide-preview" onclick="openLightbox('slides')">
-                <div class="slide-preview-icon">📊</div>
-                <div class="slide-preview-title" id="slide-title">AI Context Gap</div>
-                <div class="slide-preview-hint">click to view PDF</div>
+              <div class="pdf-preview" onclick="openLightbox('slides')">
+                <iframe src="slides/AI_Context_Gap.pdf#view=FitH&toolbar=0&navpanes=0" id="pdf-preview-frame"></iframe>
+                <div class="pdf-overlay">click to expand</div>
               </div>
               <div class="slide-tabs">
                 <div class="slide-tab active" onclick="selectSlide(0)">Context Gap</div>
@@ -1316,7 +1390,7 @@
           </div>
           <div class="panel-body" style="flex: 1; display: flex; flex-direction: column; padding: 0; overflow: hidden;">
 
-            <!-- Category Description Pane -->
+            <!-- Category Description Pane - Split View -->
             <div class="category-pane">
               <div class="category-tabs">
                 <button class="category-tab active" data-category="all">All</button>
@@ -1328,10 +1402,27 @@
                 <button class="category-tab" data-category="context-engineering">Context</button>
                 <button class="category-tab" data-category="agent-memory">Memory</button>
               </div>
-              <div class="category-description" id="category-description">
-                <div class="category-description-title">All Resources</div>
-                <div class="category-description-text">Browse the complete collection of knowledge engineering resources spanning context engineering, semantic layers, ontologies, and AI-ready data architecture.</div>
-                <div class="category-description-count">54 resources</div>
+              <div class="split-pane">
+                <div class="category-description" id="category-description">
+                  <div class="category-description-title">All Resources</div>
+                  <div class="category-description-text">Browse the complete collection of knowledge engineering resources spanning context engineering, semantic layers, ontologies, and AI-ready data architecture.</div>
+                  <div class="category-description-count">54 resources</div>
+                </div>
+                <div class="resource-preview" id="resource-preview">
+                  <div class="preview-empty">
+                    <span class="preview-icon">◈</span>
+                    <span>hover over a resource</span>
+                  </div>
+                  <div class="preview-content" id="preview-content" style="display:none;">
+                    <div class="preview-source" id="preview-source"></div>
+                    <div class="preview-title" id="preview-title"></div>
+                    <div class="preview-scope" id="preview-scope"></div>
+                    <div class="preview-meta">
+                      <span class="preview-author" id="preview-author"></span>
+                      <span class="preview-granularity" id="preview-granularity"></span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1992,7 +2083,7 @@
 
     function selectSlide(index) {
       currentSlide = index;
-      document.getElementById('slide-title').textContent = slideDecks[index].title;
+      document.getElementById('pdf-preview-frame').src = slideDecks[index].pdf + '#view=FitH&toolbar=0&navpanes=0';
       document.querySelectorAll('.slide-tab').forEach((tab, i) => {
         tab.classList.toggle('active', i === index);
       });
@@ -2072,10 +2163,32 @@
       });
     });
 
-    // Hover on resource → update category description
+    // Update resource preview pane
+    function updateResourcePreview(resourceId) {
+      const data = resourceData[resourceId];
+      const previewEmpty = document.querySelector('.preview-empty');
+      const previewContent = document.getElementById('preview-content');
+
+      if (data) {
+        previewEmpty.style.display = 'none';
+        previewContent.style.display = 'block';
+        document.getElementById('preview-source').textContent = data.source;
+        document.getElementById('preview-title').textContent = data.title;
+        document.getElementById('preview-scope').textContent = data.scope;
+        document.getElementById('preview-author').textContent = data.author + ' · ' + data.authorDetails;
+        document.getElementById('preview-granularity').textContent = data.granularity;
+      } else {
+        previewEmpty.style.display = 'flex';
+        previewContent.style.display = 'none';
+      }
+    }
+
+    // Hover on resource → update category description AND resource preview
     document.querySelectorAll('.resource-row').forEach(row => {
       row.addEventListener('mouseenter', () => {
         const category = row.dataset.category;
+        const resourceId = row.dataset.resourceId;
+
         if (category) {
           // Update description pane
           updateCategoryDescription(category);
@@ -2084,6 +2197,11 @@
           document.querySelectorAll('.category-tab').forEach(tab => {
             tab.classList.toggle('active', tab.dataset.category === category);
           });
+        }
+
+        // Update resource preview
+        if (resourceId) {
+          updateResourcePreview(resourceId);
         }
       });
     });
