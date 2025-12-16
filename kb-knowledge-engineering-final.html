@@ -170,22 +170,27 @@
 
     .main-grid {
       display: grid;
-      grid-template-columns: 280px 1fr 300px;
+      grid-template-columns: 560px 1fr 300px;
       gap: 1.5rem;
       height: calc(100vh - 140px);
     }
 
     .main-grid.insights-hidden {
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 560px 1fr;
     }
 
     .main-grid.insights-hidden .insights-panel {
       display: none;
     }
 
-    @media (max-width: 1200px) {
-      .main-grid { grid-template-columns: 260px 1fr; }
+    @media (max-width: 1400px) {
+      .main-grid { grid-template-columns: 480px 1fr; }
       .insights-panel { display: none; }
+    }
+
+    @media (max-width: 1100px) {
+      .main-grid { grid-template-columns: 320px 1fr; }
+      .viewers-row { flex-direction: column; }
     }
 
     @media (max-width: 900px) {
@@ -282,25 +287,41 @@
     }
 
     /* ═══════════════════════════════════════════
-       INFOGRAPHICS GALLERY
+       VIEWERS ROW - Side by side
        ═══════════════════════════════════════════ */
 
-    .main-infographic {
+    .viewers-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .viewer-panel {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .viewer-panel .panel-body {
+      padding: 0.75rem;
+    }
+
+    .main-viewer {
       position: relative;
       border-radius: 6px;
       overflow: hidden;
       margin-bottom: 0.5rem;
       cursor: pointer;
       border: 1px solid var(--border-dim);
+      background: var(--bg-elevated);
     }
 
-    .main-infographic img {
+    .main-viewer img {
       width: 100%;
-      height: auto;
+      height: 140px;
+      object-fit: cover;
       display: block;
     }
 
-    .main-infographic:hover::after {
+    .main-viewer:hover::after {
       content: 'enlarge';
       position: absolute;
       bottom: 8px;
@@ -315,7 +336,7 @@
 
     .thumbnail-row {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.35rem;
     }
 
     .thumbnail {
@@ -337,9 +358,25 @@
 
     .thumbnail img {
       width: 100%;
-      height: 40px;
+      height: 32px;
       object-fit: cover;
       display: block;
+    }
+
+    /* Slide deck specific */
+    .slide-thumbnail img {
+      height: 32px;
+      background: var(--bg-elevated);
+    }
+
+    .slide-title {
+      font-size: 9px;
+      color: var(--text-dim);
+      text-align: center;
+      padding: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Lightbox */
@@ -356,10 +393,18 @@
 
     .lightbox.active { display: flex; }
 
-    .lightbox img {
+    .lightbox img,
+    .lightbox iframe {
       max-width: 95vw;
       max-height: 95vh;
       object-fit: contain;
+    }
+
+    .lightbox iframe {
+      width: 90vw;
+      height: 90vh;
+      border: none;
+      background: #fff;
     }
 
     .lightbox-close {
@@ -369,6 +414,7 @@
       color: #fff;
       font-size: 2rem;
       cursor: pointer;
+      z-index: 10;
     }
 
     /* ═══════════════════════════════════════════
@@ -1133,30 +1179,59 @@
           <div class="panel-bottom">╰─────────────────────────────────╯</div>
         </div>
 
-        <!-- Infographics -->
-        <div class="panel accent-purple">
-          <div class="panel-top">╭─────────────────────────────────╮</div>
-          <div class="panel-header">
-            <span class="panel-icon">▣</span>
-            <span>INFOGRAPHICS</span>
-          </div>
-          <div class="panel-body">
-            <div class="main-infographic" onclick="openLightbox()">
-              <img src="slides/semantic_layer_infographic.png" alt="Infographic" id="main-img">
+        <!-- Viewers Row: Infographics + Slide Decks -->
+        <div class="viewers-row">
+          <!-- Infographics -->
+          <div class="panel accent-purple viewer-panel">
+            <div class="panel-top">╭────────────────────────╮</div>
+            <div class="panel-header">
+              <span class="panel-icon">▣</span>
+              <span>INFOGRAPHICS</span>
             </div>
-            <div class="thumbnail-row">
-              <div class="thumbnail active" onclick="selectInfographic(0)">
-                <img src="slides/semantic_layer_infographic.png" alt="Semantic Layer">
+            <div class="panel-body">
+              <div class="main-viewer" onclick="openLightbox('infographic')">
+                <img src="slides/semantic_layer_infographic.png" alt="Infographic" id="main-img">
               </div>
-              <div class="thumbnail" onclick="selectInfographic(1)">
-                <img src="slides/context_gap.png" alt="Context Gap">
-              </div>
-              <div class="thumbnail" onclick="selectInfographic(2)">
-                <img src="slides/bridging_the_context_gap.png" alt="Bridging Gap">
+              <div class="thumbnail-row">
+                <div class="thumbnail active" onclick="selectInfographic(0)">
+                  <img src="slides/semantic_layer_infographic.png" alt="Semantic Layer">
+                </div>
+                <div class="thumbnail" onclick="selectInfographic(1)">
+                  <img src="slides/context_gap.png" alt="Context Gap">
+                </div>
+                <div class="thumbnail" onclick="selectInfographic(2)">
+                  <img src="slides/bridging_the_context_gap.png" alt="Bridging Gap">
+                </div>
               </div>
             </div>
+            <div class="panel-bottom">╰────────────────────────╯</div>
           </div>
-          <div class="panel-bottom">╰─────────────────────────────────╯</div>
+
+          <!-- Slide Decks -->
+          <div class="panel accent-amber viewer-panel">
+            <div class="panel-top">╭────────────────────────╮</div>
+            <div class="panel-header">
+              <span class="panel-icon">▤</span>
+              <span>SLIDE DECKS</span>
+            </div>
+            <div class="panel-body">
+              <div class="main-viewer" onclick="openLightbox('slides')">
+                <img src="slides/context_gap.png" alt="Slide Deck Preview" id="main-slide" style="object-fit: contain; background: var(--bg-base);">
+              </div>
+              <div class="thumbnail-row">
+                <div class="thumbnail slide-thumbnail active" onclick="selectSlide(0)">
+                  <img src="slides/context_gap.png" alt="AI Context Gap">
+                </div>
+                <div class="thumbnail slide-thumbnail" onclick="selectSlide(1)">
+                  <img src="slides/bridging_the_context_gap.png" alt="AI Value Chasm">
+                </div>
+                <div class="thumbnail slide-thumbnail" onclick="selectSlide(2)">
+                  <img src="slides/semantic_layer_infographic.png" alt="Context Engineering">
+                </div>
+              </div>
+            </div>
+            <div class="panel-bottom">╰────────────────────────╯</div>
+          </div>
         </div>
 
         <!-- Key Terms -->
@@ -1724,7 +1799,8 @@
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">×</span>
-    <img src="" alt="Infographic" id="lightbox-img">
+    <img src="" alt="Infographic" id="lightbox-img" style="display:none;">
+    <iframe src="" id="lightbox-pdf" style="display:none;"></iframe>
   </div>
 
   <script>
@@ -1776,11 +1852,44 @@
     };
 
     const resourceData = {
+      // Core Architecture
       'ke-001': { title: 'AI-Ready Data: Technical Assessment', source: 'Substack', author: 'S. Paul', authorDetails: 'Practitioner · Modern Data 101', granularity: 'implementation', scope: 'Argues enterprises must redesign data infrastructure around AI needs—67% of AI projects fail due to data readiness issues. Identifies four barriers: semantic ambiguity, quality degradation, temporal misalignment, and format inconsistency.', url: 'https://moderndata101.substack.com/p/ai-ready-data-a-technical-assessment', relationships: [{ type: 'broader', label: 'Data Quality' }, { type: 'related', label: 'Context Engineering' }] },
       'ke-002': { title: 'Context Engineering for AI Agents', source: 'Manus', author: 'Manus Team', authorDetails: 'Vendor · Manus AI', granularity: 'implementation', scope: 'From Manus team: context engineering is essential for agent systems over custom model training. Prioritizes KV-cache hit rates, stable prompt prefixes, and file-system memory.', url: 'https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus', relationships: [{ type: 'broader', label: 'Context Engineering' }, { type: 'exemplifies', label: 'Agentic Systems' }] },
       'ke-003': { title: 'From Metadata to Meaning', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'foundational', scope: 'Organizations must shift from database-centric approaches to knowledge infrastructures for AI. Key stats: 47% of professionals waste 1-5 hours daily searching for information.', url: 'https://jessicatalisman.substack.com/p/from-metadata-to-meaning-the-knowledge', relationships: [{ type: 'broader', label: 'Metadata Management' }] },
       'ke-004': { title: 'Missing Line Item in 2026 AI Budget', source: 'Atlan', author: 'P. Sankar', authorDetails: 'Vendor · Atlan', granularity: 'conceptual', scope: '2026 marks AI\'s accountability cycle—success requires measurable business impact. MIT Sloan reports 95% of AI projects never make it out of pilot.', url: 'https://atlan.com/know/closing-the-context-gap/', relationships: [{ type: 'broader', label: 'Context Engineering' }] },
-      'ke-005': { title: 'The Semantic Gap', source: 'Substack', author: 'V. Dacanay', authorDetails: 'Practitioner · Metadata Weekly', granularity: 'conceptual', scope: 'AI excels at pattern recognition but lacks semantic density—compressed cultural context and unspoken intent humans possess.', url: 'https://metadataweekly.substack.com/p/the-semantic-gap-why-your-ai-still-cant-read-the-room', relationships: [{ type: 'broader', label: 'Context Engineering' }] }
+      'ke-005': { title: 'The Semantic Gap', source: 'Substack', author: 'V. Dacanay', authorDetails: 'Practitioner · Metadata Weekly', granularity: 'conceptual', scope: 'AI excels at pattern recognition but lacks semantic density—compressed cultural context and unspoken intent humans possess.', url: 'https://metadataweekly.substack.com/p/the-semantic-gap-why-your-ai-still-cant-read-the-room', relationships: [{ type: 'broader', label: 'Context Engineering' }] },
+      // Semantic Layer
+      'ke-006': { title: 'Semantics in Data Modeling', source: 'Substack', author: 'J. Reis', authorDetails: 'Practitioner · Author', granularity: 'conceptual', scope: 'Explores how semantic clarity in data modeling enables better AI outcomes. Covers naming conventions, relationship definitions, and business context preservation.', url: 'https://practicaldatamodeling.substack.com/p/semantics-in-data-modeling', relationships: [{ type: 'broader', label: 'Data Modeling' }] },
+      'ke-007': { title: 'Semantic Layers for Control', source: 'AtScale', author: 'AtScale', authorDetails: 'Vendor · AtScale', granularity: 'conceptual', scope: 'The golden age of semantic layers: how centralized business definitions create consistency across BI tools and AI applications.', url: 'https://www.atscale.com/blog/golden-age-of-the-semantic-layer/', relationships: [{ type: 'broader', label: 'Semantic Layer' }] },
+      'ke-008': { title: 'Consume Metrics', source: 'dbt Docs', author: 'dbt', authorDetails: 'Vendor · dbt Labs', granularity: 'implementation', scope: 'Official guide to consuming metrics from the dbt Semantic Layer. Covers API access, integrations, and query patterns.', url: 'https://docs.getdbt.com/docs/use-dbt-semantic-layer/consume-metrics', relationships: [{ type: 'broader', label: 'dbt Semantic Layer' }] },
+      'ke-009': { title: 'Administer Semantic Layer', source: 'dbt Docs', author: 'dbt', authorDetails: 'Vendor · dbt Labs', granularity: 'implementation', scope: 'Setup and administration guide for dbt Semantic Layer. Covers configuration, permissions, and deployment.', url: 'https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl', relationships: [{ type: 'broader', label: 'dbt Semantic Layer' }] },
+      'ke-040': { title: 'Deploy Metrics', source: 'dbt Docs', author: 'dbt', authorDetails: 'Vendor · dbt Labs', granularity: 'implementation', scope: 'Deployment patterns for dbt Semantic Layer metrics. Covers CI/CD integration and production deployment.', url: 'https://docs.getdbt.com/docs/use-dbt-semantic-layer/deploy-sl', relationships: [{ type: 'broader', label: 'dbt Semantic Layer' }] },
+      // Semantic Foundations
+      'ke-010': { title: 'The Ontology Pipeline', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'implementation', scope: 'Step-by-step process for building enterprise ontologies. Covers domain analysis, concept extraction, and relationship modeling.', url: 'https://jessicatalisman.substack.com/p/the-ontology-pipeline', relationships: [{ type: 'broader', label: 'Ontology' }] },
+      'ke-011': { title: 'Concept Models vs Ontologies', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'conceptual', scope: 'The sketch and the blueprint: when to use lightweight concept models vs formal ontologies. Covers use cases and trade-offs.', url: 'https://jessicatalisman.substack.com/p/concept-models-versus-ontologies-the-sketch-and-the-blueprint', relationships: [{ type: 'broader', label: 'Ontology' }] },
+      'ke-012': { title: 'Controlled Vocabularies I', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'foundational', scope: 'Introduction to controlled vocabularies: term lists, taxonomies, and thesauri. The foundation for semantic consistency.', url: 'https://jessicatalisman.substack.com/p/controlled-vocabulary-part-i', relationships: [{ type: 'broader', label: 'Vocabulary' }] },
+      'ke-013': { title: 'Controlled Vocabularies II', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'foundational', scope: 'Advanced vocabulary patterns: faceted classification, polyhierarchy, and vocabulary governance.', url: 'https://jessicatalisman.substack.com/p/controlled-vocabularies', relationships: [{ type: 'broader', label: 'Vocabulary' }] },
+      'ke-041': { title: 'Metadata as Data Model I', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'foundational', scope: 'Treating metadata as first-class data. Covers metadata schemas, standards, and interoperability.', url: 'https://jessicatalisman.substack.com/p/metadata-as-a-data-model', relationships: [{ type: 'broader', label: 'Metadata' }] },
+      'ke-042': { title: 'Metadata as Data Model II', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'foundational', scope: 'Metadata application profiles and crosswalks. How to map between different metadata standards.', url: 'https://jessicatalisman.substack.com/p/metadata-as-a-data-model-b68', relationships: [{ type: 'broader', label: 'Metadata' }] },
+      'ke-043': { title: 'Metadata Application Profiles', source: 'Substack', author: 'J. Talisman', authorDetails: 'Practitioner · Adobe · 25 yrs', granularity: 'implementation', scope: 'Creating organization-specific metadata profiles that balance standardization with local requirements.', url: 'https://jessicatalisman.substack.com/p/metadata-as-a-data-model-ec0', relationships: [{ type: 'broader', label: 'Metadata' }] },
+      // Knowledge Graphs
+      'ke-015': { title: 'Grounding LLMs with KG', source: 'Medium', author: 'A. Negro', authorDetails: 'Practitioner · Knowledge Graph Expert', granularity: 'conceptual', scope: 'Knowledge graphs provide the factual grounding LLMs need. Covers graph-RAG patterns and entity linking.', url: 'https://medium.com/@alessandro-negro/grounding-llms-the-knowledge-graph-foundation-every-ai-project-needs', relationships: [{ type: 'broader', label: 'Knowledge Graph' }] },
+      'ke-016': { title: 'Building Knowledge Graphs', source: 'Blog', author: 'K. Cagle', authorDetails: 'Practitioner · Semanticist', granularity: 'foundational', scope: 'What is a knowledge graph really? Covers graph data models, RDF, property graphs, and practical construction.', url: 'https://kurtcagle.wpcomstaging.com/2023/04/18/what-is-a-knowledge-graph-really/', relationships: [{ type: 'broader', label: 'Knowledge Graph' }] },
+      'ke-017': { title: 'Enterprise Needs Ontology', source: 'Substack', author: 'V. Vashishta', authorDetails: 'Practitioner · AI Strategist', granularity: 'conceptual', scope: 'Why agentic enterprises need formal ontologies. Covers reasoning, inference, and agent interoperability.', url: 'https://vinvashishta.substack.com/p/why-your-agentic-enterprise-needs', relationships: [{ type: 'broader', label: 'Ontology' }] },
+      // Agentic Systems
+      'ke-020': { title: 'Building Analyst Agent with dbt', source: 'dbt Blog', author: 'J. Sobel', authorDetails: 'Vendor · dbt Labs', granularity: 'implementation', scope: 'How dbt Agents use the semantic layer for trusted analytics. Covers MCP server integration and guardrails.', url: 'https://www.getdbt.com/blog/dbt-agents-remote-dbt-mcp-server-trusted-ai-for-analytics', relationships: [{ type: 'broader', label: 'dbt Agents' }] },
+      'ke-021': { title: 'Agentic Data Analyst', source: 'Ramp Eng', author: 'Ramp', authorDetails: 'Vendor · Ramp', granularity: 'implementation', scope: 'Ramp Research: building an agentic data analyst. Covers tool use, memory, and iterative refinement.', url: 'https://engineering.ramp.com/post/meet-ramp-research', relationships: [{ type: 'exemplifies', label: 'Agentic Systems' }] },
+      'ke-022': { title: 'Context Engineering Discipline', source: 'Podcast', author: 'T. Macey', authorDetails: 'Practitioner · Data Engineering Podcast', granularity: 'conceptual', scope: 'Context engineering as an emerging discipline. Covers governance, tooling, and organizational patterns.', url: 'https://www.dataengineeringpodcast.com/episodepage/context-engineering-as-a-discipline-building-gove', relationships: [{ type: 'broader', label: 'Context Engineering' }] },
+      'ke-023': { title: 'Librarian\'s Reference Interview', source: 'Substack', author: 'J. Jordan', authorDetails: 'Practitioner · Data Intelligence', granularity: 'conceptual', scope: 'Applying library science reference interview techniques to AI query understanding. Human-centered approach to context.', url: 'https://dataintelligenceplatform.substack.com/p/the-librarians-reference-interview', relationships: [{ type: 'related', label: 'Context Engineering' }] },
+      // Context Engineering
+      'ke-025': { title: 'Context Engineering for Agents', source: 'LangChain', author: 'LangChain', authorDetails: 'Vendor · LangChain', granularity: 'implementation', scope: 'LangChain\'s guide to context engineering. Covers context window management, compression, and retrieval patterns.', url: 'https://blog.langchain.com/context-engineering-for-agents/', relationships: [{ type: 'broader', label: 'Context Engineering' }] },
+      'ke-026': { title: 'Context Engineering Deep Dive', source: 'Weaviate', author: 'Weaviate', authorDetails: 'Vendor · Weaviate', granularity: 'implementation', scope: 'Deep dive into context engineering with vector databases. Covers hybrid search, reranking, and context assembly.', url: 'https://weaviate.io/blog/context-engineering', relationships: [{ type: 'broader', label: 'Context Engineering' }] },
+      'ke-027': { title: 'How Prompt Caching Works', source: 'Bear Blog', author: 'S. Agarwal', authorDetails: 'Practitioner · Engineer', granularity: 'implementation', scope: 'Technical deep dive into LLM prompt caching. Covers KV-cache, prefix matching, and cost optimization.', url: 'https://sankalp.bearblog.dev/how-prompt-caching-works/', relationships: [{ type: 'related', label: 'Context Engineering' }] },
+      'ke-028': { title: 'Filesystems for Context', source: 'LangChain', author: 'LangChain', authorDetails: 'Vendor · LangChain', granularity: 'implementation', scope: 'Using filesystems as agent memory. Covers file-based context persistence and retrieval patterns.', url: 'https://blog.langchain.com/how-agents-can-use-filesystems-for-context-engineering/', relationships: [{ type: 'broader', label: 'Agent Memory' }] },
+      // Agent Memory
+      'ke-030': { title: 'Momo Research - Memory Framework', source: 'GitHub', author: 'Momo', authorDetails: 'Research · Open Source', granularity: 'advanced', scope: 'Comprehensive memory framework for personal AI assistants. Covers working, semantic, episodic, and procedural memory.', url: 'https://github.com/momo-personal-assistant/momo-research', relationships: [{ type: 'broader', label: 'Agent Memory' }] },
+      'ke-031': { title: 'Spark: Shared Memory for Agents', source: 'arXiv', author: 'Spark', authorDetails: 'Research · Academic', granularity: 'advanced', scope: 'Multi-agent shared memory architecture. Covers memory synchronization, conflict resolution, and collective learning.', url: 'https://arxiv.org/html/2511.08301v1', relationships: [{ type: 'broader', label: 'Agent Memory' }] },
+      'ke-032': { title: 'Memory in AI Agents', source: 'Blog', author: 'L. Monigatti', authorDetails: 'Practitioner · Weaviate', granularity: 'conceptual', scope: 'Survey of memory architectures for AI agents. Covers short-term, long-term, and external memory patterns.', url: 'https://www.leoniemonigatti.com/blog/memory-in-ai-agents.html', relationships: [{ type: 'broader', label: 'Agent Memory' }] }
     };
 
     // ═══════════════════════════════════════════
@@ -1821,18 +1930,59 @@
     function selectInfographic(index) {
       currentInfographic = index;
       document.getElementById('main-img').src = infographics[index];
-      document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+      document.querySelectorAll('.panel.accent-purple .thumbnail').forEach((thumb, i) => {
         thumb.classList.toggle('active', i === index);
       });
     }
 
-    function openLightbox() {
-      document.getElementById('lightbox').classList.add('active');
-      document.getElementById('lightbox-img').src = infographics[currentInfographic];
+    // ═══════════════════════════════════════════
+    // SLIDE DECKS
+    // ═══════════════════════════════════════════
+
+    const slideDecks = [
+      { img: 'slides/context_gap.png', pdf: 'slides/AI_Context_Gap.pdf', title: 'AI Context Gap' },
+      { img: 'slides/bridging_the_context_gap.png', pdf: 'slides/AI_Value_Chasm.pdf', title: 'AI Value Chasm' },
+      { img: 'slides/semantic_layer_infographic.png', pdf: 'slides/Context_Engineering_Unlocking_AI_Value.pdf', title: 'Context Engineering' }
+    ];
+    let currentSlide = 0;
+
+    function selectSlide(index) {
+      currentSlide = index;
+      document.getElementById('main-slide').src = slideDecks[index].img;
+      document.querySelectorAll('.slide-thumbnail').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+    }
+
+    // ═══════════════════════════════════════════
+    // LIGHTBOX
+    // ═══════════════════════════════════════════
+
+    let lightboxMode = 'infographic';
+
+    function openLightbox(mode) {
+      lightboxMode = mode;
+      const lightbox = document.getElementById('lightbox');
+      const imgEl = document.getElementById('lightbox-img');
+      const pdfEl = document.getElementById('lightbox-pdf');
+
+      if (mode === 'infographic') {
+        imgEl.src = infographics[currentInfographic];
+        imgEl.style.display = 'block';
+        pdfEl.style.display = 'none';
+      } else if (mode === 'slides') {
+        pdfEl.src = slideDecks[currentSlide].pdf;
+        pdfEl.style.display = 'block';
+        imgEl.style.display = 'none';
+      }
+
+      lightbox.classList.add('active');
     }
 
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.getElementById('lightbox-pdf').src = '';
     }
 
     document.addEventListener('keydown', (e) => {
@@ -1954,25 +2104,18 @@
         window.open(currentResourceUrl, '_blank');
       };
 
-      // Position card near the clicked element
-      const rect = element.getBoundingClientRect();
-      const cardWidth = 420;
-      const cardHeight = 450;
+      // Position card centered over clicked row
+      var rect = element.getBoundingClientRect();
+      var cardWidth = 420;
+      var cardHeight = 450;
+      var left = rect.left + (rect.width / 2) - (cardWidth / 2);
+      var top = rect.bottom + 10;
 
-      // Center horizontally on the clicked row, clamped to viewport
-      let left = rect.left + (rect.width / 2) - (cardWidth / 2);
-      left = Math.max(20, Math.min(left, window.innerWidth - cardWidth - 20));
-
-      // Position below the row if space, otherwise above
-      let top;
-      if (rect.bottom + cardHeight + 20 < window.innerHeight) {
-        top = rect.bottom + 10;
-      } else if (rect.top - cardHeight - 10 > 20) {
-        top = rect.top - cardHeight - 10;
-      } else {
-        // Not enough space above or below, center vertically
-        top = Math.max(20, (window.innerHeight - cardHeight) / 2);
-      }
+      // Clamp to viewport
+      if (left < 20) left = 20;
+      if (left + cardWidth > window.innerWidth - 20) left = window.innerWidth - cardWidth - 20;
+      if (top + cardHeight > window.innerHeight - 20) top = rect.top - cardHeight - 10;
+      if (top < 20) top = 20;
 
       resourceCard.style.left = left + 'px';
       resourceCard.style.top = top + 'px';
