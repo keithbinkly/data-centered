@@ -2,132 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>data-centered</title>
   <meta name="description" content="Curated resources on knowledge engineering, data visualization, and AI systems.">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dashboard tui">
+<body class="dashboard topic-page tui">
 
-  <header class="dash-header">
-    <div class="dash-brand">data-centered</div>
-    <div class="dash-tagline">curated resources for data & AI practitioners</div>
-    <div class="tui-header-right">
-      <span class="tui-time" id="tui-clock"></span>
-    </div>
+  <header class="topic-header">
+    <span class="topic-indicator" style="background: #d4a84b"></span>
+    <h1 class="topic-title">data-centered</h1>
+    <span class="topic-count">curated resources for data & AI practitioners</span>
   </header>
-  <script>
-    // TUI clock
-    function updateClock() {
-      const now = new Date();
-      const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
-      document.getElementById('tui-clock').textContent = time;
-    }
-    updateClock();
-    setInterval(updateClock, 60000);
-  </script>
 
-  <main class="dash-layout">
+  <main class="topic-grid">
 
-    <!-- Topics Column -->
-    <section class="dash-col dash-col-main">
-      <div class="tui-panel accent-cyan">
-        <div class="tui-panel-header">
-          <span class="panel-icon">◈</span> Topics
+    <!-- Left Panel: About -->
+    <aside class="topic-aside">
+      <h3 class="tcat">About</h3>
+      <div class="about-header section-content">
+        <div class="about-avatar">KB</div>
+        <div>
+          <div class="about-name">Keith Binkly</div>
+          <div class="about-role">Director, Data Analytics</div>
         </div>
-        <div class="tui-panel-content">
-          <div class="dash-section-header">
-            <h2>Knowledge Areas</h2>
-            <div class="dash-col-labels">
-              <span>count</span>
-              <span>new</span>
+      </div>
+      <p class="topic-lede section-content">Building analytics operations from first dedicated analyst to leading data strategy across enterprise BaaS division. Interested in semantic layers, AI-ready architecture, and making analytics actually useful.</p>
+      <div class="about-location section-content">Los Angeles, CA</div>
+
+      <h3 class="tcat">Experience</h3>
+      <div class="timeline section-content">
+        <div class="timeline-item">
+          <span class="timeline-tree">├──</span>
+          <div class="timeline-content">
+            <div class="timeline-org">Green Dot Corporation</div>
+            <div class="timeline-dates">2019 - present</div>
+          </div>
+        </div>
+        <div class="timeline-sub">
+          <span class="timeline-tree">│ ├─</span>
+          <div class="timeline-content">
+            <span class="timeline-role">Director, Data Analytics</span>
+            <span class="timeline-dates">Apr 2024 - present</span>
+          </div>
+        </div>
+        <div class="timeline-sub">
+          <span class="timeline-tree">│ ├─</span>
+          <div class="timeline-content">
+            <span class="timeline-role">Sr. Manager, Analytics</span>
+            <span class="timeline-dates">Mar 2023 - Apr 2024</span>
+          </div>
+        </div>
+        <div class="timeline-sub">
+          <span class="timeline-tree">│ ├─</span>
+          <div class="timeline-content">
+            <span class="timeline-role">Manager, Analytics</span>
+            <span class="timeline-dates">Jan 2021 - Mar 2023</span>
+          </div>
+        </div>
+        <div class="timeline-sub">
+          <span class="timeline-tree">│ └─</span>
+          <div class="timeline-content">
+            <span class="timeline-role">Senior Data Analyst</span>
+            <span class="timeline-dates">Jan 2019 - Jan 2021</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-tree">├──</span>
+          <div class="timeline-content">
+            <div class="timeline-org">FreedomPop</div>
+            <span class="timeline-role">Revenue Operations Mgr</span>
+            <span class="timeline-dates">2015 - 2018</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-tree">└──</span>
+          <div class="timeline-content">
+            <div class="timeline-org">Hypothes.is</div>
+            <span class="timeline-role">Executive Support</span>
+            <span class="timeline-dates">2012 · SF</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="tcat">Stack</h3>
+      <div class="skills-list section-content">
+        <span class="skill-tag">dbt</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Redshift</span>
+        <span class="skill-tag">MetricFlow</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Claude</span>
+      </div>
+
+      <h3 class="tcat">Education</h3>
+      <div class="timeline section-content">
+        <div class="timeline-item">
+          <span class="timeline-tree">├──</span>
+          <div class="timeline-content">
+            <div class="timeline-org">USC</div>
+            <span class="timeline-role">B.A. Economics, magna cum laude</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-tree">└──</span>
+          <div class="timeline-content">
+            <div class="timeline-org">London School of Economics</div>
+            <span class="timeline-role">General Course</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="tcat">Links</h3>
+      <div class="about-links section-content">
+        <a href="https://github.com/keithbinkly" target="_blank" class="about-link">├── github</a>
+        <a href="https://linkedin.com/in/keithbinkly" target="_blank" class="about-link">└── linkedin</a>
+      </div>
+    </aside>
+
+    <!-- Main: Topics & Guides -->
+    <section class="topic-reading">
+      <div class="topic-reading-cols">
+
+        <div class="topic-reading-col">
+          <h3 class="tcat">Topics</h3>
+          <a href="pages/knowledge-engineering.html" class="tlink">
+            <span class="tlink-dot" style="background:#06b6d4"></span>
+            <span class="tlink-src">54</span>
+            <span class="tlink-title">Knowledge Engineering</span>
+            <span class="tlink-author">+18</span>
+          </a>
+          <a href="pages/data-engineering.html" class="tlink">
+            <span class="tlink-dot" style="background:#f97316"></span>
+            <span class="tlink-src">73</span>
+            <span class="tlink-title">Data Engineering</span>
+            <span class="tlink-author">+48</span>
+          </a>
+          <a href="pages/personal-growth.html" class="tlink">
+            <span class="tlink-dot" style="background:#10b981"></span>
+            <span class="tlink-src">46</span>
+            <span class="tlink-title">Personal Growth</span>
+            <span class="tlink-author">+46</span>
+          </a>
+          <a href="pages/design-craft.html" class="tlink">
+            <span class="tlink-dot" style="background:#8b5cf6"></span>
+            <span class="tlink-src">12</span>
+            <span class="tlink-title">Design Craft</span>
+            <span class="tlink-author">+12</span>
+          </a>
+
+          <h3 class="tcat">Guides</h3>
+          <a href="pages/terminal-stack.html" class="tlink">
+            <span class="tlink-dot" style="background:#10b981"></span>
+            <span class="tlink-src">guide</span>
+            <span class="tlink-title">Terminal Dev Stack</span>
+            <span class="tlink-author"></span>
+          </a>
+        </div>
+
+        <div class="topic-reading-col">
+          <h3 class="tcat">Featured Project</h3>
+          <div class="project-card section-content">
+            <div class="project-header">
+              <span class="project-name">dbt-agent</span>
+              <span class="project-badge">ACTIVE</span>
+            </div>
+            <p class="project-desc">
+              An experimental environment exploring AI agents, memory systems, and semantic layers
+              to accelerate dbt pipeline development. Building towards "conversational BI" -
+              where analysts query data through natural language backed by proper semantic context.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">ai-agents</span>
+              <span class="project-tag">semantic-layer</span>
+              <span class="project-tag">dbt</span>
+              <span class="project-tag">mcp</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/keithbinkly/dbt-agent" target="_blank" class="project-link">github</a>
             </div>
           </div>
 
-          <div class="dash-topics">
-            <a href="pages/knowledge-engineering.html" class="dash-topic-row">
-              <span class="dash-topic-indicator" style="background: #06b6d4; box-shadow: 0 0 10px #06b6d4"></span>
-              <span class="dash-topic-title">Knowledge Engineering</span>
-              <span class="dash-topic-count">32</span>
-              <span class="dash-topic-new">+32</span>
-            </a>
-
-            <a href="pages/data-engineering.html" class="dash-topic-row">
-              <span class="dash-topic-indicator" style="background: #f97316; box-shadow: 0 0 10px #f97316"></span>
-              <span class="dash-topic-title">Data Engineering</span>
-              <span class="dash-topic-count">73</span>
-              <span class="dash-topic-new">+48</span>
-            </a>
-
-            <a href="pages/personal-growth.html" class="dash-topic-row">
-              <span class="dash-topic-indicator" style="background: #10b981; box-shadow: 0 0 10px #10b981"></span>
-              <span class="dash-topic-title">Personal Growth</span>
-              <span class="dash-topic-count">46</span>
-              <span class="dash-topic-new">+46</span>
-            </a>
-
-            <a href="pages/design-craft.html" class="dash-topic-row">
-              <span class="dash-topic-indicator" style="background: #8b5cf6; box-shadow: 0 0 10px #8b5cf6"></span>
-              <span class="dash-topic-title">Design Craft</span>
-              <span class="dash-topic-count">12</span>
-              <span class="dash-topic-new">+12</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Guides Column -->
-    <section class="dash-col dash-col-side">
-      <div class="tui-panel accent-green">
-        <div class="tui-panel-header">
-          <span class="panel-icon">▤</span> Guides
-        </div>
-        <div class="tui-panel-content">
-          <div class="dash-section-header">
-            <h2>Reference Docs</h2>
-          </div>
-
-          <div class="dash-guides">
-            <a href="pages/terminal-stack.html" class="dash-guide-row">
-              <span class="dash-guide-title">Terminal Dev Stack</span>
-              <span class="dash-guide-arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="tui-panel accent-purple">
-        <div class="tui-panel-header">
-          <span class="panel-icon">◐</span> Visualizations
-        </div>
-        <div class="tui-panel-content">
-          <div class="dash-viz-placeholder">
+          <h3 class="tcat">Visualizations</h3>
+          <div class="viz-placeholder section-content">
             <span class="dim">coming soon</span>
           </div>
         </div>
+
       </div>
     </section>
 
   </main>
 
-  <footer class="dash-footer">
-    <div class="dash-footer-content">
-      <div class="tui-status">
-        <span class="tui-status-dot"></span>
-        <span>online</span>
-      </div>
-      <div class="tui-status">
-        <span>3 topics</span>
-      </div>
-      <div class="tui-status">
-        <span>53 resources</span>
-      </div>
-      <div class="tui-status">
-        <span>curated knowledge base</span>
-      </div>
-    </div>
+  <footer class="topic-status">
+    <span class="status-dot"></span>
+    <span>online</span>
+    <span class="dim">·</span>
+    <span>4 topics</span>
+    <span class="dim">·</span>
+    <span>185 resources</span>
   </footer>
 
 </body>
