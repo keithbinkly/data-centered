@@ -55,7 +55,8 @@
       "Bash(wc:*)",
       "Bash(beads list:*)",
       "Bash(beads add:*)",
-      "Bash(git ls-tree:*)"
+      "Bash(git ls-tree:*)",
+      "Bash(git push)"
     ]
   }
 }
