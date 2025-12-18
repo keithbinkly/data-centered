@@ -4219,6 +4219,20 @@ body.zen-mode .topic-reading {
   display: none !important;
 }
 
+/* --- Lucide Source Icons --- */
+.tlink-icon {
+  width: 12px;
+  height: 12px;
+  vertical-align: -1px;
+  opacity: 0.6;
+  margin-right: 4px;
+}
+
+.tlink-src {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* --- Mobile Adjustments for TUI Features --- */
 @media (max-width: 768px) {
   .tui-help-modal {

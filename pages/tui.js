@@ -32,7 +32,64 @@ class TUIController {
     this.setupQuickPeek();
     this.setupContextCards();
     this.createHelpOverlay();
+    this.injectSourceIcons();
     console.log('TUI v2.0: System Online');
+  }
+
+  // ═══════════════════════════════════════════
+  // SOURCE ICONS (Lucide)
+  // ═══════════════════════════════════════════
+
+  injectSourceIcons() {
+    // Only run if Lucide is loaded
+    if (typeof lucide === 'undefined') return;
+
+    const iconMap = {
+      'substack': 'file-text',
+      'blog': 'rss',
+      'dbt blog': 'database',
+      'medium': 'book-open',
+      'github': 'github',
+      'tableau public': 'bar-chart-2',
+      'tableau': 'bar-chart-2',
+      'x/twitter': 'message-circle',
+      'twitter': 'message-circle',
+      'the pudding': 'pie-chart',
+      'arxiv': 'graduation-cap',
+      'mit sloan': 'graduation-cap',
+      'anthropic': 'bot',
+      'elite ai': 'bot',
+      'every': 'mail',
+      'personal site': 'user',
+      'website': 'globe',
+      'essay': 'pen-line',
+      'podcast': 'headphones',
+      'youtube': 'play-circle',
+      'video': 'play-circle',
+      'docs': 'book',
+      'duckdb': 'database',
+      'a16z': 'briefcase',
+      'quillette': 'quote',
+      'pluralistic': 'megaphone',
+      'rolling stone': 'music',
+    };
+
+    document.querySelectorAll('.tlink-src').forEach(srcEl => {
+      const srcText = srcEl.textContent.trim().toLowerCase();
+      const iconName = iconMap[srcText] || 'link';
+
+      // Create icon element
+      const icon = document.createElement('i');
+      icon.setAttribute('data-lucide', iconName);
+      icon.className = 'tlink-icon';
+
+      // Insert before text
+      srcEl.insertBefore(icon, srcEl.firstChild);
+      srcEl.insertBefore(document.createTextNode(' '), icon.nextSibling);
+    });
+
+    // Initialize Lucide icons
+    lucide.createIcons();
   }
 
   // ═══════════════════════════════════════════
