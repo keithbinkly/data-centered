@@ -57,7 +57,14 @@
       "Bash(beads add:*)",
       "Bash(git ls-tree:*)",
       "Bash(git push)",
-      "Bash(npx playwright:*)"
+      "Bash(npx playwright:*)",
+      "Bash(open:*)",
+      "Bash(xcrun simctl list:*)",
+      "Bash(xcrun:*)",
+      "WebFetch(domain:newsletter.pragmaticengineer.com)",
+      "WebFetch(domain:williaminmon.substack.com)",
+      "WebFetch(domain:manialabs.substack.com)",
+      "Bash(xargs:*)"
     ]
   }
 }

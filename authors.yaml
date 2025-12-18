@@ -1183,3 +1183,137 @@ authors:
       MIT Media Lab affiliate. Daily blogger at Pluralistic.net. EFF staff.
       Coined "enshittification." Author of Little Brother, Walkaway, etc.
     bioSource: https://craphound.com/bio/
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Authors Added 2025-12-17 (Resource Intake Batch)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: godatadriven
+    name: GoDataDriven
+    type: organization
+    location:
+      city: Amsterdam
+      country: Netherlands
+      continent: Europe
+    jobTitle: ~
+    industry: Data Engineering / MLOps
+    affiliation: Xebia Group
+    perspectiveType: vendor
+    yearsInField: ~
+    education: ~
+    nativeLanguage: ~
+    socialFollowing: medium
+    bio: >
+      Dutch data consultancy, part of Xebia. Known for dbt tooling contributions
+      including dbt-bouncer. Focus on modern data stack and MLOps.
+    bioSource: https://godatadriven.com/
+
+  - id: g-szabo
+    name: Gergely Szabo
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: ~
+      continent: Europe
+    jobTitle: Data & Metadata Strategist
+    industry: Data Management / Metadata
+    affiliation: Metadata Weekly
+    perspectiveType: practitioner
+    yearsInField: ~
+    education: ~
+    nativeLanguage: ~
+    socialFollowing: medium
+    bio: >
+      Author of Metadata Weekly newsletter. Focuses on metadata strategy,
+      data catalogs, and AI readiness for enterprise data.
+    bioSource: https://metadataweekly.substack.com/
+
+  - id: t-joutsenlahti
+    name: Tero Joutsenlahti
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: Finland
+      continent: Europe
+    jobTitle: Knowledge Graph Specialist
+    industry: Knowledge Engineering
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    education: ~
+    nativeLanguage: Finnish
+    socialFollowing: small
+    bio: >
+      Knowledge graph and ontology practitioner. Writes about semantic
+      technologies for enterprise knowledge management.
+    bioSource: https://www.linkedin.com/in/tjoutsenlahti/
+
+  - id: g-orosz
+    name: Gergely Orosz
+    birthYear: ~
+    generation: millennial
+    gender: male
+    location:
+      city: Amsterdam
+      country: Netherlands
+      continent: Europe
+    jobTitle: Author / Former Engineering Manager
+    industry: Software Engineering
+    affiliation: The Pragmatic Engineer
+    perspectiveType: practitioner
+    yearsInField: 15
+    education: ~
+    nativeLanguage: Hungarian
+    socialFollowing: large
+    bio: >
+      Former engineering manager at Uber and Skype. Author of The Pragmatic Engineer
+      newsletter (600k+ subscribers). Writes about engineering practices, career,
+      and industry trends.
+    bioSource: https://newsletter.pragmaticengineer.com/about
+
+  - id: w-inmon
+    name: Bill Inmon
+    birthYear: 1945
+    generation: boomer
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    jobTitle: Author / Consultant
+    industry: Data Warehousing
+    affiliation: Forest Rim Technology
+    perspectiveType: academic
+    yearsInField: 50
+    education: ~
+    nativeLanguage: English
+    socialFollowing: large
+    bio: >
+      "Father of Data Warehousing." Coined the term and defined foundational
+      concepts. Author of 65+ books on data management. Created Corporate
+      Information Factory methodology.
+    bioSource: https://en.wikipedia.org/wiki/Bill_Inmon
+
+  - id: mania-labs
+    name: Mania Labs
+    type: organization
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    jobTitle: ~
+    industry: AI Product Development
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    education: ~
+    nativeLanguage: ~
+    socialFollowing: small
+    bio: >
+      AI product development blog. Covers AI evaluation methods, product
+      management for AI products, and practical AI implementation.
+    bioSource: https://manialabs.substack.com/

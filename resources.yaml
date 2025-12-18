@@ -43,9 +43,9 @@
 # ═══════════════════════════════════════════════════════════════════════════════
 
 metadata:
-  version: "1.0"
-  lastUpdated: 2025-12-13
-  totalResources: 54
+  version: "1.1"
+  lastUpdated: 2025-12-17
+  totalResources: 61
 
 domains:
   - id: knowledge-engineering
@@ -59,11 +59,42 @@ domains:
       - Semantic Layer
       - Knowledge Graphs
       - Semantic Foundations
-      - Agentic Systems
+      - Agentic Analytics
       - Process Knowledge
       - Context Engineering
-      - Agent Memory
       - Knowledge Quality
+
+  - id: ai-llms
+    name: AI & LLMs
+    description: >
+      Foundational knowledge about how AI systems work—memory architectures,
+      LLM behavior, evaluation methods, and prompt engineering principles.
+    color: "#a855f7"
+    categories:
+      - LLM Foundations
+      - Agent Memory
+      - AI Evaluation
+      - Prompt Engineering
+
+  - id: ai-tools
+    name: AI Tools & Infrastructure
+    description: >
+      Practical tools, frameworks, and infrastructure for building AI applications
+      and agent systems.
+    color: "#10b981"
+    categories:
+      - Agent Infrastructure
+      - Development Tools
+
+  - id: analytics-engineering
+    name: Analytics Engineering
+    description: >
+      Best practices for data transformation, semantic modeling, and dbt development.
+    color: "#f97316"
+    categories:
+      - dbt Practices
+      - Data Modeling
+      - Transformation Tools
 
   - id: data-visualization
     name: Data Visualization
@@ -86,28 +117,6 @@ domains:
       - Process Guides
       - Scrollytelling
       - Data Journalism
-
-  - id: ai-tools
-    name: AI Tools & Infrastructure
-    description: >
-      Tools, frameworks, and infrastructure for building AI applications
-      and agent systems.
-    color: "#10b981"
-    categories:
-      - Prompt Engineering
-      - Agent Infrastructure
-      - Memory Systems
-      - Development Tools
-
-  - id: data-engineering
-    name: Data Engineering
-    description: >
-      Best practices for data transformation, modeling, and pipeline development.
-    color: "#f97316"
-    categories:
-      - dbt Practices
-      - Data Modeling
-      - Pipeline Tools
 
   - id: career-development
     name: Career Development
@@ -882,7 +891,7 @@ resources:
 
     # Classification
     domain: knowledge-engineering
-    category: Agentic Systems
+    category: Agentic Analytics
     granularity: implementation
 
     # Relationships
@@ -916,7 +925,7 @@ resources:
 
     # Classification
     domain: knowledge-engineering
-    category: Agentic Systems
+    category: Agentic Analytics
     granularity: conceptual
 
     # Relationships
@@ -948,7 +957,7 @@ resources:
 
     # Classification
     domain: knowledge-engineering
-    category: Agentic Systems
+    category: Agentic Analytics
     granularity: implementation
 
     # Relationships
@@ -980,7 +989,7 @@ resources:
 
     # Classification
     domain: knowledge-engineering
-    category: Agentic Systems
+    category: Agentic Analytics
     granularity: conceptual
 
     # Relationships
@@ -1502,7 +1511,7 @@ resources:
     color: "#06b6d4"
 
   # ─────────────────────────────────────────────────────────────────────────────
-  # Knowledge Engineering - Agent Memory
+  # AI & LLMs - Agent Memory
   # ─────────────────────────────────────────────────────────────────────────────
 
   - id: momo-context-engineering-research
@@ -1522,7 +1531,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: knowledge-engineering
+    domain: ai-llms
     category: Agent Memory
     granularity: advanced
 
@@ -1532,7 +1541,7 @@ resources:
 
     validationStatus: reviewed
     readingTime: 30m
-    color: "#06b6d4"
+    color: "#a855f7"
 
   - id: spark-shared-memory-agents
     url: https://arxiv.org/html/2511.08301v1
@@ -1551,7 +1560,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: knowledge-engineering
+    domain: ai-llms
     category: Agent Memory
     granularity: advanced
 
@@ -1561,7 +1570,7 @@ resources:
 
     validationStatus: reviewed
     readingTime: 45m
-    color: "#06b6d4"
+    color: "#a855f7"
 
   - id: memory-in-ai-agents
     url: https://www.leoniemonigatti.com/blog/memory-in-ai-agents.html
@@ -1580,7 +1589,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: knowledge-engineering
+    domain: ai-llms
     category: Agent Memory
     granularity: conceptual
 
@@ -1590,7 +1599,7 @@ resources:
 
     validationStatus: reviewed
     readingTime: 12m
-    color: "#06b6d4"
+    color: "#a855f7"
 
   # ─────────────────────────────────────────────────────────────────────────────
   # Knowledge Engineering - Knowledge Quality
@@ -1830,7 +1839,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: data-engineering
+    domain: analytics-engineering
     category: dbt Practices
     granularity: conceptual
 
@@ -1856,7 +1865,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: data-engineering
+    domain: analytics-engineering
     category: dbt Practices
     granularity: implementation
 
@@ -1882,7 +1891,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: data-engineering
+    domain: analytics-engineering
     category: dbt Practices
     granularity: conceptual
 
@@ -1911,7 +1920,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: data-engineering
+    domain: analytics-engineering
     category: Pipeline Tools
     granularity: implementation
 
@@ -1939,7 +1948,7 @@ resources:
     publishedDate: ~
     dateAdded: 2025-12-13
 
-    domain: data-engineering
+    domain: analytics-engineering
     category: Pipeline Tools
     granularity: implementation
 
@@ -2008,3 +2017,251 @@ resources:
     validationStatus: unvalidated
     readingTime: ~
     color: "#8b5cf6"
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # NEW RESOURCES - 2025-12-17 Intake Batch
+  # ═══════════════════════════════════════════════════════════════════════════════
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Analytics Engineering - dbt Practices
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: dbt-bouncer
+    url: https://github.com/godatadriven/dbt-bouncer
+    preferredLabel: dbt-bouncer
+    alternateLabels:
+      - dbt linting
+      - dbt governance
+      - dbt convention enforcement
+      - manifest checker
+    definition: >
+      Python-based governance tool for enforcing conventions in dbt projects.
+      Validates naming patterns, directory structure, and project standards
+      via manifest inspection. Integrates with pre-commit and CI/CD.
+
+    author: godatadriven
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-17
+
+    domain: analytics-engineering
+    category: dbt Practices
+    granularity: implementation
+
+    relationships: []
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#f97316"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Analytics Engineering - Data Modeling
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: different-kinds-of-data-models
+    url: https://williaminmon.substack.com/p/different-kinds-of-data-models
+    preferredLabel: Different Kinds of Data Models
+    alternateLabels:
+      - Bill Inmon data models
+      - ERD vs taxonomy
+      - operational vs analytical models
+      - KPI models
+    definition: >
+      Bill Inmon's taxonomy of data model types: operational, analytical, and KPI
+      models (ERD-based, inward-facing) vs. generic and specific taxonomies
+      (ontology-based, outward-facing). Foundational distinction for semantic work.
+
+    author: w-inmon
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2025-12-17
+
+    domain: analytics-engineering
+    category: Data Modeling
+    granularity: foundational
+
+    relationships:
+      - type: related
+        target: demystifying-ontologies
+
+    validationStatus: unvalidated
+    readingTime: 8m
+    color: "#f97316"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Knowledge Engineering - Semantic Foundations
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: demystifying-ontologies
+    url: https://www.linkedin.com/pulse/demystifying-ontologies-what-really-do-knowledge-joutsenlahti-wyraf/
+    preferredLabel: "Demystifying Ontologies: Vocabulary vs. Data-Structure"
+    alternateLabels:
+      - ontology types
+      - vocabulary ontology
+      - data-structure ontology
+      - RDF vs LPG
+    definition: >
+      Clarifies ontology confusion by distinguishing vocabulary ontologies (meaning,
+      shared understanding) from data-structure ontologies (organization, implementation).
+      Maps to enterprise vs. application knowledge graph use cases.
+
+    author: t-joutsenlahti
+    source: LinkedIn
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2025-12-17
+
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: foundational
+
+    relationships:
+      - type: broader
+        target: enterprise-needs-ontology
+      - type: related
+        target: different-kinds-of-data-models
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#06b6d4"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Knowledge Engineering - Agentic Analytics
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: aws-reinvent-2025-context-over-compute
+    url: https://metadataweekly.substack.com/p/aws-reinvent-2025-what-reinvent-quietly
+    preferredLabel: "AWS re:Invent 2025: Context Over Compute"
+    alternateLabels:
+      - context engineering thesis
+      - metadata infrastructure
+      - AI context gap
+      - enterprise AI readiness
+    definition: >
+      Analysis of AWS re:Invent 2025 arguing enterprise AI hit inflection point.
+      Thesis: competitive advantage comes from embedding institutional knowledge
+      into AI, not model scale. Metadata infrastructure determines AI adoption velocity.
+
+    author: g-szabo
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-06
+    dateAdded: 2025-12-17
+
+    domain: knowledge-engineering
+    category: Agentic Analytics
+    granularity: conceptual
+
+    relationships:
+      - type: related
+        target: context-engineering-for-ai-agents
+      - type: related
+        target: ai-ready-data-technical-assessment
+
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: building-ai-agents-you-can-trust
+    url: https://metadataweekly.substack.com/p/building-ai-agents-you-can-trust
+    preferredLabel: Building AI Agents You Can Trust
+    alternateLabels:
+      - trustworthy AI agents
+      - AI governance
+      - agent data access
+      - intelligence layer
+    definition: >
+      Framework for deploying AI agents with customer data responsibly. Key insight:
+      build intelligence layer above data systems rather than centralizing.
+      Governance defines what AI can do; context determines if it can act intelligently.
+
+    author: g-szabo
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2025-12-17
+
+    domain: knowledge-engineering
+    category: Agentic Analytics
+    granularity: conceptual
+
+    relationships:
+      - type: related
+        target: aws-reinvent-2025-context-over-compute
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#06b6d4"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # AI Tools & Infrastructure - Agent Infrastructure
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: mcp-deep-dive-pragmatic-engineer
+    url: https://newsletter.pragmaticengineer.com/p/mcp-deepdive
+    preferredLabel: "MCP Deep Dive: The USB-C Layer for AI"
+    alternateLabels:
+      - Model Context Protocol
+      - Anthropic MCP
+      - AI tool integration
+      - agent infrastructure
+    definition: >
+      Technical deep dive on Model Context Protocol (Anthropic, Nov 2024).
+      Key insight: median MCP user is business stakeholder accessing internal
+      data warehouses, not developer. May replace self-service BI in enterprises.
+
+    author: g-orosz
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-12
+    dateAdded: 2025-12-17
+
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    relationships:
+      - type: related
+        target: context-engineering-for-ai-agents
+
+    validationStatus: unvalidated
+    readingTime: 25m
+    color: "#10b981"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # AI & LLMs - AI Evaluation
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: ai-evals-changing-pm-craft
+    url: https://manialabs.substack.com/p/ai-evals-changing-pm-craft
+    preferredLabel: "AI Evals: How They're Changing PM Craft"
+    alternateLabels:
+      - AI product evaluation
+      - vibe evals
+      - offline evals
+      - online evals
+      - golden datasets
+    definition: >
+      How AI evaluations reshape product management like analytics did in 2008.
+      Introduces three eval types: vibe (manual prototype review), offline
+      (automated pre-release), online (real-time quality). Dataset curation
+      becomes core PM competency.
+
+    author: mania-labs
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2025-12-17
+
+    domain: ai-llms
+    category: AI Evaluation
+    granularity: conceptual
+
+    relationships:
+      - type: related
+        target: semiosis-kb-unit-testing
+
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#a855f7"
