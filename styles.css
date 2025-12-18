@@ -3370,10 +3370,29 @@ body.dashboard.topic-page.tui .topic-back {
   transition: all 0.1s ease;
 }
 
-body.dashboard.topic-page.tui .topic-back:hover {
+body.dashboard.topic-page.tui .topic-back:hover,
+body.dashboard.topic-page.tui .topic-next:hover {
   color: var(--accent);
   border-color: var(--accent);
   text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+.topic-next {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.2rem 0.4rem;
+  transition: color 0.15s ease;
+}
+
+body.dashboard.topic-page.tui .topic-next {
+  font-size: 1rem;
+  color: var(--text-dim);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: all 0.1s ease;
 }
 
 body.dashboard.topic-page.tui .topic-indicator {

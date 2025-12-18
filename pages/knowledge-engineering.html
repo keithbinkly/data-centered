@@ -104,14 +104,16 @@
       gap: 1rem;
     }
 
-    .back-link {
+    .back-link,
+    .next-link {
       color: var(--text-dim);
       font-size: var(--font-lg);
       transition: color 0.15s;
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .back-link:hover { color: var(--cyan); }
+    .back-link:hover,
+    .next-link:hover { color: var(--cyan); }
 
     .topic-indicator {
       width: 10px;
@@ -1682,6 +1684,7 @@
       <div class="header-content">
         <div class="header-left">
           <a href="../index.html" class="back-link">←</a>
+          <a href="data-engineering.html" class="next-link">→</a>
           <span class="topic-indicator"></span>
           <span class="brand">Knowledge Engineering</span>
           <span class="resource-count">54 resources</span>
