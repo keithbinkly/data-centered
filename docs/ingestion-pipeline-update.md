@@ -1,6 +1,6 @@
 # Ingestion Pipeline: From Manual to Automated
 
-*December 2024 — Status Update*
+*December 2024 — Phase 1 Complete*
 
 ---
 
@@ -24,92 +24,128 @@ Adding a resource to data-centered.com meant:
 
 ## What We Built
 
-An automated ingestion pipeline using **Unstructured** for content extraction and **DSPy** for LLM-powered classification.
+An automated ingestion pipeline using **summarize.sh** for content extraction and **DSPy** for LLM-powered classification.
 
 ```
-URL → Extract → Classify → Enrich → Generate YAML
+URL → Extract → Classify → Score → Enrich → Generate YAML
 ```
 
 **New workflow:**
 ```bash
 python ingest.py add "https://example.com/article" --dry-run
+python ingest.py batch intake-queue.md --dry-run
 ```
 
 The pipeline:
-- Fetches and parses the URL
+- Fetches and parses URLs (including YouTube transcripts)
+- Checks for duplicates before processing
 - Classifies into our 7 domains and categories
-- Generates a definition with semantic boundaries
+- Generates and scores definitions for quality
 - Extracts author information
+- Logs all reasoning for debugging
 - Creates ready-to-append YAML
 
 **Time per resource:** 2-3 minutes (mostly review).
 
 ---
 
-## Current State
+## Current State (Phase 1 Complete)
 
 ### What Works
 
 ```
 ✓ Single URL ingestion
+✓ Batch ingestion from markdown files
+✓ YouTube transcript extraction
+✓ Duplicate URL detection
 ✓ Automatic domain/category classification
-✓ Definition generation
+✓ Definition generation with quality scoring
 ✓ Author extraction
 ✓ YAML generation matching our schema
-✓ Human review queue for low-confidence classifications
+✓ Human review queue for low-confidence items
+✓ Pipeline logging for debugging
 ✓ CLI with dry-run mode
 ```
 
-### Known Limitations
+### Remaining Limitations
 
 ```
-✗ No duplicate detection (can add same URL twice)
-✗ No batch processing (one URL at a time)
 ✗ Truncates long articles at 4000 chars
 ✗ No relationship discovery
 ✗ Author bios require manual research
-✗ YouTube/video content not handled
+✗ No semantic similarity detection (only exact URL match)
 ```
 
 ---
 
-## The Roadmap
+## Phase 1: Foundation (Complete)
 
-After analyzing 50+ tools from our intake queue, we identified three phases of improvements:
+All tasks implemented and closed:
 
-### Phase 1: Foundation (4 hours)
+| Bead | Task | Status |
+|------|------|--------|
+| `dei.1` | Replace extraction with summarize.sh | ✅ Complete |
+| `dei.2` | Add duplicate detection | ✅ Complete |
+| `dei.3` | Add batch mode | ✅ Complete |
+| `dei.4` | Add definition quality scoring | ✅ Complete |
+| `dei.5` | Log classification reasoning | ✅ Complete |
 
-| Task | Impact |
-|------|--------|
-| Replace extraction with summarize.sh | YouTube support, better scraping |
-| Add duplicate detection | No more double-entries |
-| Add batch mode | Process intake-queue.md at once |
-| Add definition quality scoring | Catch weak definitions |
-| Log classification reasoning | Debug wrong classifications |
+**Epic:** `data-centered-dei` (closed)
 
-**Outcome:** Reliable, bulk-capable ingestion.
+**Commits:**
+- `c24d700` feat: replace Unstructured with summarize.sh wrapper
+- `c78287d` feat: add duplicate URL detection to ingestion pipeline
+- `bc34e1e` feat: add batch ingestion from markdown files
+- `bbde328` feat: add definition quality scoring to ingestion pipeline
+- `a09bacb` feat: add ingestion pipeline logging for debugging
 
-### Phase 2: Intelligence (10 hours)
+---
 
-| Task | Impact |
-|------|--------|
-| Context compression for long articles | Better classification accuracy |
-| Parallel relationship search | 4x faster as KB grows |
-| Author enrichment via GitHub API | Automatic bio/affiliation |
-| Lazy DSPy module loading | 40-60% token reduction |
+## Phase 2: Intelligence (Open)
 
-**Outcome:** Smarter, faster, cheaper ingestion.
+| Bead | Task | Impact |
+|------|------|--------|
+| `0hv.1` | Context compression for long articles | Better classification accuracy |
+| `0hv.2` | Parallel relationship search | 4x faster as KB grows |
+| `0hv.3` | Author enrichment via GitHub API | Automatic bio/affiliation |
+| `0hv.4` | Lazy DSPy module loading | 40-60% token reduction |
 
-### Phase 3: Advanced (2-3 days)
+**Epic:** `data-centered-0hv` (open, depends on Phase 1)
 
-| Task | Impact |
-|------|--------|
-| Semiosis-style KB quality testing | Systematic quality measurement |
-| Experiential learning | Pipeline improves over time |
-| Package as Claude Skill | Seamless invocation |
-| CocoIndex integration | Knowledge graph visualization |
+---
 
-**Outcome:** Self-improving, visual, enterprise-grade.
+## Phase 3: Advanced (Open)
+
+| Bead | Task | Impact |
+|------|------|--------|
+| `i13.1` | Semiosis-style KB quality testing | Systematic quality measurement |
+| `i13.2` | Experiential learning | Pipeline improves over time |
+| `i13.3` | Package as Claude Skill | Seamless invocation |
+| `i13.4` | CocoIndex integration | Knowledge graph visualization |
+
+**Epic:** `data-centered-i13` (open, depends on Phase 2)
+
+---
+
+## CLI Reference
+
+```bash
+# Single URL
+python ingest.py add "https://example.com/article"
+python ingest.py add "https://example.com/article" --dry-run
+
+# Batch from markdown
+python ingest.py batch intake-queue.md --dry-run
+python ingest.py batch intake-queue.md --auto-approve
+
+# Review pending
+python ingest.py review
+```
+
+**Current intake queue status:**
+- 90 total links in `intake-queue.md`
+- 33 already in KB (duplicates)
+- 57 ready to process
 
 ---
 
@@ -157,12 +193,14 @@ After completing all phases:
 | Capability | Before | After Phase 1 | After Phase 3 |
 |------------|--------|---------------|---------------|
 | Time per resource | 10-15 min | 2-3 min | 30 sec |
-| Batch processing | No | Yes | Yes |
-| Duplicate detection | No | Yes | Yes |
-| YouTube support | No | Yes | Yes |
+| Batch processing | No | **Yes** | Yes |
+| Duplicate detection | No | **Yes** | Yes |
+| YouTube support | No | **Yes** | Yes |
+| Definition scoring | No | **Yes** | Yes |
+| Pipeline logging | No | **Yes** | Yes |
 | Author enrichment | Manual | Manual | Automatic |
 | Relationship discovery | Manual | Manual | Automatic |
-| Quality measurement | None | Basic | Systematic |
+| Quality measurement | None | **Basic** | Systematic |
 | Learning over time | No | No | Yes |
 | Knowledge graph | No | No | Yes |
 
@@ -190,7 +228,7 @@ We're adding lazy DSPy module loading.
 > **"Quality is the production killer."**
 > — LangChain State of Agent Engineering 2025
 
-We're adding definition quality scoring and KB testing.
+We added definition quality scoring and will add KB testing.
 
 ---
 
@@ -208,14 +246,14 @@ We're adding definition quality scoring and KB testing.
 
 ## Next Steps
 
-Phase 1 tasks are tracked in Beads:
+View remaining tasks:
 
-```
+```bash
 bd list --status open
 ```
 
-First priority: Replace extraction with summarize.sh wrapper (30 min, immediate quality boost).
+Phase 2 priority: Context compression (`0hv.1`) for better classification of long articles.
 
 ---
 
-*Built with Claude Code + DSPy + Unstructured*
+*Built with Claude Code + DSPy + summarize.sh*
