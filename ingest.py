@@ -15,8 +15,57 @@ Examples:
 import argparse
 import sys
 from pathlib import Path
+from urllib.parse import urlparse, urlunparse
 
 import yaml
+
+
+def normalize_url(url: str) -> str:
+    """Normalize URL for deduplication."""
+    parsed = urlparse(url)
+    # Remove fragment, normalize path
+    normalized = urlunparse((
+        parsed.scheme.lower(),
+        parsed.netloc.lower().replace("www.", ""),
+        parsed.path.rstrip("/") or "/",
+        "",  # params
+        parsed.query,
+        "",  # fragment
+    ))
+    return normalized
+
+
+def load_existing_urls() -> dict[str, str]:
+    """Load existing resource URLs from resources.yaml.
+
+    Returns:
+        Dict mapping normalized URL to resource ID
+    """
+    resources_file = Path(__file__).parent / "resources.yaml"
+    if not resources_file.exists():
+        return {}
+
+    with open(resources_file) as f:
+        data = yaml.safe_load(f)
+
+    if not data or "resources" not in data:
+        return {}
+
+    urls = {}
+    for r in data["resources"]:
+        if "url" in r and "id" in r:
+            urls[normalize_url(r["url"])] = r["id"]
+    return urls
+
+
+def check_duplicate(url: str, existing_urls: dict[str, str]) -> str | None:
+    """Check if URL already exists in knowledge base.
+
+    Returns:
+        Resource ID if duplicate found, None otherwise
+    """
+    normalized = normalize_url(url)
+    return existing_urls.get(normalized)
 
 
 def load_existing_authors() -> set[str]:
@@ -61,6 +110,16 @@ def cmd_add(url: str, dry_run: bool = False, auto_approve: bool = False):
 
     config = load_config()
     existing_authors = load_existing_authors()
+    existing_urls = load_existing_urls()
+
+    # Check for duplicates first
+    print(f"\n🔍 Checking for duplicates...")
+    if duplicate_id := check_duplicate(url, existing_urls):
+        print(f"✗ Duplicate found: {duplicate_id}")
+        print(f"  URL already exists in knowledge base")
+        print(f"  Use --force to add anyway (not implemented)")
+        sys.exit(1)
+    print(f"✓ No duplicate found")
 
     # Check for API key
     provider = config["llm"]["provider"]
