@@ -45,7 +45,7 @@
 metadata:
   version: "1.2"
   lastUpdated: 2025-12-19
-  totalResources: 73
+  totalResources: 74
 
 domains:
   - id: knowledge-engineering
@@ -2684,4 +2684,36 @@ resources:
 
     validationStatus: unvalidated
     readingTime: 25m
+    color: "#8b5cf6"
+
+  - id: pixcii-video-to-ascii
+    url: https://github.com/ashish0kumar/pixcii
+    preferredLabel: "pixcii: Video to ASCII Art in C++"
+    alternateLabels:
+      - ASCII video
+      - terminal video player
+      - ASCII art generator
+      - TUI video
+      - retro terminal aesthetic
+    definition: >
+      C++ tool that converts video to real-time ASCII art in the terminal.
+      Useful for creating retro terminal aesthetics, loading animations,
+      or artistic visual elements. Complements TUI-style web design with
+      authentic terminal-rendered visuals. Not a web library—generates
+      ASCII output that can be captured for web use.
+
+    author: a-kumar
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-19
+
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 5m
     color: "#8b5cf6"

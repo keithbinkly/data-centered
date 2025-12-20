@@ -1452,3 +1452,17 @@ authors:
       Open source developer. Creator of Oh-My-OpenCode, a plugin system
       for multi-agent orchestration in OpenCode.
     bioSource: https://github.com/code-yeongyu
+
+  - id: a-kumar
+    name: Ashish Kumar
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    industry: Software Development
+    affiliation: ~
+    perspectiveType: practitioner
+    bio: >
+      Open source developer. Creator of pixcii, a C++ tool for converting
+      video to ASCII art in the terminal.
+    bioSource: https://github.com/ashish0kumar
