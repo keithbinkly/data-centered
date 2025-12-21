@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Archivist's Wheel - ASCII</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0908;
+      overflow: hidden;
+      font-family: monospace;
+    }
+
+    #info {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      color: #4a3c28;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 100;
+    }
+
+    #info span {
+      color: #8b7355;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <span>The Archivist's Wheel</span> · Keeper of Knowledge
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
+
+    let camera, scene, renderer, effect;
+    let mainWheel;
+    let shelfAssemblies = [];
+    const gears = [];
+
+    init();
+    animate();
+
+    function createGear(innerRadius, outerRadius, teeth, thickness, toothDepth) {
+      const shape = new THREE.Shape();
+      const anglePerTooth = (Math.PI * 2) / teeth;
+      const toothWidth = anglePerTooth * 0.5;
+
+      for (let i = 0; i < teeth; i++) {
+        const angle = i * anglePerTooth;
+        const x1 = Math.cos(angle) * outerRadius;
+        const y1 = Math.sin(angle) * outerRadius;
+        const tipAngle = angle + toothWidth * 0.5;
+        const x2 = Math.cos(tipAngle) * (outerRadius + toothDepth);
+        const y2 = Math.sin(tipAngle) * (outerRadius + toothDepth);
+        const x3 = Math.cos(angle + toothWidth) * outerRadius;
+        const y3 = Math.sin(angle + toothWidth) * outerRadius;
+        const valleyAngle = angle + anglePerTooth;
+        const x4 = Math.cos(valleyAngle) * outerRadius;
+        const y4 = Math.sin(valleyAngle) * outerRadius;
+
+        if (i === 0) shape.moveTo(x1, y1);
+        shape.lineTo(x2, y2);
+        shape.lineTo(x3, y3);
+        shape.lineTo(x4, y4);
+      }
+
+      const holePath = new THREE.Path();
+      holePath.absarc(0, 0, innerRadius, 0, Math.PI * 2, true);
+      shape.holes.push(holePath);
+
+      const geometry = new THREE.ExtrudeGeometry(shape, {
+        depth: thickness,
+        bevelEnabled: false
+      });
+      geometry.center();
+      return geometry;
+    }
+
+    function createOpenBook() {
+      // Open book with pages facing outward
+      const bookGroup = new THREE.Group();
+
+      const pageMat = new THREE.MeshStandardMaterial({ color: 0xf5f0e0, roughness: 0.9 });
+      const coverMat = new THREE.MeshStandardMaterial({ color: 0x4a2c1a, roughness: 0.8 });
+
+      // Left page spread
+      const leftPage = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5, 0.7, 0.02),
+        pageMat
+      );
+      leftPage.position.set(-0.26, 0, 0);
+      leftPage.rotation.y = 0.15;
+      bookGroup.add(leftPage);
+
+      // Right page spread
+      const rightPage = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5, 0.7, 0.02),
+        pageMat
+      );
+      rightPage.position.set(0.26, 0, 0);
+      rightPage.rotation.y = -0.15;
+      bookGroup.add(rightPage);
+
+      // Spine
+      const spine = new THREE.Mesh(
+        new THREE.BoxGeometry(0.08, 0.72, 0.15),
+        coverMat
+      );
+      spine.position.set(0, 0, -0.06);
+      bookGroup.add(spine);
+
+      // Cover edges
+      const leftCover = new THREE.Mesh(
+        new THREE.BoxGeometry(0.52, 0.72, 0.03),
+        coverMat
+      );
+      leftCover.position.set(-0.28, 0, -0.04);
+      leftCover.rotation.y = 0.15;
+      bookGroup.add(leftCover);
+
+      const rightCover = new THREE.Mesh(
+        new THREE.BoxGeometry(0.52, 0.72, 0.03),
+        coverMat
+      );
+      rightCover.position.set(0.28, 0, -0.04);
+      rightCover.rotation.y = -0.15;
+      bookGroup.add(rightCover);
+
+      return bookGroup;
+    }
+
+    function init() {
+      // 3/4 VIEW - from front-left corner, like the Ramelli illustration
+      camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(-12, 3, 16);
+      camera.lookAt(0, 0, 0);
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0a0908);
+
+      // Lighting for 3/4 view
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
+      scene.add(ambientLight);
+
+      const keyLight = new THREE.DirectionalLight(0xfff5e0, 1.4);
+      keyLight.position.set(-5, 8, 12);
+      scene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0xe0e8ff, 0.5);
+      fillLight.position.set(8, 2, 8);
+      scene.add(fillLight);
+
+      const rimLight = new THREE.DirectionalLight(0xffffff, 0.3);
+      rimLight.position.set(0, -2, -8);
+      scene.add(rimLight);
+
+      // Materials
+      const brassMat = new THREE.MeshStandardMaterial({
+        color: 0xd4a855,
+        metalness: 0.8,
+        roughness: 0.2
+      });
+
+      const copperMat = new THREE.MeshStandardMaterial({
+        color: 0xcd7f32,
+        metalness: 0.75,
+        roughness: 0.3
+      });
+
+      const woodMat = new THREE.MeshStandardMaterial({
+        color: 0x8b6240,
+        metalness: 0.0,
+        roughness: 0.85
+      });
+
+      const darkWoodMat = new THREE.MeshStandardMaterial({
+        color: 0x5c3d2e,
+        metalness: 0.0,
+        roughness: 0.9
+      });
+
+      const ironMat = new THREE.MeshStandardMaterial({
+        color: 0x4a4a4a,
+        metalness: 0.85,
+        roughness: 0.4
+      });
+
+      // === CABINET FRAME (more architectural, like Ramelli) ===
+
+      // Left pillar
+      const pillarGeom = new THREE.BoxGeometry(0.8, 13, 1.2);
+      const leftPillar = new THREE.Mesh(pillarGeom, darkWoodMat);
+      leftPillar.position.set(-6.5, 0, 0);
+      scene.add(leftPillar);
+
+      // Right pillar
+      const rightPillar = new THREE.Mesh(pillarGeom, darkWoodMat);
+      rightPillar.position.set(6.5, 0, 0);
+      scene.add(rightPillar);
+
+      // Top decorative beam
+      const topBeamGeom = new THREE.BoxGeometry(14.5, 0.8, 1.2);
+      const topBeam = new THREE.Mesh(topBeamGeom, darkWoodMat);
+      topBeam.position.set(0, 6.8, 0);
+      scene.add(topBeam);
+
+      // Bottom base
+      const baseGeom = new THREE.BoxGeometry(14.5, 0.6, 2);
+      const base = new THREE.Mesh(baseGeom, darkWoodMat);
+      base.position.set(0, -6.6, 0.4);
+      scene.add(base);
+
+      // Decorative top crown
+      const crownGeom = new THREE.BoxGeometry(12, 0.4, 0.8);
+      const crown = new THREE.Mesh(crownGeom, woodMat);
+      crown.position.set(0, 7.3, 0);
+      scene.add(crown);
+
+      // Side panels (partial, cabinet-like)
+      const sidePanelGeom = new THREE.BoxGeometry(0.2, 10, 3);
+      const leftPanel = new THREE.Mesh(sidePanelGeom, darkWoodMat);
+      leftPanel.position.set(-6.8, 0.5, -1);
+      scene.add(leftPanel);
+
+      const rightPanel = new THREE.Mesh(sidePanelGeom, darkWoodMat);
+      rightPanel.position.set(6.8, 0.5, -1);
+      scene.add(rightPanel);
+
+      // Axle support brackets
+      const bracketGeom = new THREE.BoxGeometry(1.5, 1.5, 0.5);
+      const leftBracket = new THREE.Mesh(bracketGeom, brassMat);
+      leftBracket.position.set(-6, 0, 0.7);
+      scene.add(leftBracket);
+
+      const rightBracket = new THREE.Mesh(bracketGeom, brassMat);
+      rightBracket.position.set(6, 0, 0.7);
+      scene.add(rightBracket);
+
+      // === MAIN BOOK WHEEL ===
+      mainWheel = new THREE.Group();
+      scene.add(mainWheel);
+
+      const wheelRadius = 5;
+
+      // Outer wooden rim
+      const outerRimGeom = new THREE.TorusGeometry(wheelRadius, 0.4, 16, 64);
+      const outerRim = new THREE.Mesh(outerRimGeom, woodMat);
+      mainWheel.add(outerRim);
+
+      // Inner rim
+      const innerRimGeom = new THREE.TorusGeometry(wheelRadius - 1, 0.25, 12, 48);
+      const innerRim = new THREE.Mesh(innerRimGeom, darkWoodMat);
+      mainWheel.add(innerRim);
+
+      // Spokes
+      const numSpokes = 10;
+      for (let i = 0; i < numSpokes; i++) {
+        const angle = (i / numSpokes) * Math.PI * 2;
+        const spokeGeom = new THREE.CylinderGeometry(0.12, 0.12, wheelRadius * 2 - 1.2, 8);
+        const spoke = new THREE.Mesh(spokeGeom, darkWoodMat);
+        spoke.rotation.z = angle;
+        mainWheel.add(spoke);
+      }
+
+      // Central hub
+      const hubGeom = new THREE.CylinderGeometry(1.2, 1.2, 0.8, 32);
+      const hub = new THREE.Mesh(hubGeom, brassMat);
+      hub.rotation.x = Math.PI / 2;
+      mainWheel.add(hub);
+
+      const hubCenter = new THREE.CylinderGeometry(0.6, 0.6, 1, 24);
+      const hubCenterMesh = new THREE.Mesh(hubCenter, ironMat);
+      hubCenterMesh.rotation.x = Math.PI / 2;
+      mainWheel.add(hubCenterMesh);
+
+      // === BOOK PLATFORMS with OPEN BOOKS (10 around wheel) ===
+      const numShelves = 10;
+      for (let i = 0; i < numShelves; i++) {
+        const angle = (i / numShelves) * Math.PI * 2;
+
+        const shelfAssembly = new THREE.Group();
+        shelfAssembly.position.set(
+          Math.cos(angle) * wheelRadius,
+          Math.sin(angle) * wheelRadius,
+          0
+        );
+
+        // Book platform / lectern
+        const platformGeom = new THREE.BoxGeometry(1.8, 0.1, 1.2);
+        const platform = new THREE.Mesh(platformGeom, woodMat);
+        platform.position.set(0.6, 0, 0);
+        platform.rotation.z = -Math.PI / 5; // ~36 degree reading angle
+        shelfAssembly.add(platform);
+
+        // Lip to hold book
+        const lipGeom = new THREE.BoxGeometry(1.8, 0.15, 0.12);
+        const lip = new THREE.Mesh(lipGeom, darkWoodMat);
+        lip.position.set(0.15, -0.35, 0.5);
+        lip.rotation.z = -Math.PI / 5;
+        shelfAssembly.add(lip);
+
+        // Side supports
+        const supportGeom = new THREE.BoxGeometry(0.1, 0.6, 1);
+        const leftSupport = new THREE.Mesh(supportGeom, darkWoodMat);
+        leftSupport.position.set(0.2, 0.1, -0.5);
+        leftSupport.rotation.z = -Math.PI / 5;
+        shelfAssembly.add(leftSupport);
+
+        const rightSupport = new THREE.Mesh(supportGeom, darkWoodMat);
+        rightSupport.position.set(0.2, 0.1, 0.5);
+        rightSupport.rotation.z = -Math.PI / 5;
+        shelfAssembly.add(rightSupport);
+
+        // OPEN BOOK facing outward (toward where scholar would sit)
+        const book = createOpenBook();
+        book.position.set(0.5, 0.15, 0);
+        book.rotation.z = -Math.PI / 5;
+        book.rotation.x = -Math.PI / 2; // Pages face outward
+        book.scale.set(1.2, 1.2, 1.2);
+        shelfAssembly.add(book);
+
+        // Bracket connecting to wheel
+        const bracketGeom = new THREE.BoxGeometry(0.2, 0.5, 0.5);
+        const bracket = new THREE.Mesh(bracketGeom, ironMat);
+        bracket.position.set(-0.3, 0, 0);
+        shelfAssembly.add(bracket);
+
+        mainWheel.add(shelfAssembly);
+        shelfAssemblies.push(shelfAssembly);
+      }
+
+      // === LARGE SIDE GEARS (prominently visible like in illustration) ===
+
+      // Main wheel gear (large, visible on side)
+      const mainGearGeom = createGear(0.8, 2.2, 36, 0.4, 0.25);
+      const mainGear = new THREE.Mesh(mainGearGeom, brassMat);
+      mainGear.position.set(0, 0, -1);
+      mainWheel.add(mainGear);
+
+      // Secondary large gear (meshing with main)
+      const secGearGeom = createGear(0.4, 1.4, 24, 0.35, 0.2);
+      const secGear = new THREE.Mesh(secGearGeom, copperMat);
+      secGear.position.set(-3.5, -1.5, -1);
+      scene.add(secGear);
+      gears.push({ mesh: secGear, speed: 0.006 * (36/24), direction: -1 });
+
+      // Tertiary gear
+      const tertGearGeom = createGear(0.25, 0.9, 18, 0.3, 0.15);
+      const tertGear = new THREE.Mesh(tertGearGeom, brassMat);
+      tertGear.position.set(-4.6, -2.8, -1);
+      scene.add(tertGear);
+      gears.push({ mesh: tertGear, speed: 0.006 * (36/24) * (24/18), direction: 1 });
+
+      // Small crank gear
+      const crankGearGeom = createGear(0.15, 0.55, 12, 0.25, 0.12);
+      const crankGear = new THREE.Mesh(crankGearGeom, copperMat);
+      crankGear.position.set(-5.3, -3.8, -1);
+      scene.add(crankGear);
+      gears.push({ mesh: crankGear, speed: 0.006 * (36/24) * (24/18) * (18/12), direction: -1 });
+
+      // Crank handle
+      const handleGeom = new THREE.CylinderGeometry(0.1, 0.1, 1.2, 8);
+      const handle = new THREE.Mesh(handleGeom, ironMat);
+      handle.position.set(-5.3, -3.8, -0.2);
+      handle.rotation.x = Math.PI / 2;
+      scene.add(handle);
+
+      // Gear hub decorations
+      const gearHubGeom = new THREE.CylinderGeometry(0.3, 0.3, 0.5, 16);
+      const secHub = new THREE.Mesh(gearHubGeom, ironMat);
+      secHub.rotation.x = Math.PI / 2;
+      secHub.position.set(-3.5, -1.5, -0.8);
+      scene.add(secHub);
+
+      const tertHub = new THREE.Mesh(gearHubGeom, ironMat);
+      tertHub.rotation.x = Math.PI / 2;
+      tertHub.position.set(-4.6, -2.8, -0.8);
+      tertHub.scale.set(0.7, 0.7, 0.7);
+      scene.add(tertHub);
+
+      // === SCHOLAR'S DESK (in front of wheel) ===
+      const deskGeom = new THREE.BoxGeometry(3, 0.15, 2);
+      const desk = new THREE.Mesh(deskGeom, woodMat);
+      desk.position.set(0, -3.5, 6);
+      scene.add(desk);
+
+      // Desk legs
+      const legGeom = new THREE.BoxGeometry(0.2, 2.5, 0.2);
+      const positions = [[-1.3, -4.7, 5.2], [1.3, -4.7, 5.2], [-1.3, -4.7, 6.8], [1.3, -4.7, 6.8]];
+      positions.forEach(pos => {
+        const leg = new THREE.Mesh(legGeom, darkWoodMat);
+        leg.position.set(...pos);
+        scene.add(leg);
+      });
+
+      // Chair (simple)
+      const chairSeat = new THREE.Mesh(
+        new THREE.BoxGeometry(1.5, 0.12, 1.5),
+        woodMat
+      );
+      chairSeat.position.set(0, -4, 8);
+      scene.add(chairSeat);
+
+      const chairBack = new THREE.Mesh(
+        new THREE.BoxGeometry(1.5, 2, 0.15),
+        darkWoodMat
+      );
+      chairBack.position.set(0, -3, 8.7);
+      scene.add(chairBack);
+
+      // Renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // ASCII Effect
+      effect = new AsciiEffect(renderer, ' .:-=+*#%@', {
+        invert: true,
+        resolution: 0.15
+      });
+      effect.setSize(window.innerWidth, window.innerHeight);
+      effect.domElement.style.color = '#d4a855';
+      effect.domElement.style.backgroundColor = '#0a0908';
+      effect.domElement.style.fontFamily = '"Courier New", monospace';
+      effect.domElement.style.fontSize = '10px';
+      effect.domElement.style.lineHeight = '8px';
+
+      document.body.appendChild(effect.domElement);
+
+      window.addEventListener('resize', onWindowResize);
+      document.addEventListener('mousemove', onMouseMove);
+    }
+
+    function onMouseMove(event) {
+      const x = (event.clientX / window.innerWidth) * 2 - 1;
+      const y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      // Subtle parallax around the 3/4 view
+      camera.position.x = -12 + x * 2;
+      camera.position.y = 3 + y * 1.5;
+      camera.lookAt(0, 0, 0);
+    }
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      effect.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Rotate main wheel
+      mainWheel.rotation.z += 0.006;
+
+      // Counter-rotate shelves to keep books facing outward
+      shelfAssemblies.forEach(shelf => {
+        shelf.rotation.z = -mainWheel.rotation.z;
+      });
+
+      // Rotate drive gears
+      gears.forEach(gear => {
+        gear.mesh.rotation.z += gear.speed * gear.direction;
+      });
+
+      effect.render(scene, camera);
+    }
+  </script>
+</body>
+</html>
