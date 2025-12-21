@@ -2717,3 +2717,194 @@ resources:
     validationStatus: unvalidated
     readingTime: 5m
     color: "#8b5cf6"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Batch 2025-12-21 - Intake Queue Processing
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: ai-ready-data-sagar-paul
+    url: https://moderndata101.substack.com/p/ai-ready-data-a-technical-assessment
+    preferredLabel: "AI-Ready Data: A Technical Assessment"
+    alternateLabels:
+      - data infrastructure for AI
+      - semantic layer for AI
+      - AI-native data architecture
+      - data quality for ML
+      - inline data governance
+    definition: >
+      Technical analysis arguing 67% of AI projects fail due to data readiness,
+      not model capability. Identifies four barriers (semantic ambiguity, quality
+      degradation, temporal misalignment, format inconsistency) and proposes
+      AI-native data product architectures with inline governance and semantic
+      layers as the solution.
+
+    author: s-paul
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-09-11
+    dateAdded: 2025-12-21
+
+    domain: knowledge-engineering
+    category: Semantic Layer
+    granularity: conceptual
+
+    relationships:
+      - related: context-engineering-weaviate
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: claude-skills-failures-analysis
+    url: https://open.substack.com/pub/cashandcache/p/i-analyzed-40-claude-skills-failures
+    preferredLabel: "5 Fixes for Claude Skills Failures"
+    alternateLabels:
+      - Claude Skills troubleshooting
+      - YAML frontmatter for skills
+      - skill activation patterns
+      - Claude Projects vs Skills
+    definition: >
+      Analysis of 40+ Claude Skills failures identifying 5 fixes that work.
+      Covers proper YAML frontmatter structure, clear activation triggers,
+      and distinguishes Skills from Projects and Memory. Essential reading
+      for building reliable Claude Skills.
+
+    author: a-francis
+    source: Substack
+    contentType: tutorial
+    publishedDate: 2025-11-25
+    dateAdded: 2025-12-21
+
+    domain: ai-integration
+    category: Agent Patterns
+    granularity: how-to
+
+    relationships:
+      - related: advanced-tool-use-anthropic
+
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#f59e0b"
+
+  - id: free-ai-courses-guide-ruben
+    url: https://ruben.substack.com/p/free
+    preferredLabel: "Free AI Courses: Official Resources"
+    alternateLabels:
+      - AI learning resources
+      - OpenAI Academy
+      - Anthropic Learning Hub
+      - free AI education
+    definition: >
+      Curated directory of free official AI courses from OpenAI, Anthropic,
+      Google, Zapier, and Lindy. Organized by tool (ChatGPT, Claude, Gemini)
+      and difficulty level (Easy to Expert). Focus on the 20% that matters most.
+
+    author: r-hassid
+    source: Substack
+    contentType: directory
+    publishedDate: 2025-11-12
+    dateAdded: 2025-12-21
+
+    domain: professional-development
+    category: Learning Resources
+    granularity: reference
+
+    relationships:
+      - related: claude-skills-failures-analysis
+
+    validationStatus: unvalidated
+    readingTime: 8m
+    color: "#10b981"
+
+  - id: gemini-deep-research
+    url: https://gemini.google/tg/overview/deep-research/
+    preferredLabel: "Gemini Deep Research"
+    alternateLabels:
+      - agentic research
+      - automated web research
+      - research assistant AI
+      - Gemini 2.5
+    definition: >
+      Google's agentic research feature that autonomously browses hundreds of
+      websites, integrates with Gmail/Drive/Chat, and synthesizes findings into
+      multi-page reports. Uses Gemini 2.5 for planning, searching, reasoning,
+      and reporting. Represents the shift toward agentic AI collaboration.
+
+    author: google
+    source: Vendor
+    contentType: product-docs
+    publishedDate: 2024-12-01
+    dateAdded: 2025-12-21
+
+    domain: ai-integration
+    category: Agent Infrastructure
+    granularity: conceptual
+
+    relationships:
+      - related: momo-context-engineering-research
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#3b82f6"
+
+  - id: claude-use-cases-anthropic
+    url: https://claude.com/resources/use-cases
+    preferredLabel: "Claude Use Cases Directory"
+    alternateLabels:
+      - Claude examples
+      - browser automation
+      - Claude in Chrome
+      - Anthropic use cases
+    definition: >
+      Official Anthropic directory of Claude use cases across categories
+      including research, writing, coding, and analysis. Features Browser Use,
+      Connectors, Extended Thinking, Projects, and Skills examples with
+      copy-paste prompts.
+
+    author: anthropic-team
+    source: Vendor
+    contentType: directory
+    publishedDate: 2025-01-01
+    dateAdded: 2025-12-21
+
+    domain: ai-integration
+    category: Agent Patterns
+    granularity: reference
+
+    relationships:
+      - related: claude-skills-failures-analysis
+      - related: advanced-tool-use-anthropic
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#f59e0b"
+
+  - id: kpi-color-encoding-tableau
+    url: https://public.tableau.com/views/MasteringTableau2_KPIcollection1-ColorencodingforKPIcards/Dashboard
+    preferredLabel: "KPI Color Encoding Patterns"
+    alternateLabels:
+      - KPI card design
+      - color encoding best practices
+      - Tableau dashboard patterns
+      - metric visualization
+    definition: >
+      Interactive Tableau dashboard demonstrating color encoding patterns for
+      KPI cards. Part of the Mastering Tableau series on effective data
+      visualization. Complements the 10 Commandments of Big Numbers guide.
+
+    author: unknown
+    source: Tableau Public
+    contentType: visualization
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-visualization
+    category: Dashboard Design
+    granularity: how-to
+
+    relationships:
+      - related: 10-commandments-big-numbers
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#8b5cf6"

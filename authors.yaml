@@ -1466,3 +1466,55 @@ authors:
       Open source developer. Creator of pixcii, a C++ tool for converting
       video to ASCII art in the terminal.
     bioSource: https://github.com/ashish0kumar
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Batch 2025-12-21 - Intake Queue Processing
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: a-francis
+    name: Ashwin Francis
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    jobTitle: ~
+    industry: AI / Content
+    affiliation: Cash & Cache
+    perspectiveType: practitioner
+    yearsInField: ~
+    socialFollowing: ~
+    bio: >
+      Co-author at Cash & Cache Substack. Writes about AI productivity,
+      Claude Skills, and workflow optimization.
+    bioSource: https://substack.com/@ashwinfrancis
+
+  - id: r-hassid
+    name: Ruben Hassid
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    jobTitle: AI Educator
+    industry: AI / Education
+    affiliation: Independent
+    perspectiveType: educator
+    yearsInField: ~
+    socialFollowing: large
+    bio: >
+      AI educator and content creator. Curates free AI learning resources
+      and writes practical guides on ChatGPT, Claude, and Gemini.
+    bioSource: https://ruben.substack.com/
+
+  - id: google
+    name: Google
+    type: organization
+    foundedYear: 1998
+    location:
+      city: Mountain View
+      country: USA
+      continent: North America
+    industry: Technology / AI
+    affiliation: Alphabet Inc.
+    perspectiveType: vendor
+    bio: Technology company, creators of Gemini AI
+    bioSource: https://google.com/

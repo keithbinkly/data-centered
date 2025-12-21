@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Archivist's Wheel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Timing - gear ratios based on teeth count */
+      --main-gear-duration: 20s;
+      /* 24 teeth : 16 teeth = 1.5:1 ratio */
+      --drive-gear-duration: calc(var(--main-gear-duration) / 1.5);
+      /* 16 teeth : 12 teeth = 1.33:1 ratio */
+      --small-gear-duration: calc(var(--drive-gear-duration) / 1.33);
+      /* Tiny cogs */
+      --tiny-gear-duration: 3s;
+
+      /* Brass palette */
+      --brass-bright: #D4A855;
+      --brass-mid: #B8923A;
+      --brass-dark: #8B6914;
+      --brass-shadow: #5C4A1F;
+
+      /* Copper palette */
+      --copper-bright: #CD7F32;
+      --copper-mid: #B87333;
+      --copper-patina: #4A8B6B;
+      --copper-dark: #6B4423;
+
+      /* Wood */
+      --oak-light: #A67C52;
+      --oak-mid: #7B5B3A;
+      --oak-dark: #4A3728;
+
+      /* Iron */
+      --iron-light: #5A5A5A;
+      --iron-dark: #2C2C2C;
+
+      /* Atmosphere */
+      --parchment: #F5E6C8;
+      --steam: rgba(255, 250, 240, 0.12);
+      --glow-brass: rgba(212, 168, 85, 0.4);
+      --glow-warm: rgba(255, 180, 100, 0.15);
+
+      /* Background */
+      --bg-deep: #1A1510;
+      --bg-mid: #2A2218;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-deep);
+      font-family: 'Crimson Text', Georgia, serif;
+      overflow: hidden;
+    }
+
+    .atmosphere {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 100% at 50% 100%, var(--bg-mid) 0%, transparent 70%),
+        radial-gradient(circle at 50% 50%, var(--bg-deep) 0%, #0D0A07 100%);
+      pointer-events: none;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    .frame {
+      position: relative;
+      padding: 50px 70px;
+      background: linear-gradient(135deg, var(--oak-dark) 0%, var(--oak-mid) 50%, var(--oak-dark) 100%);
+      border: 8px solid var(--brass-dark);
+      border-radius: 12px;
+      box-shadow:
+        inset 0 0 60px rgba(0,0,0,0.5),
+        0 0 0 4px var(--iron-dark),
+        0 0 0 8px var(--brass-shadow),
+        0 20px 60px rgba(0,0,0,0.7),
+        0 0 100px var(--glow-warm);
+    }
+
+    .rivet {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: radial-gradient(circle at 35% 35%, var(--brass-bright), var(--brass-dark) 60%, var(--brass-shadow));
+      border-radius: 50%;
+      box-shadow:
+        inset -2px -2px 4px rgba(0,0,0,0.5),
+        1px 1px 3px rgba(0,0,0,0.4);
+    }
+    .rivet:nth-child(1) { top: 22px; left: 22px; }
+    .rivet:nth-child(2) { top: 22px; right: 22px; }
+    .rivet:nth-child(3) { bottom: 22px; left: 22px; }
+    .rivet:nth-child(4) { bottom: 22px; right: 22px; }
+
+    .machine-container {
+      position: relative;
+      width: 700px;
+      height: 520px;
+    }
+
+    /* Steam */
+    .steam-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .steam {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, var(--steam) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(4px);
+      animation: steam-rise linear infinite;
+    }
+
+    @keyframes steam-rise {
+      0% { opacity: 0; transform: translateY(0) scale(1); }
+      10% { opacity: 0.5; }
+      100% { opacity: 0; transform: translateY(-120px) scale(2.5) translateX(20px); }
+    }
+
+    /* Keyframes */
+    @keyframes spin-cw {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spin-ccw {
+      to { transform: rotate(-360deg); }
+    }
+
+    /* Gear SVG definitions */
+    .gear-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    /* === MAIN WHEEL GEAR (24 teeth) === */
+    .main-gear-container {
+      position: absolute;
+      left: 180px;
+      top: 30px;
+      width: 360px;
+      height: 360px;
+    }
+
+    .main-gear {
+      width: 100%;
+      height: 100%;
+      animation: spin-cw var(--main-gear-duration) linear infinite;
+    }
+
+    .main-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));
+    }
+
+    /* Book wheel structure inside main gear */
+    .wheel-structure {
+      position: absolute;
+      inset: 40px;
+      animation: spin-cw var(--main-gear-duration) linear infinite;
+    }
+
+    .wheel-rim {
+      position: absolute;
+      inset: 0;
+      border: 18px solid var(--oak-mid);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,55,40,0.3) 0%, transparent 70%);
+      box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.4),
+        inset 0 0 40px rgba(0,0,0,0.2);
+    }
+
+    .wheel-rim::before {
+      content: '';
+      position: absolute;
+      inset: -18px;
+      border: 3px solid var(--brass-dark);
+      border-radius: 50%;
+    }
+
+    .spoke {
+      position: absolute;
+      width: 6px;
+      height: 122px;
+      left: 50%;
+      top: 50%;
+      transform-origin: center top;
+      background: linear-gradient(90deg, var(--oak-dark), var(--oak-light), var(--oak-dark));
+      border-radius: 3px;
+    }
+
+    /* Shelves */
+    .shelf-arm {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 60px;
+      transform-origin: 0 0;
+    }
+
+    .shelf {
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: counter-spin var(--main-gear-duration) linear infinite;
+    }
+
+    @keyframes counter-spin {
+      to { transform: translateY(-50%) rotate(-360deg); }
+    }
+
+    .shelf-base {
+      width: 65px;
+      height: 10px;
+      background: linear-gradient(180deg, var(--oak-light), var(--oak-mid), var(--oak-dark));
+      border-radius: 2px;
+      transform: rotate(-45deg);
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .books {
+      position: absolute;
+      bottom: 8px;
+      left: 12px;
+      display: flex;
+      gap: 2px;
+      transform: rotate(-45deg);
+      transform-origin: bottom left;
+    }
+
+    .book {
+      width: 6px;
+      border-radius: 1px;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* Central hub */
+    .central-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle at 35% 35%, var(--brass-bright), var(--brass-mid) 50%, var(--brass-dark) 80%);
+      border-radius: 50%;
+      border: 4px solid var(--brass-shadow);
+      box-shadow:
+        inset -3px -3px 8px rgba(0,0,0,0.4),
+        0 0 25px var(--glow-brass);
+      z-index: 10;
+    }
+
+    .central-hub::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      background: radial-gradient(circle at 40% 40%, var(--iron-light), var(--iron-dark));
+      border-radius: 50%;
+      border: 2px solid var(--brass-dark);
+    }
+
+    /* === DRIVE GEAR (16 teeth) - meshes with main === */
+    .drive-gear-container {
+      position: absolute;
+      left: 20px;
+      top: 180px;
+      width: 200px;
+      height: 200px;
+    }
+
+    .drive-gear {
+      width: 100%;
+      height: 100%;
+      animation: spin-ccw var(--drive-gear-duration) linear infinite;
+    }
+
+    .drive-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.5));
+    }
+
+    .drive-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle at 35% 35%, var(--copper-bright), var(--copper-mid) 50%, var(--copper-dark) 80%);
+      border-radius: 50%;
+      border: 3px solid var(--brass-shadow);
+      box-shadow: inset -2px -2px 6px rgba(0,0,0,0.4);
+      z-index: 5;
+    }
+
+    /* === SECONDARY GEAR (12 teeth) - meshes with drive === */
+    .secondary-gear-container {
+      position: absolute;
+      left: -25px;
+      top: 340px;
+      width: 140px;
+      height: 140px;
+    }
+
+    .secondary-gear {
+      width: 100%;
+      height: 100%;
+      animation: spin-cw var(--small-gear-duration) linear infinite;
+    }
+
+    .secondary-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+    }
+
+    .secondary-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 35px;
+      height: 35px;
+      background: radial-gradient(circle at 35% 35%, var(--brass-bright), var(--brass-dark) 70%);
+      border-radius: 50%;
+      border: 2px solid var(--brass-shadow);
+      z-index: 5;
+    }
+
+    /* === TOP RIGHT GEAR CLUSTER === */
+    .top-gear-container {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      width: 160px;
+      height: 160px;
+    }
+
+    .top-gear {
+      width: 100%;
+      height: 100%;
+      animation: spin-ccw calc(var(--main-gear-duration) / 2.25) linear infinite;
+    }
+
+    .top-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));
+    }
+
+    .top-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at 35% 35%, var(--copper-bright), var(--copper-dark) 70%);
+      border-radius: 50%;
+      border: 3px solid var(--brass-shadow);
+      z-index: 5;
+    }
+
+    /* Small gear meshing with top */
+    .top-small-gear-container {
+      position: absolute;
+      right: -15px;
+      top: 130px;
+      width: 100px;
+      height: 100px;
+    }
+
+    .top-small-gear {
+      width: 100%;
+      height: 100%;
+      animation: spin-cw calc(var(--main-gear-duration) / 3.6) linear infinite;
+    }
+
+    .top-small-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    }
+
+    /* === BOTTOM RIGHT GEAR === */
+    .bottom-gear-container {
+      position: absolute;
+      right: 50px;
+      bottom: 30px;
+      width: 180px;
+      height: 180px;
+    }
+
+    .bottom-gear {
+      width: 100%;
+      height: 100%;
+      animation: spin-ccw calc(var(--main-gear-duration) / 2) linear infinite;
+    }
+
+    .bottom-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.5));
+    }
+
+    .bottom-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 45px;
+      height: 45px;
+      background: radial-gradient(circle at 35% 35%, var(--brass-bright), var(--brass-mid) 50%, var(--brass-dark) 80%);
+      border-radius: 50%;
+      border: 3px solid var(--brass-shadow);
+      z-index: 5;
+    }
+
+    /* Tiny decorative gears */
+    .tiny-gear {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+    }
+
+    .tiny-gear svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.4));
+    }
+
+    .tiny-1 {
+      left: 85px;
+      top: 70px;
+      animation: spin-cw var(--tiny-gear-duration) linear infinite;
+    }
+
+    .tiny-2 {
+      left: 140px;
+      bottom: 50px;
+      animation: spin-ccw calc(var(--tiny-gear-duration) * 1.2) linear infinite;
+    }
+
+    .tiny-3 {
+      right: 180px;
+      bottom: 20px;
+      animation: spin-cw calc(var(--tiny-gear-duration) * 0.8) linear infinite;
+    }
+
+    /* Ambient glow */
+    .ambient-glow {
+      position: absolute;
+      left: 360px;
+      top: 210px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--glow-warm) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Title */
+    .title {
+      margin-top: 35px;
+      text-align: center;
+    }
+
+    .title h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--parchment);
+      text-shadow: 0 0 20px var(--glow-brass), 2px 2px 4px rgba(0,0,0,0.8);
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+    }
+
+    .title p {
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--brass-mid);
+      letter-spacing: 0.08em;
+    }
+
+    .title-decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .title-line {
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brass-mid), transparent);
+    }
+
+    .title-ornament {
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle at 35% 35%, var(--brass-bright), var(--brass-dark));
+      transform: rotate(45deg);
+      box-shadow: 0 0 8px var(--glow-brass);
+    }
+  </style>
+</head>
+<body>
+  <div class="atmosphere"></div>
+  <div class="noise"></div>
+
+  <!-- SVG Gear Definitions -->
+  <svg class="gear-defs">
+    <defs>
+      <!-- Brass gradient -->
+      <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E8C56C"/>
+        <stop offset="30%" style="stop-color:#D4A855"/>
+        <stop offset="70%" style="stop-color:#B8923A"/>
+        <stop offset="100%" style="stop-color:#8B6914"/>
+      </linearGradient>
+
+      <!-- Copper gradient -->
+      <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E8935C"/>
+        <stop offset="30%" style="stop-color:#CD7F32"/>
+        <stop offset="70%" style="stop-color:#B87333"/>
+        <stop offset="100%" style="stop-color:#6B4423"/>
+      </linearGradient>
+
+      <!-- Dark brass -->
+      <linearGradient id="darkBrassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#C4985C"/>
+        <stop offset="50%" style="stop-color:#A07830"/>
+        <stop offset="100%" style="stop-color:#7A5A18"/>
+      </linearGradient>
+
+      <!-- 24-tooth gear path -->
+      <symbol id="gear24" viewBox="0 0 200 200">
+        <path d="M100 4 L104 18 L110 10 L112 24 L120 18 L120 32 L130 28 L128 42 L138 40 L134 54 L146 54 L140 66 L152 68 L144 80 L158 84 L148 94 L162 100 L148 106 L158 116 L144 120 L152 132 L140 134 L146 146 L134 146 L138 160 L128 158 L130 172 L120 168 L120 182 L112 176 L110 190 L104 182 L100 196 L96 182 L90 190 L88 176 L80 182 L80 168 L70 172 L72 158 L62 160 L66 146 L54 146 L60 134 L48 132 L56 120 L42 116 L52 106 L38 100 L52 94 L42 84 L56 80 L48 68 L60 66 L54 54 L66 54 L62 40 L72 42 L70 28 L80 32 L80 18 L88 24 L90 10 L96 18 Z" fill="url(#brassGrad)"/>
+      </symbol>
+
+      <!-- 16-tooth gear path -->
+      <symbol id="gear16" viewBox="0 0 200 200">
+        <path d="M100 8 L106 28 L118 16 L120 38 L136 30 L134 52 L152 50 L144 70 L164 74 L152 90 L172 100 L152 110 L164 126 L144 130 L152 150 L134 148 L136 170 L120 162 L118 184 L106 172 L100 192 L94 172 L82 184 L80 162 L64 170 L66 148 L48 150 L56 130 L36 126 L48 110 L28 100 L48 90 L36 74 L56 70 L48 50 L66 52 L64 30 L80 38 L82 16 L94 28 Z" fill="url(#copperGrad)"/>
+      </symbol>
+
+      <!-- 12-tooth gear path -->
+      <symbol id="gear12" viewBox="0 0 200 200">
+        <path d="M100 10 L108 35 L128 20 L128 48 L155 42 L145 68 L175 72 L158 95 L188 105 L158 115 L175 138 L145 142 L155 168 L128 162 L128 190 L108 175 L100 200 L92 175 L72 190 L72 162 L45 168 L55 142 L25 138 L42 115 L12 105 L42 95 L25 72 L55 68 L45 42 L72 48 L72 20 L92 35 Z" fill="url(#brassGrad)"/>
+      </symbol>
+
+      <!-- 14-tooth gear path -->
+      <symbol id="gear14" viewBox="0 0 200 200">
+        <path d="M100 6 L107 28 L122 14 L124 38 L142 28 L140 52 L162 48 L154 72 L178 76 L164 96 L188 106 L164 116 L178 136 L154 140 L162 164 L140 160 L142 184 L124 174 L122 198 L107 184 L100 206 L93 184 L78 198 L76 174 L58 184 L60 160 L38 164 L46 140 L22 136 L36 116 L12 106 L36 96 L22 76 L46 72 L38 48 L60 52 L58 28 L76 38 L78 14 L93 28 Z" fill="url(#copperGrad)"/>
+      </symbol>
+
+      <!-- 8-tooth gear (small) -->
+      <symbol id="gear8" viewBox="0 0 200 200">
+        <path d="M100 15 L112 45 L145 25 L140 60 L180 60 L160 90 L195 110 L160 130 L180 160 L140 160 L145 195 L112 175 L100 205 L88 175 L55 195 L60 160 L20 160 L40 130 L5 110 L40 90 L20 60 L60 60 L55 25 L88 45 Z" fill="url(#darkBrassGrad)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="frame">
+    <div class="rivet"></div>
+    <div class="rivet"></div>
+    <div class="rivet"></div>
+    <div class="rivet"></div>
+
+    <div class="machine-container">
+      <div class="ambient-glow"></div>
+      <div class="steam-container" id="steamContainer"></div>
+
+      <!-- MAIN WHEEL GEAR (24 teeth) -->
+      <div class="main-gear-container">
+        <div class="main-gear">
+          <svg><use href="#gear24"/></svg>
+        </div>
+
+        <!-- Book wheel inside -->
+        <div class="wheel-structure">
+          <div class="wheel-rim"></div>
+
+          <!-- Spokes -->
+          <div class="spoke" style="transform: translateX(-50%) rotate(0deg)"></div>
+          <div class="spoke" style="transform: translateX(-50%) rotate(60deg)"></div>
+          <div class="spoke" style="transform: translateX(-50%) rotate(120deg)"></div>
+          <div class="spoke" style="transform: translateX(-50%) rotate(180deg)"></div>
+          <div class="spoke" style="transform: translateX(-50%) rotate(240deg)"></div>
+          <div class="spoke" style="transform: translateX(-50%) rotate(300deg)"></div>
+
+          <!-- Shelves with books -->
+          <div class="shelf-arm" style="transform: rotate(0deg) translateX(25px)">
+            <div class="shelf">
+              <div class="shelf-base"></div>
+              <div class="books">
+                <div class="book" style="height: 26px; background: linear-gradient(#8B0000, #5C0000);"></div>
+                <div class="book" style="height: 22px; background: linear-gradient(#2F4F4F, #1C3030);"></div>
+                <div class="book" style="height: 28px; background: linear-gradient(#4A3728, #2D1F14);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shelf-arm" style="transform: rotate(60deg) translateX(25px)">
+            <div class="shelf">
+              <div class="shelf-base"></div>
+              <div class="books">
+                <div class="book" style="height: 24px; background: linear-gradient(#556B2F, #3A4A20);"></div>
+                <div class="book" style="height: 27px; background: linear-gradient(#8B4513, #5C2E0D);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shelf-arm" style="transform: rotate(120deg) translateX(25px)">
+            <div class="shelf">
+              <div class="shelf-base"></div>
+              <div class="books">
+                <div class="book" style="height: 26px; background: linear-gradient(#800020, #4D0013);"></div>
+                <div class="book" style="height: 23px; background: linear-gradient(#191970, #0F0F45);"></div>
+                <div class="book" style="height: 25px; background: linear-gradient(#5C4033, #3A2820);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shelf-arm" style="transform: rotate(180deg) translateX(25px)">
+            <div class="shelf">
+              <div class="shelf-base"></div>
+              <div class="books">
+                <div class="book" style="height: 22px; background: linear-gradient(#6B4423, #452C16);"></div>
+                <div class="book" style="height: 28px; background: linear-gradient(#2E0854, #1A0330);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shelf-arm" style="transform: rotate(240deg) translateX(25px)">
+            <div class="shelf">
+              <div class="shelf-base"></div>
+              <div class="books">
+                <div class="book" style="height: 25px; background: linear-gradient(#4A3728, #2D1F14);"></div>
+                <div class="book" style="height: 21px; background: linear-gradient(#1C3030, #0F1A1A);"></div>
+                <div class="book" style="height: 27px; background: linear-gradient(#5C2E0D, #3A1C06);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shelf-arm" style="transform: rotate(300deg) translateX(25px)">
+            <div class="shelf">
+              <div class="shelf-base"></div>
+              <div class="books">
+                <div class="book" style="height: 24px; background: linear-gradient(#556B2F, #3A4A20);"></div>
+                <div class="book" style="height: 26px; background: linear-gradient(#800020, #4D0013);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="central-hub"></div>
+        </div>
+      </div>
+
+      <!-- DRIVE GEAR (16 teeth) - meshes with main gear on left -->
+      <div class="drive-gear-container">
+        <div class="drive-gear">
+          <svg><use href="#gear16"/></svg>
+        </div>
+        <div class="drive-hub"></div>
+      </div>
+
+      <!-- SECONDARY GEAR (12 teeth) - meshes with drive gear -->
+      <div class="secondary-gear-container">
+        <div class="secondary-gear">
+          <svg><use href="#gear12"/></svg>
+        </div>
+        <div class="secondary-hub"></div>
+      </div>
+
+      <!-- TOP RIGHT GEAR (14 teeth) - meshes with main gear -->
+      <div class="top-gear-container">
+        <div class="top-gear">
+          <svg><use href="#gear14"/></svg>
+        </div>
+        <div class="top-hub"></div>
+      </div>
+
+      <!-- SMALL GEAR below top gear (8 teeth) -->
+      <div class="top-small-gear-container">
+        <div class="top-small-gear">
+          <svg><use href="#gear8"/></svg>
+        </div>
+      </div>
+
+      <!-- BOTTOM RIGHT GEAR (16 teeth) - meshes with main gear -->
+      <div class="bottom-gear-container">
+        <div class="bottom-gear">
+          <svg><use href="#gear16"/></svg>
+        </div>
+        <div class="bottom-hub"></div>
+      </div>
+
+      <!-- Tiny decorative gears -->
+      <div class="tiny-gear tiny-1">
+        <svg><use href="#gear8"/></svg>
+      </div>
+      <div class="tiny-gear tiny-2">
+        <svg><use href="#gear8"/></svg>
+      </div>
+      <div class="tiny-gear tiny-3">
+        <svg><use href="#gear8"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="title">
+    <h1>THE ARCHIVIST'S WHEEL</h1>
+    <p>Keeper of Wisdom · Curator of Knowledge</p>
+    <div class="title-decoration">
+      <div class="title-line"></div>
+      <div class="title-ornament"></div>
+      <div class="title-line"></div>
+    </div>
+  </div>
+
+  <script>
+    const steamContainer = document.getElementById('steamContainer');
+
+    function createSteam() {
+      const particle = document.createElement('div');
+      particle.className = 'steam';
+
+      // Steam from bottom-left gear area
+      const x = 40 + Math.random() * 80;
+      const y = 380 + Math.random() * 60;
+
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      particle.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
+
+      steamContainer.appendChild(particle);
+      setTimeout(() => particle.remove(), 4500);
+    }
+
+    setInterval(createSteam, 250);
+    for (let i = 0; i < 4; i++) setTimeout(createSteam, i * 80);
+  </script>
+</body>
+</html>
