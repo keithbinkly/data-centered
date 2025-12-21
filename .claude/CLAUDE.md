@@ -58,7 +58,14 @@ For new authors, research demographics per `AGENTS.md`:
 | `AGENTS.md` | Full schema, relationship types, ontology mappings |
 | `ingestion/classifiers.py` | Exact taxonomy with domain colors |
 | `docs/ingestion-pipeline-update.md` | Pipeline status and capabilities |
+| `docs/ingestion-metrics.md` | Processing time tracking |
 | `intake-queue.md` | URLs pending ingestion |
+
+## After Ingestion
+
+Update `docs/ingestion-metrics.md` with:
+- Date, number of resources, total time, time per resource
+- Method used, any notes
 
 ## API Note
 

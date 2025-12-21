@@ -2775,16 +2775,16 @@ resources:
     publishedDate: 2025-11-25
     dateAdded: 2025-12-21
 
-    domain: ai-integration
-    category: Agent Patterns
-    granularity: how-to
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
 
     relationships:
       - related: advanced-tool-use-anthropic
 
     validationStatus: unvalidated
     readingTime: 12m
-    color: "#f59e0b"
+    color: "#10b981"
 
   - id: free-ai-courses-guide-ruben
     url: https://ruben.substack.com/p/free
@@ -2805,8 +2805,8 @@ resources:
     publishedDate: 2025-11-12
     dateAdded: 2025-12-21
 
-    domain: professional-development
-    category: Learning Resources
+    domain: career-development
+    category: Career Strategy
     granularity: reference
 
     relationships:
@@ -2814,7 +2814,7 @@ resources:
 
     validationStatus: unvalidated
     readingTime: 8m
-    color: "#10b981"
+    color: "#6366f1"
 
   - id: gemini-deep-research
     url: https://gemini.google/tg/overview/deep-research/
@@ -2832,11 +2832,11 @@ resources:
 
     author: google
     source: Vendor
-    contentType: product-docs
+    contentType: documentation
     publishedDate: 2024-12-01
     dateAdded: 2025-12-21
 
-    domain: ai-integration
+    domain: ai-tools
     category: Agent Infrastructure
     granularity: conceptual
 
@@ -2845,7 +2845,7 @@ resources:
 
     validationStatus: unvalidated
     readingTime: 5m
-    color: "#3b82f6"
+    color: "#10b981"
 
   - id: claude-use-cases-anthropic
     url: https://claude.com/resources/use-cases
@@ -2863,12 +2863,12 @@ resources:
 
     author: anthropic-team
     source: Vendor
-    contentType: directory
+    contentType: documentation
     publishedDate: 2025-01-01
     dateAdded: 2025-12-21
 
-    domain: ai-integration
-    category: Agent Patterns
+    domain: ai-tools
+    category: Development Tools
     granularity: reference
 
     relationships:
@@ -2877,7 +2877,7 @@ resources:
 
     validationStatus: unvalidated
     readingTime: 10m
-    color: "#f59e0b"
+    color: "#10b981"
 
   - id: kpi-color-encoding-tableau
     url: https://public.tableau.com/views/MasteringTableau2_KPIcollection1-ColorencodingforKPIcards/Dashboard
@@ -2899,8 +2899,8 @@ resources:
     dateAdded: 2025-12-21
 
     domain: data-visualization
-    category: Dashboard Design
-    granularity: how-to
+    category: Dashboard Exemplars
+    granularity: implementation
 
     relationships:
       - related: 10-commandments-big-numbers
@@ -2908,3 +2908,974 @@ resources:
     validationStatus: unvalidated
     readingTime: 5m
     color: "#8b5cf6"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Batch 2025-12-21 (continued) - GitHub Repos & Tools
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: arize-phoenix
+    url: https://github.com/Arize-ai/phoenix
+    preferredLabel: "Arize Phoenix: AI Observability & Evaluation"
+    alternateLabels:
+      - LLM tracing
+      - AI observability
+      - OpenTelemetry LLM
+      - agent evaluation
+    definition: >
+      Open-source AI observability platform for experimentation, evaluation, and
+      troubleshooting. Provides tracing via OpenTelemetry, LLM-based evals,
+      versioned datasets, and prompt playground. Framework-agnostic with
+      integrations for LlamaIndex, LangChain, DSPy, and major LLM providers.
+
+    author: arize-ai
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#10b981"
+
+  - id: scrollama
+    url: https://github.com/russellgoldenberg/scrollama
+    preferredLabel: "Scrollama: Scrollytelling with IntersectionObserver"
+    alternateLabels:
+      - scrollytelling library
+      - scroll-driven stories
+      - IntersectionObserver
+      - data journalism
+    definition: >
+      Lightweight JavaScript library for scrollytelling using IntersectionObserver
+      for performant scroll detection. Handles step triggers, progress callbacks,
+      and sticky graphics. Created by Russell Goldenberg (The Pudding).
+
+    author: r-goldenberg
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Scrollytelling
+    granularity: implementation
+
+    relationships:
+      - related: pudding-scrollytelling-implementation
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#ec4899"
+
+  - id: pudding-svelte-starter
+    url: https://github.com/the-pudding/svelte-starter
+    preferredLabel: "The Pudding Svelte Starter Template"
+    alternateLabels:
+      - SvelteKit data visualization
+      - Pudding template
+      - data story starter
+      - visual essay template
+    definition: >
+      Production-ready SvelteKit template for data-driven visual stories.
+      Includes ArchieML for Google Docs CMS, Lucide icons, Style Dictionary,
+      CSV/JSON/SVG imports, and SSR static builds. The foundation for
+      Pudding-style data journalism.
+
+    author: the-pudding
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Process Guides
+    granularity: implementation
+
+    relationships:
+      - related: pudding-dope-shit-1
+
+    validationStatus: unvalidated
+    readingTime: 20m
+    color: "#ec4899"
+
+  - id: better-agents-langwatch
+    url: https://github.com/langwatch/better-agents
+    preferredLabel: "Better Agents: Standards for Agent Building"
+    alternateLabels:
+      - agent project structure
+      - AGENTS.md
+      - scenario testing
+      - prompt versioning
+    definition: >
+      CLI tool and standards for building production-ready AI agents. Generates
+      project structure with scenario tests, prompt versioning, evaluation
+      notebooks, and observability instrumentation. Creates AGENTS.md for
+      coding assistants to follow best practices.
+
+    author: langwatch
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    relationships:
+      - related: claude-skills-failures-analysis
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: pudding-data-repo
+    url: https://github.com/the-pudding/data
+    preferredLabel: "The Pudding Open Data Repository"
+    alternateLabels:
+      - Pudding datasets
+      - data journalism datasets
+      - open data
+      - story data
+    definition: >
+      Public repository of datasets created for visual essays on The Pudding.
+      Includes data from stories on topics like romance novel covers, country
+      radio gender disparity, NBA performances, and more. Organized with
+      story links, keywords, and update frequency.
+
+    author: the-pudding
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Data Journalism
+    granularity: reference
+
+    relationships:
+      - related: pudding-svelte-starter
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#ec4899"
+
+  - id: layercake
+    url: https://layercake.graphics/
+    preferredLabel: "Layer Cake: Svelte Graphics Framework"
+    alternateLabels:
+      - Svelte visualization
+      - headless charts
+      - responsive graphics
+      - SVG Canvas WebGL
+    definition: >
+      Headless graphics framework for Svelte that creates synced scales from
+      div measurements and data extents. Supports SVG, HTML, Canvas, and WebGL
+      layers sharing coordinate space. Components live in your project for
+      full customization. Works server-side without JavaScript.
+
+    author: m-keller
+    source: Website
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Scrollytelling
+    granularity: implementation
+
+    relationships:
+      - related: scrollama
+      - related: pudding-svelte-starter
+
+    validationStatus: unvalidated
+    readingTime: 20m
+    color: "#ec4899"
+
+  - id: d3js
+    url: https://d3js.org/
+    preferredLabel: "D3.js: JavaScript Data Visualization Library"
+    alternateLabels:
+      - D3
+      - data-driven documents
+      - custom visualization
+      - Observable D3
+    definition: >
+      The foundational JavaScript library for bespoke data visualization.
+      Provides selections, transitions, scales, axes, shapes, interactions,
+      layouts, and geographic projections. Powers Observable Plot and
+      countless custom visualizations. The standard for web-based data viz.
+
+    author: m-bostock
+    source: Website
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-visualization
+    category: Chart Design
+    granularity: foundational
+
+    relationships:
+      - related: layercake
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#8b5cf6"
+
+  - id: pudding-website-repo
+    url: https://github.com/the-pudding/website
+    preferredLabel: "The Pudding Website Repository"
+    alternateLabels:
+      - Pudding CMS
+      - story publishing workflow
+      - ArchieML CMS
+      - Google Docs publishing
+    definition: >
+      Source code for pudding.cool showing their publishing workflow.
+      Uses Google Sheets for story/author data, ArchieML for content,
+      and standardized screenshot guidelines. Reference for building
+      a content-driven publication.
+
+    author: the-pudding
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Process Guides
+    granularity: implementation
+
+    relationships:
+      - related: pudding-svelte-starter
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#ec4899"
+
+  - id: sveltepress
+    url: https://github.com/SveltePress/sveltepress
+    preferredLabel: "SveltePress: Content-Centered Site Builder"
+    alternateLabels:
+      - SvelteKit documentation
+      - markdown site generator
+      - docs framework
+      - content site builder
+    definition: >
+      Content-centered site building tool on top of SvelteKit. Designed
+      for documentation sites and content-heavy projects. Alternative to
+      VitePress for the Svelte ecosystem.
+
+    author: sveltepress
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Process Guides
+    granularity: implementation
+
+    relationships:
+      - related: pudding-svelte-starter
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#ec4899"
+
+  - id: openai-academy
+    url: https://academy.openai.com/
+    preferredLabel: "OpenAI Academy"
+    alternateLabels:
+      - ChatGPT training
+      - OpenAI learning
+      - AI skills
+      - prompt engineering course
+    definition: >
+      Official OpenAI learning platform with expert-led courses on ChatGPT
+      and AI applications. Features events, community discussions, and
+      direct access to OpenAI product updates. Free learning resources
+      for prompt engineering and AI integration.
+
+    author: openai
+    source: Vendor
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: career-development
+    category: Career Strategy
+    granularity: foundational
+
+    relationships:
+      - related: free-ai-courses-guide-ruben
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#6366f1"
+
+  - id: sveltekit
+    url: https://kit.svelte.dev/
+    preferredLabel: "SvelteKit: Web Application Framework"
+    alternateLabels:
+      - Svelte framework
+      - SSR framework
+      - web app framework
+      - full-stack Svelte
+    definition: >
+      The official application framework for Svelte. Provides routing,
+      server-side rendering, and build optimization. Foundation for
+      data-driven visual stories at The Pudding and other publications.
+      Combines compiler-based efficiency with full-stack capabilities.
+
+    author: svelte
+    source: Website
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Process Guides
+    granularity: foundational
+
+    relationships:
+      - related: pudding-svelte-starter
+      - related: layercake
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#ec4899"
+
+  - id: dbt-semantic-models
+    url: https://docs.getdbt.com/docs/build/semantic-models
+    preferredLabel: "dbt Semantic Models"
+    alternateLabels:
+      - MetricFlow semantic models
+      - dbt Semantic Layer
+      - semantic graph
+      - metric definitions
+    definition: >
+      Foundation for data definition in dbt's MetricFlow. Semantic models
+      are YAML abstractions on dbt models, connected via entities to form
+      a semantic graph. Components include entities, measures, and dimensions.
+      Enables consistent metric definitions across tools.
+
+    author: dbt-labs
+    source: dbt Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: analytics-engineering
+    category: Data Modeling
+    granularity: conceptual
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 20m
+    color: "#f97316"
+
+  - id: metricflow-time-spine
+    url: https://docs.getdbt.com/docs/build/metricflow-time-spine
+    preferredLabel: "MetricFlow Time Spine"
+    alternateLabels:
+      - time spine table
+      - custom calendar
+      - time granularity
+      - metricflow_time_spine
+    definition: >
+      Required time spine table for MetricFlow metric calculations.
+      Enables custom calendars and time-based aggregations in the
+      dbt Semantic Layer. Essential configuration for time-series metrics.
+
+    author: dbt-labs
+    source: dbt Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: analytics-engineering
+    category: dbt Practices
+    granularity: implementation
+
+    relationships:
+      - related: dbt-semantic-models
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#f97316"
+
+  - id: anthropic-learn-hub
+    url: https://www.anthropic.com/learn
+    preferredLabel: "Anthropic Academy & Learning Hub"
+    alternateLabels:
+      - Claude courses
+      - Anthropic training
+      - Claude 101
+      - Claude Code course
+    definition: >
+      Official Anthropic learning portal with courses on AI fluency,
+      Claude API development, MCP, and Claude Code. Features certifications
+      and guides for personal, work, and developer use cases. Includes
+      the in-depth Claude Code in Action course.
+
+    author: anthropic-team
+    source: Vendor
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: career-development
+    category: Career Strategy
+    granularity: foundational
+
+    relationships:
+      - related: openai-academy
+      - related: free-ai-courses-guide-ruben
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#6366f1"
+
+  - id: openmemory
+    url: https://github.com/CaviraOSS/OpenMemory/
+    preferredLabel: "OpenMemory: Local Memory Store for LLM Apps"
+    alternateLabels:
+      - persistent memory
+      - agent memory
+      - local-first memory
+      - temporal knowledge graph
+    definition: >
+      Local-first long-term memory engine for AI apps and agents. Self-hosted
+      with multi-sector memory (episodic, semantic, procedural, emotional,
+      reflective) and temporal knowledge graph. SDKs for Python and JavaScript.
+      Works with Claude Desktop, GitHub Copilot, and other LLM tools.
+
+    author: cavira
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    relationships:
+      - related: arize-phoenix
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: dbt-semantic-layer-architecture
+    url: https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-architecture
+    preferredLabel: "dbt Semantic Layer Architecture"
+    alternateLabels:
+      - MetricFlow architecture
+      - semantic layer components
+      - metric API
+    definition: >
+      Architecture overview of dbt's Semantic Layer. Explains how metrics
+      are defined, queried, and served through various interfaces.
+      The Semantic Layer generates SQL and handles joins automatically.
+
+    author: dbt-labs
+    source: dbt Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: analytics-engineering
+    category: Data Modeling
+    granularity: conceptual
+
+    relationships:
+      - related: dbt-semantic-models
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#f97316"
+
+  - id: claude-4-best-practices
+    url: https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices
+    preferredLabel: "Claude 4.x Prompting Best Practices"
+    alternateLabels:
+      - Claude 4.5 prompting
+      - Sonnet prompting
+      - Opus prompting
+      - explicit instructions
+    definition: >
+      Official Anthropic guide for prompting Claude 4.x models (Sonnet 4.5,
+      Haiku 4.5, Opus 4.5). Covers explicit instructions, adding context,
+      and being vigilant with examples. These models follow instructions
+      more precisely than previous generations.
+
+    author: anthropic-team
+    source: Anthropic Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-llms
+    category: Prompt Engineering
+    granularity: implementation
+
+    relationships:
+      - related: anthropic-learn-hub
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#a855f7"
+
+  - id: dbt-semantic-layer-exports
+    url: https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports
+    preferredLabel: "dbt Semantic Layer Exports"
+    alternateLabels:
+      - saved queries
+      - metric tables
+      - semantic layer export
+      - materialized metrics
+    definition: >
+      Exports extend saved queries by writing metric outputs to tables
+      in your data platform. Enables integration with tools lacking
+      native Semantic Layer support. Run via dbt job scheduler.
+
+    author: dbt-labs
+    source: dbt Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: analytics-engineering
+    category: dbt Practices
+    granularity: implementation
+
+    relationships:
+      - related: dbt-semantic-layer-architecture
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#f97316"
+
+  - id: coursera-ml-specialization
+    url: https://www.coursera.org/specializations/machine-learning-introduction
+    preferredLabel: "Machine Learning Specialization (Stanford/DeepLearning.AI)"
+    alternateLabels:
+      - Andrew Ng ML
+      - Stanford ML course
+      - machine learning fundamentals
+      - neural networks course
+    definition: >
+      Beginner-friendly 3-course program by Andrew Ng covering fundamental
+      ML concepts. Build models with NumPy, scikit-learn, and TensorFlow.
+      Covers supervised learning, neural networks, and decision trees.
+      The definitive intro to machine learning.
+
+    author: a-ng
+    source: Coursera
+    contentType: video
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: career-development
+    category: Career Strategy
+    granularity: foundational
+
+    relationships:
+      - related: openai-academy
+
+    validationStatus: unvalidated
+    readingTime: 40h
+    color: "#6366f1"
+
+  - id: karpathy-intro-to-llms
+    url: https://www.youtube.com/watch?v=zjkBMFhNj_g
+    preferredLabel: "Intro to Large Language Models (Karpathy)"
+    alternateLabels:
+      - LLM intro
+      - Karpathy talk
+      - LLM fundamentals
+      - what is an LLM
+    definition: >
+      One-hour general-audience introduction to LLMs by Andrej Karpathy.
+      Explains what LLMs are (two files), how they work, and their
+      capabilities. The most accessible technical intro to the core
+      technology behind ChatGPT, Claude, and other AI systems.
+
+    author: a-karpathy
+    source: YouTube
+    contentType: video
+    publishedDate: 2023-11-22
+    dateAdded: 2025-12-21
+
+    domain: ai-llms
+    category: LLM Foundations
+    granularity: foundational
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 1h
+    color: "#a855f7"
+
+  - id: simular-ai
+    url: https://www.simular.ai/
+    preferredLabel: "Simular AI: Autonomous Computer Use Agent"
+    alternateLabels:
+      - computer use
+      - autonomous agent
+      - OSWorld benchmark
+      - browser automation
+    definition: >
+      Research-driven AI agents for autonomous computer tasks. Ranked #1
+      in OSWorld Computer Use Benchmark, received ICLR 2025 Best Paper.
+      Open-source approach to building agents that work across browsers,
+      computers, and smartphones.
+
+    author: simular
+    source: Vendor
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: conceptual
+
+    relationships:
+      - related: gemini-deep-research
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#10b981"
+
+  - id: codewiki
+    url: https://github.com/FSoft-AI4Code/CodeWiki/
+    preferredLabel: "CodeWiki: Repository-Level Documentation Framework"
+    alternateLabels:
+      - code documentation
+      - codebase wiki
+      - multilingual docs
+      - structured documentation
+    definition: >
+      Open-source framework for holistic, structured repository-level
+      documentation across multilingual codebases. Generates comprehensive
+      documentation from code automatically.
+
+    author: fsoft-ai4code
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: agentic-data-scientist
+    url: https://github.com/K-Dense-AI/agentic-data-scientist
+    preferredLabel: "Agentic Data Scientist"
+    alternateLabels:
+      - AI data scientist
+      - automated analysis
+      - data science agent
+      - ML automation
+    definition: >
+      End-to-end AI data scientist agent for automated data analysis
+      and machine learning workflows. Demonstrates agentic approach
+      to data science tasks.
+
+    author: k-dense-ai
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: aura-build
+    url: https://aura.build
+    preferredLabel: "Aura: AI Landing Page Builder"
+    alternateLabels:
+      - AI website builder
+      - no-code design
+      - landing page generator
+    definition: >
+      AI landing page builder that creates designs in seconds without
+      design skills. Export to HTML and Figma. Used by 65,000+ users.
+
+    author: aura-build
+    source: aura.build
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#f59e0b"
+
+  - id: 21st-dev
+    url: https://21st.dev
+    preferredLabel: "21st.dev: AI Product Designer"
+    alternateLabels:
+      - AI design tool
+      - Tailwind components
+      - shadcn UI
+      - product design
+    definition: >
+      AI product designer with context about your product, users, and market.
+      Provides Tailwind 4 CSS with shadcn/ui format, dark mode support, and
+      production-ready React components.
+
+    author: 21st-dev
+    source: 21st.dev
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#10b981"
+
+  - id: datahub-metadata-platform
+    url: https://datahub.com
+    preferredLabel: "DataHub: Modern Data Catalog & Metadata Platform"
+    alternateLabels:
+      - data catalog
+      - metadata management
+      - data governance
+      - data discovery
+    definition: >
+      #1 open source metadata platform for data discovery, observability,
+      and governance. Enterprise customers include Netflix, Visa, Slack,
+      Pinterest. DataHub Cloud provides AI-ready context management.
+
+    author: datahub
+    source: DataHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: knowledge-engineering
+    category: Knowledge Quality
+    granularity: foundational
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#3b82f6"
+
+  - id: pudding-pop-love-songs
+    url: https://github.com/the-pudding/pop-love-songs
+    preferredLabel: "The Pudding: Pop Love Songs Analysis"
+    alternateLabels:
+      - Billboard analysis
+      - love songs data
+      - music data journalism
+    definition: >
+      Analysis of love song types across Billboard pop hits. Built on
+      The Pudding's Svelte Starter with ArchieML for Google Docs CMS,
+      LayerCake charts, scrollytelling helpers, and SSR static builds.
+
+    author: the-pudding
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Scrollytelling
+    granularity: implementation
+
+    relationships:
+      - type: uses
+        target: layercake
+
+    validationStatus: unvalidated
+    readingTime: 20m
+    color: "#ec4899"
+
+  - id: pudding-svelte-templates
+    url: https://github.com/the-pudding/svelte-templates
+    preferredLabel: "The Pudding: Svelte Component Templates"
+    alternateLabels:
+      - Svelte components
+      - data viz templates
+      - UI components
+    definition: >
+      Collection of reusable Svelte components by Amber Thomas and
+      Amelia Wattenberger. Includes ButtonSet, Range, Toggle, Scrolly,
+      SortTable, Slider, and LayerCake chart components with accessibility
+      notes and documentation.
+
+    author: the-pudding
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-storytelling
+    category: Scrollytelling
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#ec4899"
+
+  - id: aitmpl-claude-code-templates
+    url: https://aitmpl.com/hooks
+    preferredLabel: "Claude Code Templates: Stack Builder"
+    alternateLabels:
+      - Claude Code plugins
+      - AI development templates
+      - Claude hooks
+      - Claude agents
+    definition: >
+      Open source templates for Anthropic's Claude Code. Stack builder
+      with 100+ agents, commands, settings, and hooks. Includes analytics,
+      health check, conversation monitor, and plugin dashboard.
+
+    author: aitmpl
+    source: aitmpl.com
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#10b981"
+
+  - id: uiverse-io
+    url: https://uiverse.io
+    preferredLabel: "Uiverse: Open-Source UI Elements Library"
+    alternateLabels:
+      - UI components
+      - CSS animations
+      - frontend elements
+      - buttons checkboxes
+    definition: >
+      Community-driven library of open-source UI elements. Features buttons,
+      checkboxes, toggle switches, cards, loaders, and inputs. All elements
+      are pure CSS/HTML, free to use, and customizable.
+
+    author: uiverse
+    source: uiverse.io
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: implementation
+
+    relationships: []
+
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#f59e0b"
+
+  - id: kpi-color-encoding-tableau
+    url: https://public.tableau.com/views/MasteringTableau2_KPIcollection1-ColorencodingforKPIcards/Dashboard
+    preferredLabel: "KPI Color Encoding Patterns (Tableau)"
+    alternateLabels:
+      - KPI cards
+      - color encoding
+      - dashboard design
+      - conditional formatting
+    definition: >
+      Tableau Public dashboard demonstrating color encoding patterns for
+      KPI cards. Part of the Mastering Tableau 2 series. Shows best practices
+      for conditional coloring in metric displays.
+
+    author: ~
+    source: Tableau Public
+    contentType: blog
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: data-visualization
+    category: Dashboard Exemplars
+    granularity: implementation
+
+    relationships:
+      - type: related
+        target: 10-commandments-big-numbers
+
+    validationStatus: unvalidated
+    readingTime: 5m
+    color: "#f59e0b"
+
+  - id: dbt-to-cube
+    url: https://github.com/nicholasyager/dbt-to-cube
+    preferredLabel: "dbt-to-cube: Semantic Layer Pipeline"
+    alternateLabels:
+      - dbt Cube integration
+      - metric pipeline
+      - semantic layer sync
+      - Superset integration
+    definition: >
+      Automates dbt to Cube.js to Superset pipeline, keeping metrics in sync
+      across the stack. Market validation for semantic layer automation
+      tooling. Bridges dbt modeling with BI consumption.
+
+    author: n-yager
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2025-12-21
+
+    domain: analytics-engineering
+    category: Transformation Tools
+    granularity: implementation
+
+    relationships:
+      - type: related
+        target: dbt-semantic-layer-architecture
+
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#f97316"

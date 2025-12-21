@@ -1518,3 +1518,290 @@ authors:
     perspectiveType: vendor
     bio: Technology company, creators of Gemini AI
     bioSource: https://google.com/
+
+  - id: arize-ai
+    name: Arize AI
+    type: organization
+    foundedYear: 2020
+    location:
+      city: San Francisco
+      country: USA
+      continent: North America
+    industry: AI / MLOps
+    affiliation: Arize AI
+    perspectiveType: vendor
+    bio: AI observability company, creators of Phoenix open-source platform
+    bioSource: https://arize.com/
+
+  - id: r-goldenberg
+    name: Russell Goldenberg
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    jobTitle: Data Journalist / Developer
+    industry: Data Journalism
+    affiliation: The Pudding
+    perspectiveType: practitioner
+    yearsInField: ~
+    socialFollowing: ~
+    bio: >
+      Developer and data journalist at The Pudding. Creator of Scrollama,
+      the popular scrollytelling library. Builds tools for visual storytelling.
+    bioSource: https://github.com/russellgoldenberg
+
+  - id: langwatch
+    name: LangWatch
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI / Developer Tools
+    affiliation: LangWatch
+    perspectiveType: vendor
+    bio: AI agent observability and quality tools. Creators of Better Agents and Scenario testing.
+    bioSource: https://langwatch.ai/
+
+  - id: m-keller
+    name: Michael Keller
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    jobTitle: Developer / Data Journalist
+    industry: Data Journalism
+    affiliation: The Pudding
+    perspectiveType: practitioner
+    yearsInField: ~
+    socialFollowing: ~
+    bio: >
+      Developer at The Pudding. Creator of Layer Cake graphics framework
+      for Svelte. Builds tools for data-driven visual storytelling.
+    bioSource: https://layercake.graphics/
+
+  - id: m-bostock
+    name: Mike Bostock
+    gender: male
+    location:
+      city: San Francisco
+      country: USA
+      continent: North America
+    jobTitle: Founder
+    industry: Data Visualization
+    affiliation: Observable
+    perspectiveType: practitioner
+    yearsInField: 15
+    education: Stanford PhD
+    socialFollowing: large
+    bio: >
+      Creator of D3.js, the foundational JavaScript library for data visualization.
+      Co-founder of Observable. Former graphics editor at The New York Times.
+      Arguably the most influential figure in web-based data visualization.
+    bioSource: https://bost.ocks.org/mike/
+
+  - id: sveltepress
+    name: SveltePress
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: Developer Tools
+    affiliation: SveltePress
+    perspectiveType: vendor
+    bio: Open source project for content-centered SvelteKit sites
+    bioSource: https://sveltepress.site/
+
+  - id: openai
+    name: OpenAI
+    type: organization
+    foundedYear: 2015
+    location:
+      city: San Francisco
+      country: USA
+      continent: North America
+    industry: AI / LLMs
+    affiliation: OpenAI
+    perspectiveType: vendor
+    bio: AI research company, creators of ChatGPT and GPT models
+    bioSource: https://openai.com/
+
+  - id: svelte
+    name: Svelte
+    type: organization
+    foundedYear: 2016
+    location:
+      country: ~
+      continent: ~
+    industry: Developer Tools
+    affiliation: Vercel
+    perspectiveType: vendor
+    bio: >
+      UI framework using a compiler approach. Created by Rich Harris,
+      now backed by Vercel. Powers SvelteKit application framework.
+    bioSource: https://svelte.dev/
+
+  - id: cavira
+    name: Cavira OSS
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI / Developer Tools
+    affiliation: Cavira
+    perspectiveType: vendor
+    bio: Open source organization behind OpenMemory local memory engine
+    bioSource: https://github.com/CaviraOSS
+
+  - id: a-ng
+    name: Andrew Ng
+    gender: male
+    location:
+      city: Palo Alto
+      country: USA
+      continent: North America
+    jobTitle: Founder & CEO
+    industry: AI / Education
+    affiliation: DeepLearning.AI
+    perspectiveType: academic
+    yearsInField: 25
+    education: PhD Stanford, Berkeley
+    socialFollowing: large
+    bio: >
+      Co-founder of Coursera, former head of Google Brain and Baidu AI.
+      Founder of DeepLearning.AI. Creator of the most popular ML course
+      in the world. One of the most influential figures in AI education.
+    bioSource: https://www.andrewng.org/
+
+  - id: simular
+    name: Simular AI
+    type: organization
+    foundedYear: ~
+    location:
+      country: USA
+      continent: North America
+    industry: AI Agents
+    affiliation: Simular
+    perspectiveType: researcher
+    bio: >
+      Research-driven AI company building autonomous computer use agents.
+      Ranked #1 on OSWorld Computer Use Benchmark. Best Paper ICLR 2025.
+    bioSource: https://www.simular.ai/
+
+  - id: fsoft-ai4code
+    name: FSoft AI4Code
+    type: organization
+    foundedYear: ~
+    location:
+      country: Vietnam
+      continent: Asia
+    industry: AI Research
+    affiliation: FPT Software
+    perspectiveType: researcher
+    bio: >
+      AI research group at FPT Software focused on AI for software engineering.
+      Creators of CodeWiki for AI-generated codebase documentation.
+    bioSource: https://github.com/FSoft-AI4Code
+
+  - id: k-dense-ai
+    name: K-Dense AI
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI Research
+    affiliation: ~
+    perspectiveType: researcher
+    bio: Creators of Agentic Data Scientist for AI-powered hypothesis testing
+    bioSource: https://github.com/K-Dense-AI
+
+  - id: aura-build
+    name: Aura
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI / Design Tools
+    affiliation: Aura
+    perspectiveType: vendor
+    bio: AI landing page builder with 65,000+ users. Export to HTML and Figma.
+    bioSource: https://aura.build
+
+  - id: 21st-dev
+    name: 21st.dev
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI / Design Tools
+    affiliation: 21st.dev
+    perspectiveType: vendor
+    bio: AI product designer with Tailwind 4 and shadcn/ui component generation
+    bioSource: https://21st.dev
+
+  - id: datahub
+    name: DataHub
+    type: organization
+    foundedYear: 2019
+    location:
+      city: San Francisco
+      country: USA
+      continent: North America
+    industry: Data Infrastructure
+    affiliation: DataHub
+    perspectiveType: vendor
+    bio: >
+      #1 open source metadata platform. Originally developed at LinkedIn,
+      now adopted by Netflix, Visa, Slack, Pinterest, and other enterprises.
+    bioSource: https://datahub.com
+
+  - id: aitmpl
+    name: AI Templates
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: Developer Tools
+    affiliation: ~
+    perspectiveType: practitioner
+    bio: Open source Claude Code templates with 100+ agents, commands, and hooks
+    bioSource: https://aitmpl.com
+
+  - id: uiverse
+    name: Uiverse
+    type: organization
+    foundedYear: ~
+    location:
+      country: ~
+      continent: ~
+    industry: Frontend / Design
+    affiliation: ~
+    perspectiveType: vendor
+    bio: Community-driven open-source UI elements library with CSS/HTML components
+    bioSource: https://uiverse.io
+
+  - id: n-yager
+    name: Nicholas Yager
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    jobTitle: Data Engineer
+    industry: Data Engineering
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    education: ~
+    nativeLanguage: English
+    socialFollowing: ~
+    bio: Creator of dbt-to-cube pipeline for semantic layer automation
+    bioSource: https://github.com/nicholasyager
