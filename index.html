@@ -2,207 +2,678 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>data-centered</title>
-  <meta name="description" content="Curated resources on knowledge engineering, data visualization, and AI systems.">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keith Binkly | data-centered</title>
+  <meta name="description" content="Data analytics leader exploring semantic layers, AI agents, and knowledge engineering.">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0d0d0d;
+      --bg-surface: #111;
+      --bg-card: #161616;
+      --bg-hover: #1c1c1c;
+
+      --border-dim: #222;
+      --border-mid: #333;
+
+      --text-dim: #6b6b6b;
+      --text-mid: #a0a0a0;
+      --text-bright: #d4d4d4;
+      --text-white: #f5f5f5;
+
+      --accent: #d4a84b;
+      --link: #7db4c9;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 3rem;
+      --space-xl: 4.5rem;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 18px; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--link); }
+
+    /* ═══════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════ */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .brand {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover { color: var(--link); }
+
+    /* ═══════════════════════════════════════════
+       ASCII ART (optional decorative element)
+       ═══════════════════════════════════════════ */
+
+    .ascii-art {
+      display: none; /* Hidden for cleaner layout */
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════ */
+
+    .hero {
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-name {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title {
+      font-size: 1rem;
+      color: var(--text-mid);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--text-bright);
+      line-height: 1.8;
+    }
+
+    .hero-bio strong {
+      color: var(--text-white);
+      font-weight: 500;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .hero-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      transition: color 0.15s;
+    }
+
+    .hero-link:hover { color: var(--link); }
+
+    .hero-link-icon { display: none; }
+
+    /* ═══════════════════════════════════════════
+       SECTION LABELS
+       ═══════════════════════════════════════════ */
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: var(--space-sm);
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════════
+       LIBRARY LIST
+       ═══════════════════════════════════════════ */
+
+    .library-list {
+      margin-bottom: var(--space-xl);
+    }
+
+    .library-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border-dim);
+      transition: color 0.15s;
+    }
+
+    .library-item:first-child {
+      border-top: 1px solid var(--border-dim);
+    }
+
+    .library-item:hover {
+      color: var(--link);
+    }
+
+    .library-item:hover .library-title {
+      color: var(--link);
+    }
+
+    .library-title {
+      font-size: 1rem;
+      color: var(--text-white);
+      transition: color 0.15s;
+    }
+
+    .library-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* ═══════════════════════════════════════════
+       PROJECT SECTION
+       ═══════════════════════════════════════════ */
+
+    .project-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .project-name {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .project-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dim);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-bright);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .project-update {
+      background: var(--bg-surface);
+      border-radius: 6px;
+      padding: var(--space-sm) var(--space-md);
+      margin-bottom: var(--space-md);
+      border-left: 2px solid var(--border-mid);
+    }
+
+    .project-update-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xs);
+    }
+
+    .update-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .update-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--link);
+      background: transparent;
+      padding: 0;
+    }
+
+    .project-update p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+
+    .project-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      padding: 0;
+    }
+
+    .project-tag::after {
+      content: ' ·';
+      color: var(--border-mid);
+    }
+
+    .project-tag:last-child::after {
+      content: '';
+    }
+
+    .project-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .project-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--link);
+      transition: color 0.15s;
+    }
+
+    .project-link:hover { color: var(--text-white); }
+
+    /* ═══════════════════════════════════════════
+       ABOUT SECTION
+       ═══════════════════════════════════════════ */
+
+    .about-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 540px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    .about-column h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+
+    .timeline-item {
+      margin-bottom: var(--space-sm);
+    }
+
+    .timeline-tree { display: none; }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: var(--text-white);
+      font-weight: 500;
+    }
+
+    .timeline-role {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    .timeline-dates {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .timeline-sub {
+      margin-left: var(--space-sm);
+      padding-left: var(--space-sm);
+      border-left: 1px solid var(--border-dim);
+      margin-bottom: var(--space-xs);
+    }
+
+    .timeline-sub .timeline-role {
+      font-size: 0.8rem;
+    }
+
+    .timeline-sub .timeline-dates {
+      font-size: 0.65rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .skill-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-mid);
+    }
+
+    .education-item {
+      margin-bottom: var(--space-sm);
+    }
+
+    .education-school {
+      font-size: 0.9rem;
+      color: var(--text-white);
+      font-weight: 500;
+    }
+
+    .education-detail {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+
+    .footer {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .status { display: none; }
+    .clock { display: none; }
+
+    /* ═══════════════════════════════════════════
+       JOURNAL / WRITING
+       ═══════════════════════════════════════════ */
+
+    .journal-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .journal-entry {
+      margin-bottom: var(--space-lg);
+    }
+
+    .journal-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .journal-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-bottom: var(--space-xs);
+    }
+
+    .journal-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .journal-title a {
+      color: inherit;
+    }
+
+    .journal-title a:hover {
+      color: var(--link);
+    }
+
+    .journal-excerpt {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: var(--space-sm);
+    }
+
+    .journal-continue {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--link);
+    }
+
+    .journal-continue:hover {
+      color: var(--text-white);
+    }
+
+    /* ═══════════════════════════════════════════
+       LIBRARY INTRO
+       ═══════════════════════════════════════════ */
+
+    .library-intro {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      margin-bottom: var(--space-md);
+      line-height: 1.7;
+    }
+  </style>
 </head>
-<body class="dashboard topic-page tui">
+<body>
+  <div class="container">
 
-  <header class="topic-header">
-    <span class="topic-indicator" style="background: #d4a84b"></span>
-    <h1 class="topic-title">data-centered</h1>
-    <span class="topic-count">curated resources for data & AI practitioners</span>
-  </header>
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">data-centered</div>
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">about</a>
+        <a href="https://github.com/keithbinkly" class="nav-link" target="_blank">github</a>
+        <a href="https://linkedin.com/in/keithbinkly" class="nav-link" target="_blank">linkedin</a>
+      </nav>
+    </header>
 
-  <main class="topic-grid">
+    <!-- ASCII Art -->
+    <div class="ascii-art">
+<span class="dim">        ○ source</span>
+<span class="dim">        │</span>
+<span class="dim">        ├──○ staging</span>
+<span class="dim">        │   │</span>
+<span class="dim">        │   └──○ marts ──┬──</span> <span class="highlight">semantic layer</span> <span class="dim">──┬── metrics</span>
+<span class="dim">        │                │                     │</span>
+<span class="dim">        ○ source         │                     └── dimensions</span>
+<span class="dim">        │                │</span>
+<span class="dim">        └──○ staging ────┘</span>
+    </div>
 
-    <!-- Left Panel: About -->
-    <aside class="topic-aside">
-      <h3 class="tcat">About</h3>
-      <div class="about-header section-content">
-        <div class="about-avatar">KB</div>
-        <div>
-          <div class="about-name">Keith Binkly</div>
-          <div class="about-role">Director, Data Analytics</div>
-        </div>
-      </div>
-      <p class="topic-lede section-content">Building analytics operations from first dedicated analyst to leading data strategy across enterprise BaaS division. Interested in semantic layers, AI-ready architecture, and making analytics actually useful.</p>
-      <div class="about-location section-content">Los Angeles, CA</div>
-
-      <h3 class="tcat">Experience</h3>
-      <div class="timeline section-content">
-        <div class="timeline-item">
-          <span class="timeline-tree">├──</span>
-          <div class="timeline-content">
-            <div class="timeline-org">Green Dot Corporation</div>
-            <div class="timeline-dates">2019 - present</div>
-          </div>
-        </div>
-        <div class="timeline-sub">
-          <span class="timeline-tree">│ ├─</span>
-          <div class="timeline-content">
-            <span class="timeline-role">Director, Data Analytics</span>
-            <span class="timeline-dates">Apr 2024 - present</span>
-          </div>
-        </div>
-        <div class="timeline-sub">
-          <span class="timeline-tree">│ ├─</span>
-          <div class="timeline-content">
-            <span class="timeline-role">Sr. Manager, Analytics</span>
-            <span class="timeline-dates">Mar 2023 - Apr 2024</span>
-          </div>
-        </div>
-        <div class="timeline-sub">
-          <span class="timeline-tree">│ ├─</span>
-          <div class="timeline-content">
-            <span class="timeline-role">Manager, Analytics</span>
-            <span class="timeline-dates">Jan 2021 - Mar 2023</span>
-          </div>
-        </div>
-        <div class="timeline-sub">
-          <span class="timeline-tree">│ └─</span>
-          <div class="timeline-content">
-            <span class="timeline-role">Senior Data Analyst</span>
-            <span class="timeline-dates">Jan 2019 - Jan 2021</span>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-tree">├──</span>
-          <div class="timeline-content">
-            <div class="timeline-org">FreedomPop</div>
-            <span class="timeline-role">Revenue Operations Mgr</span>
-            <span class="timeline-dates">2015 - 2018</span>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-tree">└──</span>
-          <div class="timeline-content">
-            <div class="timeline-org">Hypothes.is</div>
-            <span class="timeline-role">Executive Support</span>
-            <span class="timeline-dates">2012 · SF</span>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="tcat">Stack</h3>
-      <div class="skills-list section-content">
-        <span class="skill-tag">dbt</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Redshift</span>
-        <span class="skill-tag">MetricFlow</span>
-        <span class="skill-tag">Tableau</span>
-        <span class="skill-tag">Claude</span>
-      </div>
-
-      <h3 class="tcat">Education</h3>
-      <div class="timeline section-content">
-        <div class="timeline-item">
-          <span class="timeline-tree">├──</span>
-          <div class="timeline-content">
-            <div class="timeline-org">USC</div>
-            <span class="timeline-role">B.A. Economics, magna cum laude</span>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-tree">└──</span>
-          <div class="timeline-content">
-            <div class="timeline-org">London School of Economics</div>
-            <span class="timeline-role">General Course</span>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="tcat">Links</h3>
-      <div class="about-links section-content">
-        <a href="https://github.com/keithbinkly" target="_blank" class="about-link">├── github</a>
-        <a href="https://linkedin.com/in/keithbinkly" target="_blank" class="about-link">└── linkedin</a>
-      </div>
-    </aside>
-
-    <!-- Main: Topics & Guides -->
-    <section class="topic-reading">
-      <div class="topic-reading-cols">
-
-        <div class="topic-reading-col">
-          <h3 class="tcat">Topics</h3>
-          <a href="pages/knowledge-engineering.html" class="tlink">
-            <span class="tlink-dot" style="background:#06b6d4"></span>
-            <span class="tlink-src">54</span>
-            <span class="tlink-title">Knowledge Engineering</span>
-            <span class="tlink-author">+18</span>
-          </a>
-          <a href="pages/data-engineering.html" class="tlink">
-            <span class="tlink-dot" style="background:#f97316"></span>
-            <span class="tlink-src">73</span>
-            <span class="tlink-title">Data Engineering</span>
-            <span class="tlink-author">+48</span>
-          </a>
-          <a href="pages/personal-growth.html" class="tlink">
-            <span class="tlink-dot" style="background:#10b981"></span>
-            <span class="tlink-src">46</span>
-            <span class="tlink-title">Personal Growth</span>
-            <span class="tlink-author">+46</span>
-          </a>
-          <a href="pages/design-craft.html" class="tlink">
-            <span class="tlink-dot" style="background:#8b5cf6"></span>
-            <span class="tlink-src">12</span>
-            <span class="tlink-title">Design Craft</span>
-            <span class="tlink-author">+12</span>
-          </a>
-
-          <h3 class="tcat">Guides</h3>
-          <a href="pages/terminal-stack.html" class="tlink">
-            <span class="tlink-dot" style="background:#10b981"></span>
-            <span class="tlink-src">guide</span>
-            <span class="tlink-title">Terminal Dev Stack</span>
-            <span class="tlink-author"></span>
-          </a>
-        </div>
-
-        <div class="topic-reading-col">
-          <h3 class="tcat">Featured Project</h3>
-          <div class="project-card section-content">
-            <div class="project-header">
-              <span class="project-name">dbt-agent</span>
-              <span class="project-badge">ACTIVE</span>
-            </div>
-            <p class="project-desc">
-              An experimental environment exploring AI agents, memory systems, and semantic layers
-              to accelerate dbt pipeline development. Building towards "conversational BI" -
-              where analysts query data through natural language backed by proper semantic context.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">ai-agents</span>
-              <span class="project-tag">semantic-layer</span>
-              <span class="project-tag">dbt</span>
-              <span class="project-tag">mcp</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/keithbinkly/dbt-agent" target="_blank" class="project-link">github</a>
-            </div>
-          </div>
-
-          <h3 class="tcat">Visualizations</h3>
-          <div class="viz-placeholder section-content">
-            <span class="dim">coming soon</span>
-          </div>
-        </div>
-
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-name">Keith Binkly</h1>
+      <p class="hero-title">Director, Data Analytics · Los Angeles</p>
+      <p class="hero-bio">
+        I build analytics operations and explore how <strong>semantic layers</strong>,
+        <strong>AI agents</strong>, and <strong>knowledge engineering</strong> can make
+        enterprise data actually useful. Currently leading data strategy across a BaaS division,
+        from first dedicated analyst to directing the function.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:keith@example.com" class="hero-link">
+          <span class="hero-link-icon">→</span> email
+        </a>
+        <a href="https://github.com/keithbinkly" target="_blank" class="hero-link">
+          <span class="hero-link-icon">→</span> github
+        </a>
+        <a href="https://linkedin.com/in/keithbinkly" target="_blank" class="hero-link">
+          <span class="hero-link-icon">→</span> linkedin
+        </a>
       </div>
     </section>
 
-  </main>
+    <!-- Journal -->
+    <section class="journal-section">
+      <div class="section-label">Writing</div>
 
-  <footer class="topic-status">
-    <span class="status-dot"></span>
-    <span>online</span>
-    <span class="dim">·</span>
-    <span>4 topics</span>
-    <span class="dim">·</span>
-    <span>185 resources</span>
-  </footer>
+      <article class="journal-entry">
+        <div class="journal-meta">Dec 21, 2024</div>
+        <h2 class="journal-title">
+          <a href="journal/dbt-agent-mcp.html">The Semantic Layer as Agent Memory</a>
+        </h2>
+        <p class="journal-excerpt">
+          I've been experimenting with MCP server integration for dbt, and something clicked this week.
+          The semantic layer isn't just about consistent metrics—it's the vocabulary that lets AI agents
+          understand what the business actually means. When an agent asks "what's revenue?", MetricFlow
+          doesn't just return a number. It returns context: how it's calculated, what dimensions apply,
+          which filters matter. That context is exactly what LLMs need to reason about data correctly.
+        </p>
+        <a href="journal/dbt-agent-mcp.html" class="journal-continue">continue reading →</a>
+      </article>
+    </section>
 
+    <!-- Library -->
+    <section>
+      <div class="section-label">Library</div>
+      <p class="library-intro">
+        A curated collection of articles, papers, and resources I've found valuable—organized by theme.
+      </p>
+      <div class="library-list">
+        <a href="pages/knowledge-engineering.html" class="library-item">
+          <span class="library-title">Knowledge Engineering</span>
+          <span class="library-count">32</span>
+        </a>
+        <a href="pages/data-engineering.html" class="library-item">
+          <span class="library-title">Data Engineering</span>
+          <span class="library-count">78</span>
+        </a>
+        <a href="pages/design-craft.html" class="library-item">
+          <span class="library-title">Design Craft</span>
+          <span class="library-count">24</span>
+        </a>
+        <a href="pages/personal-growth.html" class="library-item">
+          <span class="library-title">Personal Growth</span>
+          <span class="library-count">46</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="section-label">Background</div>
+      <div class="about-grid">
+        <div class="about-column">
+          <h3>Experience</h3>
+          <div class="timeline-item">
+            <span class="timeline-tree">├</span>
+            <div class="timeline-content">
+              <div class="timeline-org">Green Dot Corporation</div>
+              <div class="timeline-dates">2019 – present</div>
+            </div>
+          </div>
+          <div class="timeline-sub">
+            <div class="timeline-role">Director, Data Analytics</div>
+            <div class="timeline-dates">Apr 2024 – present</div>
+          </div>
+          <div class="timeline-sub">
+            <div class="timeline-role">Sr. Manager → Manager → Senior Analyst</div>
+            <div class="timeline-dates">2019 – 2024</div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-tree">├</span>
+            <div class="timeline-content">
+              <div class="timeline-org">FreedomPop</div>
+              <div class="timeline-role">Revenue Operations Manager</div>
+              <div class="timeline-dates">2015 – 2018</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-tree">└</span>
+            <div class="timeline-content">
+              <div class="timeline-org">Hypothes.is</div>
+              <div class="timeline-role">Executive Support</div>
+              <div class="timeline-dates">2012 · San Francisco</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-column">
+          <h3>Education</h3>
+          <div class="education-item">
+            <div class="education-school">USC</div>
+            <div class="education-detail">B.A. Economics, magna cum laude</div>
+          </div>
+          <div class="education-item">
+            <div class="education-school">London School of Economics</div>
+            <div class="education-detail">General Course</div>
+          </div>
+
+          <h3 style="margin-top: 1.5rem;">Stack</h3>
+          <div class="skills-list">
+            <span class="skill-tag">dbt</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Redshift</span>
+            <span class="skill-tag">MetricFlow</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Claude</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="status">
+        <div class="status-item">
+          <span class="status-dot"></span>
+          <span>online</span>
+        </div>
+        <span>4 topics · 185 resources</span>
+      </div>
+      <div class="clock" id="clock"></div>
+    </footer>
+
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+      document.getElementById('clock').textContent = time;
+    }
+    updateClock();
+    setInterval(updateClock, 60000);
+  </script>
 </body>
 </html>
