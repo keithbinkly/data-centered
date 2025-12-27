@@ -1915,3 +1915,29 @@ authors:
     bio: >
       Analytics practitioner and educator, known for metric trees framework and digital analytics patterns.
     bioSource: https://timodechau.com/
+
+  - id: d-nekrasov
+    name: Dmitry Nekrasov
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: Founder
+    industry: Analytics
+    affiliation: JetMetrics
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Founder of JetMetrics, creates e-commerce analytics frameworks including metric maps and driver trees.
+    bioSource: https://jetmetrics.io/

@@ -4197,3 +4197,41 @@ resources:
     # Display
     readingTime: 15m
     color: "#f97316"
+
+  - id: metric-maps-vs-trees-jetmetrics
+    url: https://blog.jetmetrics.io/p/metric-maps-vs-metric-trees-part
+    preferredLabel: "Metric Maps vs Metric Trees Part 1"
+    alternateLabels:
+      - metric maps
+      - driver trees
+      - KPI decomposition
+      - e-commerce metrics framework
+    definition: >
+      Distinguishes two complementary analytics frameworks: metric maps model end-to-end business
+      processes showing context and cause-effect (strategic alignment), while metric trees decompose
+      single KPIs into components and drivers in pyramid form (tactical decisions). Maps answer
+      "how does the system work," trees answer "how do we improve this metric."
+
+    # Provenance
+    author: d-nekrasov
+    source: blog.jetmetrics.io
+    contentType: essay
+    publishedDate: 2025-10-01
+    dateAdded: 2025-12-26
+
+    # Classification
+    domain: analytics-engineering
+    category: Data Modeling
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: metric-trees-pattern-dechau
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 8m
+    color: "#f97316"
