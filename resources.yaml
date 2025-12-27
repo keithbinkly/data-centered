@@ -4081,3 +4081,119 @@ resources:
     # Display
     readingTime: 18m
     color: "#06b6d4"
+
+  - id: semantic-layer-not-needed-motherduck
+    url: https://motherduck.com/blog/who-needs-a-semantic-layer-anyway/
+    preferredLabel: "What If We Don't Need the Semantic Layer?"
+    alternateLabels:
+      - semantic layer alternative
+      - query log mining
+      - AI semantic discovery
+      - bottom-up semantics
+    definition: >
+      Provocative thesis arguing semantic layers are fundamentally flawed—a solution to 1990s performance
+      constraints that created "a new priesthood" of specialized designers. Proposes shifting from top-down
+      manual metric definition to bottom-up discovery, where AI mines query logs to discover business logic
+      from actual usage patterns rather than prescriptive models.
+
+    # Provenance
+    author: j-matson
+    source: motherduck.com
+    contentType: essay
+    publishedDate: 2025-12-22
+    dateAdded: 2025-12-26
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Layer
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: chaos-to-context-semantic-infrastructure
+      - type: related
+        target: semantic-work-figma-moment
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: shopify-taxonomy-semantics-investment
+    url: https://dataprodmgmt.substack.com/p/what-shopifys-product-taxonomy-teaches
+    preferredLabel: "What Shopify's Product Taxonomy Teaches About Investing in Semantics"
+    alternateLabels:
+      - product taxonomy case study
+      - e-commerce semantics
+      - machine-readable meaning
+      - taxonomy ROI
+    definition: >
+      Case study of Shopify's multi-year investment in a 10,000+ category product taxonomy spanning 25
+      verticals. Shows how structured semantics enables search, recommendations, and AI capabilities.
+      Key insight: GenAI investment pays off when grounded in reliable taxonomy—hallucinations decrease
+      when models access structured product knowledge instead of guessing from free text.
+
+    # Provenance
+    author: a-bergevin
+    source: dataprodmgmt.substack.com
+    contentType: essay
+    publishedDate: 2025-11-18
+    dateAdded: 2025-12-26
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: chaos-to-context-semantic-infrastructure
+      - type: related
+        target: semantic-work-figma-moment
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: metric-trees-pattern-dechau
+    url: https://agiledata.substack.com/p/the-pattern-of-metric-trees-with
+    preferredLabel: "The Pattern of Metric Trees"
+    alternateLabels:
+      - driver trees
+      - metric decomposition
+      - north star metrics
+      - business metrics framework
+    definition: >
+      Framework for visualizing mathematical relationships between business metrics, decomposing high-level
+      outputs (revenue) into actionable inputs teams can influence. Creates shared language across
+      departments by mapping how work affects organizational goals. Key limitation: trees exist in
+      "timeless space" and need cohort analysis to capture temporal dynamics.
+
+    # Provenance
+    author: t-dechau
+    source: agiledata.substack.com
+    contentType: essay
+    publishedDate: 2025-11-15
+    dateAdded: 2025-12-26
+
+    # Classification
+    domain: analytics-engineering
+    category: Data Modeling
+    granularity: conceptual
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#f97316"

@@ -1860,3 +1860,58 @@ authors:
     bio: >
       Author of "When Data Met Product" newsletter on semantic infrastructure and data product management.
     bioSource: https://dataprodmgmt.substack.com/
+
+  - id: j-matson
+    name: Jacob Matson
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: ~
+    location:
+      city: Seattle
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: ~
+    industry: Data Infrastructure
+    affiliation: MotherDuck
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    github: https://github.com/matsonj
+    twitter: https://twitter.com/matsonj
+    socialFollowing: 111
+    # Meta
+    bio: >
+      Data infrastructure practitioner at MotherDuck, writes about semantic layers and analytics architecture.
+    bioSource: https://motherduck.com/
+
+  - id: t-dechau
+    name: Timo Dechau
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: ~
+    location:
+      city: ~
+      country: Germany
+      continent: Europe
+    # Professional
+    jobTitle: ~
+    industry: Analytics
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    github: https://github.com/tdechau-sage
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Analytics practitioner and educator, known for metric trees framework and digital analytics patterns.
+    bioSource: https://timodechau.com/
