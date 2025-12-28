@@ -1,0 +1,484 @@
+Good. Current site is clean but the bio is thin. Here's the plan:
+
+---
+
+# data-centered.com Update Plan
+
+## Overview
+
+**Goal:** Transform the site from a minimal placeholder into a credible portfolio that demonstrates expertise in AI-ready data infrastructure, with the dbt-agent system as the flagship proof of work.
+
+---
+
+## Part 1: Updated About Section
+
+Replace the current brief bio with the full narrative version (see below). This becomes the anchor content that establishes credibility.
+
+### New About Content
+
+```markdown
+In February 2012, I helped coordinate a conference about ideas I didn't understand.
+
+RepCon was a three-day workshop at Fort Mason in San Francisco—technologists, academics, librarians, all trying to figure out how machines could evaluate the credibility of human-generated content. Reputation systems. Semantic annotation. The "noosphere." I was 24, three months removed from quitting a finance job in LA after Steve Jobs died and I realized I didn't want to waste my life. I'd moved to the Bay Area with no plan, networked at tech meetups until someone offered me a job, and now I was arranging catering and hiring videographers for people far smarter than me.
+
+On the last day, John Perry Barlow—EFF co-founder, Grateful Dead lyricist, internet prophet—gave the closing remarks. He talked about truth, about how we collectively determine what's real. He called what we were building "the digestive system for all of human thought."
+
+I didn't fully understand what he meant. But I knew I was supposed to be in that room.
+
+---
+
+After Hypothes.is ended, I moved back to LA and did whatever paid rent. Drove for Lyft. Did 5am setup for a farmers market at the Performing Arts Center. Ran a hot press machine putting artist logos on socks. I negotiated my first analytics job from $14 to $15 an hour. That was 2015.
+
+---
+
+Today I'm Director of Analytics at Green Dot, running data for their Banking-as-a-Service division—Apple Cash, Uber, Amazon, Intuit. Four promotions in five years, none of them applied for. Each one formalized scope I'd already grown into.
+
+Somewhere along the way I got obsessed with the same problem Barlow was talking about in 2012: how do systems understand meaning? Except now the systems are LLMs, and the meaning is enterprise business logic.
+
+The short version: AI can't reliably "chat with your data" because most data infrastructure isn't built for it. Business definitions live in people's heads. The same metric means different things in different reports. There's no source of truth—just competing dashboards maintained by whoever built theirs most recently.
+
+So I built something. I call it dbt-agent.
+
+It's a 36-skill development environment with 320,000+ lines of structured knowledge. When an agent asks "where should this model go?"—it doesn't guess. It loads the folder structure guide, checks the canonical models registry, applies the rules. Pipeline development dropped from 4 hours to 55 minutes. Not because the AI got faster—because it stopped making the same mistakes.
+
+---
+
+**What's here**
+
+data-centered.com is my curated library: 185+ resources on semantic layers, visualization design, and AI-ready infrastructure. It feeds my AI systems and my thinking about what makes data teams effective.
+
+**Where this is going**
+
+In October 2025, dbt Labs open-sourced MetricFlow. Snowflake, Salesforce, and others launched the Open Semantic Interchange initiative. Everyone wants to chat with their data. Almost no one has the infrastructure that makes those conversations reliable.
+
+I'm documenting how to build it.
+```
+
+---
+
+## Part 2: Introductory Posts (3-Post Series)
+
+### Post 1: "Why I Built dbt-agent"
+*The problem statement + origin story*
+
+```markdown
+# Why I Built dbt-agent
+
+**January 2026**
+
+---
+
+I kept having the same conversation with Claude.
+
+Every Monday: "At Green Dot, we organize dbt models into staging, intermediate, and marts layers. Sources go in staging. Business logic goes in intermediate. Reporting tables go in marts."
+
+Every Wednesday: "Where should I put this new model?"
+
+It wasn't Claude's fault. LLMs don't have persistent memory across sessions. Every conversation starts fresh—a brilliant contractor who shows up each morning with amnesia.
+
+This is fine for one-off questions. It's a disaster for enterprise data work.
+
+---
+
+**The actual problem**
+
+Enterprise data teams have institutional knowledge that takes months to learn:
+- How we name things
+- Where files go
+- Which patterns we've already built (and shouldn't rebuild)
+- What business terms actually mean
+- Why that weird edge case exists
+
+None of this lives in documentation. It lives in people's heads, accumulated through trial and error.
+
+When I onboard a new analyst, they absorb this knowledge gradually. Six months in, they stop asking basic questions. A year in, they're productive. Two years in, they're teaching others.
+
+AI doesn't get that ramp. Every session is day one.
+
+---
+
+**The hypothesis**
+
+What if I could give an AI agent the institutional memory it's missing?
+
+Not fine-tuning. Not RAG over random documents. Structured knowledge—migration playbooks, canonical model patterns, folder structure rules, QA validation frameworks—curated and organized for retrieval.
+
+When the agent encounters a problem, it doesn't guess. It checks the knowledge base first.
+
+---
+
+**What I built**
+
+dbt-agent is a 36-skill development environment with 320,000+ lines of structured documentation. It includes:
+
+- **Migration playbooks**: Step-by-step methodology for converting legacy SQL to dbt
+- **Canonical models registry**: Existing patterns the agent checks before building new ones
+- **Folder structure guide**: Where every type of model belongs
+- **QA validation framework**: 6-phase testing methodology
+- **Human approval gates**: Mandatory checkpoints at phase transitions
+
+The measured results:
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Pipeline development time | ~4 hours | ~55 minutes |
+| Canonical model reuse | 0% | 87% |
+| Common errors caught proactively | Reactive | 80%+ |
+| Data variance from legacy | Variable | <0.1% |
+
+The 55-minute number surprised me. It's not because the AI is faster—it's because it stops making the same mistakes.
+
+---
+
+**What's next**
+
+This is the first in a series of posts documenting the system. Upcoming:
+- How the knowledge architecture works
+- The 6-phase QA methodology
+- Multi-agent orchestration patterns
+- What I got wrong (and fixed)
+
+If you're building something similar, I'd like to hear about it.
+```
+
+---
+
+### Post 2: "How dbt-agent Thinks"
+*Architecture overview—how knowledge flows through the system*
+
+```markdown
+# How dbt-agent Thinks
+
+**January 2026**
+
+---
+
+The core insight behind dbt-agent: AI agents fail on enterprise data not because they're stupid, but because they're missing context that humans take for granted.
+
+When a senior analyst decides where to put a new model, they're drawing on:
+- Years of accumulated patterns
+- Knowledge of what already exists
+- Understanding of team conventions
+- Awareness of edge cases from past mistakes
+
+AI doesn't have any of that. Unless you give it to them.
+
+---
+
+**The architecture**
+
+```
+┌─────────────────────────────────────────────────────┐
+│            USER REQUEST                             │
+└─────────────────────────┬───────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────┐
+│            ORCHESTRATOR (Claude Code)               │
+│                                                     │
+│  • Interprets request                               │
+│  • Determines which skills to load                  │
+│  • Manages 4-phase workflow                         │
+│  • Enforces human approval gates                    │
+└─────────────────────────┬───────────────────────────┘
+                          │
+          ┌───────────────┼───────────────┐
+          ▼               ▼               ▼
+    ┌──────────┐    ┌──────────┐    ┌──────────┐
+    │ SKILL:   │    │ SKILL:   │    │ SKILL:   │
+    │ Discovery│    │ Migration│    │ QA       │
+    └────┬─────┘    └────┬─────┘    └────┬─────┘
+          │               │               │
+          └───────────────┴───────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────┐
+│            UNIFIED RETRIEVAL                        │
+│                                                     │
+│  • Knowledge Graph (21K+ chunks)                    │
+│  • Experience Store (cross-agent solutions)         │
+│  • Canonical Models Registry                        │
+│  • Manifest Parser (dbt project metadata)           │
+└─────────────────────────────────────────────────────┘
+```
+
+---
+
+**Skills: Domain-specific knowledge packages**
+
+Each skill is a structured knowledge bundle that loads when relevant. Examples:
+
+**Data Discovery Skill**
+- How to explore unfamiliar data
+- Questions to ask stakeholders
+- Documentation templates
+
+**Migration Skill**
+- 6-step legacy SQL refactoring playbook
+- Pattern recognition for common transformations
+- QA validation requirements
+
+**Folder Structure Skill**
+- Where each model type belongs
+- Naming conventions
+- When to create new directories
+
+The agent doesn't load all 36 skills at once. It loads what's relevant to the current task—keeping context focused and token usage efficient.
+
+---
+
+**The 4-phase workflow**
+
+Every significant task follows the same structure:
+
+1. **Requirements**: What are we building? What does success look like?
+2. **Discovery**: What exists? What patterns apply? What constraints matter?
+3. **Architecture**: How should this be structured? (Human approval gate)
+4. **Implementation**: Build it, test it, document it
+
+Human approval gates pause the workflow at critical transitions. The agent proposes; the human validates. This isn't optional—it's enforced.
+
+---
+
+**Unified retrieval: One API for all context**
+
+The agent doesn't know where knowledge lives. It just asks.
+
+`unified_retrieval("how do we handle merchant name normalization")`
+
+The system checks:
+- Knowledge Graph: Is there documentation about this?
+- Experience Store: Has another agent solved this before?
+- Canonical Models: Does a pattern already exist?
+- Manifest: What's currently in the dbt project?
+
+Results come back ranked by relevance. The agent uses what's useful, ignores what isn't.
+
+---
+
+**Why this works**
+
+Traditional approaches to "AI + enterprise data":
+- **Fine-tuning**: Expensive, hard to update, can't handle fast-changing codebases
+- **RAG over docs**: Retrieves text, but text isn't structured knowledge
+- **Prompt engineering**: Works for simple cases, fails at scale
+
+dbt-agent takes a different approach: **curated, structured knowledge that the agent can reason over**.
+
+The knowledge base isn't a pile of documents. It's organized into skills, indexed for semantic search, and designed to answer the specific questions agents ask.
+
+---
+
+**What I'm still figuring out**
+
+- How to make knowledge curation sustainable (it takes real time)
+- When to trust agent judgment vs. require human approval
+- How to measure knowledge base quality over time
+- Whether this approach generalizes beyond dbt
+
+More on these in future posts.
+```
+
+---
+
+### Post 3: "The QA Methodology That Changed Everything"
+*Specific, concrete technique with before/after*
+
+```markdown
+# The QA Methodology That Changed Everything
+
+**January 2026**
+
+---
+
+The hardest part of migrating legacy SQL to dbt isn't writing the new code. It's proving the new code produces identical results.
+
+For months, my QA process looked like this:
+
+1. Run legacy query, get row count
+2. Run new dbt model, get row count
+3. Counts don't match
+4. Stare at both queries trying to figure out why
+5. Make a change, rebuild, recount
+6. Repeat 5-10 times until it works (or I give up and start over)
+
+Average time to find root cause: 60-90 minutes. Often longer.
+
+---
+
+**The breakthrough: Row-level sample tracing**
+
+Instead of comparing aggregates, I started tracing individual records through every transformation stage.
+
+Here's the process:
+
+1. **Find a problem record**: Pick ONE row that appears in legacy but not in dbt (or vice versa)
+
+2. **Trace it through every CTE**:
+```sql
+-- Stage 1: Source
+SELECT * FROM source WHERE id = '12345'
+-- Result: 1 row ✓
+
+-- Stage 2: After first join
+SELECT * FROM stage_2 WHERE id = '12345'  
+-- Result: 1 row ✓
+
+-- Stage 3: After second join
+SELECT * FROM stage_3 WHERE id = '12345'
+-- Result: 2 rows ← PROBLEM
+
+-- The join in stage 3 is creating duplicates
+```
+
+3. **Fix the specific stage**: Now I know exactly where the problem is
+
+4. **Document the join behavior**: Add a comment or README explaining why this join fans out and how we handle it
+
+---
+
+**The results**
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Time to root cause | 60-90 min | ~10 min |
+| Wrong hypotheses tested | 3-5 | 0 |
+| Knowledge retained | Session only | Permanent (in code) |
+
+The 10-minute number isn't because I got faster at debugging. It's because I stopped guessing.
+
+---
+
+**Why this works**
+
+Aggregate comparisons tell you *that* something is wrong. Row-level tracing tells you *where* and *why*.
+
+When you watch a single record flow through transformations, grain violations become obvious. You see the exact moment 1 row becomes 2 rows. You see which join caused it. You see what's different about this record that made it fan out.
+
+---
+
+**How this became a skill**
+
+I documented the methodology and added it to dbt-agent's QA skill. Now when an agent encounters a uniqueness violation or row count mismatch, it doesn't guess. It:
+
+1. Identifies a sample record showing the issue
+2. Generates trace queries for each CTE
+3. Runs them sequentially
+4. Reports exactly where the grain changed
+5. Suggests fixes based on the join pattern
+
+What used to take me 90 minutes now takes the agent about 10—and it documents its findings in the model's README.
+
+---
+
+**The lesson**
+
+The biggest gains in AI-assisted development don't come from better models. They come from encoding expert methodology into retrievable knowledge.
+
+The row-level trace technique isn't complicated. Any senior analyst knows some version of it. But it's the kind of tacit knowledge that lives in people's heads—learned through painful experience, rarely documented, lost when people leave.
+
+dbt-agent makes that knowledge explicit, persistent, and reusable.
+
+---
+
+**Try it yourself**
+
+Next time you have a row count mismatch:
+1. Don't look at aggregates
+2. Pick one problem record
+3. Trace it through every stage
+4. Watch where the count changes
+
+You'll find the bug in minutes, not hours.
+```
+
+---
+
+## Part 3: Execution Plan for Claude Code
+
+```markdown
+# data-centered.com Update Plan — Execution Instructions
+
+## Files to Update
+
+### 1. About Section
+**Location:** Likely `index.html` or a dedicated `about.html`
+**Action:** Replace current brief bio with the full narrative (provided above)
+**Notes:** 
+- Keep the existing page structure/styling
+- The new content is ~550 words, significantly longer than current
+- May need to adjust layout to accommodate longer text
+- Preserve existing links (email, github, linkedin)
+
+### 2. New Journal Posts
+**Location:** `journal/` directory (based on existing structure)
+**Action:** Create 3 new posts
+
+**Post 1:** `journal/why-i-built-dbt-agent.html`
+- Date: January 2026
+- Content: Provided above
+- Add to journal index on homepage
+
+**Post 2:** `journal/how-dbt-agent-thinks.html`
+- Date: January 2026  
+- Content: Provided above
+- Add to journal index on homepage
+
+**Post 3:** `journal/qa-methodology.html`
+- Date: January 2026
+- Content: Provided above
+- Add to journal index on homepage
+
+### 3. Homepage Journal Section
+**Action:** Update the "Writing" section to show all posts
+**Current:** Shows only "The Semantic Layer as Agent Memory" (Dec 21, 2024)
+**New:** Add the 3 new posts above it (newest first)
+
+### 4. Experience Section (Minor Update)
+**Action:** Expand the Hypothes.is entry
+**Current:** "Hypothes.is | Executive Support | 2012 · San Francisco"
+**New:** "Hypothes.is | Executive Support | 2012 · San Francisco | RepCon & I Annotate conferences"
+
+## Styling Notes
+- Match existing typography and spacing
+- Code blocks should use existing code styling
+- Tables should be simple, readable
+- Preserve the minimal aesthetic
+
+## Content Assets Needed
+- Barlow video link: https://youtu.be/Vl9Vtm6mWAQ
+- Consider adding as reference link in about section
+
+## Order of Operations
+1. Update about section first (highest impact)
+2. Create Post 1 (establishes dbt-agent concept)
+3. Create Post 2 (architecture detail)
+4. Create Post 3 (concrete technique)
+5. Update homepage journal index
+6. Minor update to experience section
+7. Test all links
+
+## Verification Checklist
+- [ ] About section displays full narrative
+- [ ] All 3 new posts accessible and formatted correctly
+- [ ] Homepage shows all 4 journal posts in correct order
+- [ ] All internal links work
+- [ ] Mobile responsive (test on phone)
+- [ ] No broken images or assets
+```
+
+---
+
+## Summary
+
+| Item | Status | Priority |
+|------|--------|----------|
+| About section rewrite | Content ready | HIGH |
+| Post 1: Why I Built dbt-agent | Content ready | HIGH |
+| Post 2: How dbt-agent Thinks | Content ready | MEDIUM |
+| Post 3: QA Methodology | Content ready | MEDIUM |
+| Experience section tweak | Content ready | LOW |
+
+Total new content: ~3,500 words across 4 pieces.
+
+Want me to adjust any of the posts or add additional ones?
