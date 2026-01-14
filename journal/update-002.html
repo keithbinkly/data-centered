@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Update #2: December Expansion | data-centered</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #0f0f0f;
+      --bg-elevated: #161616;
+      --border-dim: #252525;
+      --border-mid: #333;
+      --text-dim: #666;
+      --text-mid: #999;
+      --text-bright: #ccc;
+      --text-white: #f0f0f0;
+      --cyan: #5ccfe6;
+      --orange: #ffab70;
+      --green: #87c38a;
+      --purple: #c9a0dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .nav { margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .nav a { color: var(--text-dim); }
+    .nav a:hover { color: var(--cyan); text-decoration: none; }
+    h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.5rem; }
+    .meta { color: var(--text-dim); font-size: 0.875rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-mid); }
+    .meta span { color: var(--orange); font-family: 'JetBrains Mono', monospace; }
+    h2 { font-size: 1.25rem; color: var(--text-white); margin: 2rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dim); }
+    h3 { font-size: 1rem; color: var(--orange); margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: var(--text-white); }
+    em { color: var(--text-mid); }
+    hr { border: none; border-top: 1px solid var(--border-dim); margin: 2rem 0; }
+    blockquote { border-left: 3px solid var(--orange); padding-left: 1rem; margin: 1rem 0; color: var(--text-mid); }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dim); text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav"><a href="../pages/journal.html">&larr; Journal</a></nav>
+    <h1>Library Update #2: December Expansion</h1>
+    <div class="meta"><span>40 resources</span> · December 13-17, 2025</div>
+
+    <h2>The Big Picture</h2>
+
+    <p>This batch established the knowledge base's character. Four pillars emerged:</p>
+
+    <ol>
+      <li><strong>The Pudding's process canon</strong> — Their "How to Make Dope Shit" series and scrollytelling guides set the standard for data storytelling methodology.</li>
+      <li><strong>Context engineering crystallizes</strong> — LangChain and Weaviate both published foundational context engineering content. The term went from buzzword to discipline.</li>
+      <li><strong>Tableau exemplars</strong> — A treasure trove of Visual Vocabulary, chart catalogs, and design guides. The craft knowledge that doesn't fit in documentation.</li>
+      <li><strong>Agent memory research</strong> — Early academic and practitioner work on how agents should handle context and memory.</li>
+    </ol>
+
+    <hr>
+
+    <h2>By Domain</h2>
+
+    <h3>Data Visualization &amp; Storytelling (14 resources)</h3>
+
+    <p>The design craft backbone:</p>
+
+    <p><strong>The Pudding's Process Series:</strong></p>
+    <ul>
+      <li><a href="https://pudding.cool/process/how-to-make-dope-shit-part-1/">How to Make Dope Shit Part 1</a> — Finding your angle</li>
+      <li><a href="https://pudding.cool/process/how-to-make-dope-shit-part-2/">How to Make Dope Shit Part 2</a> — Data collection and analysis</li>
+      <li><a href="https://pudding.cool/process/how-to-make-dope-shit-part-3/">How to Make Dope Shit Part 3</a> — Design and polish</li>
+      <li><a href="https://pudding.cool/process/how-to-implement-scrollytelling/">Scrollytelling Implementation</a> — Technical how-to</li>
+      <li><a href="https://pudding.cool/process/responsive-scrollytelling/">Responsive Scrollytelling</a> — Mobile considerations</li>
+    </ul>
+
+    <p><strong>Tableau Exemplars:</strong></p>
+    <ul>
+      <li><a href="https://public.tableau.com/app/profile/andy.kriebel/viz/VisualVocabulary/VisualVocabulary">Visual Vocabulary</a> — Chart selection guide</li>
+      <li><a href="https://public.tableau.com/app/profile/kevin.flerlage/viz/TheTableauChartCatalog/TableauChartExamples">Tableau Chart Catalog</a> — Comprehensive examples</li>
+      <li><a href="https://public.tableau.com/app/profile/john.johansson/viz/BarDesignGuide/BarDesignGuide">Bar Design Guide</a> — Bar chart best practices</li>
+      <li><a href="https://public.tableau.com/app/profile/felipe.sebben/viz/The10CommandmentsofBigNumbersinPractice/The10CommandmentsofBigNumbers">10 Commandments of Big Numbers</a> — KPI card design</li>
+      <li><a href="https://www.intotableaudata.com/">Tableau Reference Guide (Shaffer)</a> — Comprehensive reference</li>
+    </ul>
+
+    <p><strong>Design Principles:</strong></p>
+    <ul>
+      <li><a href="https://x.com/kieranklaassen/status/1992350089118183433">10 UI Design Principles</a> — Visual design fundamentals</li>
+      <li><a href="https://x.com/mengto/status/1992213336205951143">Avoiding AI Slop Design</a> — Distinguishing quality work</li>
+      <li><a href="https://open.substack.com/pub/jennyouyang/p/how-i-create-consistent-hero-images-and-why-i-havent-switched-to-nanobanana">Consistent Hero Images Workflow</a> — Image generation process</li>
+    </ul>
+
+    <p><strong>Synthesis:</strong> The Pudding's process guides + Tableau exemplars = a complete data storytelling curriculum. This is the craft knowledge that separates good from great.</p>
+
+    <hr>
+
+    <h3>Knowledge Engineering (6 resources)</h3>
+
+    <p>The context engineering wave begins:</p>
+
+    <p><strong>Context Engineering Foundations:</strong></p>
+    <ul>
+      <li><a href="https://blog.langchain.com/context-engineering-for-agents/">Context Engineering for Agents (LangChain)</a> — Defining the discipline</li>
+      <li><a href="https://weaviate.io/blog/context-engineering">Context Engineering Deep Dive (Weaviate)</a> — Technical foundations</li>
+      <li><a href="https://blog.langchain.com/how-agents-can-use-filesystems-for-context-engineering/">Filesystems for Context Engineering</a> — Practical patterns</li>
+    </ul>
+
+    <p><strong>Ontology &amp; Data Models:</strong></p>
+    <ul>
+      <li><a href="https://williaminmon.substack.com/p/different-kinds-of-data-models">Different Kinds of Data Models</a> — Inmon's taxonomy</li>
+      <li><a href="https://www.linkedin.com/pulse/demystifying-ontologies-what-really-do-knowledge-joutsenlahti-wyraf/">Demystifying Ontologies: Vocabulary vs. Data-Structure</a> — Practical distinctions</li>
+      <li><a href="https://substack.com/inbox/post/179387219">Holy Trinity for Enterprise Data</a> — Integration patterns</li>
+    </ul>
+
+    <p><strong>Key insight:</strong> LangChain's "context engineering" framing gave practitioners a name for what they'd been doing: systematically managing what information reaches the model. It's not just RAG—it's architecture.</p>
+
+    <hr>
+
+    <h3>AI Tools &amp; Agents (10 resources)</h3>
+
+    <p>Memory, evaluation, and tooling:</p>
+
+    <p><strong>Agent Memory Research:</strong></p>
+    <ul>
+      <li><a href="https://github.com/momo-personal-assistant/momo-research">Momo Research - Context Engineering</a> — Academic research on agent memory</li>
+      <li><a href="https://arxiv.org/html/2511.08301v1">Spark: Shared Memory for Coding Agents</a> — Multi-agent memory sharing</li>
+      <li><a href="https://www.leoniemonigatti.com/blog/memory-in-ai-agents.html">Memory in AI Agents</a> — Taxonomy of memory types</li>
+      <li><a href="https://github.com/thedotmack/claude-mem">claude-mem - Persistent Memory</a> — Practical implementation</li>
+    </ul>
+
+    <p><strong>Evaluation &amp; Quality:</strong></p>
+    <ul>
+      <li><a href="https://github.com/dbt-labs/ade-bench">ADE-Bench (dbt Labs)</a> — Analytics engineering benchmarks</li>
+      <li><a href="https://github.com/karpathy/llm-council">LLM Council (Karpathy)</a> — Multi-LLM evaluation</li>
+      <li><a href="https://github.com/AnswerLayer/semiosis">Semiosis: KB Unit Testing</a> — Knowledge base quality testing</li>
+      <li><a href="https://manialabs.substack.com/p/ai-evals-changing-pm-craft">AI Evals: How They're Changing PM Craft</a> — Evaluation practices</li>
+    </ul>
+
+    <p><strong>Tool Use &amp; MCP:</strong></p>
+    <ul>
+      <li><a href="https://www.anthropic.com/engineering/advanced-tool-use">Advanced Tool Use (Anthropic)</a> — Official patterns</li>
+      <li><a href="https://newsletter.pragmaticengineer.com/p/mcp-deepdive">MCP Deep Dive: The USB-C Layer for AI</a> — Pragmatic Engineer's analysis</li>
+      <li><a href="https://github.com/johnlindquist/mdflow">mdflow - Executable Markdown</a> — Markdown as execution format</li>
+    </ul>
+
+    <p><strong>The memory theme:</strong> Three different approaches to agent memory in one batch. The problem is clear; the solution isn't yet.</p>
+
+    <hr>
+
+    <h3>Analytics Engineering (7 resources)</h3>
+
+    <p>dbt practices and semantic layer foundations:</p>
+
+    <p><strong>dbt Best Practices:</strong></p>
+    <ul>
+      <li><a href="https://www.getdbt.com/blog/modeling-success-dbt">Modeling Success with dbt</a> — Official modeling guide</li>
+      <li><a href="https://jimmypang.substack.com/p/understanding-data-marts-in-modern">Understanding Data Marts</a> — When and how to use marts</li>
+      <li><a href="https://www.getdbt.com/blog/dbt-mcp-server-conversational-analytics">dbt MCP Server Conversational Analytics</a> — MCP + dbt integration</li>
+    </ul>
+
+    <p><strong>CI/CD Tools:</strong></p>
+    <ul>
+      <li><a href="https://github.com/ponderedw/dbt-incremental-ci">dbt-incremental-ci</a> — Incremental CI patterns</li>
+      <li><a href="https://github.com/gouline/upstream-prod">upstream-prod</a> — Production data in dev</li>
+      <li><a href="https://github.com/godatadriven/dbt-bouncer">dbt-bouncer</a> — dbt project linting</li>
+    </ul>
+
+    <p><strong>Synthesis:</strong> The dbt ecosystem is maturing. CI/CD tooling, linting, and the MCP integration show a platform coming into its own.</p>
+
+    <hr>
+
+    <h3>AI/Meta (3 resources)</h3>
+
+    <p>Strategic perspectives:</p>
+
+    <ul>
+      <li><a href="https://metadataweekly.substack.com/p/aws-reinvent-2025-what-reinvent-quietly">AWS re:Invent 2025: Context Over Compute</a> — The shift in enterprise AI priorities</li>
+      <li><a href="https://metadataweekly.substack.com/p/building-ai-agents-you-can-trust">Building AI Agents You Can Trust</a> — Trust and reliability patterns</li>
+      <li><a href="https://sankalp.bearblog.dev/how-prompt-caching-works/">How Prompt Caching Works</a> — Technical deep dive</li>
+    </ul>
+
+    <p><strong>The "context over compute" thesis:</strong> AWS's messaging at re:Invent signals a shift. Raw model capability is table stakes; context engineering is the differentiator.</p>
+
+    <hr>
+
+    <h3>Career Development (1 resource)</h3>
+
+    <ul>
+      <li><a href="https://open.substack.com/pub/thedatahustle/p/the-data-portfolio-that-actually">The Data Portfolio That Actually Works</a> — Portfolio construction for data roles</li>
+    </ul>
+
+    <hr>
+
+    <h2>Cross-Cutting Insights</h2>
+
+    <p><strong>1. Context engineering is the new differentiator.</strong> LangChain, Weaviate, and AWS all converged on the same message: it's not about bigger models, it's about better context. The term went from niche to mainstream this month.</p>
+
+    <p><strong>2. Craft knowledge lives in Tableau Public.</strong> The Visual Vocabulary, chart catalogs, and design guides are the tacit knowledge that experienced practitioners accumulate. Now it's documented.</p>
+
+    <p><strong>3. The Pudding's process is replicable.</strong> Their "Dope Shit" series isn't just inspirational—it's a methodology. Find your angle → gather data → design with intention.</p>
+
+    <p><strong>4. Agent memory is the unsolved problem.</strong> Four different memory approaches in one batch, none of them definitive. This is where the research frontier is.</p>
+
+    <p><strong>5. MCP is the integration layer.</strong> The Pragmatic Engineer's "USB-C for AI" metaphor captured it. MCP is becoming the standard for tool integration.</p>
+
+    <hr>
+
+    <h2>What I'm Reading Next</h2>
+
+    <p>From this batch:</p>
+    <ol>
+      <li><strong>The Pudding's process series</strong> — Required reading for data storytelling</li>
+      <li><strong>LangChain's context engineering</strong> — The conceptual framework</li>
+      <li><strong>Visual Vocabulary</strong> — Keep as reference</li>
+      <li><strong>MCP Deep Dive</strong> — Understand the integration layer</li>
+    </ol>
+
+    <hr>
+
+    <p><em>40 resources processed. Previous: <a href="update-001.html">Update #1 (Dec 2024)</a></em></p>
+
+    <footer class="footer"><a href="../pages/journal.html">&larr; Back to Journal</a></footer>
+  </div>
+</body>
+</html>

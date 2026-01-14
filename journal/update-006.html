@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Update #6: January 2026 | data-centered</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #0f0f0f;
+      --bg-elevated: #161616;
+      --border-dim: #252525;
+      --border-mid: #333;
+      --text-dim: #666;
+      --text-mid: #999;
+      --text-bright: #ccc;
+      --text-white: #f0f0f0;
+      --cyan: #5ccfe6;
+      --orange: #ffab70;
+      --green: #87c38a;
+      --purple: #c9a0dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .nav { margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .nav a { color: var(--text-dim); }
+    .nav a:hover { color: var(--cyan); text-decoration: none; }
+    h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.5rem; }
+    .meta { color: var(--text-dim); font-size: 0.875rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-mid); }
+    .meta span { color: var(--orange); font-family: 'JetBrains Mono', monospace; }
+    h2 { font-size: 1.25rem; color: var(--text-white); margin: 2rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dim); }
+    h3 { font-size: 1rem; color: var(--orange); margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: var(--text-white); }
+    em { color: var(--text-mid); }
+    hr { border: none; border-top: 1px solid var(--border-dim); margin: 2rem 0; }
+    blockquote { border-left: 3px solid var(--orange); padding-left: 1rem; margin: 1rem 0; color: var(--text-mid); }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dim); text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav"><a href="../pages/journal.html">&larr; Journal</a></nav>
+    <h1>Library Update #6: January 2026</h1>
+    <div class="meta"><span>52 resources</span> · January 11-12, 2026</div>
+
+    <h2>The Big Picture</h2>
+
+    <p>This intake session surfaced a fascinating tension in the data world: <strong>we're simultaneously building the semantic infrastructure for AI agents AND realizing our existing foundations are shakier than we thought.</strong></p>
+
+    <p>The resources cluster into three interrelated themes:</p>
+
+    <ol>
+      <li><strong>Knowledge Engineering is eating Data Engineering</strong> - Multiple authors (Heimsbakk, Inmon, Vashishta) are converging on the same conclusion: the traditional data warehouse/lake distinction is collapsing into something more like "structured knowledge systems." The question isn't <em>where</em> to store data anymore—it's <em>how to make it mean something</em>.</li>
+      <li><strong>Agents need better foundations than we have</strong> - The explosion of agent tooling (8 new GitHub repos for agent infrastructure alone) reveals a gap: we're building sophisticated orchestration layers on top of semantic models that don't exist yet.</li>
+      <li><strong>The "Figma Moment" thesis</strong> - Bergevin's argument that semantic work needs its own design tooling breakthrough echoes across several resources. We're at the "hand-coding HTML" stage of knowledge engineering.</li>
+    </ol>
+
+    <hr>
+
+    <h2>By Domain</h2>
+
+    <h3>Knowledge Engineering (17 resources)</h3>
+
+    <p>The standout cluster this session. Three distinct perspectives emerged:</p>
+
+    <p><strong>The Practitioner View</strong> — Bergevin's trilogy from Data Product Management:</p>
+    <ul>
+      <li><a href="https://dataprodmgmt.substack.com/p/what-shopifys-product-taxonomy-teaches">What Shopify's Product Taxonomy Teaches Us About Investing in Semantics</a> — Case study of a successful semantic investment</li>
+      <li><a href="https://dataprodmgmt.substack.com/p/from-chaos-to-context-where-to-begin">From Chaos to Context: Where to Begin with Semantic Infrastructure</a> — Practical starting points</li>
+      <li><a href="https://dataprodmgmt.substack.com/p/why-semantic-work-needs-its-design">Semantic Work Needs Its Figma Moment</a> — The tooling gap thesis</li>
+    </ul>
+
+    <p><strong>The Skeptic View</strong> — Vashishta's two-part "Why Most Enterprise Ontologies Fail":</p>
+    <ul>
+      <li><a href="https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and">Part 1</a> — Failure patterns: over-engineering, academic approaches</li>
+      <li><a href="https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and-376">Part 2</a> — What actually works: pragmatic, evolutionary approaches</li>
+    </ul>
+
+    <p><strong>The Historian View</strong> — Inmon and Heimsbakk on foundations:</p>
+    <ul>
+      <li><a href="https://williaminmon.substack.com/p/ontologies-some-perspectives">Ontologies: Some Perspectives</a> — Bill Inmon (!!) weighing in on ontologies</li>
+      <li><a href="https://veronahe.substack.com/p/from-data-engineering-to-knowledge">From Data Engineering to Knowledge Engineering</a> — The discipline shift</li>
+      <li><a href="https://veronahe.substack.com/p/data-engineering-ontologies">Data Engineering Ontologies</a> — Practical ontology patterns</li>
+    </ul>
+
+    <p><strong>Semantic Layer specifics:</strong></p>
+    <ul>
+      <li><a href="https://blog.jetmetrics.io/p/metric-maps-vs-metric-trees-part">Metric Maps vs Metric Trees</a> — Graph vs hierarchical metric organization</li>
+      <li><a href="https://motherduck.com/blog/who-needs-a-semantic-layer-anyway/">What If We Don't Need the Semantic Layer?</a> — Provocative counterpoint from MotherDuck</li>
+      <li><a href="https://contextgraphs.com/">Context Graphs</a> — Knowledge representation framework</li>
+    </ul>
+
+    <p><strong>Key tension:</strong> The semantic layer debate is intensifying. MotherDuck asks if we're over-engineering; practitioners say we're under-investing. The truth is probably: <em>it depends on whether you're building for humans or agents</em>.</p>
+
+    <hr>
+
+    <h3>AI Tools &amp; Agent Infrastructure (21 resources)</h3>
+
+    <p>The largest category by count—agent tooling is exploding.</p>
+
+    <p><strong>Architecture &amp; Philosophy:</strong></p>
+    <ul>
+      <li><a href="https://every.to/guides/agent-native">Agent-Native Architectures: How to Build Apps After Code Ends</a> — Dan Shipper on post-code application design</li>
+      <li><a href="https://www.philschmid.de/agent-harness-2026">The Importance of Agent Harness in 2026</a> — Phil Schmid on agent evaluation frameworks</li>
+      <li><a href="https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents/">Custom AI Agent Builder's Guide</a> — MotherDuck's practical guide</li>
+    </ul>
+
+    <p><strong>Agent Infrastructure Tools:</strong></p>
+    <ul>
+      <li><a href="https://github.com/penberg/agentfs">AgentFS: Filesystem for AI Agents</a> — Filesystem abstraction for agents</li>
+      <li><a href="https://penberg.org/blog/disaggregated-agentfs.html">Towards a Disaggregated Agent Filesystem</a> — The theory behind AgentFS</li>
+      <li><a href="https://github.com/kleneway/claude-delegator">Claude Delegator</a> — Task routing between Claude instances</li>
+      <li><a href="https://github.com/cielecki/obsidian-skills">Obsidian Skills</a> — Skill-based behaviors in Obsidian</li>
+      <li><a href="https://github.com/nicholasoxford/mcp-ui">MCP UI Desktop</a> — Visual interface for MCP servers</li>
+      <li><a href="https://github.com/dmarx/agentic_coding_flywheel_setup">Agentic Coding Flywheel</a> — Bootstrap template for agent workflows</li>
+      <li><a href="https://workflowdevkit.com/">Workflow DevKit</a> — Visual agent workflow builder</li>
+    </ul>
+
+    <p><strong>Developer Tools:</strong></p>
+    <ul>
+      <li><a href="https://www.humanlayer.dev/blog/writing-a-good-claude-md">Writing a Good CLAUDE.md</a> — Best practices for agent onboarding files</li>
+      <li><a href="https://nurijanian.substack.com/p/claude-commands-and-prompts">Claude Commands and Prompts Guide</a> — Claude Code workflow patterns</li>
+      <li><a href="https://www.specstory.com/">SpecStory</a> — AI coding session tracking</li>
+      <li><a href="https://github.com/jlowin/dots">Dots</a> — Lightweight markdown task tracking (we use this!)</li>
+      <li><a href="https://github.com/gmickel/awesome-claude">Awesome Claude</a> — Curated resource directory</li>
+    </ul>
+
+    <p><strong>Emerging pattern:</strong> Agent infrastructure is fragmenting into three layers: (1) filesystems/memory, (2) orchestration/routing, (3) developer experience. No clear winners yet.</p>
+
+    <hr>
+
+    <h3>Analytics Engineering (4 resources)</h3>
+
+    <p>Focused additions around dbt tooling and the semantic layer:</p>
+
+    <ul>
+      <li><a href="https://github.com/dbt-labs/dbtc">dbtc: dbt Cloud CLI</a> — Official CLI for dbt Cloud API automation</li>
+      <li><a href="https://github.com/dbt-labs/example-semantic-layer-clients/tree/main/streamlit">dbt Semantic Layer Streamlit Example</a> — Reference implementation</li>
+      <li><a href="https://docs.getdbt.com/docs/deploy/column-level-lineage">dbt Cloud Column-Level Lineage</a> — Fine-grained impact analysis</li>
+      <li><a href="https://juhache.substack.com/p/building-a-boring-chat-bi-agent">Building a Boring Chat-BI Agent</a> — Practical Chat-BI implementation</li>
+    </ul>
+
+    <p><strong>Connection to knowledge engineering:</strong> The semantic layer resources here complement the KE additions. dbt's semantic layer is becoming the <em>implementation</em> of the semantic infrastructure the KE folks are theorizing about.</p>
+
+    <hr>
+
+    <h3>Data Visualization (2 resources)</h3>
+
+    <p>Two foundational pieces on information design:</p>
+
+    <ul>
+      <li><a href="http://worrydream.com/MagicInk/">Magic Ink: Information Software Design</a> — Bret Victor's seminal 2006 essay. If you haven't read this, stop and read it now. His argument that most software should be "information graphics" anticipates the current context-engineering discourse by almost 20 years.</li>
+      <li><a href="https://blog.khanacademy.org/rebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-designrebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-design/">Rebuilding Graphs for Accessibility: Khan Academy's Inclusive Design</a> — Accessibility as a design driver</li>
+    </ul>
+
+    <hr>
+
+    <h3>AI/LLMs (2 resources)</h3>
+
+    <ul>
+      <li><a href="https://github.com/microsoft/semantic-memory">Microsoft Semantic Memory</a> — Enterprise RAG/memory system</li>
+      <li><a href="https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial/Anthropic%201P/10_Coding_Tutor">Anthropic Coding Tutor Agent</a> — Official educational agent patterns</li>
+    </ul>
+
+    <hr>
+
+    <h3>Career Development (1 resource)</h3>
+
+    <ul>
+      <li><a href="https://youvisible.substack.com/p/how-to-build-a-personal-brand-when">How to Build a Personal Brand When You're a Senior Professional</a> — Late-career visibility strategies</li>
+    </ul>
+
+    <hr>
+
+    <h2>Cross-Cutting Insights</h2>
+
+    <p><strong>1. The convergence is real.</strong> Knowledge engineering, semantic layers, and agent infrastructure are colliding. Heimsbakk explicitly frames it as "data engineering → knowledge engineering." The tools being built for agents (memory systems, context graphs) are essentially applied ontology work.</p>
+
+    <p><strong>2. Pragmatism is winning.</strong> Vashishta's "why ontologies fail" pieces and Bergevin's "start simple" advice both push against academic over-engineering. The successful semantic projects (Shopify taxonomy, dbt semantic layer) share a common trait: they solve immediate problems first.</p>
+
+    <p><strong>3. Developer experience matters more than architecture.</strong> The CLAUDE.md guides, SpecStory, Dots—there's as much energy going into "how do I work with agents effectively" as "how do I build agent infrastructure." The UX layer is becoming a bottleneck.</p>
+
+    <p><strong>4. We're pre-Figma.</strong> Bergevin's "Figma moment" thesis resonates because it's true. We're hand-coding semantic models like we hand-coded websites in 1998. Someone's going to build the visual semantic modeler that makes this accessible, and it'll change everything.</p>
+
+    <hr>
+
+    <h2>What I'm Reading Next</h2>
+
+    <p>Based on these additions, my reading priority queue:</p>
+    <ol>
+      <li><strong>Bret Victor's Magic Ink</strong> — Foundational, surprisingly relevant to current AI/context work</li>
+      <li><strong>Vashishta's ontology failure modes</strong> — Need to avoid these patterns</li>
+      <li><strong>Agent-Native Architectures</strong> — Shipper's take on post-code apps</li>
+      <li><strong>The Heimsbakk series</strong> — Data → knowledge engineering transition</li>
+    </ol>
+
+    <hr>
+
+    <p><em>52 resources processed. Next update: January 2 batch (31 resources).</em></p>
+
+    <footer class="footer"><a href="../pages/journal.html">&larr; Back to Journal</a></footer>
+  </div>
+</body>
+</html>

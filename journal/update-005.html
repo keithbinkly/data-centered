@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Update #5: New Year Knowledge Sprint | data-centered</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #0f0f0f;
+      --bg-elevated: #161616;
+      --border-dim: #252525;
+      --border-mid: #333;
+      --text-dim: #666;
+      --text-mid: #999;
+      --text-bright: #ccc;
+      --text-white: #f0f0f0;
+      --cyan: #5ccfe6;
+      --orange: #ffab70;
+      --green: #87c38a;
+      --purple: #c9a0dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .nav { margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .nav a { color: var(--text-dim); }
+    .nav a:hover { color: var(--cyan); text-decoration: none; }
+    h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.5rem; }
+    .meta { color: var(--text-dim); font-size: 0.875rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-mid); }
+    .meta span { color: var(--orange); font-family: 'JetBrains Mono', monospace; }
+    h2 { font-size: 1.25rem; color: var(--text-white); margin: 2rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dim); }
+    h3 { font-size: 1rem; color: var(--orange); margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: var(--text-white); }
+    em { color: var(--text-mid); }
+    hr { border: none; border-top: 1px solid var(--border-dim); margin: 2rem 0; }
+    blockquote { border-left: 3px solid var(--orange); padding-left: 1rem; margin: 1rem 0; color: var(--text-mid); }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dim); text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav"><a href="../pages/journal.html">&larr; Journal</a></nav>
+    <h1>Library Update #5: New Year Knowledge Sprint</h1>
+    <div class="meta"><span>31 resources</span> · January 2, 2026</div>
+
+    <h2>The Big Picture</h2>
+
+    <p>New year, new paradigm. This batch captures a turning point: <strong>the semantic layer debate went mainstream</strong>, and the tooling ecosystem for AI-assisted development exploded in December.</p>
+
+    <p>Three threads dominate:</p>
+
+    <ol>
+      <li><strong>The Inmon-Kimball debate gets a sequel</strong> — Bill Inmon himself published on the architecture wars, but reframed for the AI age. Systems of record vs. systems of insight is the new dimensional vs. normalized.</li>
+      <li><strong>Context graphs emerge</strong> — Jay Gupta's Twitter thread on "trillion-dollar opportunity" in context graphs captured something in the air. It's not just knowledge graphs anymore—it's graphs <em>of context</em>.</li>
+      <li><strong>MCP becomes real infrastructure</strong> — Model Context Protocol moved from spec to implementation. MotherDuck shipped an MCP server. The plugin ecosystem is forming.</li>
+    </ol>
+
+    <hr>
+
+    <h2>By Domain</h2>
+
+    <h3>Knowledge Engineering (8 resources)</h3>
+
+    <p>The semantic layer debate intensified with heavyweight contributors:</p>
+
+    <p><strong>The Debate:</strong></p>
+    <ul>
+      <li><a href="https://motherduck.com/blog/who-needs-a-semantic-layer-anyway/">What If We Don't Need the Semantic Layer?</a> — MotherDuck's provocation</li>
+      <li><a href="https://dataprodmgmt.substack.com/p/what-shopifys-product-taxonomy-teaches">What Shopify's Product Taxonomy Teaches About Semantics</a> — Bergevin's counter: look at who's winning</li>
+    </ul>
+
+    <p><strong>Failure Modes:</strong></p>
+    <ul>
+      <li><a href="https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and">Why Most Enterprise Ontologies &amp; Knowledge Graphs Fail Part 1</a> — Academic over-engineering</li>
+      <li><a href="https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and-376">Why Most Enterprise Ontologies &amp; Knowledge Graphs Fail Part 2</a> — The reality gap between theory and practice</li>
+    </ul>
+
+    <p><strong>Context Graphs (new framing):</strong></p>
+    <ul>
+      <li><a href="https://x.com/jayagup10/status/2003525933534179480">AI's Trillion-Dollar Opportunity: Context Graphs</a> — Gupta's viral thread</li>
+      <li><a href="https://x.com/jayagup10/status/2003525933534179480">From CRM to CRCG: A Practical Context Graph Example</a> — Applied context graph patterns</li>
+    </ul>
+
+    <p><strong>Architecture Wars, Redux:</strong></p>
+    <ul>
+      <li><a href="https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball">A Tale of Two Architectures: Kimball vs Inmon</a> — Inmon weighs in (again), but this time with AI context</li>
+      <li><a href="https://cloudedjudgement.substack.com/p/clouded-judgement-121225-long-live">Long Live Systems of Record</a> — Jamin Ball on why master data still matters</li>
+    </ul>
+
+    <p><strong>Synthesis:</strong> The semantic layer skeptics and believers are talking past each other. Skeptics see over-engineering for simple analytics; believers see under-investment for AI readiness. Both are right for their use cases.</p>
+
+    <hr>
+
+    <h3>AI Tools &amp; Agent Infrastructure (14 resources)</h3>
+
+    <p>The largest category—tooling is proliferating fast.</p>
+
+    <p><strong>MCP Ecosystem:</strong></p>
+    <ul>
+      <li><a href="https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/">MCP Apps: Interactive UI Extension Specification</a> — Official spec for MCP UI extensions</li>
+      <li><a href="https://motherduck.com/docs/sql-reference/mcp/">MotherDuck MCP Server</a> — Production MCP implementation</li>
+    </ul>
+
+    <p><strong>Memory &amp; Context:</strong></p>
+    <ul>
+      <li><a href="https://github.com/joelhooks/semantic-memory">Semantic Memory: Local Vector Search with PGlite</a> — Local-first semantic search</li>
+      <li><a href="https://gist.github.com/alexknowshtml/ecf8ea9b265bc82a00650833e73e461f">Memory Lane: Persistent Memory for Claude Code</a> — Cross-session context preservation</li>
+      <li><a href="https://github.com/parcadei/Continuous-Claude-v2">Continuous Claude: Context Management System</a> — Continuity across Claude sessions</li>
+    </ul>
+
+    <p><strong>Multi-Agent:</strong></p>
+    <ul>
+      <li><a href="https://github.com/kyegomez/swarms">Swarms: Enterprise Multi-Agent Orchestration</a> — Production multi-agent framework</li>
+      <li><a href="https://github.com/EveryInc/compound-engineering-plugin">Compound Engineering: Claude Code Plugin</a> — Every's approach to compound AI</li>
+    </ul>
+
+    <p><strong>Developer Tools:</strong></p>
+    <ul>
+      <li><a href="https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup">Agentic Coding Flywheel: VPS Bootstrap System</a> — From zero to agent-ready environment</li>
+      <li><a href="https://github.com/nityeshaga/claude-code-essentials/tree/main/plugins/coding-tutor">Coding Tutor: Personalized AI Learning Plugin</a> — AI-assisted learning patterns</li>
+      <li><a href="https://github.com/regenrek/peakypanes">Peaky Panes: TUI Project Manager</a> — Terminal-based project organization</li>
+      <li><a href="https://github.com/jlongster/tigma">Tigma: Terminal-Based ASCII Design Tool</a> — TUI design tooling</li>
+    </ul>
+
+    <p><strong>Reference Collections:</strong></p>
+    <ul>
+      <li><a href="https://github.com/kilimchoi/engineering-blogs">Engineering Blogs: Curated Collection</a> — 500+ engineering blogs indexed</li>
+    </ul>
+
+    <p><strong>Emerging pattern:</strong> The "memory problem" is getting serious attention. Three different approaches to cross-session context in this batch alone.</p>
+
+    <hr>
+
+    <h3>Analytics Engineering (4 resources)</h3>
+
+    <p>dbt ecosystem tooling and semantic layer implementations:</p>
+
+    <ul>
+      <li><a href="https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents/">AI Builder's Guide: Building Analytics Agents</a> — Practical analytics agent patterns</li>
+      <li><a href="https://github.com/dpguthrie/dbtc">dbtc: dbt Cloud Python Client</a> — Programmatic dbt Cloud access</li>
+      <li><a href="https://github.com/dpguthrie/dbt-sl-streamlit">dbt Semantic Layer Streamlit App</a> — Reference implementation for SL clients</li>
+      <li><a href="https://github.com/waynesutton/markdown-site">Markdown Site: AI-Ready Publishing Framework</a> — Content management for AI consumption</li>
+    </ul>
+
+    <hr>
+
+    <h3>Data Visualization (3 resources)</h3>
+
+    <p>Accessibility and semantic diagramming:</p>
+
+    <ul>
+      <li><a href="https://worrydream.com/MagicInk/">Magic Ink: Information Software and the Graphical Interface</a> — Bret Victor's foundational essay (2006, still essential)</li>
+      <li><a href="https://blog.khanacademy.org/rebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-designrebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-design/">Rebuilding Graphs for Accessibility: Khan Academy's Inclusive Design</a> — Accessibility-driven redesign</li>
+      <li><a href="https://termboard.com/manual/">Termboard: Semantic Diagramming Tool</a> — Terminal-native diagramming</li>
+    </ul>
+
+    <hr>
+
+    <h3>AI/LLMs (2 resources)</h3>
+
+    <ul>
+      <li><a href="https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook">The Smol Training Playbook</a> — HuggingFace's small model training guide</li>
+      <li><a href="https://www.josecrespophd.org/p/the-math-openai-doesnt-want-you-to">The Math OpenAI Doesn't Want You to Learn</a> — Riemannian geometry foundations for embeddings</li>
+    </ul>
+
+    <hr>
+
+    <h3>Career/Meta (1 resource)</h3>
+
+    <ul>
+      <li><a href="https://evakeiffenheim.substack.com/p/a-curated-map-of-the-best-thinking">A Curated Map of the Best Thinking on Learning How to Learn</a> — Meta-learning resource map</li>
+    </ul>
+
+    <hr>
+
+    <h2>Cross-Cutting Insights</h2>
+
+    <p><strong>1. The "context graph" framing is catching on.</strong> Gupta's thread resonated because it names something practitioners have been feeling: knowledge graphs are too academic, but we need <em>something</em> to represent business context. "Context graph" bridges the gap.</p>
+
+    <p><strong>2. Memory is the next frontier.</strong> Three separate projects tackling cross-session memory for Claude/AI tools. The pattern: context is expensive, persistence is cheap, so save everything and let retrieval figure it out.</p>
+
+    <p><strong>3. MCP is becoming infrastructure.</strong> MotherDuck shipping an MCP server is significant—it's not just a protocol anymore, it's a platform assumption.</p>
+
+    <p><strong>4. The Inmon-Kimball debate never died.</strong> It just changed clothes. "Systems of record vs. systems of insight" is "normalized vs. dimensional" for the AI age. The pendulum is swinging back toward Inmon's vision, but with knowledge graph characteristics.</p>
+
+    <hr>
+
+    <h2>What I'm Reading Next</h2>
+
+    <p>From this batch:</p>
+    <ol>
+      <li><strong>Bret Victor's Magic Ink</strong> — Somehow still ahead of its time</li>
+      <li><strong>The context graph threads</strong> — New framing worth understanding</li>
+      <li><strong>MCP Apps spec</strong> — Where the protocol is headed</li>
+      <li><strong>Swarms framework</strong> — Production multi-agent patterns</li>
+    </ol>
+
+    <hr>
+
+    <p><em>31 resources processed. Previous: <a href="update-004.html">Update #4 (Dec 26)</a></em></p>
+
+    <footer class="footer"><a href="../pages/journal.html">&larr; Back to Journal</a></footer>
+  </div>
+</body>
+</html>

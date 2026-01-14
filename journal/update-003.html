@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Update #3: The Pudding Deep Dive &amp; Semantic Layer Foundations | data-centered</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #0f0f0f;
+      --bg-elevated: #161616;
+      --border-dim: #252525;
+      --border-mid: #333;
+      --text-dim: #666;
+      --text-mid: #999;
+      --text-bright: #ccc;
+      --text-white: #f0f0f0;
+      --cyan: #5ccfe6;
+      --orange: #ffab70;
+      --green: #87c38a;
+      --purple: #c9a0dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .nav { margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .nav a { color: var(--text-dim); }
+    .nav a:hover { color: var(--cyan); text-decoration: none; }
+    h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.5rem; }
+    .meta { color: var(--text-dim); font-size: 0.875rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-mid); }
+    .meta span { color: var(--orange); font-family: 'JetBrains Mono', monospace; }
+    h2 { font-size: 1.25rem; color: var(--text-white); margin: 2rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dim); }
+    h3 { font-size: 1rem; color: var(--orange); margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: var(--text-white); }
+    em { color: var(--text-mid); }
+    hr { border: none; border-top: 1px solid var(--border-dim); margin: 2rem 0; }
+    blockquote { border-left: 3px solid var(--orange); padding-left: 1rem; margin: 1rem 0; color: var(--text-mid); }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dim); text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav"><a href="../pages/journal.html">&larr; Journal</a></nav>
+    <h1>Library Update #3: The Pudding Deep Dive &amp; Semantic Layer Foundations</h1>
+    <div class="meta"><span>51 resources</span> · December 19-21, 2025</div>
+
+    <h2>The Big Picture</h2>
+
+    <p>This was the "infrastructure week" batch. Two parallel tracks:</p>
+
+    <ol>
+      <li><strong>Data storytelling tools</strong> — A deep dive into The Pudding's tech stack revealed a complete scrollytelling toolkit: Svelte, Layer Cake, Scrollama, and their component templates.</li>
+      <li><strong>Semantic layer documentation</strong> — Comprehensive dbt semantic layer docs, MetricFlow patterns, and the first semantic layer pipeline tools.</li>
+    </ol>
+
+    <p>Plus: the official learning resources from OpenAI, Anthropic, and Coursera got catalogued.</p>
+
+    <hr>
+
+    <h2>By Domain</h2>
+
+    <h3>Data Visualization &amp; Storytelling (15 resources)</h3>
+
+    <p>The Pudding's entire production stack, decoded:</p>
+
+    <p><strong>Core Framework:</strong></p>
+    <ul>
+      <li><a href="https://kit.svelte.dev/">SvelteKit: Web Application Framework</a> — The foundation</li>
+      <li><a href="https://d3js.org/">D3.js: JavaScript Data Visualization Library</a> — Low-level viz primitives</li>
+      <li><a href="https://layercake.graphics/">Layer Cake: Svelte Graphics Framework</a> — D3 + Svelte integration</li>
+    </ul>
+
+    <p><strong>Scrollytelling:</strong></p>
+    <ul>
+      <li><a href="https://github.com/russellgoldenberg/scrollama">Scrollama: Scrollytelling with IntersectionObserver</a> — The industry standard for scroll-triggered animations</li>
+    </ul>
+
+    <p><strong>The Pudding's Open Source:</strong></p>
+    <ul>
+      <li><a href="https://github.com/the-pudding/svelte-starter">The Pudding Svelte Starter Template</a> — Project bootstrap</li>
+      <li><a href="https://github.com/the-pudding/svelte-templates">The Pudding: Svelte Component Templates</a> — Reusable visualization components</li>
+      <li><a href="https://github.com/the-pudding/website">The Pudding Website Repository</a> — Full site architecture</li>
+      <li><a href="https://github.com/the-pudding/data">The Pudding Open Data Repository</a> — Datasets from published stories</li>
+      <li><a href="https://github.com/the-pudding/pop-love-songs">The Pudding: Pop Love Songs Analysis</a> — Example project</li>
+    </ul>
+
+    <p><strong>Reference Materials:</strong></p>
+    <ul>
+      <li><a href="https://public.tableau.com/views/MasteringTableau2_KPIcollection1-ColorencodingforKPIcards/Dashboard">KPI Color Encoding Patterns (Tableau)</a> — Dashboard design patterns</li>
+      <li><a href="https://uiverse.io">Uiverse: Open-Source UI Elements Library</a> — Component inspiration</li>
+      <li><a href="https://github.com/SveltePress/sveltepress">SveltePress: Content-Centered Site Builder</a> — Documentation sites</li>
+    </ul>
+
+    <p><strong>Synthesis:</strong> The Pudding's stack is now fully documented. For anyone wanting to build data-driven scrollytelling: start with SvelteKit + Scrollama + Layer Cake, steal their templates.</p>
+
+    <hr>
+
+    <h3>Analytics Engineering (6 resources)</h3>
+
+    <p>The semantic layer documentation wave:</p>
+
+    <p><strong>dbt Semantic Layer Core:</strong></p>
+    <ul>
+      <li><a href="https://docs.getdbt.com/docs/build/semantic-models">dbt Semantic Models</a> — Foundation concepts</li>
+      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-architecture">dbt Semantic Layer Architecture</a> — How it works under the hood</li>
+      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports">dbt Semantic Layer Exports</a> — Getting data out</li>
+      <li><a href="https://docs.getdbt.com/docs/build/metricflow-time-spine">MetricFlow Time Spine</a> — Time dimension patterns</li>
+    </ul>
+
+    <p><strong>Pipeline Tools:</strong></p>
+    <ul>
+      <li><a href="https://github.com/nicholasyager/dbt-to-cube">dbt-to-cube: Semantic Layer Pipeline</a> — dbt → Cube.js integration</li>
+      <li><a href="https://datahub.com">DataHub: Modern Data Catalog &amp; Metadata Platform</a> — Metadata management</li>
+    </ul>
+
+    <p><strong>Why this matters:</strong> The semantic layer moved from "interesting idea" to "documented platform" in 2025. These resources are the canonical references.</p>
+
+    <hr>
+
+    <h3>AI Tools &amp; Learning (14 resources)</h3>
+
+    <p>Official learning resources and emerging tools:</p>
+
+    <p><strong>Official Learning Platforms:</strong></p>
+    <ul>
+      <li><a href="https://academy.openai.com/">OpenAI Academy</a> — OpenAI's official courses</li>
+      <li><a href="https://www.anthropic.com/learn">Anthropic Academy &amp; Learning Hub</a> — Anthropic's resources</li>
+      <li><a href="https://www.coursera.org/specializations/machine-learning-introduction">Machine Learning Specialization (Stanford/DeepLearning.AI)</a> — The Andrew Ng classic, updated</li>
+      <li><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g">Intro to Large Language Models (Karpathy)</a> — Essential 1-hour overview</li>
+    </ul>
+
+    <p><strong>Claude/AI Best Practices:</strong></p>
+    <ul>
+      <li><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices">Claude 4.x Prompting Best Practices</a> — Official prompting guide</li>
+      <li><a href="https://claude.com/resources/use-cases">Claude Use Cases Directory</a> — Applied patterns</li>
+      <li><a href="https://open.substack.com/pub/cashandcache/p/i-analyzed-40-claude-skills-failures">5 Fixes for Claude Skills Failures</a> — Practical debugging</li>
+      <li><a href="https://ruben.substack.com/p/free">Free AI Courses: Official Resources</a> — Curated free learning paths</li>
+    </ul>
+
+    <p><strong>Tools &amp; Platforms:</strong></p>
+    <ul>
+      <li><a href="https://github.com/Arize-ai/phoenix">Arize Phoenix: AI Observability &amp; Evaluation</a> — LLM evaluation framework</li>
+      <li><a href="https://github.com/langwatch/better-agents">Better Agents: Standards for Agent Building</a> — Agent design patterns</li>
+      <li><a href="https://github.com/CaviraOSS/OpenMemory/">OpenMemory: Local Memory Store for LLM Apps</a> — Local-first AI memory</li>
+      <li><a href="https://gemini.google/tg/overview/deep-research/">Gemini Deep Research</a> — Google's research agent</li>
+      <li><a href="https://www.simular.ai/">Simular AI: Autonomous Computer Use Agent</a> — Computer-use automation</li>
+    </ul>
+
+    <hr>
+
+    <h3>AI/Development Tools (8 resources)</h3>
+
+    <p><strong>Code &amp; Documentation:</strong></p>
+    <ul>
+      <li><a href="https://github.com/FSoft-AI4Code/CodeWiki/">CodeWiki: Repository-Level Documentation Framework</a> — Auto-documentation</li>
+      <li><a href="https://github.com/K-Dense-AI/agentic-data-scientist">Agentic Data Scientist</a> — AI-assisted data science</li>
+      <li><a href="https://aitmpl.com/hooks">Claude Code Templates: Stack Builder</a> — Boilerplate generator</li>
+    </ul>
+
+    <p><strong>Design Tools:</strong></p>
+    <ul>
+      <li><a href="https://aura.build">Aura: AI Landing Page Builder</a> — AI-assisted page design</li>
+      <li><a href="https://21st.dev">21st.dev: AI Product Designer</a> — UI generation</li>
+    </ul>
+
+    <hr>
+
+    <h3>Knowledge Engineering (3 resources)</h3>
+
+    <p>Light additions, setting up the December 26 deep dive:</p>
+
+    <ul>
+      <li><a href="https://moderndata101.substack.com/p/ai-ready-data-a-technical-assessment">AI-Ready Data: A Technical Assessment</a> — What makes data AI-ready</li>
+      <li>Plus the ongoing semantic layer discourse...</li>
+    </ul>
+
+    <hr>
+
+    <h2>Cross-Cutting Insights</h2>
+
+    <p><strong>1. The Pudding's stack is the gold standard for data storytelling.</strong> SvelteKit + Scrollama + Layer Cake. They've open-sourced everything—templates, data, the whole site. For anyone building data stories: start here.</p>
+
+    <p><strong>2. The semantic layer got documented.</strong> dbt's semantic layer docs went from sparse to comprehensive. The architecture, exports, time spine patterns—it's all there now.</p>
+
+    <p><strong>3. AI learning is consolidating.</strong> OpenAI, Anthropic, and Google all launched official learning platforms. The Karpathy video remains the best single-resource intro.</p>
+
+    <p><strong>4. Memory is fragmenting.</strong> Three different memory/context solutions in this batch (OpenMemory, CodeWiki's approach, Arize Phoenix's evaluation). No clear winner, lots of experimentation.</p>
+
+    <hr>
+
+    <h2>What I'm Reading Next</h2>
+
+    <p>From this batch:</p>
+    <ol>
+      <li><strong>Karpathy's LLM intro</strong> — If you haven't watched it, do it now</li>
+      <li><strong>The Pudding starter template</strong> — Clone and study</li>
+      <li><strong>dbt Semantic Layer Architecture</strong> — Understand the internals</li>
+      <li><strong>Claude 4.x Best Practices</strong> — Keep prompting skills current</li>
+    </ol>
+
+    <hr>
+
+    <p><em>51 resources processed. Previous: <a href="update-002.html">Update #2 (Dec 13-17)</a></em></p>
+
+    <footer class="footer"><a href="../pages/journal.html">&larr; Back to Journal</a></footer>
+  </div>
+</body>
+</html>

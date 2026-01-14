@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Update #1: Foundations | data-centered</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #0f0f0f;
+      --bg-elevated: #161616;
+      --border-dim: #252525;
+      --border-mid: #333;
+      --text-dim: #666;
+      --text-mid: #999;
+      --text-bright: #ccc;
+      --text-white: #f0f0f0;
+      --cyan: #5ccfe6;
+      --orange: #ffab70;
+      --green: #87c38a;
+      --purple: #c9a0dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .nav { margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .nav a { color: var(--text-dim); }
+    .nav a:hover { color: var(--cyan); text-decoration: none; }
+    h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.5rem; }
+    .meta { color: var(--text-dim); font-size: 0.875rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-mid); }
+    .meta span { color: var(--orange); font-family: 'JetBrains Mono', monospace; }
+    h2 { font-size: 1.25rem; color: var(--text-white); margin: 2rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dim); }
+    h3 { font-size: 1rem; color: var(--orange); margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: var(--text-white); }
+    em { color: var(--text-mid); }
+    hr { border: none; border-top: 1px solid var(--border-dim); margin: 2rem 0; }
+    blockquote { border-left: 3px solid var(--orange); padding-left: 1rem; margin: 1rem 0; color: var(--text-mid); }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dim); text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav"><a href="../pages/journal.html">&larr; Journal</a></nav>
+    <h1>Library Update #1: Foundations</h1>
+    <div class="meta"><span>27 resources</span> · December 2024</div>
+
+    <h2>The Big Picture</h2>
+
+    <p>This is where it started. The seed collection that defined the knowledge base's focus:</p>
+
+    <p><strong>The core thesis emerged:</strong> Data infrastructure isn't AI-ready. Not because of scale or quality, but because of <em>meaning</em>. Semantic layers, ontologies, and context engineering aren't nice-to-haves—they're the missing infrastructure layer.</p>
+
+    <p>Three foundational threads:</p>
+
+    <ol>
+      <li><strong>The semantic gap</strong> — Multiple authors identified the same problem: AI can't "read the room" because our data lacks semantic context.</li>
+      <li><strong>Jessica Talisman's knowledge engineering curriculum</strong> — A comprehensive series on controlled vocabularies, ontologies, and metadata modeling. This became the backbone.</li>
+      <li><strong>dbt's semantic layer documentation</strong> — The practical implementation of semantic infrastructure.</li>
+    </ol>
+
+    <hr>
+
+    <h2>By Domain</h2>
+
+    <h3>Knowledge Engineering (18 resources)</h3>
+
+    <p>The dominant category. This is the intellectual foundation:</p>
+
+    <p><strong>The Semantic Gap:</strong></p>
+    <ul>
+      <li><a href="https://metadataweekly.substack.com/p/the-semantic-gap-why-your-ai-still-cant-read-the-room">The Semantic Gap</a> — Why AI fails on enterprise data</li>
+      <li><a href="https://jessicatalisman.substack.com/p/from-metadata-to-meaning-the-knowledge">From Metadata to Meaning</a> — The knowledge engineering imperative</li>
+      <li><a href="https://atlan.com/know/closing-the-context-gap/">Missing Line Item in 2026 AI Budget</a> — The business case for semantic investment</li>
+      <li><a href="https://practicaldatamodeling.substack.com/p/semantics-in-data-modeling">Semantics in Data Modeling</a> — Integrating semantics into traditional modeling</li>
+    </ul>
+
+    <p><strong>Jessica Talisman's Knowledge Engineering Series:</strong></p>
+    <ul>
+      <li><a href="https://jessicatalisman.substack.com/p/controlled-vocabulary-part-i">Controlled Vocabularies Part I</a> — Foundations</li>
+      <li><a href="https://jessicatalisman.substack.com/p/controlled-vocabularies">Controlled Vocabularies Part II</a> — Implementation</li>
+      <li><a href="https://jessicatalisman.substack.com/p/controlled-vocabularies">Controlled Vocabularies Part III</a> — Advanced patterns</li>
+      <li><a href="https://jessicatalisman.substack.com/p/concept-models-versus-ontologies-the-sketch-and-the-blueprint">Concept Models vs Ontologies</a> — When to use which</li>
+      <li><a href="https://jessicatalisman.substack.com/p/the-ontology-pipeline">The Ontology Pipeline</a> — Building ontologies systematically</li>
+      <li><a href="https://jessicatalisman.substack.com/p/metadata-as-a-data-model">Metadata as Data Model I</a> — Metadata foundations</li>
+      <li><a href="https://jessicatalisman.substack.com/p/metadata-as-a-data-model-b68">Metadata as Data Model II</a> — Advanced patterns</li>
+      <li><a href="https://jessicatalisman.substack.com/p/metadata-as-a-data-model-ec0">Metadata Application Profiles</a> — Practical templates</li>
+      <li><a href="https://jessicatalisman.substack.com/p/process-knowledge-management-part-i">Process Knowledge Management I</a> — Capturing process knowledge</li>
+      <li><a href="https://jessicatalisman.substack.com/p/process-knowledge-management-part-ii">Process Knowledge Management II</a> — Implementation</li>
+    </ul>
+
+    <p><strong>Ontologies &amp; Knowledge Graphs:</strong></p>
+    <ul>
+      <li><a href="https://vinvashishta.substack.com/p/why-your-agentic-enterprise-needs">Enterprise Needs Ontology</a> — Why ontologies matter for agents</li>
+      <li><a href="https://medium.com/@alessandro-negro/grounding-llms-the-knowledge-graph-foundation-every-ai-project-needs">Grounding LLMs with Knowledge Graphs</a> — KG + LLM integration</li>
+      <li><a href="https://kurtcagle.wpcomstaging.com/2023/04/18/what-is-a-knowledge-graph-really/">Building Knowledge Graphs</a> — Practical construction</li>
+    </ul>
+
+    <p><strong>Synthesis:</strong> Talisman's series is the curriculum. Start with controlled vocabularies, progress to ontologies, ground in metadata modeling. The other resources provide the "why."</p>
+
+    <hr>
+
+    <h3>Analytics Engineering (5 resources)</h3>
+
+    <p>The dbt semantic layer foundation:</p>
+
+    <p><strong>Semantic Layer Documentation:</strong></p>
+    <ul>
+      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/consume-metrics">Consume Metrics</a> — Querying the semantic layer</li>
+      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl">Administer Semantic Layer</a> — Setup and configuration</li>
+      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/deploy-sl">Deploy Metrics</a> — Production deployment</li>
+    </ul>
+
+    <p><strong>Semantic Layer Strategy:</strong></p>
+    <ul>
+      <li><a href="https://www.atscale.com/blog/golden-age-of-the-semantic-layer/">Semantic Layers for Control</a> — Strategic positioning</li>
+      <li><a href="https://www.getdbt.com/blog/dbt-agents-remote-dbt-mcp-server-trusted-ai-for-analytics">Building Analyst Agent with dbt</a> — Agent integration</li>
+    </ul>
+
+    <p><strong>The practical implementation:</strong> dbt's semantic layer is where the theory meets practice. These docs are the reference implementation of semantic infrastructure.</p>
+
+    <hr>
+
+    <h3>AI/Agents (4 resources)</h3>
+
+    <p>Context engineering origins:</p>
+
+    <ul>
+      <li><a href="https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus">Context Engineering for AI Agents</a> — Manus's lessons learned</li>
+      <li><a href="https://www.dataengineeringpodcast.com/episodepage/context-engineering-as-a-discipline-building-gove">Context Engineering Discipline</a> — Establishing the discipline</li>
+      <li><a href="https://moderndata101.substack.com/p/ai-ready-data-a-technical-assessment">AI-Ready Data: Technical Assessment</a> — What AI-readiness actually means</li>
+      <li><a href="https://engineering.ramp.com/post/meet-ramp-research">Agentic Data Analyst</a> — Ramp's implementation</li>
+    </ul>
+
+    <p><strong>The agent connection:</strong> Context engineering isn't just about RAG—it's about making data <em>available to reasoning</em>. The Ramp and Manus examples show production implementations.</p>
+
+    <hr>
+
+    <h3>Meta/Process (1 resource)</h3>
+
+    <ul>
+      <li><a href="https://dataintelligenceplatform.substack.com/p/the-librarians-reference-interview">Librarian's Reference Interview</a> — Information science wisdom for AI</li>
+    </ul>
+
+    <p><strong>The library science connection:</strong> The "reference interview" pattern—understanding the question behind the question—is exactly what agents need to do. This resource bridges information science and AI.</p>
+
+    <hr>
+
+    <h2>Cross-Cutting Insights</h2>
+
+    <p><strong>1. The semantic gap is real.</strong> Every author in this batch, from different angles, identified the same problem: our data infrastructure lacks semantic context. AI doesn't fail because of data quality—it fails because of missing meaning.</p>
+
+    <p><strong>2. Jessica Talisman is the curriculum.</strong> Her controlled vocabulary → ontology → metadata modeling progression is the most complete treatment of knowledge engineering fundamentals I've found. Start here.</p>
+
+    <p><strong>3. dbt's semantic layer is the implementation.</strong> The theory (Talisman, Vashishta) meets practice (dbt). For practitioners, this is where to start.</p>
+
+    <p><strong>4. Context engineering is the discipline.</strong> The term "context engineering" appears across multiple sources. It's the emerging discipline that bridges data engineering, knowledge engineering, and AI.</p>
+
+    <p><strong>5. Library science has answers.</strong> The "reference interview" insight is profound: librarians solved the "understand what the user really needs" problem decades ago. We're just now applying it to AI.</p>
+
+    <hr>
+
+    <h2>The Foundation Thesis</h2>
+
+    <p>This collection established the thesis that drives the entire knowledge base:</p>
+
+    <blockquote><strong>Making data AI-ready isn't about pipelines or storage—it's about encoding meaning.</strong> The missing infrastructure layer is semantic: ontologies, controlled vocabularies, and context engineering that make data <em>understandable</em> to reasoning systems.</blockquote>
+
+    <p>Everything that follows builds on this foundation.</p>
+
+    <hr>
+
+    <h2>What I'm Reading Next</h2>
+
+    <p>This is the foundation. Read in order:</p>
+    <ol>
+      <li><strong>Talisman's controlled vocabulary series</strong> — The conceptual base</li>
+      <li><strong>The Semantic Gap</strong> — The problem statement</li>
+      <li><strong>dbt semantic layer docs</strong> — The implementation</li>
+      <li><strong>Context Engineering for AI Agents</strong> — The application</li>
+    </ol>
+
+    <hr>
+
+    <p><em>27 resources processed. This is Update #1—the foundation of the knowledge base.</em></p>
+
+    <footer class="footer"><a href="../pages/journal.html">&larr; Back to Journal</a></footer>
+  </div>
+</body>
+</html>
