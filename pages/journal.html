@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal | data-centered</title>
+  <meta name="description" content="Synthesis and analysis of curated resources on knowledge engineering, semantic layers, data visualization, and AI-ready data infrastructure.">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-surface: #0f0f0f;
+      --bg-elevated: #161616;
+      --bg-hover: #1c1c1c;
+
+      --border-dim: #252525;
+      --border-mid: #333;
+      --border-bright: #444;
+
+      --text-dim: #666;
+      --text-mid: #999;
+      --text-bright: #ccc;
+      --text-white: #f0f0f0;
+
+      --cyan: #5ccfe6;
+      --orange: #ffab70;
+      --green: #87c38a;
+      --purple: #c9a0dc;
+      --amber: #d4a84b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    .back-link {
+      color: var(--text-dim);
+      transition: color 0.15s;
+    }
+
+    .back-link:hover { color: var(--cyan); }
+
+    .header h1 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .header-meta {
+      color: var(--text-dim);
+      font-size: 0.875rem;
+    }
+
+    .header-meta span {
+      color: var(--orange);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Post List */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .post-item {
+      padding: 1.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .post-item:hover {
+      border-color: var(--border-mid);
+      background: var(--bg-elevated);
+    }
+
+    .post-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .post-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 0.75rem;
+    }
+
+    .post-title a:hover {
+      color: var(--cyan);
+    }
+
+    .post-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+
+    .post-count {
+      color: var(--orange);
+    }
+
+    .post-domains {
+      color: var(--text-dim);
+    }
+
+    .post-summary {
+      color: var(--text-mid);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--cyan);
+      transition: color 0.15s;
+    }
+
+    .read-more:hover {
+      color: var(--text-white);
+    }
+
+    /* Year Divider */
+    .year-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--text-dim);
+    }
+
+    .year-divider::before,
+    .year-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-dim);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-dim);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    .footer a {
+      color: var(--cyan);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <nav class="header-nav">
+        <a href="../index.html" class="back-link">← data-centered</a>
+      </nav>
+      <h1>Journal</h1>
+      <p class="header-meta">Synthesis of <span>210</span> curated resources across 6 updates</p>
+    </header>
+
+    <main class="post-list">
+
+      <!-- 2026 -->
+      <div class="year-divider">2026</div>
+
+      <article class="post-item">
+        <div class="post-date">January 12, 2026</div>
+        <h2 class="post-title"><a href="../synthesis/update-006-jan-2026.md">Library Update #6: January 2026</a></h2>
+        <div class="post-meta">
+          <span class="post-count">52 resources</span>
+          <span class="post-domains">knowledge-engineering, ai-tools</span>
+        </div>
+        <p class="post-summary">Knowledge engineering is eating data engineering—multiple authors converging on the conclusion that the warehouse/lake distinction is collapsing into "structured knowledge systems." The agent tooling explosion reveals a gap: sophisticated orchestration on semantic models that don't exist yet. Bergevin's "Figma Moment" thesis resonates—we're hand-coding semantic work like it's 1998.</p>
+        <a href="../synthesis/update-006-jan-2026.md" class="read-more">Read full synthesis →</a>
+      </article>
+
+      <article class="post-item">
+        <div class="post-date">January 2, 2026</div>
+        <h2 class="post-title"><a href="../synthesis/update-005-jan-02-2026.md">Library Update #5: New Year Knowledge Sprint</a></h2>
+        <div class="post-meta">
+          <span class="post-count">31 resources</span>
+          <span class="post-domains">knowledge-engineering, ai-tools</span>
+        </div>
+        <p class="post-summary">The semantic layer debate went mainstream as MotherDuck asked "do we even need this?" while Shopify's taxonomy success answered "yes, if you're building for scale." Context graphs emerged as a bridge concept. MCP moved from spec to infrastructure with MotherDuck shipping a production server. Three different projects tackled cross-session memory—the unsolved frontier.</p>
+        <a href="../synthesis/update-005-jan-02-2026.md" class="read-more">Read full synthesis →</a>
+      </article>
+
+      <!-- 2025 -->
+      <div class="year-divider">2025</div>
+
+      <article class="post-item">
+        <div class="post-date">December 26, 2025</div>
+        <h2 class="post-title"><a href="../synthesis/update-004-dec-26-2025.md">Library Update #4: Year-End Semantic Reckoning</a></h2>
+        <div class="post-meta">
+          <span class="post-count">9 resources</span>
+          <span class="post-domains">knowledge-engineering</span>
+        </div>
+        <p class="post-summary">A focused batch that crystallized the semantic infrastructure thesis. MotherDuck asks "do we need this complexity?" while Shopify's success answers "yes, at scale" and Vashishta warns "but most attempts will fail anyway." Bergevin's "Figma moment" thesis: we're hand-coding semantic models with no visual tools, version control patterns, or component marketplace.</p>
+        <a href="../synthesis/update-004-dec-26-2025.md" class="read-more">Read full synthesis →</a>
+      </article>
+
+      <article class="post-item">
+        <div class="post-date">December 21, 2025</div>
+        <h2 class="post-title"><a href="../synthesis/update-003-dec-19-21-2025.md">Library Update #3: The Pudding Deep Dive & Semantic Layer Foundations</a></h2>
+        <div class="post-meta">
+          <span class="post-count">51 resources</span>
+          <span class="post-domains">data-visualization, analytics-engineering</span>
+        </div>
+        <p class="post-summary">Infrastructure week. The Pudding's entire production stack decoded: SvelteKit + Scrollama + Layer Cake, with open-sourced templates, data, and the whole site architecture. dbt's semantic layer documentation went from sparse to comprehensive. Official AI learning platforms from OpenAI, Anthropic, and Google catalogued.</p>
+        <a href="../synthesis/update-003-dec-19-21-2025.md" class="read-more">Read full synthesis →</a>
+      </article>
+
+      <article class="post-item">
+        <div class="post-date">December 17, 2025</div>
+        <h2 class="post-title"><a href="../synthesis/update-002-dec-13-17-2025.md">Library Update #2: December Expansion</a></h2>
+        <div class="post-meta">
+          <span class="post-count">40 resources</span>
+          <span class="post-domains">data-visualization, knowledge-engineering</span>
+        </div>
+        <p class="post-summary">The batch that established the knowledge base's character. The Pudding's "How to Make Dope Shit" series set the standard for data storytelling methodology. Context engineering crystallized as LangChain and Weaviate both published foundational content. Tableau's Visual Vocabulary captured craft knowledge. MCP became "the USB-C layer for AI."</p>
+        <a href="../synthesis/update-002-dec-13-17-2025.md" class="read-more">Read full synthesis →</a>
+      </article>
+
+      <!-- 2024 -->
+      <div class="year-divider">2024</div>
+
+      <article class="post-item">
+        <div class="post-date">December 13, 2024</div>
+        <h2 class="post-title"><a href="../synthesis/update-001-dec-2024.md">Library Update #1: Foundations</a></h2>
+        <div class="post-meta">
+          <span class="post-count">27 resources</span>
+          <span class="post-domains">knowledge-engineering, analytics-engineering</span>
+        </div>
+        <p class="post-summary">Where it started. The seed collection that defined the thesis: data infrastructure isn't AI-ready because of missing meaning, not missing pipelines. Jessica Talisman's knowledge engineering curriculum became the backbone. The "semantic gap" got named. dbt's semantic layer provided practical implementation. Library science wisdom offered unexpected insight.</p>
+        <a href="../synthesis/update-001-dec-2024.md" class="read-more">Read full synthesis →</a>
+      </article>
+
+    </main>
+
+    <footer class="footer">
+      <p><a href="../index.html">data-centered</a> · curated resources for knowledge engineering & AI-ready data</p>
+    </footer>
+
+  </div>
+</body>
+</html>
