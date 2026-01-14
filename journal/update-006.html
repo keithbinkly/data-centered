@@ -77,7 +77,9 @@
 
     <p>The agent tools assume your data has meaning attached. They assume there's a semantic layer to query, business logic encoded somewhere, relationships that agents can traverse. For most organizations, that assumption is false. The pipes are excellent; the meaning is missing.</p>
 
-    <p><a href="https://dataprodmgmt.substack.com/p/why-semantic-work-needs-its-design">Bergevin calls this the "Figma moment"</a>—the observation that semantic modeling is roughly where web design was in 1998. We're hand-coding semantic models the way we hand-coded HTML before visual tools existed. Someone will build the visual semantic modeler that makes this accessible, and when they do, everything changes.</p>
+    <p><a href="https://dataprodmgmt.substack.com/p/why-semantic-work-needs-its-design">Bergevin's "Figma moment" thesis</a> frames this precisely: semantic modeling is roughly where web design was in 1998. We're hand-coding semantic models the way we hand-coded HTML before visual tools existed. Every semantic model is bespoke. No visual tools for non-technical stakeholders. No version control patterns for semantic assets. No marketplace for reusable components.</p>
+
+    <p>If Bergevin is right, the semantic layer debate—"is it necessary?"—is the wrong question. The real problem is that building semantic infrastructure is unnecessarily hard. Someone will build the visual semantic modeler that makes this accessible, and when they do, everything changes.</p>
 
     <p>I find this thesis compelling, though I'm uncertain about timing. "Someone will build it" is easy to say. Actually building it requires understanding both the semantics <em>and</em> the UX, and those skills rarely coexist.</p>
 
@@ -102,9 +104,9 @@
     <h2>What I'm Still Uncertain About</h2>
 
     <ul>
-      <li><strong>The agent infrastructure fragmentation</strong>—filesystems, orchestration, memory—will these consolidate or continue diverging? I see three distinct layers emerging but no clear winners.</li>
-      <li><strong>Whether "knowledge engineering" is the right frame</strong>—the term has academic baggage. Will practitioners adopt it or coin something new?</li>
-      <li><strong>How much of the convergence I'm seeing is real</strong>—and how much is my tendency to find patterns in things that sound similar.</li>
+      <li><strong>The agent infrastructure fragmentation</strong>—filesystems, orchestration, memory—will these consolidate or continue diverging? I see three distinct layers emerging but no clear winners. If they consolidate around standards, agents become portable. If they fragment, we get vendor lock-in and incompatible ecosystems. I'm watching for whether MCP's success creates pressure for similar standardization in memory.</li>
+      <li><strong>Whether "knowledge engineering" is the right frame</strong>—the term has academic baggage. If practitioners adopt it, the academic literature becomes relevant again. If they coin something new ("context engineering"? "semantic infrastructure"?), the field may repeat old mistakes. The naming matters because it determines what prior work gets surfaced.</li>
+      <li><strong>How much of the convergence I'm seeing is real</strong>—and how much is my tendency to find patterns in things that sound similar. If I'm right, the knowledge engineering turn is the biggest shift since data engineering became a discipline. If I'm wrong, I'm just watching three people use the same buzzwords.</li>
     </ul>
 
     <hr>
