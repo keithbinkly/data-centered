@@ -1,0 +1,108 @@
+# Synthesis Post Summaries
+# Used for: RSS feed descriptions, topic page embeds, index pages
+
+updates:
+  - id: update-006
+    title: "Library Update #6: January 2026"
+    date: 2026-01-12
+    file: update-006-jan-2026.md
+    resourceCount: 52
+    primaryDomains:
+      - knowledge-engineering
+      - ai-tools
+    summary: >
+      This intake session surfaced a fascinating tension: we're simultaneously building
+      semantic infrastructure for AI agents AND realizing our existing foundations are
+      shakier than we thought. Knowledge engineering is eating data engineering—multiple
+      authors converging on the same conclusion that the warehouse/lake distinction is
+      collapsing into "structured knowledge systems." Meanwhile, the agent tooling explosion
+      (8 new repos for agent infrastructure alone) reveals a gap: sophisticated orchestration
+      layers on semantic models that don't exist yet. Bergevin's "Figma Moment" thesis
+      resonates across resources—we're at the hand-coding HTML stage of semantic work.
+
+  - id: update-005
+    title: "Library Update #5: New Year Knowledge Sprint"
+    date: 2026-01-02
+    file: update-005-jan-02-2026.md
+    resourceCount: 31
+    primaryDomains:
+      - knowledge-engineering
+      - ai-tools
+    summary: >
+      New year, new paradigm. The semantic layer debate went mainstream as MotherDuck
+      asked "do we even need this?" while Shopify's taxonomy success answered "yes, if
+      you're building for scale." Context graphs emerged as a bridge concept—neither pure
+      knowledge graph (too academic) nor pure semantic layer (too metrics-focused). MCP
+      moved from spec to infrastructure with MotherDuck shipping a production server.
+      Three different projects tackled cross-session memory, confirming it's the unsolved
+      frontier. The Inmon-Kimball architecture debate got a sequel, reframed for the AI age.
+
+  - id: update-004
+    title: "Library Update #4: Year-End Semantic Reckoning"
+    date: 2025-12-26
+    file: update-004-dec-26-2025.md
+    resourceCount: 9
+    primaryDomains:
+      - knowledge-engineering
+    summary: >
+      A focused batch that crystallized the semantic infrastructure thesis. The debate
+      sharpened: MotherDuck asks "do we need this complexity?" while Shopify's success
+      answers "yes, at scale" and Vashishta warns "but most attempts will fail anyway."
+      Bergevin explains why: the tooling sucks. His "Figma moment" thesis is the most
+      actionable insight—we're hand-coding semantic models with no visual tools, version
+      control patterns, or component marketplace. Whoever builds "Figma for semantics"
+      unlocks the next wave.
+
+  - id: update-003
+    title: "Library Update #3: The Pudding Deep Dive & Semantic Layer Foundations"
+    date: 2025-12-21
+    file: update-003-dec-19-21-2025.md
+    resourceCount: 51
+    primaryDomains:
+      - data-visualization
+      - analytics-engineering
+      - ai-tools
+    summary: >
+      Infrastructure week. The Pudding's entire production stack decoded: SvelteKit +
+      Scrollama + Layer Cake, with open-sourced templates, data, and the whole site
+      architecture. For scrollytelling, start here. Simultaneously, dbt's semantic layer
+      documentation went from sparse to comprehensive—architecture, exports, time spine
+      patterns all documented. The official AI learning platforms from OpenAI, Anthropic,
+      and Google got catalogued. Memory solutions are fragmenting with no clear winner.
+      Karpathy's 1-hour LLM intro remains the best single-resource introduction.
+
+  - id: update-002
+    title: "Library Update #2: December Expansion"
+    date: 2025-12-17
+    file: update-002-dec-13-17-2025.md
+    resourceCount: 40
+    primaryDomains:
+      - data-visualization
+      - knowledge-engineering
+      - ai-tools
+    summary: >
+      The batch that established the knowledge base's character. The Pudding's "How to
+      Make Dope Shit" series set the standard for data storytelling methodology. Context
+      engineering crystallized as LangChain and Weaviate both published foundational
+      content—the term went from buzzword to discipline. Tableau's Visual Vocabulary and
+      chart catalogs captured the craft knowledge that doesn't fit in documentation.
+      Agent memory research emerged with four different approaches in one batch—the
+      problem is clear, the solution isn't. MCP became "the USB-C layer for AI."
+
+  - id: update-001
+    title: "Library Update #1: Foundations"
+    date: 2024-12-13
+    file: update-001-dec-2024.md
+    resourceCount: 27
+    primaryDomains:
+      - knowledge-engineering
+      - analytics-engineering
+    summary: >
+      Where it started. The seed collection that defined the thesis: data infrastructure
+      isn't AI-ready because of missing meaning, not missing pipelines. Jessica Talisman's
+      knowledge engineering curriculum—controlled vocabularies through ontologies to
+      metadata modeling—became the backbone. The "semantic gap" got named by multiple
+      authors from different angles. dbt's semantic layer documentation provided the
+      practical implementation. Library science wisdom ("the reference interview")
+      offered unexpected insight. The foundation thesis: making data AI-ready is about
+      encoding meaning, not scaling storage.

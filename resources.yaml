@@ -44,8 +44,8 @@
 
 metadata:
   version: "1.2"
-  lastUpdated: 2025-12-19
-  totalResources: 74
+  lastUpdated: 2026-01-12
+  totalResources: 120
 
 domains:
   - id: knowledge-engineering
@@ -4235,3 +4235,2509 @@ resources:
     # Display
     readingTime: 8m
     color: "#f97316"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Added 2026-01-02 - Knowledge Engineering Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: context-graphs-trillion-dollar-opportunity
+    url: https://x.com/jayagup10/status/2003525933534179480
+    preferredLabel: "AI's Trillion-Dollar Opportunity: Context Graphs"
+    alternateLabels:
+      - context graphs
+      - decision traces
+      - systems of agents
+      - agentic infrastructure
+    definition: >
+      Argues that AI agents need more than systems of record—they need decision traces capturing
+      exceptions, overrides, and precedents. Context graphs persist the "why" behind decisions,
+      becoming queryable records of how rules were applied. Startups in the orchestration path
+      can capture this context at decision time, creating new trillion-dollar platforms.
+
+    # Provenance
+    author: j-gupta
+    source: X/Twitter
+    contentType: essay
+    publishedDate: 2025-12-22
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Context Engineering
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: long-live-systems-of-record
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: crm-to-context-graph-example
+    url: https://x.com/jayagup10/status/2003525933534179480
+    preferredLabel: "From CRM to CRCG: A Practical Context Graph Example"
+    alternateLabels:
+      - context graphs practical
+      - CRM context graph
+      - decision graphs
+      - sales context engineering
+    definition: >
+      Practical walkthrough of context graphs using a CRM sales scenario. Shows how naive AI
+      approaches lose context by overwriting fields, while context graphs preserve decision
+      traces by weighing information sources (decision-maker vs. user) and linking pain points
+      to product capabilities. Demonstrates transition from passive Systems of Record to
+      active Systems of Reasoning.
+
+    # Provenance
+    author: j-gupta
+    source: X/Twitter
+    contentType: essay
+    publishedDate: 2025-12-23
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Context Engineering
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: is-example-of
+        target: context-graphs-trillion-dollar-opportunity
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 8m
+    color: "#06b6d4"
+
+  - id: long-live-systems-of-record
+    url: https://cloudedjudgement.substack.com/p/clouded-judgement-121225-long-live
+    preferredLabel: "Clouded Judgement: Long Live Systems of Record"
+    alternateLabels:
+      - systems of record AI
+      - data truth agents
+      - semantic layer governance
+      - ARR definitions
+    definition: >
+      Argues systems of record remain essential in the age of AI agents, reframing the question
+      as "where does the truth live." As agents orchestrate cross-system workflows, data
+      consistency becomes critical—mistakes cascade through automated processes. Proposes
+      warehouses with semantic layers and explicit conflict resolution as the foundation,
+      with "agentic experiences on top of boring, rock solid sources of truth."
+
+    # Provenance
+    author: j-ball
+    source: Clouded Judgement
+    contentType: essay
+    publishedDate: 2025-12-12
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Core Architecture
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: context-graphs-trillion-dollar-opportunity
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: semantic-layer-search-problem
+    url: https://motherduck.com/blog/who-needs-a-semantic-layer-anyway/
+    preferredLabel: "What If We Don't Need the Semantic Layer?"
+    alternateLabels:
+      - semantic layer alternative
+      - query mining
+      - bottom-up semantics
+      - descriptive data modeling
+    definition: >
+      Challenges conventional semantic layer wisdom by reframing it as "a search problem, not
+      a static definition problem." Traces semantic layer origins to 1990s OLAP cubes and
+      Business Objects Universes. Proposes inverting the approach: instead of prescriptive
+      top-down modeling, mine query logs to discover implicit business logic already embedded
+      in actual usage patterns.
+
+    # Provenance
+    author: j-matson
+    source: MotherDuck Blog
+    contentType: blog
+    publishedDate: 2025-12-23
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Layer
+    granularity: conceptual
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: shopify-taxonomy-semantics
+    url: https://dataprodmgmt.substack.com/p/what-shopifys-product-taxonomy-teaches
+    preferredLabel: "What Shopify's Product Taxonomy Teaches About Semantics"
+    alternateLabels:
+      - Shopify taxonomy
+      - product categorization
+      - semantic infrastructure investment
+      - controlled vocabularies
+    definition: >
+      Examines how Shopify's 10,000+ category taxonomy across 25+ verticals demonstrates
+      semantic infrastructure value. Merchants describe inventory differently; centralized
+      taxonomy now powers conversational shopping with GenAI. Draws parallel to internal
+      data platforms solving identical problems inefficiently. Recommends starting with
+      controlled vocabularies for common pain points like "customer" vs "account."
+
+    # Provenance
+    author: a-bergevin
+    source: When Data Met Product
+    contentType: essay
+    publishedDate: 2025-11-29
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: chaos-to-context-semantic-infrastructure
+      - type: related
+        target: semantic-work-figma-moment
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: enterprise-ontologies-fail-part1
+    url: https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and
+    preferredLabel: "Why Most Enterprise Ontologies & Knowledge Graphs Fail Part 1"
+    alternateLabels:
+      - ontology failures
+      - knowledge graph challenges
+      - enterprise knowledge management
+      - reconciliation algorithms
+    definition: >
+      Explains why enterprise knowledge graphs fail based on building 12 successful ones.
+      Proposes four tenets: reconciliation algorithms for conflicting information (complete
+      consensus impossible), dynamic modeling for constant change, continuous learning for
+      inevitable incompleteness, and trust mechanisms that work despite information gaps.
+      Organizations lack perfect information and rational decision-makers.
+
+    # Provenance
+    author: v-vashishta
+    source: High ROI AI
+    contentType: essay
+    publishedDate: 2025-11-25
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: narrower
+        target: enterprise-ontologies-fail-part2
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: enterprise-ontologies-fail-part2
+    url: https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and-376
+    preferredLabel: "Why Most Enterprise Ontologies & Knowledge Graphs Fail Part 2: The Reality Gap"
+    alternateLabels:
+      - ontology reality gap
+      - mathematical validation ontologies
+      - intelligent ontologies
+      - iterative ontology development
+    definition: >
+      Identifies the "reality gap" between theoretical ontology frameworks and business operations.
+      Critiques lack of mathematical accuracy validation—ontologies verify structure but not
+      real-world representation. Argues perfect ontologies delay implementation indefinitely;
+      instead build imperfect ones and improve iteratively. Success requires connecting
+      ontologies to AI systems where stakeholders perceive direct value creation.
+
+    # Provenance
+    author: v-vashishta
+    source: High ROI AI
+    contentType: essay
+    publishedDate: 2025-11-28
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: advanced
+
+    # Relationships
+    relationships:
+      - type: broader
+        target: enterprise-ontologies-fail-part1
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: learning-how-to-learn-map
+    url: https://evakeiffenheim.substack.com/p/a-curated-map-of-the-best-thinking
+    preferredLabel: "A Curated Map of the Best Thinking on Learning How to Learn"
+    alternateLabels:
+      - learning science
+      - metacognition
+      - Barbara Oakley
+      - Ethan Mollick
+      - ultralearning
+    definition: >
+      Curated guide to five influential educators and researchers in learning science:
+      Barbara Oakley (neuroscience of learning), Ethan Mollick (AI in education),
+      Philippa Hardman (evidence-based pedagogy + AI), Daisy Christodoulou (cognitive
+      science in education), and Scott H. Young (self-directed ultralearning).
+      Resources include courses, newsletters, and books.
+
+    # Provenance
+    author: e-keiffenheim
+    source: Lifelong Learning Club
+    contentType: essay
+    publishedDate: 2025-12-24
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: career-development
+    category: Career Strategy
+    granularity: foundational
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 8m
+    color: "#6366f1"
+
+  - id: building-analytics-agents-motherduck
+    url: https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents/
+    preferredLabel: "AI Builder's Guide: Building Analytics Agents"
+    alternateLabels:
+      - analytics agents
+      - natural language SQL
+      - DuckDB agents
+      - text-to-SQL
+    definition: >
+      Comprehensive guide for building production-ready analytics agents that convert natural
+      language to SQL. Covers agent interface design (generated SQL vs parameterized templates),
+      SQL knowledge foundations, agent-friendly schema design with COMMENT ON statements,
+      access control strategies (read-scaling tokens, service accounts), and query validation
+      with try_bind(). Includes MCP server integration option.
+
+    # Provenance
+    author: motherduck-team
+    source: MotherDuck Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: semantic-layer-search-problem
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 20m
+    color: "#10b981"
+
+  - id: smol-training-playbook
+    url: https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook
+    preferredLabel: "The Smol Training Playbook"
+    alternateLabels:
+      - small language models
+      - efficient LLM training
+      - Hugging Face training
+      - smol models
+    definition: >
+      Interactive resource from Hugging Face's Smol Models Research team for training
+      efficient small language models. Provides practical guides and playbooks for
+      developers working with resource-constrained model development.
+
+    # Provenance
+    author: huggingface-tb
+    source: Hugging Face Spaces
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-llms
+    category: LLM Foundations
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 30m
+    color: "#a855f7"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Added 2026-01-02 - New Queue Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: magic-ink-bret-victor
+    url: https://worrydream.com/MagicInk/
+    preferredLabel: "Magic Ink: Information Software and the Graphical Interface"
+    alternateLabels:
+      - information software design
+      - context-sensitive graphics
+      - Bret Victor
+      - information visualization
+    definition: >
+      Seminal 2006 essay arguing information software should prioritize graphic design over
+      interactivity. Proposes context-sensitivity (environment, history, minimal interaction)
+      as superior to interaction-heavy interfaces. Demonstrates principles through Amazon,
+      Yahoo Movies, and Southwest Airlines redesigns. "Interactivity is a curse for users
+      and a crutch for designers."
+
+    # Provenance
+    author: b-victor
+    source: worrydream.com
+    contentType: essay
+    publishedDate: 2006-03-15
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: foundational
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 45m
+    color: "#8b5cf6"
+
+  - id: tale-of-two-architectures-inmon
+    url: https://williaminmon.substack.com/p/a-tale-of-two-architectures-kimball
+    preferredLabel: "A Tale of Two Architectures: Kimball vs Inmon"
+    alternateLabels:
+      - Kimball vs Inmon
+      - data warehouse architecture
+      - dimensional modeling
+      - Corporate Information Factory
+    definition: >
+      William Inmon's analysis of competing data warehouse philosophies. Inmon's Corporate
+      Information Factory prioritizes enterprise-wide integration and "single version of truth."
+      Kimball's dimensional modeling emphasizes speed via star schemas. Traces Kimball's evolution
+      through 4 stages, noting mature implementations converge toward Inmon's architecture.
+
+    # Provenance
+    author: w-inmon
+    source: williaminmon.substack.com
+    contentType: essay
+    publishedDate: 2025-12-23
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: analytics-engineering
+    category: Data Modeling
+    granularity: conceptual
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 12m
+    color: "#f97316"
+
+  - id: engineering-blogs-collection
+    url: https://github.com/kilimchoi/engineering-blogs
+    preferredLabel: "Engineering Blogs: Curated Collection"
+    alternateLabels:
+      - tech blogs directory
+      - engineering blog list
+      - company blogs
+      - software engineering blogs
+    definition: >
+      Comprehensive directory of 36,700+ starred engineering blogs organized by company,
+      individual contributor, and technology. Includes OPML feed for RSS aggregation.
+      Reference resource for discovering technical content from established tech firms
+      and independent engineers.
+
+    # Provenance
+    author: kilimchoi
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: career-development
+    category: Career Strategy
+    granularity: reference
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 5m
+    color: "#6366f1"
+
+  - id: dbtc-python-client
+    url: https://github.com/dpguthrie/dbtc
+    preferredLabel: "dbtc: dbt Cloud Python Client"
+    alternateLabels:
+      - dbt Cloud API
+      - dbt Python SDK
+      - dbt Cloud client
+      - dbt automation
+    definition: >
+      Unaffiliated Python library for dbt Cloud API access. Interfaces with REST API
+      (CRUD operations on account resources) and Metadata API (GraphQL for job run metadata).
+      Includes CLI functionality. 521 commits, 38 releases, MIT licensed.
+
+    # Provenance
+    author: d-guthrie
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: analytics-engineering
+    category: Transformation Tools
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: dbt-sl-streamlit
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#f97316"
+
+  - id: dbt-sl-streamlit
+    url: https://github.com/dpguthrie/dbt-sl-streamlit
+    preferredLabel: "dbt Semantic Layer Streamlit App"
+    alternateLabels:
+      - semantic layer explorer
+      - dbt metrics visualization
+      - Streamlit dbt
+      - metric explorer
+    definition: >
+      Streamlit application for exploring dbt Semantic Layer metrics. Connects via
+      JDBC URL from dbt Cloud. Provides visualization interface for metrics defined
+      in dbt projects. Live demo at dbt-semantic-layer.streamlit.app.
+
+    # Provenance
+    author: d-guthrie
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: analytics-engineering
+    category: Transformation Tools
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: dbtc-python-client
+      - type: related
+        target: dbt-semantic-layer-architecture
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#f97316"
+
+  - id: compound-engineering-plugin
+    url: https://github.com/EveryInc/compound-engineering-plugin
+    preferredLabel: "Compound Engineering: Claude Code Plugin"
+    alternateLabels:
+      - Claude Code plugin
+      - compounding engineering
+      - agentic development
+      - code review agents
+    definition: >
+      Claude Code plugin implementing "compounding engineering"—where each unit of work
+      makes subsequent work easier. Provides 6 commands (plan, work, review, triage,
+      resolve_todo_parallel, generate_command) powered by 17 specialized agents including
+      Rails, TypeScript, Python reviewers, plus security and architecture specialists.
+
+    # Provenance
+    author: every-inc
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: continuous-claude-v2
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: continuous-claude-v2
+    url: https://github.com/parcadei/Continuous-Claude-v2
+    preferredLabel: "Continuous Claude: Context Management System"
+    alternateLabels:
+      - Claude context management
+      - session continuity
+      - context degradation
+      - agent memory
+    definition: >
+      System addressing context degradation in Claude Code sessions. "Clear, don't compact.
+      Save state to ledger, wipe context, resume fresh." Uses ledgers (lossless snapshots),
+      handoffs (resumption context), artifact index, and reasoning history in git commits.
+      10 lifecycle hooks for state management.
+
+    # Provenance
+    author: parcadei
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: compound-engineering-plugin
+      - type: related
+        target: momo-context-engineering-research
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 20m
+    color: "#10b981"
+
+  - id: termboard-semantic-diagramming
+    url: https://termboard.com/manual/
+    preferredLabel: "Termboard: Semantic Diagramming Tool"
+    alternateLabels:
+      - semantic modeling tool
+      - knowledge graph editor
+      - taxonomy builder
+      - ontology diagramming
+    definition: >
+      Web-based diagramming tool for semantic data models, knowledge graphs, taxonomies,
+      and mind maps. Features include auto-arrange, bulk operations, semantic validation,
+      AI-generated definitions, and import/export for Excel, JSON, and OWL formats.
+
+    # Provenance
+    author: termboard
+    source: termboard.com
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: khan-academy-accessible-graphs
+    url: https://blog.khanacademy.org/rebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-designrebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-design/
+    preferredLabel: "Rebuilding Graphs for Accessibility: Khan Academy's Inclusive Design"
+    alternateLabels:
+      - accessible data visualization
+      - screen reader graphs
+      - Mafs library
+      - keyboard navigation charts
+    definition: >
+      Case study of Khan Academy's accessible graphing initiative. Migrated from Raphael.js
+      to Mafs (open-source React library for accessible math). Addresses visual accessibility
+      (color contrast), keyboard navigation, and screen reader compatibility with dynamic
+      descriptions of coordinate changes and graph elements.
+
+    # Provenance
+    author: c-johnson
+    source: Khan Academy Engineering Blog
+    contentType: blog
+    publishedDate: 2025-08-06
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#8b5cf6"
+
+  - id: math-openai-riemannian-geometry
+    url: https://www.josecrespophd.org/p/the-math-openai-doesnt-want-you-to
+    preferredLabel: "The Math OpenAI Doesn't Want You to Learn"
+    alternateLabels:
+      - Riemannian geometry AI
+      - hallucination detection
+      - AI reasoning frameworks
+      - holonomy measurement
+    definition: >
+      Proposes inverse Riemannian geometry and musical harmonic structure (circle of fifths)
+      as diagnostic framework for AI reasoning failures. Argues standard analysis misses
+      global coherence—hallucinations have detectable geometric signatures. Suggests
+      dual-lens kernel combining local Hessian with global holonomy for "geometric self-awareness."
+
+    # Provenance
+    author: j-crespo
+    source: josecrespophd.org
+    contentType: essay
+    publishedDate: 2025-12-15
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-llms
+    category: LLM Foundations
+    granularity: advanced
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#a855f7"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Added 2026-01-02 - 12/19 Backlog Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: tigma-tui-design
+    url: https://github.com/jlongster/tigma
+    preferredLabel: "Tigma: Terminal-Based ASCII Design Tool"
+    alternateLabels:
+      - TUI design
+      - ASCII diagramming
+      - terminal graphics
+      - AI-written code
+    definition: >
+      TUI application for creating ASCII diagrams. Features five drawing tools
+      (Move, Text, Rectangle, Line, Freehand), multi-layer rendering with z-index,
+      undo/redo with 100 snapshots, and JSON persistence. Notable: "most of this
+      code was written by AI (specifically Opus 4.5)."
+
+    # Provenance
+    author: j-longster
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#10b981"
+
+  - id: markdown-site-convex
+    url: https://github.com/waynesutton/markdown-site
+    preferredLabel: "Markdown Site: AI-Ready Publishing Framework"
+    alternateLabels:
+      - markdown publishing
+      - Convex backend
+      - llms.txt
+      - MCP endpoint
+    definition: >
+      Open-source publishing platform with real-time markdown syncing via Convex.
+      Features MCP server at /mcp endpoint, llms.txt for AI crawlers, Claude-powered
+      AI agent on write pages, RSS feeds, and Command+K search. Designed for
+      developers and AI agents to quickly launch sites.
+
+    # Provenance
+    author: w-sutton
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: semantic-memory-pglite
+    url: https://github.com/joelhooks/semantic-memory
+    preferredLabel: "Semantic Memory: Local Vector Search with PGlite"
+    alternateLabels:
+      - local vector database
+      - PGlite pgvector
+      - agent memory
+      - semantic search
+    definition: >
+      Local semantic memory using PGlite (PostgreSQL in WebAssembly) + pgvector
+      with HNSW indexing. Collection-based organization for codebase patterns,
+      research notes, decisions. Configurable tool descriptions per Qdrant MCP pattern.
+      Uses mxbai-embed-large (1024d) via Ollama.
+
+    # Provenance
+    author: j-hooks
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: memory-lane-claude-code
+      - type: related
+        target: openmemory
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: agentic-coding-flywheel
+    url: https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup
+    preferredLabel: "Agentic Coding Flywheel: VPS Bootstrap System"
+    alternateLabels:
+      - AI dev environment
+      - VPS automation
+      - Claude Code setup
+      - multi-agent coordination
+    definition: >
+      Complete bootstrapping system transforming fresh Ubuntu VPS into AI-powered
+      dev environment. Installs 30+ tools, three AI coding agents (Claude Code,
+      Codex CLI, Gemini CLI), and coordination tools. Uses single manifest.yaml
+      source of truth with Zod validation. SHA256 checksum verification.
+
+    # Provenance
+    author: j-swannack
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: compound-engineering-plugin
+      - type: related
+        target: continuous-claude-v2
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 20m
+    color: "#10b981"
+
+  - id: mcp-apps-ui-spec
+    url: https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/
+    preferredLabel: "MCP Apps: Interactive UI Extension Specification"
+    alternateLabels:
+      - MCP UI
+      - SEP-1865
+      - interactive MCP
+      - MCP HTML rendering
+    definition: >
+      Formal specification proposal (SEP-1865) for interactive UIs within MCP servers.
+      Addresses limitation of text-only exchange. Features pre-declared HTML templates
+      with ui:// URI scheme, iframe sandboxing, JSON-RPC messaging over postMessage,
+      and user consent requirements. Collaborative work from Anthropic, OpenAI, and MCP-UI.
+
+    # Provenance
+    author: mcp-community
+    source: MCP Blog
+    contentType: documentation
+    publishedDate: 2025-11-21
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: advanced
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: swarms-multi-agent-framework
+    url: https://github.com/kyegomez/swarms
+    preferredLabel: "Swarms: Enterprise Multi-Agent Orchestration"
+    alternateLabels:
+      - multi-agent systems
+      - agent orchestration
+      - AI swarms
+      - LangChain alternative
+    definition: >
+      Production-ready framework for multi-agent systems. Nine architectures:
+      Sequential, Concurrent, AgentRearrange (dynamic), GraphWorkflow (DAG),
+      MixtureOfAgents, GroupChat, ForestSwarm (dynamic selection), Hierarchical,
+      SwarmRouter. Backward compatible with LangChain, AutoGen, CrewAI.
+
+    # Provenance
+    author: swarms-team
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 20m
+    color: "#10b981"
+
+  - id: motherduck-mcp-server
+    url: https://motherduck.com/docs/sql-reference/mcp/
+    preferredLabel: "MotherDuck MCP Server"
+    alternateLabels:
+      - DuckDB MCP
+      - database MCP
+      - AI SQL querying
+      - MotherDuck Claude
+    definition: >
+      MCP server enabling AI assistants to query MotherDuck databases. Supports
+      read-only SQL execution, schema exploration, database shares, catalog search,
+      and DuckDB documentation queries. Works with Claude, ChatGPT, Cursor, Claude Code.
+      Open-source version available for local deployment.
+
+    # Provenance
+    author: motherduck-team
+    source: MotherDuck Docs
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: building-analytics-agents-motherduck
+      - type: related
+        target: semantic-layer-search-problem
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#10b981"
+
+  - id: memory-lane-claude-code
+    url: https://gist.github.com/alexknowshtml/ecf8ea9b265bc82a00650833e73e461f
+    preferredLabel: "Memory Lane: Persistent Memory for Claude Code"
+    alternateLabels:
+      - Claude Code memory
+      - semantic memory system
+      - persistent context
+      - memory hooks
+    definition: >
+      Comprehensive memory system for Claude Code sessions. Three phases: extraction
+      (10 types of learnings prioritized by value), storage (PostgreSQL + pgvector
+      with entities), retrieval (dual-hook injection). Hybrid entity retrieval filters
+      by named entities then ranks semantically. Multi-signal re-ranking combines
+      similarity, recency, confidence, and observation count.
+
+    # Provenance
+    author: a-hillman
+    source: GitHub Gist
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: advanced
+
+    # Relationships
+    relationships:
+      - type: related
+        target: semantic-memory-pglite
+      - type: related
+        target: continuous-claude-v2
+      - type: related
+        target: openmemory
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 20m
+    color: "#10b981"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Added 2026-01-02 - Final Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: prison-of-financial-mediocrity
+    url: https://x.com/systematicls/status/2004900241745883205
+    preferredLabel: "The Prison of Financial Mediocrity"
+    alternateLabels:
+      - generational economics
+      - prediction markets thesis
+      - long degeneracy
+      - casino economics
+    definition: >
+      Analysis of why young people turn to high-variance financial products (crypto,
+      prediction markets, sports betting) when traditional wealth paths are blocked.
+      Argues gambling provides agency when career progression is unavailable. "When
+      the system stops rewarding patience, people stop being patient." Investment
+      thesis: long the platforms extracting fees from this activity.
+
+    # Provenance
+    author: systematicls
+    source: X/Twitter
+    contentType: essay
+    publishedDate: 2025-12-20
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: career-development
+    category: Career Strategy
+    granularity: conceptual
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 20m
+    color: "#6366f1"
+
+  - id: peakypanes-tui-manager
+    url: https://github.com/regenrek/peakypanes
+    preferredLabel: "Peaky Panes: TUI Project Manager"
+    alternateLabels:
+      - tmux alternative
+      - terminal project manager
+      - multi-agent TUI
+      - pane orchestration
+    definition: >
+      Terminal-based project manager for orchestrating multiple projects and AI agents
+      from single interface. YAML-based configuration for reproducible setups, native
+      daemon architecture for persistent sessions, grid-based pane layouts. Supports
+      variable expansion for environment substitution.
+
+    # Provenance
+    author: regenrek
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: agentic-coding-flywheel
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#10b981"
+
+  - id: coding-tutor-claude-plugin
+    url: https://github.com/nityeshaga/claude-code-essentials/tree/main/plugins/coding-tutor
+    preferredLabel: "Coding Tutor: Personalized AI Learning Plugin"
+    alternateLabels:
+      - Claude Code tutor
+      - AI education
+      - spaced repetition coding
+      - personalized learning
+    definition: >
+      Claude Code plugin for personalized AI tutoring using your actual code as
+      teaching material. Features onboarding assessment, code-based examples,
+      spaced repetition quizzes, and progress tracking. Vision: "today's AI is
+      smarter than any private tutor—give every human access to the best personal
+      tutor imaginable."
+
+    # Provenance
+    author: n-agarwal
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-02
+
+    # Classification
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#10b981"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Added 2026-01-11 - New Intake Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: data-engineering-to-knowledge-engineering-part1
+    url: https://veronahe.substack.com/p/from-data-engineering-to-knowledge
+    preferredLabel: "From Data Engineering to Knowledge Engineering (Part 1)"
+    alternateLabels:
+      - knowledge graphs for data engineers
+      - RDF introduction
+      - triple store basics
+      - SPARQL tutorial
+    definition: >
+      First part of series helping data engineers transition to knowledge engineering.
+      Explains knowledge graphs use triple-based structures (subject-predicate-object),
+      global unique identifiers (IRIs), and foundations in discrete mathematics. Practical
+      tutorial using Python, Polars, and maplib to construct knowledge graphs from CSV.
+      Demonstrates SPARQL for querying and enriching data.
+
+    # Provenance
+    author: v-heimsbakk
+    source: veronahe.substack.com
+    contentType: essay
+    publishedDate: 2026-01-09
+    dateAdded: 2026-01-11
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: data-engineering-to-knowledge-engineering-part2
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: data-engineering-to-knowledge-engineering-part2
+    url: https://veronahe.substack.com/p/data-engineering-ontologies
+    preferredLabel: "Data Engineering Ontologies (Part 2)"
+    alternateLabels:
+      - ontology for data engineers
+      - SKOS DCAT FIBO
+      - RDF triples practical
+      - maplib tutorial
+    definition: >
+      Second part on integrating ontologies into data workflows. Covers reusable ontologies
+      (SKOS, DCAT, FIBO, SNOMED-CT, PROV, CIDOC-CRM) practitioners can leverage. Demonstrates
+      converting CSV planet data into RDF triples using Polars and maplib, enriching with
+      ontology classifications via SPARQL, and merging datasets without traditional SQL joins.
+      Author is an "Ontologist who code" and wrote SHACL for the Practitioner.
+
+    # Provenance
+    author: v-heimsbakk
+    source: veronahe.substack.com
+    contentType: essay
+    publishedDate: 2026-01-10
+    dateAdded: 2026-01-11
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: data-engineering-to-knowledge-engineering-part1
+      - type: related
+        target: kg-fail-enterprise-ontologies-part1
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 18m
+    color: "#06b6d4"
+
+  - id: trustgraph-ai-platform
+    url: https://trustgraph.ai/
+    preferredLabel: "TrustGraph: Open Source AI + Knowledge Graph Platform"
+    alternateLabels:
+      - context graphs platform
+      - knowledge graph for AI
+      - hallucination reduction
+      - enterprise AI infrastructure
+    definition: >
+      Open-source platform for building AI agents with knowledge graphs. Transforms
+      fragmented enterprise data into "Context Graphs" that ground LLMs with accurate
+      contextual information to reduce hallucinations. Features graph visualization,
+      multiple LLM providers (Anthropic, OpenAI, Google, AWS), various graph databases,
+      vector search, and enterprise security with multi-tenancy.
+
+    # Provenance
+    author: trustgraph-team
+    source: trustgraph.ai
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-11
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: context-graphs-trillion-dollar-evolution
+
+    # Quality
+    validationStatus: unvalidated
+
+    # Display
+    readingTime: 10m
+    color: "#06b6d4"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 2026-01-12 Knowledge Engineering Research Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: ontologies-some-perspectives-inmon
+    url: https://williaminmon.substack.com/p/ontologies-some-perspectives
+    preferredLabel: "Ontologies: Some Perspectives"
+    alternateLabels:
+      - ontology fundamentals
+      - enterprise ontology
+      - Inmon ontologies
+      - taxonomy vs ontology
+    definition: >
+      Bill Inmon and Jessica Talisman discuss ontology fundamentals for enterprise
+      data. Key insight: corporations make 95% of decisions on 5% of data (structured).
+      Ontologies unlock the other 95% by providing semantic grounding that prevents
+      LLM hallucinations and enables actual reasoning about business domains.
+
+    # Provenance
+    author: w-inmon
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: foundational
+
+    # Relationships
+    relationships:
+      - type: related
+        target: from-metadata-to-meaning
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: building-boring-chat-bi-agent
+    url: https://juhache.substack.com/p/building-a-boring-chat-bi-agent
+    preferredLabel: "Building a Boring Chat-BI Agent"
+    alternateLabels:
+      - chat BI agent
+      - LLM tools pattern
+      - boring semantic layer
+      - production AI analytics
+    definition: >
+      Practical guide to building production-grade chat-BI agents using the
+      LLM Tools pattern. Semantic layer guardrails constrain LLM degrees of
+      freedom, reducing SQL errors. "Boring" means reliable—minimal dependencies,
+      local execution, pre-approved metrics and joins.
+
+    # Provenance
+    author: j-hurault
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Agentic Analytics
+    granularity: implementation
+
+    # Relationships
+    relationships: []
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: data-engineering-to-knowledge-engineering-repo
+    url: https://github.com/veleda/data-engineering-to-knowledge-engineering
+    preferredLabel: "Data Engineering to Knowledge Engineering (Repo)"
+    alternateLabels:
+      - knowledge graph tutorial
+      - polars to RDF
+      - maplib tutorial
+    definition: >
+      Demonstration repository for converting structured data into semantic
+      knowledge graphs. Shows practical workflow: CSV → Polars dataframe →
+      maplib → RDF triples → SPARQL queries. Supports Heimsbakk's Substack tutorials.
+
+    # Provenance
+    author: v-heimsbakk
+    source: GitHub
+    contentType: documentation
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: related
+        target: from-data-engineering-to-knowledge-engineering
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 20m
+    color: "#06b6d4"
+
+  - id: from-data-engineering-to-knowledge-engineering
+    url: https://veronahe.substack.com/p/from-data-engineering-to-knowledge
+    preferredLabel: "From Data Engineering to Knowledge Engineering"
+    alternateLabels:
+      - knowledge engineering transition
+      - data engineer to knowledge engineer
+      - triple structure
+      - IRI identifiers
+    definition: >
+      Guide for data engineers transitioning to knowledge engineering. Key distinction:
+      data engineers ensure LLMs are grounded in correct data; knowledge engineers
+      ensure LLMs operate within meaningful, explainable semantic boundaries.
+      Three essential KG concepts: triple structure, global unique identifiers (IRIs),
+      and formal logic foundation.
+
+    # Provenance
+    author: v-heimsbakk
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: data-engineering-ontologies-heimsbakk
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: data-engineering-ontologies-heimsbakk
+    url: https://veronahe.substack.com/p/data-engineering-ontologies
+    preferredLabel: "Data Engineering Ontologies"
+    alternateLabels:
+      - ontology implementation
+      - SPARQL tutorial
+      - entity disambiguation
+      - RDF ontologies
+    definition: >
+      Practical guide to implementing ontologies in data engineering workflows.
+      Demonstrates connecting to published ontologies (SKOS, DCAT, FIBO),
+      writing SPARQL INSERT queries for enrichment, and using IRIs for
+      cross-dataset queries without traditional joins. Key insight: ontologies
+      enable disambiguation (Mercury planet vs Mercury element).
+
+    # Provenance
+    author: v-heimsbakk
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: implementation
+
+    # Relationships
+    relationships:
+      - type: requires-prerequisite
+        target: from-data-engineering-to-knowledge-engineering
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: end-to-end-guide-data-products-ai
+    url: https://moderndata101.substack.com/p/end-to-end-guide-to-building-data
+    preferredLabel: "End-to-End Guide to Building Data Products and AI Systems"
+    alternateLabels:
+      - data product lifecycle
+      - modular AI systems
+      - data product framework
+    definition: >
+      Comprehensive guide across eight chapters covering data product development
+      from foundational concepts through AI integration. Four-stage lifecycle:
+      Design, Develop, Deploy, Evolve. AI agents function as orchestrators that
+      execute functions, strategize ahead, and humanize user journeys when paired
+      with data products.
+
+    # Provenance
+    author: s-paul
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Core Architecture
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: ai-agents-data-products-integration
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 20m
+    color: "#06b6d4"
+
+  - id: governance-ai-agents-ddp
+    url: https://moderndata101.substack.com/p/governance-for-ai-agents-with-ddp
+    preferredLabel: "Governance for AI Agents with DDP"
+    alternateLabels:
+      - agent governance
+      - PDP-PEP model
+      - data developer platform
+      - AI agent access control
+    definition: >
+      Framework for governing AI agents within Data Developer Platforms (DDP).
+      Core problem: agents bypass user access controls when querying data directly.
+      Solution: PDP-PEP hybrid model with central policy decision points and
+      distributed enforcement. Requires agent identification, credential management,
+      observability, and role-based access distinguishing humans/bots/services.
+
+    # Provenance
+    author: s-paul
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Agentic Analytics
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: ai-agents-data-products-integration
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: ai-agents-data-products-integration
+    url: https://moderndata101.substack.com/p/how-ai-agents-and-data-products-work
+    preferredLabel: "How AI Agents and Data Products Work Together"
+    alternateLabels:
+      - multi-agent architecture
+      - data product layer
+      - RAG orchestration
+      - cross-domain queries
+    definition: >
+      Three-layer architecture for AI agent + data product integration:
+      Data Product Layer (bounded intelligence containers), RAG Orchestration
+      Layer (query decomposition), Agent Execution Layer (specialized agents).
+      Semantic layer provides unified terminology; knowledge graphs track
+      nuanced relationships vs flat vector DBs. Includes RL + RAG combination
+      patterns.
+
+    # Provenance
+    author: s-paul
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Agentic Analytics
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: governance-ai-agents-ddp
+      - type: related
+        target: ai-ready-vs-analytics-ready-data
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: ai-ready-vs-analytics-ready-data
+    url: https://moderndata101.substack.com/p/ai-ready-data-vs-analytics-ready-data
+    preferredLabel: "AI-Ready Data vs Analytics-Ready Data"
+    alternateLabels:
+      - AI data readiness
+      - analytics vs AI data
+      - context preservation
+      - semantic richness
+    definition: >
+      Critical distinction: analytics-ready data compresses reality for human
+      consumption ("what happened?"); AI-ready data expands context for machine
+      reasoning ("what should happen?"). Four AI-ready properties: context,
+      completeness, timeliness, semantic richness. Cannot upgrade analytics
+      data to AI-ready—must capture raw reality first, then derive analytics
+      views separately.
+
+    # Provenance
+    author: s-paul
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Core Architecture
+    granularity: conceptual
+
+    # Relationships
+    relationships:
+      - type: related
+        target: ai-ready-data-technical-assessment
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: ai-as-data-discovery-agent
+    url: https://moderndata101.substack.com/p/reconfiguring-ai-as-data-discovery
+    preferredLabel: "Reconfiguring AI as Data Discovery"
+    alternateLabels:
+      - AI data discovery
+      - measured metadata
+      - nine-agent architecture
+      - data catalog AI
+    definition: >
+      "AI cannot discover what your data platform cannot prove." Nine-agent
+      architecture for data discovery: Access, Metadata & Evidence, Intent
+      Interpretation, Relevance & Fit, Synthesis, Lineage & Blast Radius,
+      Risk & Compliance, Change & Drift, Learning & Memory. Key distinction
+      from catalogs: measured vs described metadata—AI grounds recommendations
+      in quality metrics, access logs, usage telemetry.
+
+    # Provenance
+    author: s-paul
+    source: Substack
+    contentType: essay
+    publishedDate: ~
+    dateAdded: 2026-01-12
+
+    # Classification
+    domain: knowledge-engineering
+    category: Agentic Analytics
+    granularity: advanced
+
+    # Relationships
+    relationships:
+      - type: related
+        target: ai-agents-data-products-integration
+
+    # Quality
+    validationStatus: reviewed
+
+    # Display
+    readingTime: 18m
+    color: "#06b6d4"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 2026-01-12 Intake Batch - Substack Articles
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: curated-map-learning-how-to-learn
+    url: https://evakeiffenheim.substack.com/p/a-curated-map-of-the-best-thinking
+    preferredLabel: "A Curated Map of the Best Thinking on Learning How to Learn"
+    alternateLabels:
+      - learning science map
+      - meta-learning guide
+    definition: >
+      Curated guide to influential voices in learning science and education,
+      featuring key researchers and practitioners who translate cognitive science
+      into practical strategies for effective learning.
+    author: e-keiffenheim
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-24
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Process Knowledge
+    granularity: foundational
+    validationStatus: unvalidated
+    readingTime: 8m
+    color: "#06b6d4"
+
+  - id: long-live-systems-of-record
+    url: https://cloudedjudgement.substack.com/p/clouded-judgement-121225-long-live
+    preferredLabel: "Clouded Judgement: Long Live Systems of Record"
+    alternateLabels:
+      - systems of record
+      - semantic control plane
+    definition: >
+      Argues that systems of record aren't disappearing but being reimagined for AI agents.
+      As agents automate enterprise workflows, the need for canonical truth sources,
+      semantic layers, and explicit conflict resolution becomes more critical than ever.
+    author: j-ball
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-12
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Core Architecture
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: shopify-taxonomy-semantics
+    url: https://dataprodmgmt.substack.com/p/what-shopifys-product-taxonomy-teaches
+    preferredLabel: "What Shopify's Product Taxonomy Teaches Us About Investing in Semantics"
+    alternateLabels:
+      - Shopify taxonomy
+      - semantic infrastructure investment
+    definition: >
+      Case study demonstrating how Shopify's investment in semantic infrastructure—
+      10,000+ product categories across 25 verticals—enables scalable AI-powered
+      experiences and precise merchant-customer connections.
+    author: a-bergevin
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-11-29
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: enterprise-ontologies-fail-part-1
+    url: https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and
+    preferredLabel: "Why Most Enterprise Ontologies & Knowledge Graphs Fail Part 1"
+    alternateLabels:
+      - ontology failure
+      - knowledge graph failures
+    definition: >
+      Argues enterprise knowledge graphs fail because they're built on flawed
+      assumptions about consensus, stability, and transparency. Proposes four
+      foundational tenets for realistic knowledge management.
+    author: v-vashishta
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-11-25
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: enterprise-ontologies-fail-part-2
+    url: https://vinvashishta.substack.com/p/why-most-enterprise-ontologies-and-376
+    preferredLabel: "Why Most Enterprise Ontologies & Knowledge Graphs Fail Part 2"
+    alternateLabels:
+      - ontology validation
+      - knowledge graph rigor
+    definition: >
+      Analysis of why enterprise ontologies fail due to lack of mathematical rigor
+      in validation and inability to deploy incrementally with acceptable uncertainty.
+    author: v-vashishta
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-11-28
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: advanced
+    relationships:
+      - type: requires-prerequisite
+        target: enterprise-ontologies-fail-part-1
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#06b6d4"
+
+  - id: chaos-to-context-semantic-infrastructure
+    url: https://dataprodmgmt.substack.com/p/from-chaos-to-context-where-to-begin
+    preferredLabel: "From Chaos to Context: Where to Begin with Semantic Infrastructure"
+    alternateLabels:
+      - semantic infrastructure getting started
+      - semantic ambiguity
+    definition: >
+      Practical guide for organizations facing semantic ambiguity—where the same
+      business terms mean different things across departments. Recommends starting
+      small with analyst-focused AI assistants.
+    author: a-bergevin
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-13
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: implementation
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: semantic-work-figma-moment
+    url: https://dataprodmgmt.substack.com/p/why-semantic-work-needs-its-design
+    preferredLabel: "Semantic Work Needs Its Figma Moment"
+    alternateLabels:
+      - semantic tooling democratization
+      - ontology tooling
+    definition: >
+      Argues semantic infrastructure development needs a transformation like
+      design's evolution, where systems and tooling democratized expertise
+      rather than concentrating it among specialists.
+    author: a-bergevin
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-23
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Semantic Foundations
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: metric-maps-vs-metric-trees
+    url: https://blog.jetmetrics.io/p/metric-maps-vs-metric-trees-part
+    preferredLabel: "Metric Maps vs Metric Trees — Part 1"
+    alternateLabels:
+      - metric maps
+      - KPI decomposition
+    definition: >
+      Distinguishes between metric maps (process-focused, holistic business modeling)
+      and metric trees (KPI decomposition into actionable drivers). Maps provide
+      strategic context while trees enable tactical optimization.
+    author: d-nekrasov
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-12-14
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Semantic Layer
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#06b6d4"
+
+  - id: personal-brand-senior-professional
+    url: https://youvisible.substack.com/p/how-to-build-a-personal-brand-when
+    preferredLabel: "How to Build a Personal Brand When You're a Senior Professional"
+    alternateLabels:
+      - personal branding
+      - authentic visibility
+    definition: >
+      Framework for senior professionals to build authentic visibility through
+      service-oriented content rather than self-promotion. Reframes visibility
+      as "sharing your map."
+    author: w-meller
+    source: Substack
+    contentType: essay
+    publishedDate: 2025-10-23
+    dateAdded: 2026-01-12
+    domain: career-development
+    category: Career Strategy
+    granularity: implementation
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#6366f1"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 2026-01-12 Intake Batch - Technical Articles
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: semantic-layer-debate-motherduck
+    url: https://motherduck.com/blog/who-needs-a-semantic-layer-anyway/
+    preferredLabel: "What If We Don't Need the Semantic Layer?"
+    alternateLabels:
+      - semantic layer debate
+      - LLM-discovered metrics
+    definition: >
+      Argues traditional semantic layers are obsolete gatekeepers. Proposes LLMs
+      can discover business logic by mining query history, transforming the semantic
+      layer from prescriptive to descriptive discovery.
+    author: j-matson
+    source: MotherDuck
+    contentType: blog
+    publishedDate: 2025-12-23
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Semantic Layer
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 12m
+    color: "#06b6d4"
+
+  - id: analytics-agents-builder-guide-motherduck
+    url: https://motherduck.com/docs/key-tasks/ai-and-motherduck/building-analytics-agents/
+    preferredLabel: "Custom AI Agent Builder's Guide"
+    alternateLabels:
+      - analytics agents
+      - DuckDB agent guide
+    definition: >
+      Comprehensive guide for building production-ready analytics agents that enable
+      natural language data querying. Covers interface patterns, schema optimization,
+      security architecture, and testing frameworks.
+    author: motherduck-team
+    source: MotherDuck
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    readingTime: 20m
+    color: "#10b981"
+
+  - id: khan-academy-graph-accessibility
+    url: https://blog.khanacademy.org/rebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-designrebuilding-graphs-for-accessibility-inside-khan-academys-inclusive-design/
+    preferredLabel: "Rebuilding Graphs for Accessibility: Khan Academy's Inclusive Design"
+    alternateLabels:
+      - accessible data visualization
+      - screen reader graphs
+    definition: >
+      Case study of Khan Academy's effort to make interactive mathematical graphs
+      accessible to screen readers and keyboard users. Details technical approach
+      using Mafs library, enhanced color contrast, and semantic HTML roles.
+    author: c-johnson
+    source: Khan Academy
+    contentType: blog
+    publishedDate: 2025-08-06
+    dateAdded: 2026-01-12
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: implementation
+    validationStatus: unvalidated
+    readingTime: 8m
+    color: "#8b5cf6"
+
+  - id: agent-harness-2026-philschmid
+    url: https://www.philschmid.de/agent-harness-2026
+    preferredLabel: "The Importance of Agent Harness in 2026"
+    alternateLabels:
+      - agent harness
+      - agent infrastructure
+    definition: >
+      Argues agent harnesses (infrastructure wrapping AI models for long-running tasks)
+      will be essential in 2026. Uses computer analogy: Model=CPU, Context=RAM, Harness=OS.
+      Recommends lightweight, modular architectures built "to delete."
+    author: p-schmid
+    source: philschmid.de
+    contentType: blog
+    publishedDate: 2026-01-05
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 10m
+    color: "#10b981"
+
+  - id: disaggregated-agentfs-penberg
+    url: https://penberg.org/blog/disaggregated-agentfs.html
+    preferredLabel: "Towards a Disaggregated Agent Filesystem on Object Storage"
+    alternateLabels:
+      - AgentFS
+      - agent state portability
+    definition: >
+      Proposes AgentFS architecture for AI agents: SQLite-backed filesystem providing
+      POSIX-like operations that scales via WAL-based sync to object storage.
+      Enables state portability and multi-agent coordination.
+    author: p-enberg
+    source: penberg.org
+    contentType: blog
+    publishedDate: 2026-01-11
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: advanced
+    validationStatus: unvalidated
+    readingTime: 15m
+    color: "#10b981"
+
+  - id: agent-native-architectures-every
+    url: https://every.to/guides/agent-native
+    preferredLabel: "Agent-Native Architectures: How to Build Apps After Code Ends"
+    alternateLabels:
+      - agent-native apps
+      - post-code software
+    definition: >
+      Manifesto for agent-native application development. Features aren't code—they're
+      outcomes achieved by agents with tools operating in loops. Five principles:
+      Parity, Granularity, Composability, Emergent Capability, Improvement.
+    author: d-shipper
+    source: Every
+    contentType: essay
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: conceptual
+    validationStatus: unvalidated
+    readingTime: 25m
+    color: "#10b981"
+
+  - id: writing-good-claude-md-humanlayer
+    url: https://www.humanlayer.dev/blog/writing-a-good-claude-md
+    preferredLabel: "Writing a Good CLAUDE.md"
+    alternateLabels:
+      - CLAUDE.md guide
+      - AI agent onboarding
+    definition: >
+      Best practices for CLAUDE.md files that onboard AI agents into codebases.
+      Key insight: frontier LLMs handle ~150-200 instructions reliably. Recommends
+      WHAT-WHY-HOW framework and minimalism (<60 lines ideal).
+    author: kyle-humanlayer
+    source: HumanLayer
+    contentType: blog
+    publishedDate: 2025-11-25
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    readingTime: 8m
+    color: "#10b981"
+
+  # === GitHub Repos Batch (Dec 19 / Jan 12 processing) ===
+
+  - id: tigma-ai-figma-design
+    url: https://github.com/pchaganti/gx-tigma
+    preferredLabel: "Tigma: AI-Driven Design Tool"
+    alternateLabels:
+      - Figma AI alternative
+      - generative UI design
+    definition: >
+      AI-driven design tool using Gemini to generate responsive designs.
+      Supports text-to-layout, image-to-design, and iterative refinement.
+    author: p-chaganti
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: markdown-site-generator
+    url: https://github.com/domdomegg/markdown-site
+    preferredLabel: "Markdown Site Generator"
+    alternateLabels:
+      - static site generator
+      - markdown to HTML
+    definition: >
+      Minimal static site generator that converts markdown files to HTML.
+      Zero config, fast builds, supports templating.
+    author: domdomegg
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: peakypanes-cursor-layout
+    url: https://github.com/tylerreckart/peakypanes
+    preferredLabel: "PeakyPanes: Cursor Window Manager"
+    alternateLabels:
+      - Cursor IDE layout
+      - multi-pane coding
+    definition: >
+      Window management extension for Cursor IDE enabling multi-pane
+      layouts and workspace organization for AI-assisted coding.
+    author: t-reckart
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: semantic-memory-langchain
+    url: https://github.com/microsoft/semantic-memory
+    preferredLabel: "Microsoft Semantic Memory"
+    alternateLabels:
+      - RAG memory system
+      - knowledge indexing
+    definition: >
+      Service for efficient storage, retrieval, and generation of memories
+      from documents. Supports multiple vector stores and LLM backends.
+    author: microsoft-team
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-llms
+    category: Agent Memory
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#8b5cf6"
+
+  - id: coding-tutor-ai-agent
+    url: https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial/Anthropic%201P/10_Coding_Tutor
+    preferredLabel: "Anthropic Coding Tutor Agent"
+    alternateLabels:
+      - AI pair programming
+      - code education agent
+    definition: >
+      Anthropic's official coding tutor implementation demonstrating
+      educational agent design patterns with Claude.
+    author: anthropic-team
+    source: GitHub
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: ai-llms
+    category: Prompt Engineering
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#8b5cf6"
+
+  - id: mcp-ui-desktop
+    url: https://github.com/nicholasoxford/mcp-ui
+    preferredLabel: "MCP UI Desktop Client"
+    alternateLabels:
+      - Model Context Protocol UI
+      - MCP desktop app
+    definition: >
+      Desktop application for interacting with Model Context Protocol
+      servers. Provides visual interface for MCP tool management.
+    author: n-oxford
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: agentic-coding-flywheel
+    url: https://github.com/dmarx/agentic_coding_flywheel_setup
+    preferredLabel: "Agentic Coding Flywheel Setup"
+    alternateLabels:
+      - AI coding workflow
+      - agent development loop
+    definition: >
+      Bootstrap template for agentic coding workflows. Implements
+      flywheel pattern for iterative AI-assisted development.
+    author: d-marx
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: clawdbot-discord
+    url: https://github.com/Zolastic/clawdbot
+    preferredLabel: "ClawdBot: Claude Discord Bot"
+    alternateLabels:
+      - Discord AI assistant
+      - Claude chatbot
+    definition: >
+      Discord bot powered by Claude API. Demonstrates conversational
+      AI integration with community platforms.
+    author: zolastic
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: context-field-cursor
+    url: https://github.com/GMTStudioTechnology/context-field
+    preferredLabel: "Context Field for Cursor"
+    alternateLabels:
+      - context management
+      - Cursor extension
+    definition: >
+      Context management extension for Cursor IDE enabling structured
+      context injection for AI-assisted coding sessions.
+    author: gmtstudio
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: claude-delegator-agent
+    url: https://github.com/kleneway/claude-delegator
+    preferredLabel: "Claude Delegator: Task Routing Agent"
+    alternateLabels:
+      - multi-agent orchestration
+      - task delegation
+    definition: >
+      Agent orchestration system for delegating tasks to specialized
+      Claude instances based on task type and requirements.
+    author: k-leneway
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: obsidian-skills-plugin
+    url: https://github.com/cielecki/obsidian-skills
+    preferredLabel: "Obsidian Skills: AI Agent Behaviors"
+    alternateLabels:
+      - Obsidian AI plugin
+      - skill-based agents
+    definition: >
+      Obsidian plugin enabling skill-based AI agent behaviors within
+      the knowledge management system.
+    author: c-cielecki
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: claude-marketplace-gmickel
+    url: https://github.com/gmickel/awesome-claude
+    preferredLabel: "Awesome Claude: Marketplace Directory"
+    alternateLabels:
+      - Claude resources
+      - Claude tools list
+    definition: >
+      Curated directory of Claude-related tools, integrations, and
+      resources. Community-maintained awesome list format.
+    author: g-mickel
+    source: GitHub
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: foundational
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: agentfs-penberg
+    url: https://github.com/penberg/agentfs
+    preferredLabel: "AgentFS: Filesystem for AI Agents"
+    alternateLabels:
+      - agent file system
+      - AI workspace management
+    definition: >
+      Filesystem abstraction layer designed for AI agent interactions.
+      Provides structured access patterns for agent-based workflows.
+    author: p-enberg
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: dots-task-tracking
+    url: https://github.com/jlowin/dots
+    preferredLabel: "Dots: Lightweight Task Tracking"
+    alternateLabels:
+      - markdown task management
+      - git-backed todos
+    definition: >
+      Minimal task tracking system using markdown files with YAML
+      frontmatter. Git-backed, CLI-friendly workflow.
+    author: j-lowin
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  # === Jan 8-11 Articles Batch ===
+
+  - id: specstory-ai-coding-history
+    url: https://www.specstory.com/
+    preferredLabel: "SpecStory: AI Coding Session History"
+    alternateLabels:
+      - AI development tracking
+      - coding session replay
+    definition: >
+      Tool for tracking and replaying AI coding sessions. Preserves
+      context across development iterations for learning and debugging.
+    author: specstory-team
+    source: SpecStory
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: convex-ai-chat-template
+    url: https://www.convex.dev/templates/ai-chat
+    preferredLabel: "Convex AI Chat Template"
+    alternateLabels:
+      - realtime AI chat
+      - Convex starter
+    definition: >
+      Production-ready template for building AI chat applications with
+      Convex backend. Includes streaming, persistence, and auth.
+    author: convex-team
+    source: Convex
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: workflow-devkit-agents
+    url: https://workflowdevkit.com/
+    preferredLabel: "Workflow DevKit for AI Agents"
+    alternateLabels:
+      - agent workflow builder
+      - automation framework
+    definition: >
+      Development kit for building AI agent workflows. Visual workflow
+      design with code generation capabilities.
+    author: workflow-team
+    source: Workflow DevKit
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Agent Infrastructure
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: nurijanian-claude-commands
+    url: https://nurijanian.substack.com/p/claude-commands-and-prompts
+    preferredLabel: "Claude Commands and Prompts Guide"
+    alternateLabels:
+      - Claude shortcuts
+      - prompt templates
+    definition: >
+      Comprehensive guide to Claude Code commands and prompt patterns.
+      Covers slash commands, custom prompts, and workflow optimization.
+    author: g-nurijanian
+    source: Substack
+    contentType: blog
+    dateAdded: 2026-01-12
+    domain: ai-tools
+    category: Development Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#10b981"
+
+  - id: bret-victor-magic-ink
+    url: http://worrydream.com/MagicInk/
+    preferredLabel: "Magic Ink: Information Software Design"
+    alternateLabels:
+      - information design
+      - context-driven UI
+    definition: >
+      Seminal essay on information software design. Argues software
+      should be designed around information needs, not interaction.
+      Key insight: most software should be information graphics.
+    author: b-victor
+    source: Worry Dream
+    contentType: essay
+    publishedDate: 2006-03-01
+    dateAdded: 2026-01-12
+    domain: data-visualization
+    category: UI/UX Principles
+    granularity: foundational
+    validationStatus: unvalidated
+    color: "#f59e0b"
+
+  - id: dbtc-cli-tool
+    url: https://github.com/dbt-labs/dbtc
+    preferredLabel: "dbtc: dbt Cloud CLI"
+    alternateLabels:
+      - dbt Cloud automation
+      - dbt API client
+    definition: >
+      Official dbt Labs CLI for interacting with dbt Cloud API.
+      Supports job management, artifact retrieval, and automation.
+    author: dbt-labs-team
+    source: GitHub
+    contentType: tool
+    dateAdded: 2026-01-12
+    domain: analytics-engineering
+    category: Transformation Tools
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#3b82f6"
+
+  - id: dbt-sl-streamlit-app
+    url: https://github.com/dbt-labs/example-semantic-layer-clients/tree/main/streamlit
+    preferredLabel: "dbt Semantic Layer Streamlit Example"
+    alternateLabels:
+      - semantic layer client
+      - Streamlit dashboard
+    definition: >
+      Example Streamlit application demonstrating dbt Semantic Layer
+      integration. Shows metric querying and visualization patterns.
+    author: dbt-labs-team
+    source: GitHub
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: analytics-engineering
+    category: Semantic Layer
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#3b82f6"
+
+  - id: dbt-cloud-column-aware-ci
+    url: https://docs.getdbt.com/docs/deploy/column-level-lineage
+    preferredLabel: "dbt Cloud Column-Level Lineage"
+    alternateLabels:
+      - column-aware CI
+      - impact analysis
+    definition: >
+      dbt Cloud feature for column-level lineage tracking. Enables
+      precise impact analysis and CI optimization based on column changes.
+    author: dbt-labs-team
+    source: dbt Labs
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: analytics-engineering
+    category: dbt Practices
+    granularity: implementation
+    validationStatus: unvalidated
+    color: "#3b82f6"
+
+  - id: context-graphs-knowledge
+    url: https://contextgraphs.com/
+    preferredLabel: "Context Graphs: Knowledge Representation"
+    alternateLabels:
+      - knowledge graphs
+      - context modeling
+    definition: >
+      Framework for representing knowledge as interconnected context
+      graphs. Enables semantic reasoning and relationship discovery.
+    author: context-graphs-team
+    source: Context Graphs
+    contentType: documentation
+    dateAdded: 2026-01-12
+    domain: knowledge-engineering
+    category: Knowledge Graphs
+    granularity: conceptual
+    validationStatus: unvalidated
+    color: "#6366f1"

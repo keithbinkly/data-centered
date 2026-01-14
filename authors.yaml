@@ -1941,3 +1941,1235 @@ authors:
     bio: >
       Founder of JetMetrics, creates e-commerce analytics frameworks including metric maps and driver trees.
     bioSource: https://jetmetrics.io/
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Added 2026-01-02 - Knowledge Engineering Batch
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: j-ball
+    name: Jamin Ball
+    # Demographics
+    birthYear: ~
+    generation: Millennial
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Partner
+    industry: Venture Capital / SaaS
+    affiliation: Altimeter Capital
+    perspectiveType: practitioner
+    yearsInField: 15
+    # Background
+    education: Stanford University
+    nativeLanguage: English
+    # Social
+    twitter: https://x.com/jaminball
+    linkedin: https://linkedin.com/in/jamin-ball-49366137
+    socialFollowing: large
+    # Meta
+    bio: >
+      Partner at Altimeter Capital. Previously VP at Redpoint Ventures, Morgan Stanley,
+      Bank of America, Metaswitch. Writes "Clouded Judgement" newsletter analyzing SaaS
+      and cloud software markets. Stanford graduate. Father of 4.
+    bioSource: https://www.crunchbase.com/person/jamin-ball
+
+  - id: j-matson
+    name: Jacob Matson
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: ~
+    industry: Data Infrastructure
+    affiliation: MotherDuck
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Contributor to MotherDuck blog on semantic layer and analytics infrastructure topics.
+    bioSource: https://motherduck.com/blog/
+
+  - id: e-keiffenheim
+    name: Eva Keiffenheim
+    # Demographics
+    birthYear: ~
+    generation: Millennial
+    gender: female
+    location:
+      city: Vienna
+      country: Austria
+      continent: Europe
+    # Professional
+    jobTitle: Educational Consultant / Writer
+    industry: Education / Learning Science
+    affiliation: Lifelong Learning Club
+    perspectiveType: practitioner
+    yearsInField: 10
+    # Background
+    education: MSc, Vienna University of Business & Economics; BSc Frankfurt Goethe University
+    nativeLanguage: German
+    # Social
+    twitter: https://x.com/evti
+    linkedin: https://linkedin.com/in/evakeiffenheim
+    socialFollowing: medium
+    # Meta
+    bio: >
+      Writer with 5M+ readers, TEDx speaker, former K12 educator. First-gen student from
+      rural Germany. Co-founded Speed Up, Buddy! NGO. Teach for Austria alumna. Lived in
+      Argentina, China, Chile, India, Germany, US. Advises startups and policymakers on
+      future of education. 8,000+ Substack subscribers.
+    bioSource: https://evakeiffenheim.substack.com/about
+
+  - id: j-gupta
+    name: Jaya Gupta
+    # Demographics
+    birthYear: ~
+    generation: Millennial
+    gender: female
+    location:
+      city: San Francisco
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Partner
+    industry: Venture Capital
+    affiliation: Foundation Capital
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: IIT, Berkeley, Georgia Tech networks
+    nativeLanguage: English
+    # Social
+    twitter: https://x.com/JayaGup10
+    linkedin: https://linkedin.com/in/jayagupta10
+    socialFollowing: medium
+    # Meta
+    bio: >
+      Partner at Foundation Capital leading early-stage enterprise software investments.
+      Previously Chief of Staff focused on portfolio operations, McKinsey technology practice.
+      Co-author of "Context Graphs: AI's Trillion-Dollar Opportunity" and "System of Agents."
+      Thesis: services-as-software is $4.6T opportunity.
+    bioSource: https://foundationcapital.com/member/jaya-gupta/
+
+  - id: a-garg
+    name: Ashu Garg
+    # Demographics
+    birthYear: ~
+    generation: Gen X
+    gender: male
+    location:
+      city: San Francisco
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: General Partner
+    industry: Venture Capital
+    affiliation: Foundation Capital
+    perspectiveType: practitioner
+    yearsInField: 25
+    # Background
+    education: IIT New Delhi (BSc), IIM Bangalore (MBA, President's Gold Medal)
+    nativeLanguage: ~
+    # Social
+    linkedin: https://linkedin.com/in/ashugargvc
+    socialFollowing: medium
+    # Meta
+    bio: >
+      General Partner at Foundation Capital since 2008. Previously GM for Microsoft's
+      online advertising, McKinsey & Company. Founded TringTring.com (early Asian search).
+      Early investor in Databricks (decacorn) and 6 unicorns: Cohesity, Eightfold, Amperity,
+      Turing, Anyscale, Alation. Focus: MarTech, analytics, SaaS, AI infrastructure.
+    bioSource: https://foundationcapital.com/member/ashu-garg/
+
+  - id: motherduck-team
+    name: MotherDuck
+    type: organization
+    # Demographics (org-level)
+    foundedYear: 2022
+    location:
+      city: Seattle
+      country: USA
+      continent: North America
+    # Professional
+    industry: Data Infrastructure
+    affiliation: MotherDuck
+    perspectiveType: vendor
+    # Meta
+    bio: >
+      Serverless analytics platform built on DuckDB. Founded by DuckDB creators.
+      Provides cloud-native analytical database with local-first architecture.
+    bioSource: https://motherduck.com/
+
+  - id: huggingface-tb
+    name: Hugging Face Smol Models Research
+    type: organization
+    # Demographics (org-level)
+    foundedYear: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    industry: AI/ML Research
+    affiliation: Hugging Face
+    perspectiveType: researcher
+    # Meta
+    bio: >
+      Hugging Face research team focused on efficient small language models.
+      Creates training playbooks and open-source model development resources.
+    bioSource: https://huggingface.co/HuggingFaceTB
+
+  - id: b-victor
+    name: Bret Victor
+    # Demographics
+    birthYear: ~
+    generation: Gen X
+    gender: male
+    location:
+      city: Oakland
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Founder
+    industry: Human-Computer Interaction
+    affiliation: Dynamicland
+    perspectiveType: researcher
+    yearsInField: 25
+    # Background
+    education: Caltech (BS EE 1999), UC Berkeley (MS EE 2001)
+    nativeLanguage: English
+    # Social
+    website: https://worrydream.com/
+    socialFollowing: large
+    # Meta
+    bio: >
+      Interface designer, computer scientist, electrical engineer. Human Interface Inventor
+      at Apple 2007-2011, designed earliest iPad UI concepts, founded internal future-interfaces
+      prototyping group. Founder of Dynamicland (Oakland non-profit research lab). Invented
+      Realtalk spatial computing system. Notable talks: "Inventing on Principle" (2012),
+      "The Future of Programming" (2013). Called by Alan Kay "one of the greatest UI design
+      minds in the world today."
+    bioSource: https://en.wikipedia.org/wiki/Bret_Victor
+
+  - id: w-inmon
+    name: William H. Inmon
+    # Demographics
+    birthYear: 1945
+    generation: Silent Generation
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Father of Data Warehousing
+    industry: Data Warehousing
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: 55
+    # Background
+    education: Yale (BS Mathematics 1967), New Mexico State (MS Computer Science)
+    nativeLanguage: English
+    # Social
+    substack: https://williaminmon.substack.com/
+    socialFollowing: large
+    # Meta
+    bio: >
+      Born July 20, 1945 in San Diego. Father of Data Warehousing, coined the term in 1970s.
+      Created definition: "subject-oriented, nonvolatile, integrated, time-variant collection
+      of data." Founded Prism Solutions. Published 60+ books in 9 languages, 2,000+ articles.
+      2002 DAMA Lifetime Achievement Award. 2007 Computerworld Top 10 most influential in
+      first 40 years of computing. His top-down approach contrasts with Kimball's dimensional.
+    bioSource: https://en.wikipedia.org/wiki/Bill_Inmon
+
+  - id: j-crespo
+    name: Jose Crespo
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: ~
+    industry: Mathematics / AI
+    affiliation: ~
+    perspectiveType: academic
+    yearsInField: ~
+    # Background
+    education: PhD
+    nativeLanguage: ~
+    # Social
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Mathematician writing about AI and mathematical frameworks. Publishes
+      "A Mathematician Lurking in the TechUnderWorld" newsletter on Substack.
+    bioSource: https://www.josecrespophd.org/
+
+  - id: d-guthrie
+    name: Doug Guthrie
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: Denver
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Solutions Architect
+    industry: Data Engineering
+    affiliation: dbt Labs
+    perspectiveType: practitioner
+    yearsInField: 15
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    github: https://github.com/dpguthrie
+    website: https://dpguthrie.com/
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Solutions Architect at dbt Labs helping customers optimize dbt Cloud. Previously
+      analytics leader at top-tier banking institution. Creator of dbtc (Python client
+      for dbt Cloud APIs), dbt-sl-streamlit (semantic layer explorer), dbt-cloud-column-aware-ci,
+      and yahooquery (867 stars). Wrote autoscaling CI functionality for dbt Cloud.
+    bioSource: https://docs.getdbt.com/blog/authors/doug-guthrie
+
+  - id: every-inc
+    name: Every.to
+    type: organization
+    # Demographics (org-level)
+    foundedYear: ~
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    industry: Technology Media / AI Tools
+    affiliation: Every.to
+    perspectiveType: practitioner
+    # Meta
+    bio: >
+      Technology media company creating AI-powered tools and Claude Code plugins.
+      Known for "compound engineering" philosophy.
+    bioSource: https://every.to/
+
+  - id: c-johnson
+    name: Cat Johnson
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: female
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Senior Frontend Engineer / CPWA
+    industry: EdTech
+    affiliation: Khan Academy
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Senior Frontend Engineer at Khan Academy. Certified Professional in
+      Web Accessibility (CPWA). Led the accessible graphing initiative.
+    bioSource: https://blog.khanacademy.org/
+
+  - id: termboard
+    name: Termboard
+    type: organization
+    # Demographics (org-level)
+    foundedYear: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    industry: Knowledge Engineering Tools
+    affiliation: Termboard
+    perspectiveType: vendor
+    # Meta
+    bio: >
+      Web-based diagramming tool for semantic data models, knowledge graphs,
+      taxonomies, and mind maps with AI integration.
+    bioSource: https://termboard.com/
+
+  - id: j-longster
+    name: James Long
+    # Demographics
+    birthYear: ~
+    generation: Millennial
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Design Engineer
+    industry: Software Development
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: 20
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    github: https://github.com/jlongster
+    twitter: https://x.com/jlongster
+    website: https://jlongster.com/
+    socialFollowing: large
+    # Meta
+    bio: >
+      Design engineer with 20+ years experience. Creator of Prettier (default JS formatter),
+      absurd-sql, and Actual Budget (local-first personal finance). Previously 5.5 years at
+      Stripe, also Mozilla. Open-sourced Actual when couldn't make it sustainable as company.
+      Now building AI-powered TUI tools like Tigma.
+    bioSource: https://jlongster.com/about
+
+  - id: j-hooks
+    name: Joel Hooks
+    # Demographics
+    birthYear: ~
+    generation: Gen X
+    gender: male
+    location:
+      city: Fort Worth
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Co-founder
+    industry: Developer Education
+    affiliation: egghead.io / Vercel
+    perspectiveType: practitioner
+    yearsInField: 20
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    github: https://github.com/joelhooks
+    website: https://joelhooks.com/
+    socialFollowing: medium
+    # Meta
+    bio: >
+      Co-founder of egghead.io (video courses for developers, bootstrapped to $250K/mo).
+      Also works in Education at Vercel, builds badass.dev. Describes egghead as "marketing
+      and delivery platform for content creators—specifically screencasts for developers."
+      Home educates 4 kids. Called "the invisible hand behind many high quality courses."
+      Active in local-first and AI tooling.
+    bioSource: https://www.mixergy.com/interviews/egghead-io-with-joel-hooks/
+
+  - id: j-swannack
+    name: Jeffrey Swannack
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: ~
+    industry: AI Infrastructure
+    affiliation: Agentic Coding Flywheel
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Creator of Agentic Coding Flywheel Setup. Focuses on AI coding
+      environment automation and multi-agent development workflows.
+    bioSource: https://github.com/Dicklesworthstone
+
+  - id: mcp-community
+    name: MCP Community
+    type: organization
+    # Demographics (org-level)
+    foundedYear: 2024
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    industry: AI Infrastructure
+    affiliation: Model Context Protocol
+    perspectiveType: practitioner
+    # Meta
+    bio: >
+      Community of developers building and maintaining Model Context Protocol
+      standards, servers, and applications.
+    bioSource: https://modelcontextprotocol.io/
+
+  - id: swarms-team
+    name: Swarms Team
+    type: organization
+    # Demographics (org-level)
+    foundedYear: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    industry: AI Infrastructure
+    affiliation: Swarms
+    perspectiveType: practitioner
+    # Meta
+    bio: >
+      Developers of the Swarms multi-agent orchestration framework.
+      Focus on enterprise-grade AI agent systems.
+    bioSource: https://github.com/kyegomez/swarms
+
+  - id: a-hillman
+    name: Alex Hillman
+    # Demographics
+    birthYear: ~
+    generation: Millennial
+    gender: male
+    location:
+      city: Philadelphia
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: Co-founder
+    industry: Community / Coworking
+    affiliation: Indy Hall
+    perspectiveType: practitioner
+    yearsInField: 18
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    github: https://github.com/alexknowshtml
+    website: https://dangerouslyawesome.com/
+    twitter: ~
+    socialFollowing: medium
+    # Meta
+    bio: >
+      Co-founded Indy Hall coworking space in 2006 (one of oldest in US) with Geoff DiMasi.
+      Former web designer. Known for community-building expertise and coworking thought
+      leadership. Created 10K Independents Project. Active in AI tooling, built Memory Lane
+      Claude Code memory system with pgvector/PostgreSQL hybrid entity retrieval.
+    bioSource: https://en.wikipedia.org/wiki/Indy_Hall
+
+  - id: systematicls
+    name: Systematic LS
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: ~
+    industry: Finance / Trading
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    socialFollowing: medium
+    # Meta
+    bio: >
+      Anonymous finance writer on X/Substack. Writes about trading,
+      prediction markets, and generational economic dynamics.
+    bioSource: https://x.com/systematicls
+
+  - id: kilimchoi
+    name: Kilim Choi
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: ~
+    industry: Software Engineering
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    github: https://github.com/kilimchoi
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Maintainer of the engineering-blogs curated collection on GitHub.
+    bioSource: https://github.com/kilimchoi
+
+  - id: parcadei
+    name: Parcadei
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: ~
+    industry: AI Tooling
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    github: https://github.com/parcadei
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Creator of Continuous Claude v2, a context management system for
+      Claude Code sessions.
+    bioSource: https://github.com/parcadei
+
+  - id: w-sutton
+    name: Wayne Sutton
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: USA
+      continent: North America
+    # Professional
+    jobTitle: ~
+    industry: Technology
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: English
+    # Social
+    github: https://github.com/waynesutton
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Creator of markdown-site, an AI-ready publishing framework.
+    bioSource: https://github.com/waynesutton
+
+  - id: regenrek
+    name: Kevin Regenrek
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: ~
+      continent: Europe
+    # Professional
+    jobTitle: ~
+    industry: Software Development
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    github: https://github.com/regenrek
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Creator of Peaky Panes, a TUI project manager for multi-agent
+      orchestration.
+    bioSource: https://github.com/regenrek
+
+  - id: n-agarwal
+    name: Nityesh Agarwal
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: India
+      continent: Asia
+    # Professional
+    jobTitle: ~
+    industry: AI Education
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    github: https://github.com/nityeshaga
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Creator of Claude Code Essentials plugins including the coding-tutor.
+      Focus on democratizing AI-powered education.
+    bioSource: https://github.com/nityeshaga
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Added 2026-01-11 - New Intake Batch
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: v-heimsbakk
+    name: Veronika Heimsbakk
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: female
+    location:
+      city: ~
+      country: Norway
+      continent: Europe
+    # Professional
+    jobTitle: Ontologist / Developer
+    industry: Knowledge Engineering
+    affiliation: ~
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: Norwegian
+    # Social
+    substack: https://veronahe.substack.com/
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Self-describes as "Ontologist who code." Author of "SHACL for the Practitioner."
+      Creates practical tutorials for data engineers transitioning to knowledge
+      engineering. Expertise in RDF, SPARQL, ontologies, and semantic web technologies.
+    bioSource: https://veronahe.substack.com/about
+
+  - id: trustgraph-team
+    name: TrustGraph Team
+    type: organization
+    # Demographics (org-level)
+    foundedYear: ~
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    industry: AI / Knowledge Graphs
+    affiliation: TrustGraph
+    perspectiveType: vendor
+    # Meta
+    bio: >
+      Developers of TrustGraph, an open-source platform for building AI agents
+      with knowledge graphs. Focus on reducing AI hallucinations through
+      context graph grounding.
+    bioSource: https://trustgraph.ai/
+
+  - id: j-hurault
+    name: Julien Hurault
+    # Demographics
+    birthYear: ~
+    generation: ~
+    gender: male
+    location:
+      city: ~
+      country: ~
+      continent: ~
+    # Professional
+    jobTitle: ~
+    industry: Data / Analytics Engineering
+    affiliation: Boring Semantic Layer
+    perspectiveType: practitioner
+    yearsInField: ~
+    # Background
+    education: ~
+    nativeLanguage: ~
+    # Social
+    substack: https://juhache.substack.com/
+    github: https://github.com/bsl-lib/bsl
+    socialFollowing: ~
+    # Meta
+    bio: >
+      Creator of Boring Semantic Layer (BSL), a local-first semantic layer
+      for LLM-powered analytics. Focus on production-grade, reliable AI-BI
+      integrations. Writes practical guides on building chat-BI agents.
+    bioSource: https://juhache.substack.com/about
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 2026-01-12 Intake Batch
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: e-keiffenheim
+    name: Eva Keiffenheim
+    gender: female
+    location:
+      country: ~
+      continent: ~
+    industry: Learning Science / Education
+    perspectiveType: practitioner
+    bio: >
+      Learning science writer and educator. Curates research on effective learning
+      strategies and translates cognitive science into practical applications.
+    bioSource: https://evakeiffenheim.substack.com/
+
+  - id: j-ball
+    name: Jamin Ball
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    jobTitle: Partner
+    industry: Venture Capital / SaaS
+    affiliation: Altimeter Capital
+    perspectiveType: practitioner
+    socialFollowing: large
+    bio: >
+      Partner at Altimeter Capital. Writes Clouded Judgement, a widely-read
+      newsletter covering SaaS metrics, valuations, and enterprise technology trends.
+    bioSource: https://cloudedjudgement.substack.com/
+
+  - id: a-bergevin
+    name: Anna Bergevin
+    gender: female
+    location:
+      country: ~
+      continent: ~
+    industry: Data Product Management
+    perspectiveType: practitioner
+    bio: >
+      Data product management practitioner writing about semantic infrastructure,
+      taxonomies, and the intersection of data platforms and AI.
+    bioSource: https://dataprodmgmt.substack.com/
+
+  - id: v-vashishta
+    name: Vin Vashishta
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    jobTitle: Founder
+    industry: AI/ML Strategy
+    affiliation: V Squared
+    perspectiveType: practitioner
+    socialFollowing: large
+    bio: >
+      AI/ML strategy consultant and founder of V Squared. Writes about enterprise
+      AI adoption, knowledge graphs, and practical challenges of intelligent systems.
+    bioSource: https://vinvashishta.substack.com/
+
+  - id: d-nekrasov
+    name: Dmitry Nekrasov
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    industry: Product Analytics / Metrics
+    affiliation: Jet Metrics
+    perspectiveType: practitioner
+    bio: >
+      Founder/author at Jet Metrics. Writes about metric design, KPI frameworks,
+      and the architecture of business measurement systems.
+    bioSource: https://blog.jetmetrics.io/
+
+  - id: w-meller
+    name: William Meller
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    industry: Career Development / Personal Branding
+    affiliation: YouVisible
+    perspectiveType: practitioner
+    bio: >
+      Career development writer focused on helping senior professionals build
+      authentic personal brands through service-oriented visibility strategies.
+    bioSource: https://youvisible.substack.com/
+
+  - id: j-matson
+    name: Jacob Matson
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    jobTitle: Developer Advocate
+    industry: Data Infrastructure
+    affiliation: MotherDuck
+    perspectiveType: vendor
+    bio: >
+      Developer Advocate at MotherDuck. Writes about semantic layers, analytics
+      agents, and DuckDB-based data infrastructure.
+    bioSource: https://motherduck.com/blog/
+
+  - id: motherduck-team
+    name: MotherDuck
+    type: organization
+    location:
+      country: USA
+      continent: North America
+    industry: Data Infrastructure
+    perspectiveType: vendor
+    bio: >
+      Serverless analytics platform built on DuckDB. Provides cloud-based
+      analytical database with local-first capabilities.
+    bioSource: https://motherduck.com/
+
+  - id: c-johnson
+    name: Cat Johnson
+    gender: female
+    location:
+      country: USA
+      continent: North America
+    jobTitle: Senior Frontend Engineer
+    industry: EdTech
+    affiliation: Khan Academy
+    perspectiveType: practitioner
+    bio: >
+      Senior Frontend Engineer at Khan Academy. CPWA certified. Works on accessible
+      interactive educational tools including mathematical graphing components.
+    bioSource: https://blog.khanacademy.org/
+
+  - id: p-schmid
+    name: Philipp Schmid
+    gender: male
+    location:
+      country: Germany
+      continent: Europe
+    jobTitle: Technical Lead
+    industry: AI/ML
+    affiliation: Hugging Face
+    perspectiveType: practitioner
+    socialFollowing: large
+    bio: >
+      Technical Lead at Hugging Face. Prolific writer on LLMs, agents, and ML
+      infrastructure. Known for practical guides on deploying AI systems.
+    bioSource: https://www.philschmid.de/
+
+  - id: p-enberg
+    name: Pekka Enberg
+    gender: male
+    location:
+      country: Finland
+      continent: Europe
+    industry: Databases / Infrastructure
+    affiliation: Turso
+    perspectiveType: practitioner
+    bio: >
+      Database infrastructure engineer at Turso. Works on SQLite-based distributed
+      systems and agent filesystems. Background in Linux kernel development.
+    bioSource: https://penberg.org/
+
+  - id: d-shipper
+    name: Dan Shipper
+    gender: male
+    location:
+      city: New York
+      country: USA
+      continent: North America
+    jobTitle: CEO / Co-Founder
+    industry: Media / AI
+    affiliation: Every
+    perspectiveType: practitioner
+    socialFollowing: large
+    bio: >
+      CEO and Co-Founder of Every, a bundle of business-focused newsletters.
+      Writes extensively about AI, productivity, and the future of software.
+    bioSource: https://every.to/
+
+  - id: kyle-humanlayer
+    name: Kyle
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: AI Developer Tools
+    affiliation: HumanLayer
+    perspectiveType: practitioner
+    bio: >
+      Contributor at HumanLayer. Writes about Claude Code configuration
+      and AI agent development best practices.
+    bioSource: https://www.humanlayer.dev/
+
+  # === GitHub Repos Authors Batch ===
+
+  - id: p-chaganti
+    name: Pradeep Chaganti
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    industry: AI/Design Tools
+    perspectiveType: practitioner
+    bio: >
+      Developer of Tigma, an AI-driven design tool.
+    bioSource: https://github.com/pchaganti
+
+  - id: domdomegg
+    name: Adam Jones
+    gender: male
+    location:
+      country: UK
+      continent: Europe
+    industry: Software Development
+    perspectiveType: practitioner
+    bio: >
+      Open source developer focused on developer tools and static site generators.
+    bioSource: https://github.com/domdomegg
+
+  - id: t-reckart
+    name: Tyler Reckart
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: Software Development
+    perspectiveType: practitioner
+    bio: >
+      Developer focused on developer tools and IDE extensions.
+    bioSource: https://github.com/tylerreckart
+
+  - id: microsoft-team
+    name: Microsoft
+    gender: ~
+    location:
+      country: USA
+      continent: North America
+    industry: Technology
+    affiliation: Microsoft
+    perspectiveType: vendor
+    bio: >
+      Microsoft's AI and developer tools team.
+    bioSource: https://github.com/microsoft
+
+  - id: anthropic-team
+    name: Anthropic
+    gender: ~
+    location:
+      country: USA
+      continent: North America
+    industry: AI Research
+    affiliation: Anthropic
+    perspectiveType: vendor
+    bio: >
+      AI safety company and creator of Claude.
+    bioSource: https://anthropic.com
+
+  - id: n-oxford
+    name: Nicholas Oxford
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: AI Tools
+    perspectiveType: practitioner
+    bio: >
+      Developer of MCP UI and other AI development tools.
+    bioSource: https://github.com/nicholasoxford
+
+  - id: d-marx
+    name: David Marx
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: AI/ML
+    perspectiveType: practitioner
+    bio: >
+      ML engineer focused on agentic coding workflows.
+    bioSource: https://github.com/dmarx
+
+  - id: zolastic
+    name: Zolastic
+    gender: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI Tools
+    perspectiveType: practitioner
+    bio: >
+      Developer of ClawdBot Discord integration.
+    bioSource: https://github.com/Zolastic
+
+  - id: gmtstudio
+    name: GMT Studio Technology
+    gender: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI Tools
+    perspectiveType: practitioner
+    bio: >
+      Developer of Context Field for Cursor IDE.
+    bioSource: https://github.com/GMTStudioTechnology
+
+  - id: k-leneway
+    name: Kevin Leneway
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: AI Tools
+    perspectiveType: practitioner
+    bio: >
+      Developer of Claude Delegator agent orchestration system.
+    bioSource: https://github.com/kleneway
+
+  - id: c-cielecki
+    name: Cezary Cielecki
+    gender: male
+    location:
+      country: ~
+      continent: Europe
+    industry: Knowledge Management
+    perspectiveType: practitioner
+    bio: >
+      Developer of Obsidian Skills plugin.
+    bioSource: https://github.com/cielecki
+
+  - id: g-mickel
+    name: Gordon Mickel
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    industry: AI Tools
+    perspectiveType: practitioner
+    bio: >
+      Curator of Awesome Claude resource directory.
+    bioSource: https://github.com/gmickel
+
+  - id: j-lowin
+    name: Jeremiah Lowin
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: AI/Data
+    affiliation: Prefect
+    perspectiveType: practitioner
+    bio: >
+      Founder of Prefect. Creator of dots task tracking system.
+    bioSource: https://github.com/jlowin
+
+  # === Jan 8-11 Authors Batch ===
+
+  - id: specstory-team
+    name: SpecStory Team
+    gender: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI Tools
+    affiliation: SpecStory
+    perspectiveType: vendor
+    bio: >
+      Team behind SpecStory AI coding session tracking tool.
+    bioSource: https://www.specstory.com/
+
+  - id: convex-team
+    name: Convex Team
+    gender: ~
+    location:
+      country: USA
+      continent: North America
+    industry: Backend Infrastructure
+    affiliation: Convex
+    perspectiveType: vendor
+    bio: >
+      Team behind Convex real-time backend platform.
+    bioSource: https://www.convex.dev/
+
+  - id: workflow-team
+    name: Workflow DevKit Team
+    gender: ~
+    location:
+      country: ~
+      continent: ~
+    industry: AI Tools
+    affiliation: Workflow DevKit
+    perspectiveType: vendor
+    bio: >
+      Team behind Workflow DevKit agent automation platform.
+    bioSource: https://workflowdevkit.com/
+
+  - id: g-nurijanian
+    name: Gor Nurijanian
+    gender: male
+    location:
+      country: ~
+      continent: ~
+    industry: AI Development
+    perspectiveType: practitioner
+    bio: >
+      Writer covering Claude Code workflows and AI development patterns.
+    bioSource: https://nurijanian.substack.com/
+
+  - id: b-victor
+    name: Bret Victor
+    gender: male
+    location:
+      country: USA
+      continent: North America
+    industry: Human-Computer Interaction
+    perspectiveType: researcher
+    bio: >
+      Interface designer and researcher. Former Apple HCI researcher.
+      Known for work on information software and dynamic media.
+    bioSource: http://worrydream.com/
+
+  - id: dbt-labs-team
+    name: dbt Labs
+    gender: ~
+    location:
+      country: USA
+      continent: North America
+    industry: Analytics Engineering
+    affiliation: dbt Labs
+    perspectiveType: vendor
+    bio: >
+      Team behind dbt (data build tool) and the semantic layer.
+    bioSource: https://www.getdbt.com/
+
+  - id: context-graphs-team
+    name: Context Graphs Team
+    gender: ~
+    location:
+      country: ~
+      continent: ~
+    industry: Knowledge Management
+    affiliation: Context Graphs
+    perspectiveType: vendor
+    bio: >
+      Team behind Context Graphs knowledge representation framework.
+    bioSource: https://contextgraphs.com/
