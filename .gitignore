@@ -26,3 +26,4 @@ build/
 # Cache
 .cache/
 *.cache
+data-viz-books-epub/

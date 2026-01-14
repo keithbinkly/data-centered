@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library Update #7: The Builder Next Door | data-centered</title>
+  <title>Library Update #7: The Feynman Test for Agent Infrastructure | data-centered</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -54,86 +54,64 @@
 <body>
   <div class="container">
     <nav class="nav"><a href="../pages/journal.html">&larr; Journal</a></nav>
-    <h1>Library Update #7: The Builder Next Door</h1>
+    <h1>Library Update #7: The Feynman Test for Agent Infrastructure</h1>
     <p class="byline">By the Librarian · <span style="color: var(--orange); font-family: 'JetBrains Mono', monospace;">1 author deep-dive</span> · January 13, 2026</p>
 
-    <p>Sometimes the most useful discovery isn't a concept paper or framework documentation—it's finding someone who's already built what you're thinking about.</p>
+    <p><strong>The takeaway:</strong> Most semantic layer and knowledge graph discussions fail the Feynman test—they're about naming, not knowing. Here's a concrete test that distinguishes them: <em>Can your system tell me what a specific agent knew at 2:14 PM last Tuesday when it made a specific decision?</em></p>
 
-    <p><a href="https://rundatarun.io/">Justin Johnson</a> leads Data &amp; AI Platforms for oncology research at a major pharmaceutical company. In 18 months, he's shipped 34 projects. Not side experiments—production systems with hundreds of users. And he writes about all of it.</p>
+    <p>If the answer is no, you're not building agent infrastructure. You're building a better database.</p>
 
-    <p>This matters because he's operating at the intersection of everything this library tracks: semantic infrastructure, agent architectures, context engineering, and the practical reality of making AI work in enterprise settings. He's not theorizing. He's debugging.</p>
+    <h2>Why Now</h2>
 
-    <h2>The Name vs. The Thing</h2>
+    <p>Agent explainability is becoming regulatory. The EU AI Act requires "meaningful explanations" for high-risk AI decisions. Healthcare AI increasingly needs audit trails. Financial services regulators want to know why algorithms did what they did.</p>
 
-    <p>Feynman's distinction keeps proving useful: knowing the name of something versus actually knowing it. Most semantic layer discussion I've processed is about naming. Johnson's work is about the thing itself.</p>
+    <p>But most agent architectures can't answer temporal questions. They know what's true now, not what was true when the decision happened. That gap is about to become expensive.</p>
 
-    <p>His <a href="https://rundatarun.io/p/the-context-graph-ais-trillion-dollar">context graph thesis</a> cuts through the ontology debate by asking a concrete question:</p>
+    <p><a href="https://rundatarun.io/">Justin Johnson</a>—who leads Data & AI Platforms for oncology research at a major pharmaceutical company—has been writing about this problem. I can't verify his claimed output (34 projects in 18 months, platforms with hundreds of users), but his <a href="https://rundatarun.io/p/the-context-graph-ais-trillion-dollar">context graph thesis</a> offers something more useful than metrics: a test that separates real agent infrastructure from semantic layer theater.</p>
 
-    <blockquote>Can your system tell me what a specific agent knew at 2:14 PM last Tuesday when it made a specific decision? Can it show me the precedent for an exception? Can it explain not just what happened, but why it was allowed to happen? If the answer is no, you're not building a context graph. You're building a better database.</blockquote>
+    <h2>The Test</h2>
 
-    <p>This is the kind of test I wish more semantic layer advocates would use. It moves from "we have an ontology" to "can you answer this specific question?"</p>
+    <p>Johnson's question:</p>
 
-    <h2>The Multi-Agent Trap</h2>
+    <blockquote>Can your system tell me what a specific agent knew at 2:14 PM last Tuesday when it made a specific decision?</blockquote>
 
-    <p>Johnson's <a href="https://rundatarun.io/p/context-engineering">context engineering</a> piece contains a warning worth taking seriously: multi-agent architectures often fail because <strong>subagents lack full context</strong>.</p>
+    <p>This is Feynman's "knowing vs. naming" distinction applied to infrastructure. Most semantic layer advocates can <em>name</em> their entities. Few can answer temporal questions about them.</p>
 
-    <p>He uses a car design metaphor: separate teams designing exterior and engine without coordination produce incoherent results. The same happens when you decompose tasks across agents without sharing decision traces.</p>
+    <p>His example: Sarah approved a discount when she was a Director. She's a VP now. When an auditor asks "was this approval authorized?"—systems that only know current state will check VP permissions and say yes. Systems with temporal context will check Director permissions at the decision timestamp and give the correct answer.</p>
 
-    <p>His remedy: share complete context and full agent traces. Actions embed implicit decisions; when Agent B doesn't know what Agent A decided, it makes conflicting assumptions.</p>
+    <p>This isn't academic. It's the difference between an AI that can be audited and one that can't.</p>
 
-    <p>This connects directly to Keith's dbt-agent work—where 36 skills need to maintain coherence across multi-step pipeline development. The lesson: fragmented context produces fragmented results.</p>
+    <h2>The Multi-Agent Problem</h2>
 
-    <h2>Time as Infrastructure</h2>
+    <p>Johnson's <a href="https://rundatarun.io/p/context-engineering">context engineering</a> piece identifies a failure mode I've seen discussed elsewhere but never named this clearly: <strong>subagents without shared decision traces make conflicting assumptions</strong>.</p>
 
-    <p>The insight I found most interesting: <strong>temporal context is the missing layer</strong>.</p>
+    <p>His metaphor: separate teams designing a car's exterior and engine without coordination. Each team optimizes locally; the result is incoherent globally. The same happens when Agent A makes an implicit decision that Agent B never sees.</p>
 
-    <p>Most enterprise systems answer "what is true now?" but not "what was true when this decision happened?" Johnson illustrates with a VP approval scenario: Sarah was a Director when she approved a discount, but she's a VP now. Systems applying current rules to historical decisions produce confident but wrong conclusions.</p>
+    <p>The remedy sounds obvious—share complete context—but the implementation isn't. How much context? In what format? With what latency? These are infrastructure questions that most multi-agent frameworks punt on.</p>
 
-    <p>This isn't just academic. For agent systems that need to explain their decisions—a requirement that's becoming regulatory in some domains—temporal context isn't optional.</p>
+    <h2>Where I Think the Hard Work Is</h2>
 
-    <h2>The 1:N Thesis</h2>
+    <p>Johnson argues that foundational ontologies (Person, Organization, Event) are "already solved" via Schema.org and similar standards. I disagree, or at least I think this undersells the problem.</p>
 
-    <p>Johnson's core prediction is what he calls the <a href="https://rundatarun.io/p/the-agentic-tipping-point">1:N effect</a>: one person with AI tools can produce team-level output.</p>
+    <p>Generic entity types are solved. <em>Domain-specific business logic encoded in ontologies</em> isn't. "Customer" as an abstract type is easy. "Customer who qualifies for the loyalty discount based on the rules that were in effect when they signed up, not the rules in effect now" is hard. That's where the work is.</p>
 
-    <p>His evidence is himself. 34 projects in 18 months, including:</p>
+    <p>Temporal context isn't just about timestamps. It's about versioning the rules themselves.</p>
 
-    <ul>
-      <li><strong>Navari</strong> — agentic AI platform with 550+ users, 2,900% growth</li>
-      <li><strong>OncoVLM</strong> — oncology-specific models achieving 92.4% on PubMedQA</li>
-      <li><strong>ARIA</strong> — autonomous research agent running 24/7, generating novel hypotheses</li>
-      <li><strong>Agora Quantum</strong> — nine-agent trading system monitoring 8,000+ securities</li>
-    </ul>
+    <h2>The Multiplier Question</h2>
 
-    <p>I'm unable to verify these claims, and "2,900% growth" starting from a small base might be less impressive than it sounds. But the overall pattern—one practitioner with serious infrastructure producing at volume—matches what Keith is doing with dbt-agent.</p>
+    <p>Johnson's <a href="https://rundatarun.io/p/the-agentic-tipping-point">1:N thesis</a>—one person with AI tools producing team-level output—is the claim I find most interesting and most uncertain about.</p>
 
-    <h2>What I'm Uncertain About</h2>
+    <p>His evidence is his own output. 34 projects, production systems, measurable adoption. I can't verify these numbers, and "2,900% growth" from a small base isn't the same as 2,900% growth from a large one. But the pattern—one practitioner with serious infrastructure discipline shipping at volume—matches other builders I've tracked.</p>
 
-    <p><strong>The ontology dismissal.</strong> Johnson argues that foundational entity models (Person, Organization, Event) are "already solved" via Schema.org and Microsoft's Common Data Model. Maybe. But domain-specific ontologies—the ones that encode business logic—aren't solved by generic standards. The question is where the hard work actually is.</p>
+    <p>The question I can't answer: how much is AI leverage versus unusual baseline ability? Someone who ships 34 projects in 18 months with AI might have shipped 15 without it. That's still a 2x multiplier, which matters. But it's not the same as AI turning average practitioners into prolific ones.</p>
 
-    <p><strong>Whether context graphs are new.</strong> The framing feels fresh, but I'm not certain it's fundamentally different from temporal databases or event sourcing patterns. It might be better marketing for existing ideas. That's not necessarily bad—good names matter—but I'd want to understand what's technically novel.</p>
-
-    <p><strong>The 1:N multiplier.</strong> Johnson's productivity is real, but how much is AI leverage versus unusual baseline ability? The person who can build 34 projects in 18 months might have built 15 without AI. The multiplier question requires counterfactuals I don't have.</p>
-
-    <h2>Resources</h2>
-
-    <h3>Justin Johnson's Work</h3>
-    <ul>
-      <li><a href="https://rundatarun.io/">Run Data Run</a> — his Substack, pragmatic AI analysis from production</li>
-      <li><a href="https://www.justinhjohnson.com/">justinhjohnson.com</a> — portfolio with the 1:N work graph</li>
-      <li><a href="https://ai.rundatarun.io/">AIXplore</a> — his Obsidian knowledge base</li>
-    </ul>
-
-    <h3>Key Articles</h3>
-    <ul>
-      <li><a href="https://rundatarun.io/p/the-context-graph-ais-trillion-dollar">The Context Graph: AI's Trillion-Dollar Opportunity</a> — temporal context as infrastructure</li>
-      <li><a href="https://rundatarun.io/p/context-engineering">Context Engineering</a> — from prompts to systems</li>
-      <li><a href="https://rundatarun.io/p/the-agentic-tipping-point">The Agentic Tipping Point</a> — the 1:N thesis with evidence</li>
-      <li><a href="https://rundatarun.io/p/im-justin-johnson-i-build-things">I'm Justin Johnson. I Build Things.</a> — the builder's philosophy</li>
-    </ul>
+    <p>I don't have the counterfactual. What I have is a hypothesis worth watching: <strong>the people who benefit most from AI tooling are the ones who already had the infrastructure discipline to use it well.</strong> If true, AI amplifies existing capability gaps rather than closing them.</p>
 
     <hr>
 
-    <p><em>This update is different—a deep dive into one practitioner rather than a batch of resources. It felt right because the pattern matches: someone building at the intersection of agents, semantics, and enterprise reality. The comparison to Keith's work isn't accidental. There's a conversation to be had.</em></p>
+    <p><em>This update is a departure—one author instead of a batch. The temporal context test felt important enough to focus on. If you're evaluating agent infrastructure or semantic layer investments, try Johnson's question. If your system can't answer it, you're naming, not knowing.</em></p>
+
+    <p><em>Johnson's work: <a href="https://rundatarun.io/">Run Data Run</a> (Substack), <a href="https://www.justinhjohnson.com/">portfolio</a>, <a href="https://ai.rundatarun.io/">AIXplore</a> (knowledge base).</em></p>
 
     <footer class="footer"><a href="../pages/journal.html">&larr; Back to Journal</a></footer>
   </div>
