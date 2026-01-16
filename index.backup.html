@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>data-centered</title>
+  <meta name="description" content="Building data infrastructure that AI can reason about. dbt-agent development environment and curated knowledge base.">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       THEME: Light Mode (default)
+       ═══════════════════════════════════════════ */
+    :root {
+      --bg-base: #fafafa;
+      --bg-surface: #f0f0f0;
+      --bg-card: #ffffff;
+      --bg-hover: #f5f5f5;
+
+      --border-dim: #e5e5e5;
+      --border-mid: #d0d0d0;
+      --border-accent: #bbb;
+
+      --text-dim: #888;
+      --text-mid: #555;
+      --text-bright: #333;
+      --text-white: #111;
+
+      --accent: #b8860b;
+      --accent-dim: rgba(184, 134, 11, 0.12);
+      --link: #1a7a9c;
+
+      --space-xs: 0.4rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.25rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+
+      --cursor-color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════
+       THEME: Dark Mode
+       ═══════════════════════════════════════════ */
+    [data-theme="dark"] {
+      --bg-base: #0a0a0a;
+      --bg-surface: #111;
+      --bg-card: #151515;
+      --bg-hover: #1a1a1a;
+
+      --border-dim: #1e1e1e;
+      --border-mid: #2a2a2a;
+      --border-accent: #3a3a3a;
+
+      --text-dim: #5a5a5a;
+      --text-mid: #888;
+      --text-bright: #bbb;
+      --text-white: #e8e8e8;
+
+      --accent: #d4a84b;
+      --accent-dim: rgba(212, 168, 75, 0.15);
+      --link: #7db4c9;
+
+      --cursor-color: var(--accent);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 17px; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-bright);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT
+       ═══════════════════════════════════════════ */
+
+    .site {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    /* ═══════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════ */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .brand {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand::after {
+      content: '';
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--cursor-color);
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .nav {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover { color: var(--text-bright); }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 0.35rem 0.5rem;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      transition: border-color 0.15s, color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--border-mid);
+      color: var(--text-bright);
+    }
+
+    .theme-icon { font-size: 0.85rem; }
+
+    /* ═══════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════ */
+
+    .intro {
+      margin-bottom: var(--space-xl);
+      max-width: 750px;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .intro-text a {
+      color: var(--link);
+    }
+
+    .intro-text a:hover {
+      color: var(--text-white);
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO GRID - Two main cards
+       ═══════════════════════════════════════════ */
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 10px;
+      padding: var(--space-lg);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .hero-card:hover {
+      border-color: var(--border-mid);
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-card-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .hero-card-icon.agent {
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .hero-card-icon.library {
+      background: rgba(125, 180, 201, 0.15);
+      color: var(--link);
+    }
+
+    [data-theme="dark"] .hero-card-icon.library {
+      background: rgba(125, 180, 201, 0.12);
+    }
+
+    .hero-card-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .hero-card-desc {
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-card-stats {
+      display: flex;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-sm);
+      padding: var(--space-sm) 0;
+      border-top: 1px solid var(--border-dim);
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-card-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--link);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-card-link:hover {
+      color: var(--text-white);
+    }
+
+    /* Library topics grid inside card */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+
+    .topic-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--bg-surface);
+      border-radius: 5px;
+      font-size: 0.8rem;
+      transition: background 0.15s;
+    }
+
+    .topic-item:hover {
+      background: var(--border-dim);
+    }
+
+    .topic-name {
+      color: var(--text-bright);
+    }
+
+    .topic-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+
+    /* ═══════════════════════════════════════════
+       WRITING SECTION
+       ═══════════════════════════════════════════ */
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 768px) {
+      .writing-grid { grid-template-columns: 1fr; }
+    }
+
+    .post-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 8px;
+      padding: var(--space-md);
+      transition: border-color 0.2s;
+    }
+
+    .post-card:hover {
+      border-color: var(--border-mid);
+    }
+
+    .post-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      margin-bottom: 0.3rem;
+    }
+
+    .post-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .post-excerpt {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.45;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer-link {
+      color: var(--text-dim);
+      transition: color 0.15s;
+    }
+
+    .footer-link:hover {
+      color: var(--text-bright);
+    }
+
+    .footer-author a {
+      color: var(--text-dim);
+    }
+
+    .footer-author a:hover {
+      color: var(--link);
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+
+    <!-- Header -->
+    <header class="header">
+      <a href="/" class="brand">data-centered</a>
+      <nav class="nav">
+        <a href="pages/journal.html" class="nav-link">journal</a>
+        <a href="journal/the-long-version.html" class="nav-link">about</a>
+        <a href="https://github.com/keithbinkly" class="nav-link" target="_blank">github</a>
+        <a href="https://linkedin.com/in/keithbinkly" class="nav-link" target="_blank">linkedin</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-icon" id="theme-icon">◐</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Intro -->
+    <section class="intro">
+      <p class="intro-text">
+        Building data infrastructure that AI can actually reason about.
+        Director of Analytics at Green Dot, running data for their BaaS division—Apple Cash, Uber, Amazon, Intuit.
+        <a href="journal/the-long-version.html">More →</a>
+      </p>
+    </section>
+
+    <!-- Hero Grid: dbt-agent + Knowledge Base -->
+    <div class="hero-grid">
+
+      <!-- dbt-agent Card -->
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-icon agent">⚡</div>
+          <h2 class="hero-card-title">dbt-agent</h2>
+        </div>
+        <p class="hero-card-desc">
+          A 36-skill development environment with structured knowledge for enterprise dbt work.
+          When an agent asks "where should this model go?"—it doesn't guess. It checks the knowledge base first.
+        </p>
+        <div class="hero-card-stats">
+          <div class="stat">
+            <span class="stat-value">55m</span>
+            <span class="stat-label">Pipeline dev time</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">320K+</span>
+            <span class="stat-label">Lines of knowledge</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">87%</span>
+            <span class="stat-label">Model reuse</span>
+          </div>
+        </div>
+        <a href="journal/why-i-built-dbt-agent.html" class="hero-card-link">Read the backstory →</a>
+      </div>
+
+      <!-- Knowledge Base Card -->
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-icon library">◈</div>
+          <h2 class="hero-card-title">Knowledge Base</h2>
+        </div>
+        <p class="hero-card-desc">
+          Curated resources on semantic layers, AI agents, visualization, and data infrastructure.
+          Feeds my AI systems and my thinking about what makes data teams effective.
+        </p>
+        <div class="topic-grid">
+          <a href="pages/knowledge-engineering.html" class="topic-item">
+            <span class="topic-name">Knowledge Engineering</span>
+            <span class="topic-count">32</span>
+          </a>
+          <a href="pages/data-engineering.html" class="topic-item">
+            <span class="topic-name">Data Engineering</span>
+            <span class="topic-count">78</span>
+          </a>
+          <a href="pages/design-craft.html" class="topic-item">
+            <span class="topic-name">Design Craft</span>
+            <span class="topic-count">24</span>
+          </a>
+          <a href="pages/personal-growth.html" class="topic-item">
+            <span class="topic-name">Personal Growth</span>
+            <span class="topic-count">46</span>
+          </a>
+        </div>
+        <span class="hero-card-link" style="color: var(--text-dim);">185 resources across 4 topics</span>
+      </div>
+    </div>
+
+    <!-- Writing -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Writing</h2>
+      </div>
+      <div class="writing-grid">
+        <a href="journal/why-i-built-dbt-agent.html" class="post-card">
+          <div class="post-meta">Jan 2026</div>
+          <h3 class="post-title">Why I Built dbt-agent</h3>
+          <p class="post-excerpt">LLMs don't have persistent memory. Every session is day one. What if I could give an AI agent the institutional memory it's missing?</p>
+        </a>
+        <a href="journal/how-dbt-agent-thinks.html" class="post-card">
+          <div class="post-meta">Jan 2026</div>
+          <h3 class="post-title">How dbt-agent Thinks</h3>
+          <p class="post-excerpt">AI agents fail on enterprise data not because they're stupid, but because they're missing context that humans take for granted.</p>
+        </a>
+        <a href="journal/qa-methodology.html" class="post-card">
+          <div class="post-meta">Jan 2026</div>
+          <h3 class="post-title">The QA Methodology That Changed Everything</h3>
+          <p class="post-excerpt">Aggregate comparisons tell you that something is wrong. Row-level tracing tells you where and why.</p>
+        </a>
+        <a href="journal/dbt-agent-mcp.html" class="post-card">
+          <div class="post-meta">Dec 2024</div>
+          <h3 class="post-title">The Semantic Layer as Agent Memory</h3>
+          <p class="post-excerpt">The semantic layer isn't just about consistent metrics—it's the vocabulary that lets AI agents understand what the business actually means.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-author">
+        <a href="journal/the-long-version.html">Keith Binkly</a> · Los Angeles
+      </div>
+      <div class="footer-links">
+        <a href="pages/journal.html" class="footer-link">journal</a>
+        <a href="mailto:keith@example.com" class="footer-link">email</a>
+        <a href="https://github.com/keithbinkly" class="footer-link" target="_blank">github</a>
+        <a href="https://linkedin.com/in/keithbinkly" class="footer-link" target="_blank">linkedin</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Theme toggle with system preference detection
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function getStoredTheme() {
+      return localStorage.getItem('theme');
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateIcon(theme);
+    }
+
+    function updateIcon(theme) {
+      // ◐ = half (auto/system), ○ = light, ● = dark
+      if (theme === 'dark') {
+        icon.textContent = '●';
+      } else {
+        icon.textContent = '○';
+      }
+    }
+
+    // Initialize icon based on current theme
+    const currentTheme = getStoredTheme() || getSystemTheme();
+    updateIcon(currentTheme);
+
+    // Toggle between light and dark
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+
+    // Listen for system theme changes (when no stored preference)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!getStoredTheme()) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        updateIcon(newTheme);
+      }
+    });
+  </script>
+</body>
+</html>
